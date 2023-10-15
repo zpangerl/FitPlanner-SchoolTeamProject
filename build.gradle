@@ -7,6 +7,22 @@ apply plugin: 'application'
 
 mainClassName = 'main/java/memoranda/Start'
 
+// Setting custom source directories
+sourceSets {
+  main {
+    java {
+      srcDirs = ['src']
+    }
+  }
+}
+
+// Declaring jdk version
+java {
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(18)
+  }
+}
+
 compileJava.options.encoding = 'UTF-8'
 
 // Repositories and dependencies for code go here
