@@ -42,6 +42,14 @@ tasks.withType(Checkstyle) {
 checkstyle {
     toolVersion = "8.8"
 }
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'main.java.memoranda.Start'
+    }
+    baseName = 'reharri7_Schnapsidee'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }    with jar
+}
 
 
 ///////////////////////////////////////////////////////////////////////
