@@ -79,6 +79,7 @@ public class WorkPanel extends JPanel {
 		agendaB.setFocusPainted(false);
 		agendaB.setHorizontalTextPosition(SwingConstants.CENTER);
 		agendaB.setText(Local.getString("Agenda"));
+		agendaB.setBorderPainted(true);
 		agendaB.setVerticalAlignment(SwingConstants.TOP);
 		agendaB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		agendaB.addActionListener(new java.awt.event.ActionListener() {
