@@ -35,6 +35,16 @@ dependencies {
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
 }
 
+// Creating a fatJar task
+task fatJar(type: Jar) {
+  manifest {
+    attributes 'Main-Class': 'main.java.memoranda.Start'
+  }
+  baseName = 'flin30_' + project.name
+  from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+  with jar
+}
+
 ///////////////////////////////////////////////////////////////////////
 // Configure Checkstyle
 /////////////////////////////////////////////////////////////////////
