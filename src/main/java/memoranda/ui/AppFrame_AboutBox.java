@@ -51,6 +51,11 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
               "Milena Vitali-Charewicz (milo22370@yahoo.com)",
               "Toru Watanabe (t-wata@cablenet.ne.jp)"                            
  };
+  String experimentersHead = Local.getString("Experimenters") + ":";
+
+  String[] experimenters = {
+          "Team Schnapsidee (SER316)"
+  };
     
   JLayeredPane layeredPane;
   ImageIcon image;
@@ -65,7 +70,7 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
     catch(Exception e) {
       e.printStackTrace();
     }
-    setSize(400, 500);
+    setSize(400, 600);
   }
   //Component initialization
   private void jbInit() throws Exception  {    
@@ -77,8 +82,11 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
         text += developers[i]+"<br>";    
     text += "<br><b>" + othersHead + "</b><br>";    
     for (int i = 0; i < others.length; i++)
-        text += others[i]+"<br>"; 
-    
+        text += others[i]+"<br>";
+    text += "<br><b>" + experimentersHead + "</b><br>";
+    for (int i = 0; i < experimenters.length; i++)
+        text += experimenters[i]+"<br>";
+
     text += "</html>";
     
     image = new ImageIcon(AppFrame_AboutBox.class.getResource("/ui/memoranda.png"));
@@ -91,7 +99,7 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
 
     
     button1.setText(Local.getString("Ok"));
-    button1.setBounds(150, 415, 95, 30);
+    button1.setBounds(150, 515, 95, 30);
     button1.addActionListener(this);
     button1.setPreferredSize(new Dimension(95, 30));
     button1.setBackground(new Color(69, 125, 186));
