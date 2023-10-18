@@ -29,7 +29,7 @@ public class AppFrame_AboutBox extends JDialog implements ActionListener {
   JLabel lblText = new JLabel();
   
   String product = "Version "+App.VERSION_INFO + " (Build " + App.BUILD_INFO + ")";
-  String copyright = "Copyright (c) 2003, 2004 Memoranda team";
+  String copyright = "Copyright (c) 2003, 2004, 2023 Memoranda team";
   String url = App.WEBSITE_URL;
   String developersHead = Local.getString("Developers") + ":";
   String[] developers = {
