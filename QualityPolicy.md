@@ -3,7 +3,12 @@
 > Check in Project: Module Concepts document on Canvas in the Project module for more details 
 
 **GitHub Workflow** (start Sprint 1)
-  > Your Workflow
+  > Maintain dev branch
+  >  - Only pull request to merge from US branches to dev
+  >  - All pull requests should be fast-forwards only (merge latest dev branch to US story so that it is fast-forward)
+  >  - Two reviewers to merge to dev
+  > Maintain master branch
+  >  - Only git master
 
 **Unit Tests Blackbox** (start Sprint 2)
   > Your Blackbox testing policy 
