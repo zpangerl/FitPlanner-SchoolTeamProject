@@ -3,13 +3,13 @@
 
 ## 1: Basic Information (needed before you start with your Sprint -- Sprint Planning)
 
-**Topic you chose:** topic name
+**Topic you chose:** Gym scheduling
 
-**Sprint Number:** Nr
+**Sprint Number:** 1
 
-**Scrum Master**: Name
+**Scrum Master**: Rhett Harrison
 
-**Git Master**: Name
+**Git Master**: Frank Lin
 
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
@@ -166,8 +166,11 @@ Copy the section for each team member and then everyone adds their individual co
 - [ ] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
 - [ ] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Team member 1
-  - [ ] Team member 2
+  - [ ] Rhett Harrison
+  - [ ] Frank Lin
+  - [ ] Steven Stovall
+  - [ ] Zachary Pangerl
+  - [ ] Sean Mckeighan
 
 #### For the next Sprint
   - [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
