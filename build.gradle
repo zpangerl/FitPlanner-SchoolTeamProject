@@ -60,3 +60,17 @@ checkstyle {
 //     showProgress = true
 //     effort = 'max'
 // }
+
+///////////////////////////////////////////////////////////////////////
+// Configure Fat Jar
+///////////////////////////////////////////////////////////////////////
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'main.java.memoranda.Start'
+    }
+    baseName = 'smckeig1_Schnapsidee-Fall23B'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
