@@ -7,9 +7,9 @@
 
 **Sprint Number:** 1
 
-**Scrum Master**: Rhett Harrison
+**Scrum Master**: Frank Lin
 
-**Git Master**: Frank Lin
+**Git Master**: Rhett Harrison
 
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
