@@ -14,7 +14,7 @@
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
-**Sprint Goal:** Your Sprint goal
+**Sprint Goal:** Understanding the main features of Memoranda and fixing obvious bugs
 
 **How many User Stories did you add to the Product Backlog:**  Number
 
