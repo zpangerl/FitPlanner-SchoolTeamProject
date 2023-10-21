@@ -14,25 +14,24 @@
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
-**Sprint Goal:** Understanding the main features of Memoranda and fixing obvious bugs
+**Sprint Goal:** Change the memerada application interface to align with a gym scheduling system. 
 
-**How many User Stories did you add to the Product Backlog:**  Number
+**How many User Stories did you add to the Product Backlog:**  4
 
 **How many User Stories did you add to this Sprint:** 
-> Answer the questions below about your Sprint Planning?
+> 10
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> Your Answer
+> We want to fix the existing code base to remove obvious bugs and gain an understanding of the code base. We also want to add some basic features to the code base so the program will start resembling a functioning gym management system.
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> Your Answer
+> By making sure the correct language and icons are displayed, we can make sure the user is able to understand the program. In order for the program to be useful, the application needs to run without errors and crashing. To make the changes mentioned above, we need to understand the code base and how it works through reverse engineering.
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
-> Your Answer
-
+> Yes, we will be updating the code base to make sure the correct language and icons are displayed. We will also be fixing the code base to make sure the program runs without errors and crashing. 
 
 
 ## 2: During the Sprint
