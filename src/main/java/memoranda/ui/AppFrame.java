@@ -665,8 +665,8 @@ public class AppFrame extends JFrame {
     }
 
     public void doMinimize() {
-        exitNotify();
-        App.closeWindow();
+        //exitNotify();
+        //App.closeWindow();
     }
 
     //Help | About action performed
@@ -688,8 +688,16 @@ public class AppFrame extends JFrame {
                 doMinimize();
         }
         else if ((e.getID() == WindowEvent.WINDOW_ICONIFIED)) {
+            // Original code.
+            /*
             super.processWindowEvent(new WindowEvent(this,
                     WindowEvent.WINDOW_CLOSING));
+            */
+
+            // Attempt to fix minimize button closing application.
+            super.processWindowEvent(new WindowEvent(this,
+                    WindowEvent.WINDOW_ICONIFIED));
+
             doMinimize();
         }
         else
