@@ -28,6 +28,21 @@ apply plugin: 'checkstyle'
 //   ignoreFailures = true
 //   showViolations = false
 // }
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+    }
+}
 
 tasks.withType(Checkstyle) {
   
