@@ -4,3 +4,8 @@ build/
 
 # Intellij IDEA
 /.idea/
+/bin/
+
+# Eclipse
+*.classpath
+*.project
