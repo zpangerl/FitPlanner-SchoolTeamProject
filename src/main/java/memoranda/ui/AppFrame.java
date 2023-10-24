@@ -103,12 +103,6 @@ public class AppFrame extends JFrame {
         }
     };
 
-    public Action minimizeAction = new AbstractAction("Close the window") {
-        public void actionPerformed(ActionEvent e) {
-            doMinimize();
-        }
-    };
-
     public Action preferencesAction = new AbstractAction("Preferences") {
         public void actionPerformed(ActionEvent e) {
             showPreferences();
@@ -147,8 +141,6 @@ public class AppFrame extends JFrame {
     JMenuItem jMenuFileImportNote = new JMenuItem(importOneNoteAction);
     JMenuItem jMenuFileExportNote = new JMenuItem(
             workPanel.dailyItemsPanel.editorPanel.exportAction);
-    JMenuItem jMenuFileMin = new JMenuItem(minimizeAction);
-
     JMenuItem jMenuItem1 = new JMenuItem();
     JMenuItem jMenuEditUndo = new JMenuItem(editor.undoAction);
     JMenuItem jMenuEditRedo = new JMenuItem(editor.redoAction);
@@ -337,10 +329,6 @@ public class AppFrame extends JFrame {
         jMenuFileImportNote.setText(Local.getString("Import one note")
                 + "...");
         jMenuFilePackPrj.setText(Local.getString("Pack project") + "...");
-        jMenuFileMin.setText(Local.getString("Close the window"));
-        jMenuFileMin.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F10,
-                InputEvent.ALT_MASK));
-
         jMenuEdit.setText(Local.getString("Edit"));
 
         jMenuEditUndo.setText(Local.getString("Undo"));
@@ -458,7 +446,6 @@ public class AppFrame extends JFrame {
         jMenuFile.addSeparator();
         jMenuFile.add(jMenuEditPref);
         jMenuFile.addSeparator();
-        jMenuFile.add(jMenuFileMin);
         jMenuFile.addSeparator();
         jMenuFile.add(jMenuFileExit);
         
@@ -664,11 +651,6 @@ public class AppFrame extends JFrame {
         System.exit(0);
     }
 
-    public void doMinimize() {
-        exitNotify();
-        App.closeWindow();
-    }
-
     //Help | About action performed
     public void jMenuHelpAbout_actionPerformed(ActionEvent e) {
          AppFrame_AboutBox dlg = new AppFrame_AboutBox(this);        
@@ -682,15 +664,11 @@ public class AppFrame extends JFrame {
 
     protected void processWindowEvent(WindowEvent e) {
         if (e.getID() == WindowEvent.WINDOW_CLOSING) {
-            if (Configuration.get("ON_CLOSE").equals("exit"))
-                doExit();
-            else
-                doMinimize();
+            doExit();
         }
         else if ((e.getID() == WindowEvent.WINDOW_ICONIFIED)) {
             super.processWindowEvent(new WindowEvent(this,
-                    WindowEvent.WINDOW_CLOSING));
-            doMinimize();
+                    WindowEvent.WINDOW_ICONIFIED));
         }
         else
             super.processWindowEvent(e);
