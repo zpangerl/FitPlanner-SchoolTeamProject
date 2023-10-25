@@ -4,6 +4,7 @@ plugins {
 }
 apply plugin: 'application'
 
+version = '0.1.0'
 
 mainClassName = 'main/java/memoranda/Start'
 
