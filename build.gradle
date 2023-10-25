@@ -2,9 +2,12 @@ plugins {
     // id "com.github.spotbugs" version "4.5.1"
     id "checkstyle"
 }
+
+ant.importBuild 'build.xml'
+
 apply plugin: 'application'
 
-version = '0.1.0'
+// version = '0.1.0'
 
 mainClassName = 'main/java/memoranda/Start'
 
@@ -43,6 +46,19 @@ sourceSets {
             srcDirs = ['src/test/java']
         }
     }
+}
+
+///////////////////////////////////////////////////////////////////////
+// Tasks
+///////////////////////////////////////////////////////////////////////
+/**
+ * Run the application with the appropriate version and build number.
+ */
+task runJava(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'main.java.memoranda.Start'
+  environment "VERSION", ant.properties.version
+  environment "BUILD", ant.properties.build
 }
 
 tasks.withType(Checkstyle) {

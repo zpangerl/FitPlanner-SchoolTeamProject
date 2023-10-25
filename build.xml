@@ -1,0 +1,9 @@
+<project>
+    <basename property="ant.project.name" file="GymManagementSystem"/>
+    
+    <property name="version" value="0.1"/>
+    <tstamp>
+        <format property="timestamp" pattern="yyyyMMddHHmmss"/>
+    </tstamp>
+    <property name="build" value="${timestamp}"/>
+</project>
