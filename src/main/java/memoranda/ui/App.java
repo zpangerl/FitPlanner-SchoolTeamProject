@@ -37,10 +37,10 @@ public class App {
 	 * 'version' property and datestamp.
 	 */
 
-	public static final String VERSION_INFO = "@VERSION@";
-	public static final String BUILD_INFO = "@BUILD@";
-
-	/* ======================================================================== */
+	public static final String VERSION_INFO = System.getenv("VERSION");
+	public static final String BUILD_INFO = System.getenv("BUILD");
+	
+	/*========================================================================*/
 
 	public static AppFrame getFrame() {
 		return frame;
