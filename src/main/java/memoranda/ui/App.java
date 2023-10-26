@@ -171,4 +171,5 @@ public class App {
 
 		splash.dispose(); // Close the splash screen
 	}
+
 }
