@@ -254,7 +254,7 @@ public class AppFrame extends JFrame {
         contentPane = (JPanel) this.getContentPane();
         contentPane.setLayout(borderLayout1);
         //this.setSize(new Dimension(800, 500));
-        this.setTitle("FitPlanner");
+        this.setTitle("Memoranda - " + CurrentProject.get().getTitle());
         //Added a space to App.VERSION_INFO to make it look some nicer
         statusBar.setText(" Version:" + App.VERSION_INFO + " (Build "
                 + App.BUILD_INFO + " )");
@@ -643,10 +643,10 @@ public class AppFrame extends JFrame {
                         if(dlg.CANCELLED) return;
         }
 
-        Context.put("FRAME_WIDTH", this.getWidth());
-        Context.put("FRAME_HEIGHT", this.getHeight());
-        Context.put("FRAME_XPOS", this.getLocation().x);
-        Context.put("FRAME_YPOS", this.getLocation().y);
+        Context.put("FRAME_WIDTH", Integer.valueOf(this.getWidth()));
+        Context.put("FRAME_HEIGHT", Integer.valueOf(this.getHeight()));
+        Context.put("FRAME_XPOS", Integer.valueOf(this.getLocation().x));
+        Context.put("FRAME_YPOS", Integer.valueOf(this.getLocation().y));
         exitNotify();
         System.exit(0);
     }
