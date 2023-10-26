@@ -254,7 +254,7 @@ public class JNCalendarPanel extends JPanel {
     ignoreChange = true;
     jnCalendar.set(_date);
     monthsCB.setSelectedIndex(_date.getMonth());
-    yearSpin.setValue(_date.getYear());
+    yearSpin.setValue(Integer.valueOf(_date.getYear()));
     ignoreChange = false;
   }
 

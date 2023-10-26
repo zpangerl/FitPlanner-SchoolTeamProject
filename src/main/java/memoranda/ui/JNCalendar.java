@@ -203,7 +203,7 @@ public class JNCalendarModel extends AbstractTableModel {
 			//int pos = (row * 7 + col) - firstDay + 1;
 			int pos = (row * 7 + (col + 1)) - firstDay;
 			if ((pos > 0) && (pos <= daysInMonth))
-				return pos;
+				return Integer.valueOf(pos);
 			else
 				return null;
 

@@ -398,7 +398,7 @@ public class StickerDialog extends JDialog {
 			if (c != null)
 				stickerText.setBackground(c);
 		}
-		Context.put("STICKER_COLOR", stickerText.getBackground().getRGB());
+		Context.put("STICKER_COLOR", Integer.valueOf(stickerText.getBackground().getRGB()));
 	}
 	void textColor_actionPerformed(ActionEvent e) {
 		int i=textColor.getSelectedIndex();
@@ -423,7 +423,7 @@ public class StickerDialog extends JDialog {
 			if (c != null)
 				stickerText.setForeground(c);
 		}
-		Context.put("TEXT_COLOR", stickerText.getForeground().getRGB());		
+		Context.put("TEXT_COLOR", Integer.valueOf(stickerText.getForeground().getRGB()));		
 	}
 	protected void fontSize_actionPerformed(ActionEvent e) {
 		int i=fontSize.getSelectedIndex();
@@ -432,7 +432,7 @@ public class StickerDialog extends JDialog {
 			stickerText.setFont(new Font(f.getFontName(), f.PLAIN, (i*5)+10));
 		}
 		fontSize.setSelectedIndex(i);
-		Context.put("TEXT_SIZE", stickerText.getFont().getSize());		
+		Context.put("TEXT_SIZE", Integer.valueOf(stickerText.getFont().getSize()));		
 		}
 	class ComboBoxRenderer extends JLabel implements ListCellRenderer {
 		public ComboBoxRenderer() {
