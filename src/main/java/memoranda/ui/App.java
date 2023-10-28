@@ -18,22 +18,24 @@ import main.java.memoranda.util.Configuration;
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
  */
 
-/*$Id: App.java,v 1.28 2007/03/20 06:21:46 alexeya Exp $*/
+/* $Id: App.java,v 1.28 2007/03/20 06:21:46 alexeya Exp $ */
 public class App {
 	// boolean packFrame = false;
 
 	static AppFrame frame = null;
-	
+
 	public static final String GUIDE_URL = "http://memoranda.sourceforge.net/guide.html";
 	public static final String BUGS_TRACKER_URL = "http://sourceforge.net/tracker/?group_id=90997&atid=595566";
 	public static final String WEBSITE_URL = "http://memoranda.sourceforge.net";
 
 	private JFrame splash = null;
 
-	/*========================================================================*/ 
-	/* Note: Please DO NOT edit the version/build info manually!
-       The actual values are substituted by the Ant build script using 
-       'version' property and datestamp.*/
+	/* ======================================================================== */
+	/*
+	 * Note: Please DO NOT edit the version/build info manually!
+	 * The actual values are substituted by the Ant build script using
+	 * 'version' property and datestamp.
+	 */
 
 	public static final String VERSION_INFO = System.getenv("VERSION");
 	public static final String BUILD_INFO = System.getenv("BUILD");
@@ -66,17 +68,17 @@ public class App {
 		try {
 			if (Configuration.get("LOOK_AND_FEEL").equals("system"))
 				UIManager.setLookAndFeel(
-					UIManager.getSystemLookAndFeelClassName());
+						UIManager.getSystemLookAndFeelClassName());
 			else if (Configuration.get("LOOK_AND_FEEL").equals("default"))
 				UIManager.setLookAndFeel(
-					UIManager.getCrossPlatformLookAndFeelClassName());					
-			else if (
-				Configuration.get("LOOK_AND_FEEL").toString().length() > 0)
+						UIManager.getCrossPlatformLookAndFeelClassName());
+			else if (Configuration.get("LOOK_AND_FEEL").toString().length() > 0)
 				UIManager.setLookAndFeel(
-					Configuration.get("LOOK_AND_FEEL").toString());
+						Configuration.get("LOOK_AND_FEEL").toString());
 
-		} catch (Exception e) {		    
-			new ExceptionDialog(e, "Error when initializing a pluggable look-and-feel. Default LF will be used.", "Make sure that specified look-and-feel library classes are on the CLASSPATH.");
+		} catch (Exception e) {
+			new ExceptionDialog(e, "Error when initializing a pluggable look-and-feel. Default LF will be used.",
+					"Make sure that specified look-and-feel library classes are on the CLASSPATH.");
 		}
 		if (Configuration.get("FIRST_DAY_OF_WEEK").equals("")) {
 			String fdow;
@@ -117,8 +119,7 @@ public class App {
 		 */
 		/* Used to maximize the screen if the JVM Version if 1.4 or higher */
 		/* --------------------------------------------------------------- */
-		double JVMVer =
-			Double
+		double JVMVer = Double
 				.valueOf(System.getProperty("java.version").substring(0, 3))
 				.doubleValue();
 
@@ -149,8 +150,7 @@ public class App {
 	 */
 	private void showSplash() {
 		splash = new JFrame();
-		ImageIcon spl =
-			new ImageIcon(App.class.getResource("/ui/splash.png"));
+		ImageIcon spl = new ImageIcon(App.class.getResource("/ui/splash.png"));
 		JLabel l = new JLabel();
 		l.setSize(400, 300);
 		l.setIcon(spl);
@@ -158,9 +158,18 @@ public class App {
 		splash.setSize(400, 300);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		splash.setLocation(
-			(screenSize.width - 400) / 2,
-			(screenSize.height - 300) / 2);
+				(screenSize.width - 400) / 2,
+				(screenSize.height - 300) / 2);
 		splash.setUndecorated(true);
 		splash.setVisible(true);
+
+		try {
+			Thread.sleep(2000); // Hold the splash screen for 2 seconds
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		splash.dispose(); // Close the splash screen
 	}
+
 }
