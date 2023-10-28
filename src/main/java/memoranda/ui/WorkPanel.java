@@ -1,23 +1,13 @@
 package main.java.memoranda.ui;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JToolBar;
-import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
-
 import main.java.memoranda.util.Context;
 import main.java.memoranda.util.Local;
+
+import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 
 /**
  * 
@@ -173,31 +163,6 @@ public class WorkPanel extends JPanel {
 		notesB.setMargin(new Insets(0, 0, 0, 0));
 		notesB.setSelected(true);
 		this.setPreferredSize(new Dimension(1073, 300));
-
-		filesB.setSelected(true);
-		filesB.setMargin(new Insets(0, 0, 0, 0));
-		filesB.setIcon(
-			new ImageIcon(
-				main.java.memoranda.ui.AppFrame.class.getResource(
-					"/ui/icons/files.png")));
-		filesB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		filesB.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				filesB_actionPerformed(e);
-			}
-		});
-		filesB.setFont(new java.awt.Font("Dialog", 1, 10));
-		filesB.setVerticalAlignment(SwingConstants.TOP);
-		filesB.setText(Local.getString("Resources"));
-		filesB.setHorizontalTextPosition(SwingConstants.CENTER);
-		filesB.setFocusPainted(false);
-		filesB.setBorderPainted(false);
-		filesB.setContentAreaFilled(false);
-		filesB.setPreferredSize(new Dimension(50, 50));
-		filesB.setMinimumSize(new Dimension(30, 30));
-		filesB.setOpaque(false);
-		filesB.setMaximumSize(new Dimension(60, 80));
-		filesB.setBackground(Color.white);
 		// comment
 		trainersB.setSelected(true);
 		trainersB.setMargin(new Insets(0, 0, 0, 0));
@@ -232,7 +197,6 @@ public class WorkPanel extends JPanel {
 		toolBar.add(eventsB, null);
 		toolBar.add(tasksB, null);
 		toolBar.add(notesB, null);
-		toolBar.add(filesB, null);
 		toolBar.add(trainersB, null);
 		currentB = agendaB;
 		// Default blue color
@@ -254,8 +218,6 @@ public class WorkPanel extends JPanel {
 				tasksB_actionPerformed(null);
 			else if (pan.equals("EVENTS"))
 				eventsB_actionPerformed(null);
-			else if (pan.equals("FILES"))
-				filesB_actionPerformed(null);
 			else if (pan.equals("TRAINERS"))
 				trainersB_actionPerformed(null);
 		}
@@ -289,11 +251,6 @@ public class WorkPanel extends JPanel {
 		Context.put("CURRENT_PANEL", "EVENTS");
 	}
 
-	public void filesB_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "FILES");
-		setCurrentButton(filesB);
-		Context.put("CURRENT_PANEL", "FILES");
-	}
 	public void trainersB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "TRAINERS");
 		setCurrentButton(trainersB);

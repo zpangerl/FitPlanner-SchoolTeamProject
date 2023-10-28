@@ -1,10 +1,17 @@
 package main.java.memoranda.ui;
 
-import java.awt.AWTEvent;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.Point;
+import main.java.memoranda.*;
+import main.java.memoranda.date.CurrentDate;
+import main.java.memoranda.ui.htmleditor.HTMLEditor;
+import main.java.memoranda.util.*;
+import nu.xom.Builder;
+import nu.xom.Document;
+import nu.xom.Element;
+import nu.xom.Elements;
+
+import javax.swing.*;
+import javax.swing.text.html.HTMLDocument;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
