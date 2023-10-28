@@ -1,0 +1,11 @@
+.gradle/
+build/
+.vscode/
+
+# Intellij IDEA
+/.idea/
+/bin/
+
+# Eclipse
+*.classpath
+*.project
