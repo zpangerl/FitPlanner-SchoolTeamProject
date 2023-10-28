@@ -1,10 +1,17 @@
 package main.java.memoranda.ui;
 
-import java.awt.AWTEvent;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.Point;
+import main.java.memoranda.*;
+import main.java.memoranda.date.CurrentDate;
+import main.java.memoranda.ui.htmleditor.HTMLEditor;
+import main.java.memoranda.util.*;
+import nu.xom.Builder;
+import nu.xom.Document;
+import nu.xom.Element;
+import nu.xom.Elements;
+
+import javax.swing.*;
+import javax.swing.text.html.HTMLDocument;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -31,14 +38,7 @@ import javax.swing.JToolBar;
 import javax.swing.UIManager;
 import javax.swing.text.html.HTMLDocument;
 
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.History;
-import main.java.memoranda.Note;
-import main.java.memoranda.NoteList;
-import main.java.memoranda.Project;
-import main.java.memoranda.ProjectListener;
-import main.java.memoranda.ResourcesList;
-import main.java.memoranda.TaskList;
+import main.java.memoranda.*;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.ui.htmleditor.HTMLEditor;
 import main.java.memoranda.util.Configuration;
@@ -603,7 +603,7 @@ public class AppFrame extends JFrame {
         CurrentProject.addProjectListener(new ProjectListener() {
 
             public void projectChange(Project prj, NoteList nl, TaskList tl,
-                    ResourcesList rl) {
+                                      ResourcesList rl, TrainersList tr) {
             }
 
             public void projectWasChanged() {
@@ -1024,12 +1024,13 @@ public class AppFrame extends JFrame {
 
         File lastSel = null;
 
-        try {
-            lastSel = (java.io.File) Context.get("LAST_SELECTED_NOTE_FILE");
-        } catch (ClassCastException cce) {
-            lastSel = new File(System.getProperty("user.dir") + File.separator);
-        }
-        // ---------------------------------------------------------------------
+            try {
+                lastSel = (java.io.File) Context.get("LAST_SELECTED_NOTE_FILE");
+            }
+            catch (ClassCastException cce) {
+                lastSel = new File(System.getProperty("user.dir") + File.separator);
+            }
+            //---------------------------------------------------------------------
 
         if (lastSel != null)
             chooser.setCurrentDirectory(lastSel);
