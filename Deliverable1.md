@@ -156,8 +156,7 @@ Copy the section for each team member and then everyone adds their individual co
 #### Rhett Harrison
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
-
-
+  > Yes, I worked hard on my own stories and helped others with theirs. I also kept other's work going by providing code reviews and merging pull requests.
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -166,13 +165,17 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+      [Commit 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/335a6f30af22c9a5f236e0f8f0111c269098e527) - Add new panel "Trainers"
+
+      [Commit 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/9d1e21cbd99971ae6c5ed2233650cfbd822b7840) - Add translations from spanish to english for UX and Developer Experience
+
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+          [PR 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/18) - Add new panel "Trainers"
+
+          [PR 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/6) - Add Translations from spanish to english for UX and Developer Experience
+
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
@@ -312,7 +315,7 @@ Copy the section for each team member and then everyone adds their individual co
 - [ ] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
 - [ ] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Rhett Harrison
+  - [x] Rhett Harrison
   - [ ] Frank Lin
   - [ ] Steven Stovall
   - [ ] Zachary Pangerl
