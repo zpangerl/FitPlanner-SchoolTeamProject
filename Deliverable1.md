@@ -41,11 +41,11 @@ I would also advise you to already fill out the Contributions section (End of sp
 ### Meeting minutes of your Daily Scrums (3 per week, should not take longer than 10 minutes):
 > Add as many rows as needed and fill out the table. (Burndown starts with Sprint 2, and Continuous Integration starts with Sprint 3, not needed before that). 
 
-| Date  | Who did NOT attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | GitHub Actions info (does the master pass) | Additional Info  |
-|---|---|---|---|--|--|
-|   |   |   |   |  |  |
-|   |   |   |   |  |  |
-|   |   |   |   |  |  |
+| Date    | Who did NOT attend             | Meeting notes (very brief)                                                                                                                             | Burndown Info (on track, ahead behind is enough) | GitHub Actions info (does the master pass) | Additional Info |
+| ------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------ | --------------- |
+| Oct. 23 | Sean Mckeighan (Late by 1 day) | US11, 18 are completed. Some tasks from US11, 19 are complete.                                                                                         | On track                                         | No merge conflicts on PRs                  | None            |
+| Oct. 25 | None                           | Trainer panel is under active dev. Some tasks from US1 are complete. US5, 6, 10, 19 is complete. First draft for Agenda Panel UML diagram is complete. | On track                                         | No merge conflicts on PRs                  | None            |
+| Oct. 27 | Sean Mckeighan (Late by 1 day) | Most members are working on code reviews. PRs are being merged and any conflicts are being resolved. UML document is complete.                         | On track                                         | All merge conflects resolved               | None            |
 
 
 ## 3: After the Sprint
