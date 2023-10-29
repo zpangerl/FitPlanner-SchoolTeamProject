@@ -121,22 +121,21 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
-  > Anwser here....
+  > Yes, I was engaged in Slack discussion, standups, contributed to Tasks and US, participated in [github reviews: US15, US5, US19, US10](https://github.com/amehlhase316/Schnapsidee-Fall23B/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Aasusteven+)
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
-  Example: 
-  [Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
-
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+> * [US1 Task4 Update image path to resolve bug preventing preferences from opening](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/44633a6117997b9992f65b77de7286b69b69df9b)
+> * [US1 Task3 Remove Look and Feel section in the preferences dialog](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4dca99170d6e175f038e5a98513c6d79fad2a9bf)
+> * [US15 Task73 Create reverse engineering doc with UML class diagrams for Events:Panel,Dialog,Manager, and FileStorage](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4e46cd8fcf6c7c91acf6911c695ddd883b2b9f92)
+> * [Update branch names and commit message guidelines to add more detail around GitHub Workflow](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/b36cbf31fb19956b57eda24a5e1de36049fa1fb3)
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+> * [US1 preferences look and feel](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/20)
+> * [Update CodeQuality with additional details for Github workflow](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/17)
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
