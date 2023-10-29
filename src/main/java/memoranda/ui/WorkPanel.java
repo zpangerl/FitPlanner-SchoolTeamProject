@@ -163,7 +163,6 @@ public class WorkPanel extends JPanel {
 		notesB.setMargin(new Insets(0, 0, 0, 0));
 		notesB.setSelected(true);
 		this.setPreferredSize(new Dimension(1073, 300));
-
 		// comment
 		trainersB.setSelected(true);
 		trainersB.setMargin(new Insets(0, 0, 0, 0));
@@ -173,12 +172,10 @@ public class WorkPanel extends JPanel {
 								"/ui/icons/files.png")));
 		trainersB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		trainersB.addActionListener(new java.awt.event.ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
 				trainersB_actionPerformed(e);
 			}
 		});
-
 		trainersB.setFont(new java.awt.Font("Dialog", 1, 10));
 		trainersB.setVerticalAlignment(SwingConstants.TOP);
 		trainersB.setText(Local.getString("Trainers"));
@@ -191,7 +188,6 @@ public class WorkPanel extends JPanel {
 		trainersB.setOpaque(false);
 		trainersB.setMaximumSize(new Dimension(60, 80));
 		trainersB.setBackground(Color.white);
-
 		this.add(toolBar, BorderLayout.WEST);
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
