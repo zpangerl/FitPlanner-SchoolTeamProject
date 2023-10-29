@@ -59,15 +59,15 @@ Answer as a team!
 
 **What do you think is the value you created this Sprint?**
 
-> Your Answer
+> We delivered value by updating the Memoranda interface to align with a gym scheduling tool. Multiple warnings were removed, and the dev team has a better understanding to more efficiently add additional features in the future sprints for the customer.
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> Your Answer
+> Yes, we worked through challenges of onboarding with a new codebase and were able to complete all User Stories for this Sprint.
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> Your Answer
+> Yes, the customers' expectations should be met because it is obvious the software UI has changed from Memoranda to "Fit Planner" with updated splash screen, icons, and the beginning implementation of specific customer requirements such adding and displaying Trainers.
 
 
 ### Sprint Retrospective
@@ -76,11 +76,11 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Your Answer
+> Yes, we met our sprint goal by modifying the memoranda code base to architect a gym scheduling application.
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Your Answer
+> Yes, we completed all stories that were part of the Sprint 1 backlog--User Stories 11, 18, 5, 6, 19, 9, 10, 1, 2, and 15.
 
 **If not, what went wrong?**
 
@@ -93,23 +93,23 @@ Include a screenshot of your Burndown chart here and analyse in detail for me wh
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> Your Answer
+> We started with a lot of velocity, slowed down during the middle of the week while we streamlined the testing and Github review process, then increased velocity to ensure everything was completed by end of the Sprint.
 
 **Did you deliver business value?**
 
-> Your Answer
+> Value was delivered through updates that changed the Memoranda app drastically to reflect the customers' expectations so that by end of the week, the UI reflects a gym scheduler with English language, icons for a gym scheduler, and a skeleton interface for Trainers to be added in the future.
 
 **Did you follow the Scrum process (e.g. move Tasks correctly?, keep the Taiga board up to date? work consistently?)**
 
-> Your Answer
+> Yes, overall we moved the tasks through the stages from New, In-progress, ready-for-test, and to closed. At first, we had too many tasks pile up in "ready for test" and had to improve communication to clear the board from "ready for test" to "closed".
 
 **Are there things the team thinks it can do better in the next Sprint? (not needed for last Sprint)**
 
-> Your Answer
+> We could improve the process to make sure the entire team understands the expectations of level of detail needed in Taiga tasks when getting from "ready for test" to "closed" along with getting the respective Github pull request opened, reviewed, merged, and closed. 
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
-> Your Answer
+> The team has an optimal outlook on Sprint 2 and is ready for additional tasking.
 
 ### Contributions:
 
@@ -305,16 +305,16 @@ Copy the section for each team member and then everyone adds their individual co
 
 ## Below is just for you as a little reminder on what needs to be done
 ### Checklist for you to see if you are done with the current Sprint
-- [ ] Form above is complete
+- [x] Form above is complete
 - [ ] Your newest software is on the master branch on GitHub, it is tested and compiles/runs
 - [ ] This document is in your master branch on GitHub
 - [ ] Read the kickoff again to make sure you have all the details that I want
 - [ ] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
-- [ ] Your Quality Policies are accurate and up to date
+- [x] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
   - [ ] Rhett Harrison
   - [ ] Frank Lin
-  - [ ] Steven Stovall
+  - [x] Steven Stovall
   - [ ] Zachary Pangerl
   - [ ] Sean Mckeighan
 
