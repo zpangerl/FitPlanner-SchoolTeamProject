@@ -25,12 +25,7 @@ import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.NoteList;
-import main.java.memoranda.Project;
-import main.java.memoranda.ProjectListener;
-import main.java.memoranda.ResourcesList;
-import main.java.memoranda.TaskList;
+import main.java.memoranda.*;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.util.Local;
@@ -213,7 +208,7 @@ public class JNCalendarPanel extends JPanel {
       }
     });
     CurrentProject.addProjectListener(new ProjectListener() {
-            public void projectChange(Project p, NoteList nl, TaskList tl, ResourcesList rl) {}
+            public void projectChange(Project p, NoteList nl, TaskList tl, ResourcesList rl, TrainersList trainersList) {}
             public void projectWasChanged() {
                 jnCalendar.updateUI();
             }
@@ -253,8 +248,8 @@ public class JNCalendarPanel extends JPanel {
   private void refreshView() {
     ignoreChange = true;
     jnCalendar.set(_date);
-    monthsCB.setSelectedIndex(new Integer(_date.getMonth()));
-    yearSpin.setValue(new Integer(_date.getYear()));
+    monthsCB.setSelectedIndex(_date.getMonth());
+    yearSpin.setValue(Integer.valueOf(_date.getYear()));
     ignoreChange = false;
   }
 

@@ -3,12 +3,36 @@
 > Check in Project: Module Concepts document on Canvas in the Project module for more details 
 
 **GitHub Workflow** (start Sprint 1)
+  > Commit messages
+  >  - ALL commits must include US# and Task# (replace # with appropriate number)
+  >  - It is okay to include "WIP" to save/commit work when not fully completed
+  >  - Use imperative mood, capitalize the subject, and do not end subject line with a period
+
+  > Branch names
+  >  - `US#-a_short_description` (replace # with appropriate number) (`_` instead of spaces to remove need to escape space characters)
+  >  - `Task#-a_short_description` (replace # with appropriate number) (`_` instead of spaces to remove need to escape space characters)
+  >  - NOTE: hyphen after the number for US and Task branch names
+
   > Maintain dev branch
+  >  - No commits directly to dev without pull request
   >  - Only pull request to merge from US branches to dev
   >  - All pull requests should be fast-forwards only (merge latest dev branch to US story so that it is fast-forward)
   >  - Two reviewers to merge to dev
+  >  - Only git master completes merge pull request via Github "Squash and merge" to ensure fast-forward
+
   > Maintain master branch
-  >  - Only git master
+  >  - pull request from dev to master
+  >  - Two reviewers to merge from dev to master
+  >  - Only git master completes merge pull request via Github "Squash and merge" to ensure fast-forward
+
+  > `deliverableN-documentation` branch
+  >  - During Sprint, update Deliverable#.md (where # is the Sprint number) via the `deliverable#` branch
+  >  - Updates will be merged to dev branch via pull request as described in above section "Maintain dev branch"
+  >  - Also includes items such as `QualityPolicy.md` and `ProjectKickoffChecklist.md`
+
+  > NOTE: Github "Squash and merge" option to ensure fast-forward
+  >  - https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#squash-and-merge-your-commits
+
 
 **Unit Tests Blackbox** (start Sprint 2)
   > Your Blackbox testing policy 
