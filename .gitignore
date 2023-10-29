@@ -8,8 +8,4 @@ build/
 
 # Eclipse
 *.classpath
-<<<<<<< HEAD
 *.project
-=======
-*.project
->>>>>>> dev
