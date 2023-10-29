@@ -19,16 +19,7 @@ import java.net.URL;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 
-import main.java.memoranda.EventsManager;
-import main.java.memoranda.Note;
-import main.java.memoranda.NoteList;
-import main.java.memoranda.NoteListImpl;
-import main.java.memoranda.Project;
-import main.java.memoranda.ProjectManager;
-import main.java.memoranda.ResourcesList;
-import main.java.memoranda.ResourcesListImpl;
-import main.java.memoranda.TaskList;
-import main.java.memoranda.TaskListImpl;
+import main.java.memoranda.*;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.ui.ExceptionDialog;
 import main.java.memoranda.ui.htmleditor.AltHTMLWriter;
@@ -420,7 +411,7 @@ public class FileStorage implements Storage {
         }
         else {
             /*DEBUG*/
-            System.out.println("[DEBUG] New note list created");
+            System.out.println("[DEBUG] New resources list created");
             return new ResourcesListImpl(prj);
         }
     }
@@ -470,6 +461,35 @@ public class FileStorage implements Storage {
                 "Failed to store context to " + JN_DOCPATH + ".context",
                 "");
         }
+    }
+
+    @Override
+    public TrainersList openTrainersList(Project project) {
+        String fn = JN_DOCPATH + project.getID() + File.separator + ".trainers";
+        if (documentExists(fn)) {
+            /*DEBUG*/
+            System.out.println("[DEBUG] Open trainers list: " + fn);
+            return new TrainersListImpl(openDocument(fn), project);
+        }
+        else {
+            /*DEBUG*/
+            System.out.println("[DEBUG] New note list created");
+            return new TrainersListImpl(project);
+        }
+    }
+
+    @Override
+    public void storeTrainersList(TrainersList tl, Project project) {
+        /*DEBUG*/
+        System.out.println(
+                "[DEBUG] Save trainers list: "
+                        + JN_DOCPATH
+                        + project.getID()
+                        + File.separator
+                        + ".trainers");
+        saveDocument(
+                tl.getXMLContent(),
+                JN_DOCPATH + project.getID() + File.separator + ".trainers");
     }
 
 }
