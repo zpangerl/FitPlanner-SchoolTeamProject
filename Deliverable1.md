@@ -234,7 +234,7 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
-
+> Yes, I think I worked consistently and provided enough work for the project. I would have liked to do more, but everything was either in progress or done by the time I had time to do more.
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -243,13 +243,15 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+  > - [Commit 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/10db97b2375fda7ff98e9e2e8ec34fdfa3e07b05) - Updated main folder to remove all deprecated Integer warnings
+  > - [Commit 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/6f18d6cf86228daa3cbf3a83337d7369c76551a2) - Updated ui folder to remove all deprecated Integer warnings
+  > - [Commit 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/f88249ade302d085dadfd5eb7fd4b89d6059abb8) - Updated htmleditor folder to remove all deprecated Integer warnings
+  > - [Commit 4](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/c9ee8e14d74374facc01c6e1746c88f40346c6f4) - Updated remaining folders to remove all deprecated Integer warnings
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+  > - [Pull Request 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/14) - Updates dev branch with all changes from US19
+  > - [Pull Request 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/9) - Updates US branch with updates to the ui folder removing deprecated Integer code
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
