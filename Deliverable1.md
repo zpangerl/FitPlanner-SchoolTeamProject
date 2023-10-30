@@ -280,13 +280,13 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-  [US5 Panel Icons Commit](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e994c678f9db637f23184edd1b59189949ad2312)
-  [US11 Minimize & Exit Commit](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4f08298069321a7217c635396b2cac0551381c1f)
+  > - [US5 Panel Icons Commit](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e994c678f9db637f23184edd1b59189949ad2312)
+  > - [US11 Minimize & Exit Commit](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4f08298069321a7217c635396b2cac0551381c1f)
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-  [US5 Panel Icon PR](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/23)
-  [US11 Minimize & Exit PR](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/5)
+  > - [US5 Panel Icon PR](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/23)
+  > - [US11 Minimize & Exit PR](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/5)
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
