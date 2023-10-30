@@ -271,7 +271,7 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
-
+> I pulled my fair share of the user stories for this sprint. I started strong but slowed down toward the end of the sprint.
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -280,13 +280,13 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+  [US5 Panel Icons Commit](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e994c678f9db637f23184edd1b59189949ad2312)
+  [US11 Minimize & Exit Commit](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4f08298069321a7217c635396b2cac0551381c1f)
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+  [US5 Panel Icon PR](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/23)
+  [US11 Minimize & Exit PR](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/5)
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
@@ -319,7 +319,7 @@ Copy the section for each team member and then everyone adds their individual co
   - [ ] Frank Lin
   - [x] Steven Stovall
   - [ ] Zachary Pangerl
-  - [ ] Sean Mckeighan
+  - [x] Sean Mckeighan
 
 #### For the next Sprint
   - [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
