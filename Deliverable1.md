@@ -197,7 +197,7 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
-
+> I think I worked consistently and put in enough work into the project. I was able to complete my user stories and provide code reviews for other team members.
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -206,13 +206,13 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+  > - [Updates the splash screen and program title.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/d2b30dc78564c4aaed98c707e171926eafdf861c)
+  > - [Allows developers to update version and build number through `build.xml` and display the information in program.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/9252343dae5eb30b3ea861ff2753c32c56c65177)
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+  > - [Updates the splash screen and program title.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/13)
+  > - [Allows developers to update version and build number through `build.xml` and display the information in program.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/11)
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
