@@ -35,17 +35,36 @@
 
 
 **Unit Tests Blackbox** (start Sprint 2)
-  > Your Blackbox testing policy 
+  > gradle should be configured as team to use junit:4.12 (gradle) with unit tests in `src/test/java/`
+  > Blackbox testing policy
+```
+Add unit test to ensure some or all of the User Story or task(s) work as expected.
 
+Higher level abstraction that may touch multiple methods and parts of the code.
+```
  **Unit Tests Whitebox** (online: start Sprint 2, campus: start Sprint 3)
   > Your Whitebox testing policy 
-
+```
+Add unit test to ensure new methods added work as described and return expected value
+```
 **Code Review** (online: due start Sprint 2, campus: start Sprint 2)
-  > Your Code Review policy for on campus it is ok to have a less formal process in Sprint 2, should be updated in Sprint 3 though
+  > Developer Checklist. Must be included as part of pull request. Copy/paste and complete checklist below
 
-  > Include a checklist/questions list which every developer will need to fill out/answe when creating a Pull Request to the Dev branch. 
+```
+ - [ ] Code compiles and runs (`gradle run`)
+ - [ ] After latest dev merged to branch, ensure existing and new unit tests still passing
+ - [ ] Code includes javadoc with short description of methods, parameters, return value
+ - [ ] Unused imports have been removed
+ - [ ] Code includes unit tests
+```
 
-  > Include a checklist/question list which every reviewer will need to fill out/anser when conducting a review, this checklist (and the answers of course) need to be put into the Pull Request review.
+  > Reviewer Checklist. Must be included in the Github Pull Request Review when you complete a review and approve.
+  > Add additional comments as needed. Copy/paste and complete checklist below
+
+```
+ - [ ] Unit tests are present and correct
+ - [ ] Comments and javadoc add value and are not too short or too long
+```
 
 **Static Analysis**  (online: start Sprint 3, campus: start Sprint 3)
   > Your Static Analysis policy   
