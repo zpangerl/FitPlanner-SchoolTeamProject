@@ -14,24 +14,24 @@
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
-**Sprint Goal:** Update FitPlanner to include a new feature that allows the admin to add/edit/remove members.
+**Sprint Goal:** Update FitPlanner to create gym classes and assign to rooms as well as add members (students/trainers) to the system.
 
-**How many User Stories did you add to the Product Backlog:**  Number
+**How many User Stories did you add to the Product Backlog:**  8
 
-**How many User Stories did you add to this Sprint:** 
+**How many User Stories did you add to this Sprint:** 8
 > Answer the questions below about your Sprint Planning?
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> Your Answer
+> We added the US that produce the most value to our customer. We chose the US with the least amount of dependencies to work in parallel among our team.
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> Your Answer
+> These fit well with goal by implementing the new data and UI functionality to demonstrate the gym scheduler to the customer.
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
-> Your Answer
+> Yes. The team has already entered initial tasks to help get started.
 
 
 
