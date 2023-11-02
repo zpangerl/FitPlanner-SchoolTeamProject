@@ -1,21 +1,30 @@
 package main.java.memoranda.util;
 
 public class Student {
-    private String name;
+    private String firstName;
+    private String lastName;
     private int belt_color;
     private int training_rank;
 
-    public String getName() { return this.name; }
+    public String getFirstName() { return this.firstName; }
+    public String getLastName() { return this.lastName; }
     public int getBeltColor() { return this.belt_color; }
     public int getTrainingRank() { return this.training_rank; }
 
-    public void setName(String inputName) { this.name = inputName; }
+    public void setFirstName(String inputFirstName) { this.firstName = inputFirstName; }
+    public void setLastName(String inputLastName) { this.lastName = inputLastName; }
     public void setBeltColor(int inputColor) { this.belt_color = inputColor; }
     public void setTrainingRank(int inputRank) { this.training_rank = inputRank; }
 
-    public Student(String inputName){
-        this.name = inputName;
+    public Student(String inputLastName, String inputFirstName){
+        this.lastName = inputLastName;
+        this.firstName = inputFirstName;
     }
 
-
+    public Student(String inputLastName, String inputFirstName, int inputBeltColor, int inputTrainingRank){
+        this.lastName = inputLastName;
+        this.firstName = inputFirstName;
+        this.belt_color = inputBeltColor;
+        this.training_rank = inputTrainingRank;
+    }
 }
