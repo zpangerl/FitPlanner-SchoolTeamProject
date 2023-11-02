@@ -169,7 +169,7 @@ public class WorkPanel extends JPanel {
 		trainersB.setIcon(
 				new ImageIcon(
 						main.java.memoranda.ui.AppFrame.class.getResource(
-								"/ui/icons/files.png")));
+								"/ui/icons/trainer.png")));
 		trainersB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		trainersB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
