@@ -8,11 +8,8 @@
  */
 package main.java.memoranda.util;
 
-import main.java.memoranda.Note;
-import main.java.memoranda.NoteList;
-import main.java.memoranda.Project;
-import main.java.memoranda.ResourcesList;
-import main.java.memoranda.TaskList;
+import main.java.memoranda.*;
+
 /**
  * 
  */
@@ -47,6 +44,8 @@ public interface Storage {
     void storeResourcesList(ResourcesList rl, Project prj);
     
     void restoreContext();
-    void storeContext(); 
-       
+    void storeContext();
+
+    TrainersList openTrainersList(Project project);
+    void storeTrainersList(TrainersList tl, Project project);
 }

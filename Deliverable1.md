@@ -41,11 +41,11 @@ I would also advise you to already fill out the Contributions section (End of sp
 ### Meeting minutes of your Daily Scrums (3 per week, should not take longer than 10 minutes):
 > Add as many rows as needed and fill out the table. (Burndown starts with Sprint 2, and Continuous Integration starts with Sprint 3, not needed before that). 
 
-| Date  | Who did NOT attend  |Meeting notes (very brief)   | Burndown Info (on track, ahead behind is enough) | GitHub Actions info (does the master pass) | Additional Info  |
-|---|---|---|---|--|--|
-|   |   |   |   |  |  |
-|   |   |   |   |  |  |
-|   |   |   |   |  |  |
+| Date    | Who did NOT attend             | Meeting notes (very brief)                                                                                                                             | Burndown Info (on track, ahead behind is enough) | GitHub Actions info (does the master pass) | Additional Info |
+| ------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------ | --------------- |
+| Oct. 23 | Sean Mckeighan (Late by 1 day) | US11, 18 are completed. Some tasks from US11, 19 are complete.                                                                                         | On track                                         | No merge conflicts on PRs                  | None            |
+| Oct. 25 | None                           | Trainer panel is under active dev. Some tasks from US1 are complete. US5, 6, 10, 19 is complete. First draft for Agenda Panel UML diagram is complete. | On track                                         | No merge conflicts on PRs                  | None            |
+| Oct. 27 | Sean Mckeighan (Late by 1 day) | Most members are working on code reviews. PRs are being merged and any conflicts are being resolved. UML document is complete.                         | On track                                         | All merge conflects resolved               | None            |
 
 
 ## 3: After the Sprint
@@ -53,21 +53,21 @@ I would also advise you to already fill out the Contributions section (End of sp
 ### Sprint Review
 Answer as a team!
 
-**Screen Cast link**: Your link
+**Screen Cast link**: https://www.youtube.com/watch?v=vFjA_tPRLCc
 
 > Answer the following questions as a team. 
 
 **What do you think is the value you created this Sprint?**
 
-> Your Answer
+> We delivered value by updating the Memoranda interface to align with a gym scheduling tool. Multiple warnings were removed, and the dev team has a better understanding to more efficiently add additional features in the future sprints for the customer.
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> Your Answer
+> Yes, we worked through challenges of onboarding with a new codebase and were able to complete all User Stories for this Sprint.
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> Your Answer
+> Yes, the customers' expectations should be met because it is obvious the software UI has changed from Memoranda to "Fit Planner" with updated splash screen, icons, and the beginning implementation of specific customer requirements such adding and displaying Trainers.
 
 
 ### Sprint Retrospective
@@ -76,11 +76,11 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Your Answer
+> Yes, we met our sprint goal by modifying the memoranda code base to architect a gym scheduling application.
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Your Answer
+> Yes, we completed all stories that were part of the Sprint 1 backlog--User Stories 11, 18, 5, 6, 19, 9, 10, 1, 2, and 15.
 
 **If not, what went wrong?**
 
@@ -93,23 +93,23 @@ Include a screenshot of your Burndown chart here and analyse in detail for me wh
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> Your Answer
+> We started with a lot of velocity, slowed down during the middle of the week while we streamlined the testing and Github review process, then increased velocity to ensure everything was completed by end of the Sprint.
 
 **Did you deliver business value?**
 
-> Your Answer
+> Value was delivered through updates that changed the Memoranda app drastically to reflect the customers' expectations so that by end of the week, the UI reflects a gym scheduler with English language, icons for a gym scheduler, and a skeleton interface for Trainers to be added in the future.
 
 **Did you follow the Scrum process (e.g. move Tasks correctly?, keep the Taiga board up to date? work consistently?)**
 
-> Your Answer
+> Yes, overall we moved the tasks through the stages from New, In-progress, ready-for-test, and to closed. At first, we had too many tasks pile up in "ready for test" and had to improve communication to clear the board from "ready for test" to "closed".
 
 **Are there things the team thinks it can do better in the next Sprint? (not needed for last Sprint)**
 
-> Your Answer
+> We could improve the process to make sure the entire team understands the expectations of level of detail needed in Taiga tasks when getting from "ready for test" to "closed" along with getting the respective Github pull request opened, reviewed, merged, and closed. 
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
-> Your Answer
+> The team has an optimal outlook on Sprint 2 and is ready for additional tasking.
 
 ### Contributions:
 
@@ -121,22 +121,21 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
-  > Anwser here....
+  > Yes, I was engaged in Slack discussion, standups, contributed to Tasks and US, participated in [github reviews: US15, US5, US19, US10](https://github.com/amehlhase316/Schnapsidee-Fall23B/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Aasusteven+)
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
-  Example: 
-  [Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
-
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+> * [US1 Task4 Update image path to resolve bug preventing preferences from opening](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/44633a6117997b9992f65b77de7286b69b69df9b)
+> * [US1 Task3 Remove Look and Feel section in the preferences dialog](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4dca99170d6e175f038e5a98513c6d79fad2a9bf)
+> * [US15 Task73 Create reverse engineering doc with UML class diagrams for Events:Panel,Dialog,Manager, and FileStorage](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4e46cd8fcf6c7c91acf6911c695ddd883b2b9f92)
+> * [Update branch names and commit message guidelines to add more detail around GitHub Workflow](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/b36cbf31fb19956b57eda24a5e1de36049fa1fb3)
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+> * [US1 preferences look and feel](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/20)
+> * [Update CodeQuality with additional details for Github workflow](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/17)
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
@@ -157,8 +156,7 @@ Copy the section for each team member and then everyone adds their individual co
 #### Rhett Harrison
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
-
-
+  > Yes, I worked hard on my own stories and helped others with theirs. I also kept other's work going by providing code reviews and merging pull requests.
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -167,13 +165,17 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+[Add new panel "Trainers"](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/335a6f30af22c9a5f236e0f8f0111c269098e527)
+
+[Add translations from spanish to english for UX and Developer Experience](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/9d1e21cbd99971ae6c5ed2233650cfbd822b7840) 
+
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+  [Add new panel "Trainers"](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/18) 
+
+  [Add Translations from spanish to english for UX and Developer Experience](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/6) 
+
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
@@ -195,7 +197,7 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
-
+> I think I worked consistently and put in enough work into the project. I was able to complete my user stories and provide code reviews for other team members.
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -204,13 +206,13 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+  > - [Updates the splash screen and program title.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/d2b30dc78564c4aaed98c707e171926eafdf861c)
+  > - [Allows developers to update version and build number through `build.xml` and display the information in program.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/9252343dae5eb30b3ea861ff2753c32c56c65177)
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+  > - [Updates the splash screen and program title.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/13)
+  > - [Allows developers to update version and build number through `build.xml` and display the information in program.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/11)
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
@@ -232,7 +234,7 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
-
+> Yes, I think I worked consistently and provided enough work for the project. I would have liked to do more, but everything was either in progress or done by the time I had time to do more.
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -241,13 +243,15 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+  > - [Commit 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/10db97b2375fda7ff98e9e2e8ec34fdfa3e07b05) - Updated main folder to remove all deprecated Integer warnings
+  > - [Commit 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/6f18d6cf86228daa3cbf3a83337d7369c76551a2) - Updated ui folder to remove all deprecated Integer warnings
+  > - [Commit 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/f88249ade302d085dadfd5eb7fd4b89d6059abb8) - Updated htmleditor folder to remove all deprecated Integer warnings
+  > - [Commit 4](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/c9ee8e14d74374facc01c6e1746c88f40346c6f4) - Updated remaining folders to remove all deprecated Integer warnings
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+  > - [Pull Request 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/14) - Updates dev branch with all changes from US19
+  > - [Pull Request 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/9) - Updates US branch with updates to the ui folder removing deprecated Integer code
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
@@ -269,7 +273,7 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
-
+> I pulled my fair share of the user stories for this sprint. I started strong but slowed down toward the end of the sprint.
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -278,13 +282,13 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+  > - [US5 Panel Icons Commit](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e994c678f9db637f23184edd1b59189949ad2312)
+  > - [US11 Minimize & Exit Commit](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4f08298069321a7217c635396b2cac0551381c1f)
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+  > - [US5 Panel Icon PR](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/23)
+  > - [US11 Minimize & Exit PR](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/5)
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
@@ -306,18 +310,18 @@ Copy the section for each team member and then everyone adds their individual co
 
 ## Below is just for you as a little reminder on what needs to be done
 ### Checklist for you to see if you are done with the current Sprint
-- [ ] Form above is complete
+- [x] Form above is complete
 - [ ] Your newest software is on the master branch on GitHub, it is tested and compiles/runs
 - [ ] This document is in your master branch on GitHub
 - [ ] Read the kickoff again to make sure you have all the details that I want
 - [ ] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
-- [ ] Your Quality Policies are accurate and up to date
+- [x] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Rhett Harrison
+  - [x] Rhett Harrison
   - [ ] Frank Lin
-  - [ ] Steven Stovall
+  - [x] Steven Stovall
   - [ ] Zachary Pangerl
-  - [ ] Sean Mckeighan
+  - [x] Sean Mckeighan
 
 #### For the next Sprint
   - [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
