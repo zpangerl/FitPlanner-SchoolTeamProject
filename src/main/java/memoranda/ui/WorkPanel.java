@@ -1,13 +1,23 @@
 package main.java.memoranda.ui;
 
-import main.java.memoranda.util.Context;
-import main.java.memoranda.util.Local;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JToolBar;
+import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
-import java.awt.*;
-import java.awt.event.ActionEvent;
+
+import main.java.memoranda.util.Context;
+import main.java.memoranda.util.Local;
 
 /**
  * 
