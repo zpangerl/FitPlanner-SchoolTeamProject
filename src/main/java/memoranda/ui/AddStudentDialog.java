@@ -69,6 +69,8 @@ public class AddStudentDialog extends JDialog {
         this.setPreferredSize(new Dimension(240, 400));
         this.setResizable(false);
 
+        border1 = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+
         // Dialog Header
         header.setFont(new java.awt.Font("Dialog", 0, 20));
         header.setForeground(new Color(0, 0, 124));
@@ -140,6 +142,7 @@ public class AddStudentDialog extends JDialog {
 
         jPanelButtons.add(okB);
         jPanelButtons.add(cancelB);
+        jPanelButtons.setBorder(border1);
 
         jPanelActions.add(jPanelInputs);
         jPanelActions.add(jPanelButtons, BorderLayout.SOUTH);
