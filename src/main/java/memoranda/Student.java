@@ -1,4 +1,4 @@
-package main.java.memoranda.util;
+package main.java.memoranda;
 
 public class Student {
     private String firstName;
