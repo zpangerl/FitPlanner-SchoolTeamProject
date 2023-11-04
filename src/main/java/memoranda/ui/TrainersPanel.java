@@ -14,6 +14,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
 
 public class TrainersPanel extends JPanel {
     TrainerList trainerList;
@@ -24,14 +25,13 @@ public class TrainersPanel extends JPanel {
         trainerList = new TrainerList();
 
         // TODO: for testing only
-        Trainer trainer1 = new Trainer();
-        trainer1.setFirstName("First1");
-        trainer1.setLastName("Last1");
-        Trainer trainer2 = new Trainer();
-        trainer2.setFirstName("First2");
-        trainer2.setLastName("Last2");
-        TrainerList.addTrainer(trainer1);
-        TrainerList.addTrainer(trainer2);
+        // create 50 trainers
+        for(int i = 0; i < 50; i++ ) {
+            Trainer tmpTrainer = new Trainer();
+            tmpTrainer.setFirstName("FirstnameTest" + i);
+            tmpTrainer.setLastName("LastnameTest" + i);
+            TrainerList.addTrainer(tmpTrainer);
+        }
 
         // Set layout
         LayoutManager layout = new BorderLayout();
@@ -52,7 +52,20 @@ public class TrainersPanel extends JPanel {
         //String[] columnNames = {"First Name", "Last Name", "Training Rank", "Belt Rank"};
         String[] columnNames = {"First Name", "Last Name"};
         String[][] data = TrainerList.getTrainersArray();
-        JTable trainersTable = new JTable(data, columnNames);
+        JTable trainersTable = new JTable(data, columnNames) {
+            // Alternate row color. white, light_gray
+            // Reference: https://blog.marcnuri.com/jtable-alternate-row-background
+            public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+                Component returnComp = super.prepareRenderer(renderer, row, column);
+                Color grayColor = Color.LIGHT_GRAY;
+                Color whiteColor = Color.WHITE;
+                if (!returnComp.getBackground().equals(getSelectionBackground())) {
+                    Color bg = (row % 2 == 0 ? whiteColor : grayColor);
+                    returnComp.setBackground(bg);
+                }
+                return returnComp;
+            }
+        };
         //trainersTable.setBounds(30, 40, 200, 300);
         this.add(new JScrollPane(trainersTable), BorderLayout.CENTER);
 
