@@ -234,8 +234,7 @@ public class ProjectsPanel extends JPanel implements ExpandablePanel {
 					Project p,
 					NoteList nl,
 					TaskList tl,
-					ResourcesList rl,
-					TrainersList tr) {
+					ResourcesList rl) {
 			}
 			public void projectWasChanged() {
 				curProjectTitle.setText(CurrentProject.get().getTitle());
