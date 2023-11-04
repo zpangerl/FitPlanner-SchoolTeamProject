@@ -1,7 +1,17 @@
 package main.java.memoranda;
 
+/**
+ * BeltRank
+ * Created on November 3, 2023
+ * Author: Zach Pangerl
+ * 
+ * This class is used to represent different belt ranks.
+ */
 public class BeltRank {
     
+    /**
+     * This enum represents each belt rank for the gym.
+     */
     public enum Rank {
         WHITE,
         YELLOW,
