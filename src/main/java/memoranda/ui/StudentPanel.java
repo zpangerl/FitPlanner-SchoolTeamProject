@@ -1,6 +1,10 @@
 package main.java.memoranda.ui;
 
+import main.java.memoranda.CurrentProject;
 import main.java.memoranda.util.Local;
+import main.java.memoranda.util.MimeType;
+import main.java.memoranda.util.MimeTypesList;
+import main.java.memoranda.util.Util;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -161,8 +165,13 @@ public class StudentPanel extends JPanel {
         });
     }
     void newStudentB_actionPerformed(ActionEvent e) {
-        System.out.println("[DEBUG] newResB_actionPerformed");
-        // TODO: The resources equivalent of this method is in ResourcesPanel.java
+        AddStudentDialog dlg = new AddStudentDialog(App.getFrame(), Local.getString("New Student"));
+        Dimension frmSize = App.getFrame().getSize();
+        Point loc = App.getFrame().getLocation();
+        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+        dlg.setVisible(true);
+        if (dlg.CANCELLED)
+            return;
     }
     void removeStudentB_actionPerformed(ActionEvent e) {
         System.out.println("[DEBUG] removeResB_actionPerformed");
