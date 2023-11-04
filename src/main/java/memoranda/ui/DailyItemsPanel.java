@@ -1,27 +1,5 @@
 package main.java.memoranda.ui;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Insets;
-import java.awt.SystemColor;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JSplitPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JToolBar;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
-
 import main.java.memoranda.*;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
@@ -29,6 +7,12 @@ import main.java.memoranda.date.DateListener;
 import main.java.memoranda.util.CurrentStorage;
 import main.java.memoranda.util.Local;
 import main.java.memoranda.util.Util;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  * 
  * Copyright (c) 2003 Memoranda Team. http://memoranda.sf.net
@@ -74,7 +58,7 @@ public class DailyItemsPanel extends JPanel {
     JPanel indicatorsPanel = new JPanel();
     JButton alarmB = new JButton();
     FlowLayout flowLayout1 = new FlowLayout();
-    JButton taskB = new JButton();
+    JButton classesB = new JButton();
     JPanel mainTabsPanel = new JPanel();
     NotesControlPanel notesControlPane = new NotesControlPanel();
     CardLayout cardLayout2 = new CardLayout();
@@ -162,18 +146,18 @@ public class DailyItemsPanel extends JPanel {
         alarmB.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/alarm.png")));
         flowLayout1.setAlignment(FlowLayout.RIGHT);
         flowLayout1.setVgap(0);
-        taskB.setMargin(new Insets(0, 0, 0, 0));
-        taskB.addActionListener(new java.awt.event.ActionListener() {
+        classesB.setMargin(new Insets(0, 0, 0, 0));
+        classesB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                taskB_actionPerformed(e);
+                classesB_actionPerformed(e);
             }
         });
-        taskB.setPreferredSize(new Dimension(24, 24));
-        taskB.setToolTipText(Local.getString("Active to-do tasks"));
-        taskB.setBorderPainted(false);
-        taskB.setMaximumSize(new Dimension(24, 24));
-        taskB.setOpaque(false);
-        taskB.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/task.png")));
+        classesB.setPreferredSize(new Dimension(24, 24));
+        classesB.setToolTipText(Local.getString("Active to-do tasks"));
+        classesB.setBorderPainted(false);
+        classesB.setMaximumSize(new Dimension(24, 24));
+        classesB.setOpaque(false);
+        classesB.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/task.png")));
 
         notesControlPane.setFont(new java.awt.Font("Dialog", 1, 10));
         mainTabsPanel.setLayout(cardLayout2);
@@ -411,7 +395,7 @@ public class DailyItemsPanel extends JPanel {
         indicatorsPanel.removeAll();
         if (date.equals(CalendarDate.today())) {
             if (tl.getActiveSubTasks(null,date).size() > 0)
-                indicatorsPanel.add(taskB, null);
+                indicatorsPanel.add(classesB, null);
             if (EventsScheduler.isEventScheduled()) {
                 /*String evlist = "";
                 for (Iterator it = EventsScheduler.getScheduledEvents().iterator(); it.hasNext();) {
@@ -459,8 +443,8 @@ public class DailyItemsPanel extends JPanel {
 	public String getCurrentPanel() {
 		return CurrentPanel;
 	}
-    void taskB_actionPerformed(ActionEvent e) {
-        parentPanel.tasksB_actionPerformed(null);
+    void classesB_actionPerformed(ActionEvent e) {
+        parentPanel.classesB_actionPerformed(null);
     }
 
     void alarmB_actionPerformed(ActionEvent e) {
