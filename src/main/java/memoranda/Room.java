@@ -3,34 +3,41 @@ import java.util.ArrayList;
 
 public class Room {
     
-    private ArrayList<Trainer> trainers;
-    //private ArrayList<Student> students;
+    private static final GymRoom[] gymRooms = new GymRoom[4];
     
-    private static final Room[] gymRooms;
-    
-    public Room() {
-        this.trainers = new ArrayList<>();
-        //this.students = new ArrayList<>();
-    }
-    
-    static {
-        gymRooms = new Room[4];
+    public static class GymRoom {
+        //Will need, unless we want to use Vector
+        //Waiting on GymClass implementation
+        //private ArrayList<GymClass> classes;
         
-        for (int i = 0; i < 4; i++) {
-            gymRooms[i] = new Room();
-            gymRooms[i].loadRooms(i);
+        private int roomNumber;
+        
+        static {
+            
+            for (int i = 0; i < 4; i++) {
+                gymRooms[i] = new GymRoom(i);
+            }
         }
-    }
-    
-    public void loadRooms(int roomNumber) {
         
-    }
-    
-    public void saveRooms() {
+        public GymRoom(int roomNumber) {
+            this.roomNumber = roomNumber;
+            //this.classes = new ArrayList<>();
+        }
         
-    }
-    
-    public Room[] getRooms() {
-        return gymRooms;
+        public static void loadRooms(int roomNumber) {
+            
+        }
+        
+        public static void saveRooms() {
+            
+        }
+        
+        public int getRoomNumber() {
+            return this.roomNumber;
+        }
+        
+        public static GymRoom[] getRooms() {
+            return gymRooms;
+        }
     }
 }
