@@ -36,7 +36,7 @@ public class StudentPanel extends JPanel {
         toolBar.setFloatable(false);
         this.setLayout(borderLayout1);
         newStudentB.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/student_48.png")));
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/addresource.png")));
         newStudentB.setEnabled(true);
         newStudentB.setMaximumSize(new Dimension(24, 24));
         newStudentB.setMinimumSize(new Dimension(24, 24));
