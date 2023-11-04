@@ -1,3 +1,4 @@
+import main.java.memoranda.BeltRank;
 import main.java.memoranda.Student;
 import main.java.memoranda.StudentListImpl;
 import org.junit.Assert;
@@ -9,6 +10,59 @@ import static org.junit.Assert.assertEquals;
 
 public class Test_StudentClasses {
 
+    /**
+     * Tests the creation of student using last and first name.
+     */
+    @Test
+    public void createStudentJustName(){
+        Student tempStudent = new Student("Mckeighan", "Sean");
+        Assert.assertEquals("Sean", tempStudent.getFirstName());
+        Assert.assertEquals("Mckeighan", tempStudent.getLastName());
+    }
+
+    /**
+     * Tests the creation of student using last name, first name, belt color, and training rank.
+     */
+    @Test
+    public void createStudentAllData(){
+        BeltRank.Rank belt = BeltRank.Rank.WHITE;
+        BeltRank.Rank belt_train = BeltRank.Rank.YELLOW;
+        Student tempStudent = new Student("Mckeighan", "Sean", belt, belt_train);
+        Assert.assertEquals("Sean", tempStudent.getFirstName());
+        Assert.assertEquals("Mckeighan", tempStudent.getLastName());
+        Assert.assertEquals(BeltRank.Rank.WHITE, tempStudent.getBeltColor());
+        Assert.assertEquals(BeltRank.Rank.YELLOW, tempStudent.getTrainingRank());
+    }
+
+    /**
+     * Tests the modification of student first and last name.
+     */
+    @Test
+    public void modifyStudentName(){
+        Student tempStudent = new Student("mckeighan", "sean");
+        tempStudent.setFirstName("Sean");
+        tempStudent.setLastName("Mckeighan");
+        Assert.assertEquals("Sean", tempStudent.getFirstName());
+        Assert.assertEquals("Mckeighan", tempStudent.getLastName());
+    }
+
+    /**
+     * Tests the modification of student belt color and training rank.
+     */
+    @Test
+    public void modifyStudentBelt(){
+        BeltRank.Rank belt = BeltRank.Rank.WHITE;
+        BeltRank.Rank belt_train = BeltRank.Rank.YELLOW;
+        Student tempStudent = new Student("Mckeighan", "Sean", belt, belt_train);
+        tempStudent.setBeltColor(BeltRank.Rank.BLACK1);
+        tempStudent.setTrainingRank(BeltRank.Rank.BLACK2);
+        Assert.assertEquals(BeltRank.Rank.BLACK1, tempStudent.getBeltColor());
+        Assert.assertEquals(BeltRank.Rank.BLACK2, tempStudent.getTrainingRank());
+    }
+
+    /**
+     * Tests adding student to a student list.
+     */
     @Test
     public void addStudent(){
         StudentListImpl testList = new StudentListImpl();
@@ -17,6 +71,9 @@ public class Test_StudentClasses {
         Assert.assertTrue(testList.studentExists(tempStudent_1));
     }
 
+    /**
+     * Tests ability to retrieve student from list given last and first name.
+     */
     @Test
     public void getStudent(){
         StudentListImpl testList = new StudentListImpl();
@@ -25,6 +82,9 @@ public class Test_StudentClasses {
         Assert.assertEquals(testList.getStudent("Mckeighan", "Sean"), tempStudent_1);
     }
 
+    /**
+     * Tests the ability to remove a student from a student list.
+     */
     @Test
     public void removeStudent(){
         StudentListImpl testList = new StudentListImpl();
@@ -34,6 +94,9 @@ public class Test_StudentClasses {
         Assert.assertTrue(!testList.studentExists(tempStudent_1));
     }
 
+    /**
+     * Tests count with a single student in list.
+     */
     @Test
     public void singleStudentListCount(){
         Student tempStudent = new Student("Mckeighan", "Sean");
@@ -42,12 +105,18 @@ public class Test_StudentClasses {
         assertEquals(1, testList.getAllStudentCount());
     }
 
+    /**
+     * Tests count with no students in list.
+     */
     @Test
     public void zeroStudentListCount(){
         StudentListImpl testList = new StudentListImpl();
         assertEquals(0, testList.getAllStudentCount());
     }
 
+    /**
+     * Tests count with multiple students in list.
+     */
     @Test
     public void multipleStudentListCount(){
         Student tempStudent_1 = new Student("Mckeighan", "Sean");
