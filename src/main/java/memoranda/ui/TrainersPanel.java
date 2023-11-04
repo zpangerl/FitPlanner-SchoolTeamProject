@@ -42,11 +42,6 @@ public class TrainersPanel extends JPanel {
         Border trainersPanelTitle = BorderFactory.createTitledBorder("Manage Trainers");
         this.setBorder(trainersPanelTitle);
 
-        /* TOP: Add new student button */
-        // Reference: https://www.geeksforgeeks.org/java-swing-jpanel-with-examples/
-        JButton addTrainerButton = new JButton("Add Trainer");
-        this.add(addTrainerButton, BorderLayout.NORTH);
-
         /* BOTTOM: rows of Trainers */
         // Reference: https://www.geeksforgeeks.org/java-swing-jtable/
         //String[] columnNames = {"First Name", "Last Name", "Training Rank", "Belt Rank"};
