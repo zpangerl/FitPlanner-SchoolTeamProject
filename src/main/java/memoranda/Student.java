@@ -11,10 +11,18 @@ public class Student {
     public BeltRank.Rank getBeltColor() { return this.belt_color; }
     public BeltRank.Rank getTrainingRank() { return this.training_rank; }
 
-    public void setFirstName(String inputFirstName) { this.firstName = inputFirstName; }
-    public void setLastName(String inputLastName) { this.lastName = inputLastName; }
-    public void setBeltColor(BeltRank.Rank inputColor) { this.belt_color = inputColor; }
-    public void setTrainingRank(BeltRank.Rank inputRank) { this.training_rank = inputRank; }
+    public void setFirstName(String inputFirstName) {
+        this.firstName = inputFirstName;
+    }
+    public void setLastName(String inputLastName) {
+        this.lastName = inputLastName;
+    }
+    public void setBeltColor(BeltRank.Rank inputColor) {
+        this.belt_color = inputColor;
+    }
+    public void setTrainingRank(BeltRank.Rank inputRank) {
+        this.training_rank = inputRank;
+    }
 
     public Student(String inputLastName, String inputFirstName){
         this.lastName = inputLastName;
