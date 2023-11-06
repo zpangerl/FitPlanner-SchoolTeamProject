@@ -72,14 +72,37 @@ public class Test_StudentClasses {
     }
 
     /**
+     * Tests adding student to a student list where that student is already present.
+     */
+    @Test
+    public void addExistingStudent(){
+        StudentListImpl testList = new StudentListImpl();
+        Student tempStudent_1 = new Student("Mckeighan", "Sean");
+        testList.addStudent(tempStudent_1);
+        testList.addStudent(tempStudent_1);
+        Assert.assertEquals(1, testList.getAllStudentCount());
+    }
+
+    /**
      * Tests ability to retrieve student from list given last and first name.
      */
     @Test
-    public void getStudent(){
+    public void getExistingStudent(){
         StudentListImpl testList = new StudentListImpl();
         Student tempStudent_1 = new Student("Mckeighan", "Sean");
         testList.addStudent(tempStudent_1);
         Assert.assertEquals(testList.getStudent("Mckeighan", "Sean"), tempStudent_1);
+    }
+
+    /**
+     * Tests ability to return null when given last and first name not in list.
+     */
+    @Test
+    public void getNonExistentStudent(){
+        StudentListImpl testList = new StudentListImpl();
+        Student tempStudent_1 = new Student("Mckeighan", "Sean");
+        testList.addStudent(tempStudent_1);
+        Assert.assertEquals(testList.getStudent("Sckeighan", "Mean"), null);
     }
 
     /**

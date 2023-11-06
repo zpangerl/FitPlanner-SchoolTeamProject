@@ -21,12 +21,19 @@ public class StudentListImpl implements StudentList {
 
     @Override
     public void addStudent(Student student_add) {
-        studentList.add(student_add);
+        if (studentExists(student_add)){
+            return;
+        }
+        else {
+            studentList.add(student_add);
+        }
     }
 
     @Override
     public void removeStudent(Student student_remove) {
-        studentList.remove(student_remove);
+        if (studentExists(student_remove)) {
+            studentList.remove(student_remove);
+        }
     }
 
     @Override
