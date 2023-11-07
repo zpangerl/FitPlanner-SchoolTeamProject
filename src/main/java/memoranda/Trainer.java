@@ -1,5 +1,5 @@
 /*
-  File:	Trainer.Java
+  File: Trainer.Java
   Author: Rhett Harrison (original code)
   Author: Steven Stovall (modified: US86, Task117 - simplified memoranda code)
   Version: 2023.11.04
@@ -17,8 +17,29 @@ public class Trainer {
     // class variables
     private String firstName;
     private String lastName;
-    //private BeltRank beltRank; // TODO: waiting for US87
-    //private BeltRank trainingRank; // TODO: waiting for US87
+    private BeltRank.Rank trainingRank;
+    private BeltRank.Rank beltRank;
+
+    /**
+     * default constructor
+     */
+    public Trainer() {
+
+    }
+    /**
+     * Constructor to create new Trainer
+     * @param firstName first name of trainer
+     * @param lastName last name of trainer
+     * @param trainingRank training rank
+     * @param beltRank belt rank
+     */
+    public Trainer(String firstName, String lastName,
+                   BeltRank.Rank trainingRank, BeltRank.Rank beltRank) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.trainingRank = trainingRank;
+        this.beltRank = beltRank;
+    }
 
     /**
      * Returns first name of trainer
@@ -35,47 +56,59 @@ public class Trainer {
     }
 
     /**
-     * Stores first name of trainer
-     * @param firstName of trainer
+     * Return full name (firstName lastName)
+     * @return full name with combined first and last name
+     */
+    public String getName() {
+        return firstName + " " + lastName;
+    }
+
+    /**
+     * Return training rank
+     * @return BeltRank training rank
+     */
+    public BeltRank.Rank getTrainingRank() {
+        return trainingRank;
+    }
+
+    /**
+     * Return belt rank
+     * @return BeltRank belt rank
+     */
+    public BeltRank.Rank getBeltRank() {
+        return beltRank;
+    }
+
+    /**
+     * Set first name
+     * @param firstName first name
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
     /**
-     * Stores last name of trainer
-     * @param lastName of trainer
+     * Set last name
+     * @param lastName last name
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     /**
-     * No parameters
-     * @return full name with combined first and last name
+     * Set training rank
+     * @param trainingRank training rank
      */
-    public String getName() {
-        return name;
+    public void setTrainingRank(BeltRank.Rank trainingRank) {
+        this.trainingRank = trainingRank;
     }
 
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    private String name;
-    private String position;
-    // default constructor
-
-    public Trainer() {
-
-    }
-    public Trainer(String name, String position) {
-        this.name = name;
-        this.position = position;
+    /**
+     * Set belt rank
+     * @param beltRank belt rank
+     */
+    public void setBeltRank(BeltRank.Rank beltRank) {
+        this.beltRank = beltRank;
     }
 
 }
