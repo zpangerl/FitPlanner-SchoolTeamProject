@@ -9,3 +9,6 @@ build/
 # Eclipse
 *.classpath
 *.project
+
+# ignore macOS files
+.DS_Store
