@@ -43,4 +43,24 @@ public class TestWhiteBoxTrainer {
         assertEquals(trainingRank, trainer.getTrainingRank());
     }
 
+    /**
+     * Test code paths in Trainer.java constructor
+     */
+    @Test
+    public void trainerConstructor() {
+        /* testing values */
+        String firstName = "Steven";
+        String lastName = "Stovall";
+        BeltRank.Rank beltRank = BeltRank.Rank.BLUE;
+        BeltRank.Rank trainingRank = BeltRank.Rank.YELLOW;
+        /* test constructor that adds everything to trainer at once */
+        Trainer trainer = new Trainer(firstName, lastName, trainingRank, beltRank);
+        assertNotNull(trainer);
+        assertEquals(firstName, trainer.getFirstName());
+        assertEquals(lastName, trainer.getLastName());
+        assertEquals(firstName + " " + lastName, trainer.getName());
+        assertEquals(beltRank, trainer.getBeltRank());
+        assertEquals(trainingRank, trainer.getTrainingRank());
+    }
+
 }
