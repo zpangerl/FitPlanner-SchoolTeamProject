@@ -8,7 +8,7 @@ import java.lang.reflect.Constructor;
 
 import static org.junit.Assert.assertEquals;
 
-public class Test_StudentClasses {
+public class TestStudentClasses {
 
     /**
      * Tests the creation of student using last and first name.
@@ -27,10 +27,11 @@ public class Test_StudentClasses {
     public void createStudentAllData(){
         BeltRank.Rank belt = BeltRank.Rank.WHITE;
         BeltRank.Rank belt_train = BeltRank.Rank.YELLOW;
-        Student tempStudent = new Student("Mckeighan", "Sean", belt, belt_train);
+        Student tempStudent = new Student("Mckeighan", "Sean", 20, belt, belt_train);
         Assert.assertEquals("Sean", tempStudent.getFirstName());
         Assert.assertEquals("Mckeighan", tempStudent.getLastName());
-        Assert.assertEquals(BeltRank.Rank.WHITE, tempStudent.getBeltColor());
+        Assert.assertEquals(20, tempStudent.getAge());
+        Assert.assertEquals(BeltRank.Rank.WHITE, tempStudent.getBeltRank());
         Assert.assertEquals(BeltRank.Rank.YELLOW, tempStudent.getTrainingRank());
     }
 
@@ -53,10 +54,10 @@ public class Test_StudentClasses {
     public void modifyStudentBelt(){
         BeltRank.Rank belt = BeltRank.Rank.WHITE;
         BeltRank.Rank belt_train = BeltRank.Rank.YELLOW;
-        Student tempStudent = new Student("Mckeighan", "Sean", belt, belt_train);
+        Student tempStudent = new Student("Mckeighan", "Sean", 20, belt, belt_train);
         tempStudent.setBeltColor(BeltRank.Rank.BLACK1);
         tempStudent.setTrainingRank(BeltRank.Rank.BLACK2);
-        Assert.assertEquals(BeltRank.Rank.BLACK1, tempStudent.getBeltColor());
+        Assert.assertEquals(BeltRank.Rank.BLACK1, tempStudent.getBeltRank());
         Assert.assertEquals(BeltRank.Rank.BLACK2, tempStudent.getTrainingRank());
     }
 
@@ -72,14 +73,37 @@ public class Test_StudentClasses {
     }
 
     /**
+     * Tests adding student to a student list where that student is already present.
+     */
+    @Test
+    public void addExistingStudent(){
+        StudentListImpl testList = new StudentListImpl();
+        Student tempStudent_1 = new Student("Mckeighan", "Sean");
+        testList.addStudent(tempStudent_1);
+        testList.addStudent(tempStudent_1);
+        Assert.assertEquals(1, testList.getAllStudentCount());
+    }
+
+    /**
      * Tests ability to retrieve student from list given last and first name.
      */
     @Test
-    public void getStudent(){
+    public void getExistingStudent(){
         StudentListImpl testList = new StudentListImpl();
         Student tempStudent_1 = new Student("Mckeighan", "Sean");
         testList.addStudent(tempStudent_1);
         Assert.assertEquals(testList.getStudent("Mckeighan", "Sean"), tempStudent_1);
+    }
+
+    /**
+     * Tests ability to return null when given last and first name not in list.
+     */
+    @Test
+    public void getNonExistentStudent(){
+        StudentListImpl testList = new StudentListImpl();
+        Student tempStudent_1 = new Student("Mckeighan", "Sean");
+        testList.addStudent(tempStudent_1);
+        Assert.assertEquals(testList.getStudent("Sckeighan", "Mean"), null);
     }
 
     /**

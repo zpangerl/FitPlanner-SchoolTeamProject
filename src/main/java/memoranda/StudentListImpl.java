@@ -67,7 +67,7 @@ public class StudentListImpl implements StudentList {
      */
     @Override
     public void removeStudent(Student student_remove) {
-        if(studentExists(student_remove)) {
+        if (studentExists(student_remove)) {
             studentList.remove(student_remove);
         }
     }
