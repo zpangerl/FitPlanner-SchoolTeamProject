@@ -30,6 +30,7 @@ public class Test_StudentClasses {
         Student tempStudent = new Student("Mckeighan", "Sean", 20, belt, belt_train);
         Assert.assertEquals("Sean", tempStudent.getFirstName());
         Assert.assertEquals("Mckeighan", tempStudent.getLastName());
+        Assert.assertEquals(20, tempStudent.getAge());
         Assert.assertEquals(BeltRank.Rank.WHITE, tempStudent.getBeltRank());
         Assert.assertEquals(BeltRank.Rank.YELLOW, tempStudent.getTrainingRank());
     }
