@@ -4,14 +4,14 @@ public class Student {
     private String firstName;
     private String lastName;
     private int age;
-    private BeltRank.Rank belt_rank;
-    private BeltRank.Rank training_rank;
+    private BeltRank.Rank beltRank;
+    private BeltRank.Rank trainingRank;
 
     public String getFirstName() { return this.firstName; }
     public String getLastName() { return this.lastName; }
     public int getAge() { return this.age; }
-    public BeltRank.Rank getBeltRank() { return this.belt_rank; }
-    public BeltRank.Rank getTrainingRank() { return this.training_rank; }
+    public BeltRank.Rank getBeltRank() { return this.beltRank; }
+    public BeltRank.Rank getTrainingRank() { return this.trainingRank; }
 
 
     public void setFirstName(String inputFirstName) {
@@ -24,10 +24,10 @@ public class Student {
         this.age = inputAge;
     }
     public void setBeltColor(BeltRank.Rank inputColor) {
-        this.belt_rank = inputColor;
+        this.beltRank = inputColor;
     }
     public void setTrainingRank(BeltRank.Rank inputRank) {
-        this.training_rank = inputRank;
+        this.trainingRank = inputRank;
     }
 
     /**
@@ -53,7 +53,7 @@ public class Student {
         this.lastName = inputLastName;
         this.firstName = inputFirstName;
         this.age = inputAge;
-        this.belt_rank = inputBeltRank;
-        this.training_rank = inputTrainingRank;
+        this.beltRank = inputBeltRank;
+        this.trainingRank = inputTrainingRank;
     }
 }
