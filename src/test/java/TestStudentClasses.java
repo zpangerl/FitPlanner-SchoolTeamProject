@@ -8,7 +8,7 @@ import java.lang.reflect.Constructor;
 
 import static org.junit.Assert.assertEquals;
 
-public class Test_StudentClasses {
+public class TestStudentClasses {
 
     /**
      * Tests the creation of student using last and first name.

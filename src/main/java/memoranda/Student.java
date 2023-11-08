@@ -13,6 +13,7 @@ public class Student {
     public BeltRank.Rank getBeltRank() { return this.belt_rank; }
     public BeltRank.Rank getTrainingRank() { return this.training_rank; }
 
+
     public void setFirstName(String inputFirstName) {
         this.firstName = inputFirstName;
     }
@@ -29,11 +30,25 @@ public class Student {
         this.training_rank = inputRank;
     }
 
+    /**
+     * Constructor using only the students first and last name.
+     * @param inputLastName Last name of student.
+     * @param inputFirstName First name of student.
+     */
     public Student(String inputLastName, String inputFirstName){
         this.lastName = inputLastName;
         this.firstName = inputFirstName;
     }
 
+    /**
+     * Constructor that takes all student attributes as input.
+     *
+     * @param inputLastName Students last name.
+     * @param inputFirstName Students first name.
+     * @param inputAge Students age in years.
+     * @param inputBeltRank Students current belt rank.
+     * @param inputTrainingRank Students current training rank.
+     */
     public Student(String inputLastName, String inputFirstName, int inputAge, BeltRank.Rank inputBeltRank, BeltRank.Rank inputTrainingRank){
         this.lastName = inputLastName;
         this.firstName = inputFirstName;
