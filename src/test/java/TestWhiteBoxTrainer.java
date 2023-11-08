@@ -8,7 +8,13 @@
 
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Trainer;
+import main.java.memoranda.TrainerList;
 import org.junit.Test;
+
+import java.util.ArrayList;
+
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.*;
 
 /**
@@ -62,5 +68,33 @@ public class TestWhiteBoxTrainer {
         assertEquals(beltRank, trainer.getBeltRank());
         assertEquals(trainingRank, trainer.getTrainingRank());
     }
+
+    /**
+     * Test code paths in TrainerList.java
+     */
+    @Test
+    public void trainerListAddGetRemoveTrainers() {
+        /* test trainer returns empty and not null */
+        ArrayList<Trainer> trainers = TrainerList.getTrainers();
+        assertNotNull(trainers);
+
+        /* testing values */
+        // create trainer1, trainer2
+        Trainer trainer1 = new Trainer();
+        Trainer trainer2 = new Trainer();
+
+        // add trainer1 to TrainerList
+        TrainerList.addTrainer(trainer1);
+        assertThat(TrainerList.getTrainers(), hasItem(trainer1));
+        assertThat(TrainerList.getTrainers(), not(hasItem(trainer2)));
+        // add trainer2 to TrainerList
+        TrainerList.addTrainer(trainer2);
+        assertThat(TrainerList.getTrainers(), hasItem(trainer1));
+
+        // remove trainer1
+        TrainerList.removeTrainer(trainer1);
+        assertThat(TrainerList.getTrainers(), hasItem(trainer2));
+        assertThat(TrainerList.getTrainers(), not(hasItem(trainer1)));
+        }
 
 }
