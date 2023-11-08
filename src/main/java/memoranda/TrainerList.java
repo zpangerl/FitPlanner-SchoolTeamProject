@@ -48,7 +48,9 @@ public final class TrainerList {
             Trainer trainer1 = TrainerList.getTrainers().get(i);
             String firstName = trainer1.getFirstName();
             String lastName = trainer1.getLastName();
-            String[] trainer = {firstName, lastName};
+            String trainingRank = BeltRank.getBeltRankName(trainer1.getTrainingRank());
+            String beltRank = BeltRank.getBeltRankName(trainer1.getBeltRank());
+            String[] trainer = {firstName, lastName, trainingRank, beltRank};
             trainers[i] = trainer;
         }
         return trainers;
@@ -59,6 +61,9 @@ public final class TrainerList {
      * @param trainer trainer to add
      */
     public static void addTrainer(Trainer trainer) {
+        if(trainers == null) {
+            trainers = new ArrayList<>();
+        }
         trainers.add(trainer);
     }
 
@@ -70,5 +75,13 @@ public final class TrainerList {
         if(trainers != null) {
             trainers.remove(trainer);
         }
+    }
+
+    /**
+     * Removes a trainer from trainers by index number
+     * @param idx index number of trainer to remove
+     */
+    public static void removeTrainerByIndex(int idx) {
+        trainers.remove(idx);
     }
 }
