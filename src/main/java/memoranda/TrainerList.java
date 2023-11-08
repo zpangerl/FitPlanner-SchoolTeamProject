@@ -9,18 +9,19 @@
 package main.java.memoranda;
 import java.util.ArrayList;
 /**
- Class:	Trainer
+ Class: Trainer
 
  Description: Stores Trainer attributes first name, last name, training rank, and belt ranking
  */
-public class TrainerList {
+public final class TrainerList {
     // class variables
     private static ArrayList<Trainer> trainers;
-    private static final int NUMBER_TRAINER_ATTRIBUTES = 2;
+    private static final int NUMBER_TRAINER_ATTRIBUTES = 4;
 
-    /* default constructor */
+    /* default constructor should not be used for utility class */
     public TrainerList() {
-        trainers = new ArrayList<Trainer>();
+        // https://stackoverflow.com/questions/7766277/why-am-i-getting-this-warning-about-utility-classes-in-java
+        throw new AssertionError("Do not instantiate utility class");
     }
 
     /**
@@ -28,6 +29,11 @@ public class TrainerList {
      * @return trainers
      */
     public static ArrayList<Trainer> getTrainers() {
+        /* create empty trainers if null. No constructor in utility class */
+        if (trainers == null) {
+            trainers = new ArrayList<>();
+        }
+
         return trainers;
     }
 
@@ -50,9 +56,19 @@ public class TrainerList {
 
     /**
      * Adds a new trainer to trainers
-     * @param trainer
+     * @param trainer trainer to add
      */
     public static void addTrainer(Trainer trainer) {
         trainers.add(trainer);
+    }
+
+    /**
+     * Removes a trainer from trainers
+     * @param trainer trainer to remove
+     */
+    public static void removeTrainer(Trainer trainer) {
+        if(trainers != null) {
+            trainers.remove(trainer);
+        }
     }
 }

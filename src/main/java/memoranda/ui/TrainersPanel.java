@@ -7,7 +7,7 @@
 */
 
 package main.java.memoranda.ui;
-import main.java.memoranda.TrainerList;
+//import main.java.memoranda.TrainerList;
 import main.java.memoranda.Trainer;
 
 import javax.swing.*;
@@ -17,12 +17,12 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
 public class TrainersPanel extends JPanel {
-    TrainerList trainerList;
+    //TrainerList trainerList;
 
     /* default constructor */
     TrainersPanel() {
         // initialize
-        trainerList = new TrainerList();
+        //trainerList = new TrainerList();
 
         // TODO: for testing only
         // create 50 trainers
@@ -30,7 +30,7 @@ public class TrainersPanel extends JPanel {
             Trainer tmpTrainer = new Trainer();
             tmpTrainer.setFirstName("FirstnameTest" + i);
             tmpTrainer.setLastName("LastnameTest" + i);
-            TrainerList.addTrainer(tmpTrainer);
+            //TrainerList.addTrainer(tmpTrainer);
         }
 
         // Set layout
@@ -51,11 +51,11 @@ public class TrainersPanel extends JPanel {
         // Reference: https://www.geeksforgeeks.org/java-swing-jtable/
         //String[] columnNames = {"First Name", "Last Name", "Training Rank", "Belt Rank"};
         String[] columnNames = {"First Name", "Last Name"};
-        String[][] data = TrainerList.getTrainersArray();
-        JTable trainersTable = new JTable(data, columnNames) {
+        //String[][] data = TrainerList.getTrainersArray();
+        //JTable trainersTable = new JTable(data, columnNames) {
             // Alternate row color. white, light_gray
             // Reference: https://blog.marcnuri.com/jtable-alternate-row-background
-            public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+            /*public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
                 Component returnComp = super.prepareRenderer(renderer, row, column);
                 Color grayColor = Color.LIGHT_GRAY;
                 Color whiteColor = Color.WHITE;
@@ -65,9 +65,9 @@ public class TrainersPanel extends JPanel {
                 }
                 return returnComp;
             }
-        };
+        };*/
         //trainersTable.setBounds(30, 40, 200, 300);
-        this.add(new JScrollPane(trainersTable), BorderLayout.CENTER);
+        //this.add(new JScrollPane(trainersTable), BorderLayout.CENTER);
 
 
         // Future: Add edit/delete buttons
