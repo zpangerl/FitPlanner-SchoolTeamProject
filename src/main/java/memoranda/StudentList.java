@@ -1,9 +1,5 @@
 package main.java.memoranda;
 
-import nu.xom.Document;
-
-import java.util.Vector;
-
 public interface StudentList {
     /**
      * Returns a Student object given the students first and last name.

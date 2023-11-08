@@ -18,7 +18,7 @@ public class StudentListImpl implements StudentList {
     }
 
     /**
-     * Returns Student object from StudentLlist given the students
+     * Returns Student object from StudentList given the students
      * first and last name.
      *
      * @param lastName Students last name.

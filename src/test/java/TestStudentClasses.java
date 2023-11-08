@@ -4,8 +4,6 @@ import main.java.memoranda.StudentListImpl;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.lang.reflect.Constructor;
-
 import static org.junit.Assert.assertEquals;
 
 public class TestStudentClasses {
@@ -92,7 +90,7 @@ public class TestStudentClasses {
         StudentListImpl testList = new StudentListImpl();
         Student tempStudent_1 = new Student("Mckeighan", "Sean");
         testList.addStudent(tempStudent_1);
-        Assert.assertEquals(testList.getStudent("Mckeighan", "Sean"), tempStudent_1);
+        Assert.assertEquals(testList.getStudentByObject(tempStudent_1), tempStudent_1);
     }
 
     /**
@@ -103,7 +101,7 @@ public class TestStudentClasses {
         StudentListImpl testList = new StudentListImpl();
         Student tempStudent_1 = new Student("Mckeighan", "Sean");
         testList.addStudent(tempStudent_1);
-        Assert.assertEquals(testList.getStudent("Sckeighan", "Mean"), null);
+        Assert.assertEquals(testList.getStudentByName("Sckeighan", "Mean"), null);
     }
 
     /**
