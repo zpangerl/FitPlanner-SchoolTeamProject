@@ -12,7 +12,15 @@ public interface StudentList {
      * @param firstName Students first name.
      * @return Student object.
      */
-    Student getStudent(String lastName, String firstName);
+    Student getStudentByName(String lastName, String firstName);
+
+    /**
+     * Returns a Student object given the students first and last name.
+     *
+     * @param student Student object to search for.
+     * @return Student object.
+     */
+    Student getStudentByObject(Student student);
 
     /**
      * Adds a Student object to the StudentList

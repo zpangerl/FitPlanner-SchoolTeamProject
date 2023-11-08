@@ -26,10 +26,24 @@ public class StudentListImpl implements StudentList {
      * @return Student object.
      */
     @Override
-    public Student getStudent(String lastName, String firstName) {
+    public Student getStudentByName(String lastName, String firstName) {
         for (int i = 0; i < studentList.size(); i++)
             if (studentList.get(i).getFirstName() == firstName && studentList.get(i).getLastName() == lastName)
                 return studentList.get(i);
+        return null;
+    }
+
+    /**
+     * Returns a Student object given the students first and last name.
+     *
+     * @param student Student object to search for.
+     * @return Student object.
+     */
+    @Override
+    public Student getStudentByObject(Student student) {
+        if(studentList.contains(student)) {
+            return studentList.get(studentList.indexOf(student));
+        }
         return null;
     }
 
@@ -40,6 +54,9 @@ public class StudentListImpl implements StudentList {
      */
     @Override
     public void addStudent(Student student_add) {
+        if(studentExists(student_add)) {
+            return;
+        }
         studentList.add(student_add);
     }
 
@@ -50,7 +67,9 @@ public class StudentListImpl implements StudentList {
      */
     @Override
     public void removeStudent(Student student_remove) {
-        studentList.remove(student_remove);
+        if(studentExists(student_remove)) {
+            studentList.remove(student_remove);
+        }
     }
 
     /**
