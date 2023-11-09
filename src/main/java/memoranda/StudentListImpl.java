@@ -48,6 +48,19 @@ public class StudentListImpl implements StudentList {
     }
 
     /**
+     * Returns a Student object given the students index in the arraylist.
+     *
+     * @param index Index of student.
+     * @return Student object.
+     */
+    public Student getStudentByIndex(int index) {
+        if(studentList.size() < index) {
+            return null;
+        }
+        return studentList.get(index);
+    }
+
+    /**
      * Adds Student object to StudentList.
      *
      * @param student_add Student object to add.

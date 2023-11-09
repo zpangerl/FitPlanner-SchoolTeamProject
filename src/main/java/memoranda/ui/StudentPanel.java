@@ -1,7 +1,6 @@
 package main.java.memoranda.ui;
 
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.Student;
+import main.java.memoranda.*;
 import main.java.memoranda.util.Local;
 import main.java.memoranda.util.MimeType;
 import main.java.memoranda.util.MimeTypesList;
@@ -10,14 +9,17 @@ import main.java.memoranda.util.Util;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.event.MouseInputListener;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class StudentPanel extends JPanel {
     BorderLayout borderLayout1 = new BorderLayout();
     JToolBar toolBar = new JToolBar();
     JButton newStudentB = new JButton();
     //StudentTable studentsTable = new StudentTable();
+    JTable studentTable;// = new JTable();
     JButton removeStudentB = new JButton();
     JScrollPane scrollPane = new JScrollPane();
     JButton refreshB = new JButton();
@@ -26,7 +28,9 @@ public class StudentPanel extends JPanel {
     JMenuItem ppRemoveStudent = new JMenuItem();
     JMenuItem ppNewStudent = new JMenuItem();
     JMenuItem ppRefresh = new JMenuItem();
-
+    StudentListImpl studentList = new StudentListImpl();
+    int selectedStudent = -1;
+    ArrayList<String[]> data = new ArrayList<>();
 
     public StudentPanel() {
         try {
@@ -63,20 +67,19 @@ public class StudentPanel extends JPanel {
                 "Training Rank"
         };
 
-        Object[][] data = {
-                {"Kathy", "Smith",
-                        "18", "White", "Yellow"},
-                {"John", "Doe",
-                        "19", "Yellow", "Green"},
-                {"Sue", "Black",
-                        "20", "Green", "Red"},
-                {"Jane", "White",
-                        "21", "Red", "Black"},
-                {"Joe", "Brown",
-                        "22", "Black", "Black2"}
-        };
+        // Static demo data for testing.
+        // TODO: Implement reading student list from file.
+        studentList.addStudent(new Student("Smith", "Kathy", 42, BeltRank.Rank.WHITE, BeltRank.Rank.YELLOW));
+        studentList.addStudent(new Student("Doe", "John", 21, BeltRank.Rank.YELLOW, BeltRank.Rank.BLUE));
+        studentList.addStudent(new Student("Black", "Sue", 31, BeltRank.Rank.GREEN, BeltRank.Rank.GREEN_STRIPE));
+        studentList.addStudent(new Student("White", "Jane", 45, BeltRank.Rank.BROWN1, BeltRank.Rank.BROWN2));
+        studentList.addStudent(new Student("Brown", "Joe", 18, BeltRank.Rank.BLACK1, BeltRank.Rank.BLACK2));
 
-        JTable studentTable = new JTable(data, columnNames);
+        //Object[][] data = new Object[studentList.getAllStudentCount()][columnNames.length];
+
+
+
+        studentTable = new JTable(data, columnNames);
         //table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         studentTable.setFillsViewportHeight(true);
 
@@ -104,10 +107,19 @@ public class StudentPanel extends JPanel {
         toolBar.addSeparator(new Dimension(8, 24));
 
         StudentPanel.PopupListener ppListener = new StudentPanel.PopupListener();
-        scrollPane.addMouseListener(ppListener);
+        scrollPane.getViewport().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                System.out.println("Scroll Bar Clicked");
+            }
+        });
         studentTable.addMouseListener(ppListener);
         studentTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
+                selectedStudent = studentTable.getSelectedRow();
+                System.out.println("Mouse Clicked: Row " + selectedStudent);
+
                 boolean enbl = (studentTable.getRowCount() > 0) && (studentTable.getSelectedRow() > -1);
 
                 removeStudentB.setEnabled(enbl);
@@ -206,15 +218,44 @@ public class StudentPanel extends JPanel {
     }
 
     void removeStudentB_actionPerformed(ActionEvent e) {
-        System.out.println("[DEBUG] removeResB_actionPerformed");
-        // TODO: The resources equivalent of this method is in ResourcesPanel.java
+        JPanel panel = new JPanel();
+        panel.setSize(new Dimension(200, 100));
+        panel.setLayout(null);
+        JLabel label1 = new JLabel("This will permanently remove the student.");
+        label1.setVerticalAlignment(SwingConstants.BOTTOM);
+        label1.setBounds(20, 20, 260, 30);
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
+        panel.add(label1);
+        JLabel label2 = new JLabel("Do you still want to delete it?");
+        label2.setVerticalAlignment(SwingConstants.TOP);
+        label2.setHorizontalAlignment(SwingConstants.CENTER);
+        label2.setBounds(20, 80, 260, 30);
+        panel.add(label2);
+        UIManager.put("OptionPane.minimumSize", new Dimension(330, 200));
+        int res = JOptionPane.showConfirmDialog(null, panel, "Delete Student",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.PLAIN_MESSAGE);
+        if(res == 0) {
+            studentList.removeStudent(studentList.getStudentByIndex(selectedStudent));
+
+        } else {
+            System.out.println("Pressed NO");
+        }
     }
 
+    public void updateStudentTable(){
+        for (int i = 0; i < studentList.getAllStudentCount(); i++) {
+            data[i][0] = studentList.getStudentByIndex(i).getFirstName();
+            data[i][1] = studentList.getStudentByIndex(i).getLastName();
+            data[i][2] = studentList.getStudentByIndex(i).getAge();
+            data[i][3] = studentList.getStudentByIndex(i).getBeltRank();
+            data[i][4] = studentList.getStudentByIndex(i).getTrainingRank();
+        }
+    }
     class PopupListener extends MouseAdapter {
 
         public void mouseClicked(MouseEvent e) {
-            // TODO: Equivalent method in TaskPanel.java
-            //editTaskB_actionPerformed(null);
+
         }
 
         public void mousePressed(MouseEvent e) {
