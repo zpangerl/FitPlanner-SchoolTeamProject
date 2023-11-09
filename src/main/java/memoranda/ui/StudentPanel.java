@@ -1,6 +1,7 @@
 package main.java.memoranda.ui;
 
 import main.java.memoranda.CurrentProject;
+import main.java.memoranda.Student;
 import main.java.memoranda.util.Local;
 import main.java.memoranda.util.MimeType;
 import main.java.memoranda.util.MimeTypesList;
@@ -66,13 +67,13 @@ public class StudentPanel extends JPanel {
                 {"Kathy", "Smith",
                         "18", "White", "Yellow"},
                 {"John", "Doe",
-                        "18", "White", "Yellow"},
+                        "19", "Yellow", "Green"},
                 {"Sue", "Black",
-                        "18", "White", "Yellow"},
+                        "20", "Green", "Red"},
                 {"Jane", "White",
-                        "18", "White", "Yellow"},
+                        "21", "Red", "Black"},
                 {"Joe", "Brown",
-                        "18", "White", "Yellow"}
+                        "22", "Black", "Black2"}
         };
 
         JTable studentTable = new JTable(data, columnNames);
