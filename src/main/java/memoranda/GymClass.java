@@ -12,61 +12,69 @@ import java.util.Date;
 public class GymClass {
 
     private Date date;
-    // TODO: add room variable
+    private Room room;
     private Trainer trainer;
     private ClassType classType;
 
     /**
- * Constructor for GymClass
- *
- * @param date,    the date for the planned class.
- * @param trainer, the trainer assigned to teach the class.
- */
-public GymClass(Date date, Trainer trainer) {
-        this.date = date;
-        this.trainer = trainer;
-        }
-
-public void setClassType(String type) {
-        this.classType = new ClassType(type);
-        }
-
-public String getClassType() {
-        return classType.toString();
-        }
-
-public void setTrainer(Trainer t) {
-        trainer = t;
-        }
-
-public Trainer getTrainer() {
-        return trainer;
-        }
-
-public void setDate(Date d) {
-        date = d;
-        }
-
-public Date getDate() {
-        return date;
-        }
-
-/**
- * Declares what type the class is.
- */
-public class ClassType {
-
-    String type;
-
-    /*
-     * ClassType Contructor
+     * Constructor for GymClass
+     *
+     * @param date,    the date for the planned class.
+     * @param trainer, the trainer assigned to teach the class.
      */
-    public ClassType(String type) {
-        this.type = type;
+    public GymClass(Date d, Trainer t) {
+        date = d;
+        trainer = t;
     }
 
-    public String toString() {
-        return type;
+    public void setClassType(String type) {
+        this.classType = new ClassType(type);
     }
-}
+
+    public String getClassType() {
+        return classType.toString();
+    }
+
+    public void setTrainer(Trainer t) {
+        trainer = t;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setDate(Date d) {
+        date = d;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setRoom(Room r) {
+        room = r;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    /**
+     * Declares what type the class is.
+     */
+    public class ClassType {
+
+        String type;
+
+        /*
+         * ClassType Contructor
+         */
+        public ClassType(String type) {
+            this.type = type;
+        }
+
+        public String toString() {
+            return type;
+        }
+    }
 }
