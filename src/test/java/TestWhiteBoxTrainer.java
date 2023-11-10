@@ -3,7 +3,7 @@
   Author: Steven Stovall
   Version: 2023-11-07
 
-  Description: Provides Unit Tests to ensure that Trainer related methods work correctly
+  Description: Provides Unit Tests to ensure that Trainer related methods work correctly.
 */
 
 import static org.hamcrest.CoreMatchers.hasItem;
@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
+import main.java.memoranda.ui.TrainerDialog;
+import main.java.memoranda.ui.TrainersPanel;
 import org.junit.Test;
 
 /**
@@ -98,4 +100,18 @@ public class TestWhiteBoxTrainer {
         assertThat(TrainerList.getTrainers(), not(hasItem(trainer1)));
     }
 
+    /**
+     * Test BeltRank enum to String array conversion in TrainerDialog.
+     */
+    @Test
+    public void trainerDialogConvertBeltRanksToStringArray() {
+        String[] rankStrings = BeltRank.getBeltRanks();
+        BeltRank.Rank[] ranks = BeltRank.Rank.values();
+        assertEquals(ranks.length, rankStrings.length);
+        int idx = 0;
+        for (BeltRank.Rank rank : BeltRank.Rank.values()) {
+            assertEquals(rank.toString(), rankStrings[idx]);
+            idx++;
+        }
+    }
 }
