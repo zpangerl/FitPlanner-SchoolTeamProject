@@ -1,26 +1,37 @@
 /*
-  File:	TrainersPanel.java
+  File: TrainersPanel.java
   Author: Steven Stovall
   Version: 2023.11.07
 
-  Description: Simple Trainers panel to display add button and rows of Trainer(s) from TrainersList.java
+  Description: Simple Trainers panel to display add button and rows of Trainer(s) from TrainersList
 */
 
 package main.java.memoranda.ui;
-import main.java.memoranda.TrainerList;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import main.java.memoranda.TrainerList;
 
 public class TrainersPanel extends JPanel {
     private JTable trainersTable;
     private DefaultTableModel trainersTableModel;
     String[][] trainersDataArray;
-    final String[] trainersTableColumnNames = {"First Name", "Last Name", "Training Rank", "Belt Rank"};
+    final String[] trainersTableColumnNames =
+        {"First Name", "Last Name", "Training Rank", "Belt Rank"};
 
     /* default constructor */
     TrainersPanel() {
@@ -32,10 +43,7 @@ public class TrainersPanel extends JPanel {
         Border trainersPanelTitle = BorderFactory.createTitledBorder("Manage Trainers");
         this.setBorder(trainersPanelTitle);
 
-        JPanel mainPanel = new JPanel(new GridBagLayout());
-        JPanel buttonPanelSqueeze = new JPanel();
         JPanel buttonPanel = new JPanel(new GridLayout(3, 1));
-        JPanel tablePanel = new JPanel();
         /* Add new trainer button */
         // Reference: https://www.geeksforgeeks.org/java-swing-jpanel-with-examples/
         JButton addTrainerButton = getAddTrainerButton();
@@ -49,9 +57,11 @@ public class TrainersPanel extends JPanel {
         buttonPanel.add(deleteTrainerButton);
 
         buildTrainersTable();
+        JPanel tablePanel = new JPanel();
         tablePanel.add(new JScrollPane(trainersTable), BorderLayout.CENTER);
 
         // Combine JPanel's
+        JPanel buttonPanelSqueeze = new JPanel();
         buttonPanelSqueeze.add(buttonPanel, BorderLayout.CENTER);
         // Reference: https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
         GridBagConstraints c = new GridBagConstraints();
@@ -60,6 +70,7 @@ public class TrainersPanel extends JPanel {
         c.weighty = 1.0;
         c.gridx = 0;
         c.gridy = 0;
+        JPanel mainPanel = new JPanel(new GridBagLayout());
         mainPanel.add(buttonPanelSqueeze, c);
         c.gridy = 1;
         mainPanel.add(tablePanel, c);
@@ -68,7 +79,7 @@ public class TrainersPanel extends JPanel {
     }
 
     /**
-     * Create the add trainer button
+     * Create the add trainer button.
      * @return JButton add trainer button
      */
     private JButton getAddTrainerButton() {
@@ -81,15 +92,15 @@ public class TrainersPanel extends JPanel {
     }
 
     /**
-     * Create the delete trainer button
+     * Create the delete trainer button.
      * @return JButton delete trainer button
      */
     private JButton getDeleteTrainerButton() {
         JButton deleteTrainerButton = new JButton("Delete Trainer");
         deleteTrainerButton.addActionListener(e -> {
-            final int NO_ROW_SELECTED = -1;
+            final int nowRowSelected = -1;
             int rowSelectedIdx = trainersTable.getSelectedRow();
-            if(rowSelectedIdx != NO_ROW_SELECTED) {
+            if (rowSelectedIdx != nowRowSelected) {
                 TrainerList.removeTrainerByIndex(rowSelectedIdx);
                 refreshTrainersTable();
             }
@@ -98,7 +109,7 @@ public class TrainersPanel extends JPanel {
     }
 
     /**
-     * builds the JTable trainers table and store to member variable trainersTable
+     * builds the JTable trainers table and store to member variable trainersTable.
      */
     private void buildTrainersTable() {
         // Reference: https://www.geeksforgeeks.org/java-swing-jtable/
@@ -118,11 +129,12 @@ public class TrainersPanel extends JPanel {
                 return returnComp;
             }
         };
-        trainersTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // important for delete button
+        // important for delete button - only allow to select one row at a time
+        trainersTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
     /**
-     * refresh JTable trainersTable after changes
+     * refresh JTable trainersTable after changes.
      */
     void refreshTrainersTable() {
         trainersDataArray = TrainerList.getTrainersArray(); // refresh

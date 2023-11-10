@@ -4,14 +4,15 @@
   Author: Steven Stovall (modified: US86, Task117 - simplified memoranda code)
   Version: 2023.11.04
 
-  Description: Stores Trainer an associated attributes to be used in TrainersList.java
+  Description: Stores Trainer an associated attributes to be used in TrainersList.java.
 */
+
 package main.java.memoranda;
 
 /**
- Class:	Trainer
+ Class: Trainer
 
- Description: Stores Trainer attributes first name, last name, training rank, and belt ranking
+ Description: Stores Trainer attributes first name, last name, training rank, and belt ranking.
  */
 public class Trainer {
     // class variables
@@ -21,13 +22,14 @@ public class Trainer {
     private BeltRank.Rank beltRank;
 
     /**
-     * default constructor
+     * default constructor.
      */
     public Trainer() {
 
     }
+
     /**
-     * Constructor to create new Trainer
+     * Constructor to create new Trainer.
      * @param firstName first name of trainer
      * @param lastName last name of trainer
      * @param trainingRank training rank
@@ -42,21 +44,21 @@ public class Trainer {
     }
 
     /**
-     * Returns first name of trainer
+     * Returns first name of trainer.
      */
     public String getFirstName() {
         return firstName;
     }
 
     /**
-     * Returns last name of trainer
+     * Returns last name of trainer.
      */
     public String getLastName() {
         return lastName;
     }
 
     /**
-     * Return full name (firstName lastName)
+     * Return full name (firstName lastName).
      * @return full name with combined first and last name
      */
     public String getName() {
@@ -64,7 +66,7 @@ public class Trainer {
     }
 
     /**
-     * Return training rank
+     * Return training rank.
      * @return BeltRank training rank
      */
     public BeltRank.Rank getTrainingRank() {
@@ -72,7 +74,7 @@ public class Trainer {
     }
 
     /**
-     * Return belt rank
+     * Return belt rank.
      * @return BeltRank belt rank
      */
     public BeltRank.Rank getBeltRank() {
@@ -80,15 +82,15 @@ public class Trainer {
     }
 
     /**
-     * Set first name
-     * @param firstName first name
+     * Set first name.
+     * @param firstName first name.
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
     /**
-     * Set last name
+     * Set last name.
      * @param lastName last name
      */
     public void setLastName(String lastName) {
@@ -96,7 +98,7 @@ public class Trainer {
     }
 
     /**
-     * Set training rank
+     * Set training rank.
      * @param trainingRank training rank
      */
     public void setTrainingRank(BeltRank.Rank trainingRank) {
@@ -104,7 +106,7 @@ public class Trainer {
     }
 
     /**
-     * Set belt rank
+     * Set belt rank.
      * @param beltRank belt rank
      */
     public void setBeltRank(BeltRank.Rank beltRank) {

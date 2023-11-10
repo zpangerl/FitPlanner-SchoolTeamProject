@@ -8,17 +8,30 @@
 
 package main.java.memoranda.ui;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.util.Objects;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
 import main.java.memoranda.util.Local;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.Objects;
-
 /**
- * Provides Pop-up dialog box to add a trainer
+ * Provides Pop-up dialog box to add a trainer.
  */
 public class TrainerDialog extends JDialog {
     private final TrainersPanel trainersPanel;
@@ -28,7 +41,7 @@ public class TrainerDialog extends JDialog {
     private final JComboBox<String> beltRankCombo;
 
     /**
-     * Default constructor
+     * Default constructor.
      */
     public TrainerDialog(TrainersPanel trainersPanel) {
         // -------------------------------------------------------------------
@@ -64,101 +77,100 @@ public class TrainerDialog extends JDialog {
         // Reference: https://stackoverflow.com/questions/213266/how-do-i-center-a-jdialog-on-screen
         this.setLocationRelativeTo(null);
 
-        JPanel inputPanel = new JPanel(new GridBagLayout()); // Reference: TrainersPanel.java
         GridBagConstraints c = new GridBagConstraints();
         // https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
 
         // ####################################################################
         // First Name
         // Reference: https://www.geeksforgeeks.org/java-swing-jtextfield/
-        JLabel firstNameLabel = new JLabel("First Name");
-        int TEXT_COLUMN_WIDTH = 16;
-        firstNameTextField = new JTextField(TEXT_COLUMN_WIDTH);
         c.insets = new Insets(10, 5, 0, 0);
         c.gridx = 0;
         c.gridy = 0;
+        JPanel inputPanel = new JPanel(new GridBagLayout()); // Reference: TrainersPanel.java
+        JLabel firstNameLabel = new JLabel("First Name");
         inputPanel.add(firstNameLabel, c);
         c.gridx = 1;
+        int textColumnWidth = 16;
+        firstNameTextField = new JTextField(textColumnWidth);
         inputPanel.add(firstNameTextField, c);
 
         // ####################################################################
         // Last Name
-        JLabel lastNameLabel = new JLabel("Last Name");
-        lastNameTextField = new JTextField(TEXT_COLUMN_WIDTH);
         c.gridx = 0;
         c.gridy = 1;
+        JLabel lastNameLabel = new JLabel("Last Name");
         inputPanel.add(lastNameLabel, c);
         //c.fill = GridBagConstraints.BOTH;
         c.gridx = 1;
         c.gridy = 1;
+        lastNameTextField = new JTextField(textColumnWidth);
         inputPanel.add(lastNameTextField, c);
 
         // ####################################################################
         // Training Rank
         // ####################################################################
         // Reference: https://www.geeksforgeeks.org/java-swing-jcombobox-examples/
-        // Belt Rank
-        JLabel trainingRankLabel = new JLabel("Training Rank");
         // Reference:
         /* https://stackoverflow.com/questions/20596020/
         / jcombobox-is-a-raw-type-references-to-generic-type-jcomboboxe-should-be-param */
-        trainingRankCombo = new JComboBox<>(getBeltRanks());
         c.gridx = 0;
         c.gridy = 2;
+        JLabel trainingRankLabel = new JLabel("Training Rank");
         inputPanel.add(trainingRankLabel, c);
         //c.fill = GridBagConstraints.BOTH;
         c.gridx = 1;
         c.gridy = 2;
+        trainingRankCombo = new JComboBox<>(getBeltRanks());
         inputPanel.add(trainingRankCombo, c);
 
         // ####################################################################
         // Belt Rank
         // ####################################################################
-        JLabel beltRankLabel = new JLabel("Belt Rank");
-        beltRankCombo = new JComboBox<>(getBeltRanks());
         c.gridx = 0;
         c.gridy = 3;
+        JLabel beltRankLabel = new JLabel("Belt Rank");
         inputPanel.add(beltRankLabel, c);
         //c.fill = GridBagConstraints.BOTH;
         c.gridx = 1;
         c.gridy = 3;
+        beltRankCombo = new JComboBox<>(getBeltRanks());
         inputPanel.add(beltRankCombo, c);
 
         // ####################################################################
         // Buttons: Add, Cancel
         // https://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Insets.html
         // top, right, bottom, left
-        JButton addButton = getAddButton();
-        JButton cancelButton = getCancelButton();
         c.gridx = 0;
         c.gridy = 4;
         c.insets = new Insets(10, 10, 0, 5);
+        JButton addButton = getAddButton();
         inputPanel.add(addButton, c);
         //c.fill = GridBagConstraints.BOTH;
         c.gridx = 1;
         c.gridy = 4;
         c.insets = new Insets(10, 5, 0, 10);
+        JButton cancelButton = getCancelButton();
         inputPanel.add(cancelButton, c);
 
         this.getContentPane().add(inputPanel, BorderLayout.CENTER);
     }
 
     /**
-     * Convert BeltRank.Rank enums to array of Strings for JComboBox
+     * Convert BeltRank.Rank enums to array of Strings for JComboBox.
      * @return String[] of Belt Ranks
      */
     String[] getBeltRanks() {
         BeltRank.Rank[] beltRanks = BeltRank.Rank.values();
         String[] beltRanksStrings = new String[beltRanks.length];
         int i = 0;
-        for(BeltRank.Rank beltRank : BeltRank.Rank.values()) {
+        for (BeltRank.Rank beltRank : BeltRank.Rank.values()) {
             beltRanksStrings[i++] = BeltRank.getBeltRankName(beltRank);
         }
         return beltRanksStrings;
     }
 
     /**
-     * Create the Add button
+     * Create the Add button.
      * @return JButton Add button
      */
     private JButton getAddButton() {
@@ -168,7 +180,8 @@ public class TrainerDialog extends JDialog {
             newTrainer.setFirstName(firstNameTextField.getText());
             newTrainer.setLastName(lastNameTextField.getText());
             newTrainer.setBeltRank(BeltRank.Rank.valueOf((String) beltRankCombo.getSelectedItem()));
-            newTrainer.setTrainingRank(BeltRank.Rank.valueOf((String) trainingRankCombo.getSelectedItem()));
+            newTrainer.setTrainingRank(
+                BeltRank.Rank.valueOf((String) trainingRankCombo.getSelectedItem()));
             TrainerList.addTrainer(newTrainer);
             trainersPanel.refreshTrainersTable();
             JOptionPane.showMessageDialog(null, "Successfully added Trainer!");
@@ -178,7 +191,7 @@ public class TrainerDialog extends JDialog {
     }
 
     /**
-     * Create the Cancel button
+     * Create the Cancel button.
      * @return JButton Cancel button
      */
     private JButton getCancelButton() {

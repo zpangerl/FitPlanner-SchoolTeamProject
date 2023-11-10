@@ -6,21 +6,22 @@
   Description: Provides Unit Tests to ensure that Trainer related methods work correctly
 */
 
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+
+import java.util.ArrayList;
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.*;
-
 /**
  Class: TestWhiteBoxTrainer
 
- Description: Tests Trainer related functions
+ Description: Tests Trainer related functions.
  */
 public class TestWhiteBoxTrainer {
 
@@ -32,8 +33,6 @@ public class TestWhiteBoxTrainer {
         /* testing values */
         String firstName = "Steven";
         String lastName = "Stovall";
-        BeltRank.Rank beltRank = BeltRank.Rank.BLUE;
-        BeltRank.Rank trainingRank = BeltRank.Rank.YELLOW;
         Trainer trainer = new Trainer();
         assertNotNull(trainer);
         /* set/get name */
@@ -43,8 +42,10 @@ public class TestWhiteBoxTrainer {
         assertEquals(lastName, trainer.getLastName());
         assertEquals(firstName + " " + lastName, trainer.getName());
         /* set/get training rank and belt rank */
+        BeltRank.Rank beltRank = BeltRank.Rank.BLUE; // testing value
         trainer.setBeltRank(beltRank);
         assertEquals(beltRank, trainer.getBeltRank());
+        BeltRank.Rank trainingRank = BeltRank.Rank.YELLOW; // testing value
         trainer.setTrainingRank(trainingRank);
         assertEquals(trainingRank, trainer.getTrainingRank());
     }
@@ -95,6 +96,6 @@ public class TestWhiteBoxTrainer {
         TrainerList.removeTrainer(trainer1);
         assertThat(TrainerList.getTrainers(), hasItem(trainer2));
         assertThat(TrainerList.getTrainers(), not(hasItem(trainer1)));
-        }
+    }
 
 }
