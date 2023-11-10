@@ -77,34 +77,34 @@ public class TrainerDialog extends JDialog {
         // Reference: https://stackoverflow.com/questions/213266/how-do-i-center-a-jdialog-on-screen
         this.setLocationRelativeTo(null);
 
-        GridBagConstraints c = new GridBagConstraints();
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
         // https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
 
         // ####################################################################
         // First Name
         // Reference: https://www.geeksforgeeks.org/java-swing-jtextfield/
-        c.insets = new Insets(10, 5, 0, 0);
-        c.gridx = 0;
-        c.gridy = 0;
+        gridBagConstraints.insets = new Insets(10, 5, 0, 0);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
         JPanel inputPanel = new JPanel(new GridBagLayout()); // Reference: TrainersPanel.java
         JLabel firstNameLabel = new JLabel("First Name");
-        inputPanel.add(firstNameLabel, c);
-        c.gridx = 1;
+        inputPanel.add(firstNameLabel, gridBagConstraints);
+        gridBagConstraints.gridx = 1;
         int textColumnWidth = 16;
         firstNameTextField = new JTextField(textColumnWidth);
-        inputPanel.add(firstNameTextField, c);
+        inputPanel.add(firstNameTextField, gridBagConstraints);
 
         // ####################################################################
         // Last Name
-        c.gridx = 0;
-        c.gridy = 1;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         JLabel lastNameLabel = new JLabel("Last Name");
-        inputPanel.add(lastNameLabel, c);
-        //c.fill = GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 1;
+        inputPanel.add(lastNameLabel, gridBagConstraints);
+        //gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
         lastNameTextField = new JTextField(textColumnWidth);
-        inputPanel.add(lastNameTextField, c);
+        inputPanel.add(lastNameTextField, gridBagConstraints);
 
         // ####################################################################
         // Training Rank
@@ -113,44 +113,44 @@ public class TrainerDialog extends JDialog {
         // Reference:
         /* https://stackoverflow.com/questions/20596020/
         / jcombobox-is-a-raw-type-references-to-generic-type-jcomboboxe-should-be-param */
-        c.gridx = 0;
-        c.gridy = 2;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
         JLabel trainingRankLabel = new JLabel("Training Rank");
-        inputPanel.add(trainingRankLabel, c);
-        //c.fill = GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 2;
+        inputPanel.add(trainingRankLabel, gridBagConstraints);
+        //gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
         trainingRankCombo = new JComboBox<>(BeltRank.getBeltRanks());
-        inputPanel.add(trainingRankCombo, c);
+        inputPanel.add(trainingRankCombo, gridBagConstraints);
 
         // ####################################################################
         // Belt Rank
         // ####################################################################
-        c.gridx = 0;
-        c.gridy = 3;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
         JLabel beltRankLabel = new JLabel("Belt Rank");
-        inputPanel.add(beltRankLabel, c);
-        //c.fill = GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 3;
+        inputPanel.add(beltRankLabel, gridBagConstraints);
+        //gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
         beltRankCombo = new JComboBox<>(BeltRank.getBeltRanks());
-        inputPanel.add(beltRankCombo, c);
+        inputPanel.add(beltRankCombo, gridBagConstraints);
 
         // ####################################################################
         // Buttons: Add, Cancel
         // https://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Insets.html
         // top, right, bottom, left
-        c.gridx = 0;
-        c.gridy = 4;
-        c.insets = new Insets(10, 10, 0, 5);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new Insets(10, 10, 0, 5);
         JButton addButton = getAddButton();
-        inputPanel.add(addButton, c);
-        //c.fill = GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 4;
-        c.insets = new Insets(10, 5, 0, 10);
+        inputPanel.add(addButton, gridBagConstraints);
+        //gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new Insets(10, 5, 0, 10);
         JButton cancelButton = getCancelButton();
-        inputPanel.add(cancelButton, c);
+        inputPanel.add(cancelButton, gridBagConstraints);
 
         this.getContentPane().add(inputPanel, BorderLayout.CENTER);
     }
