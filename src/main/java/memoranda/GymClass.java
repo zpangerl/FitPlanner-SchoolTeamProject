@@ -1,36 +1,80 @@
+/**
+ * GymClass.java
+ * Created: Nov. 2nd, 2023
+ * Author: Frank Lin
+ * 
+ * This class is used to represent a gym class.
+ */
 package main.java.memoranda;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class GymClass {
-    
+
     private Date date;
-    
-    private Room.GymRoom room;
-    
+    private Room room;
+    private Trainer trainer;
+    private ClassType classType;
+
     /**
-     * Creates a new GymClass object in a specific room.
-     * @param room the room the class will be held in
+     * Constructor for GymClass
+     * 
+     * @param date,    the date for the planned class.
+     * @param trainer, the trainer assigned to teach the class.
      */
-    public GymClass(Room.GymRoom room) {
-        this.room = room;
+    public GymClass(Date d, Trainer t) {
+        date = d;
+        trainer = t;
     }
-    
-    /**
-     * Retrieves the room that this gym class is being held in.
-     * @return Room.GymRoom the room the gym class is being held in
-     */
-    public Room.GymRoom getRoom(){
-        return this.room;
+
+    public void setClassType(String type) {
+        this.classType = new ClassType(type);
     }
-    
+
+    public String getClassType() {
+        return classType.toString();
+    }
+
+    public void setTrainer(Trainer t) {
+        trainer = t;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setDate(Date d) {
+        date = d;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setRoom(Room r) {
+        room = r;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
     /**
-     * Switches the gym class to another room.
-     * @param room the room to be switched to
+     * Declares what type the class is.
      */
-    public void setRoom(Room.GymRoom room) {
-        this.room = room;
+    public class ClassType {
+
+        String type;
+
+        /*
+         * ClassType Contructor
+         */
+        public ClassType(String type) {
+            this.type = type;
+        }
+
+        public String toString() {
+            return type;
+        }
     }
 }
