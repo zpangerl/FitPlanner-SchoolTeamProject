@@ -12,9 +12,10 @@ import java.util.Date;
 public class GymClass {
 
     private Date date;
-    private Room room;
+    private Room.GymRoom room;
     private Trainer trainer;
     private ClassType classType;
+    private String time;
 
     /**
      * Constructor for GymClass
@@ -22,11 +23,20 @@ public class GymClass {
      * @param date,    the date for the planned class.
      * @param trainer, the trainer assigned to teach the class.
      */
-    public GymClass(Date d, Trainer t) {
-        date = d;
+    public GymClass(Trainer t, String time) {
+        //date = d;
         trainer = t;
+        this.time = time;
     }
 
+    public void setTime(String time) {
+        this.time = time;
+    }
+    
+    public String getTime() {
+        return time;
+    }
+    
     public void setClassType(String type) {
         this.classType = new ClassType(type);
     }
@@ -51,11 +61,11 @@ public class GymClass {
         return date;
     }
 
-    public void setRoom(Room r) {
+    public void setRoom(Room.GymRoom r) {
         room = r;
     }
 
-    public Room getRoom() {
+    public Room.GymRoom getRoom() {
         return room;
     }
 
