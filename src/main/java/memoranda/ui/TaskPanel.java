@@ -533,7 +533,7 @@ public class TaskPanel extends JPanel {
 
     // TODO: New class button pressed actions
     void newClass_actionPerformed(ActionEvent e) {
-        GymClassDialog dlg = new GymClassDialog(App.getFrame(), Local.getString("New class"));
+        GymClassDialog dlg = new GymClassDialog(App.getFrame(), Local.getString("New Class"));
 
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
