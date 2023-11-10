@@ -278,11 +278,18 @@ public class StudentPanel extends JPanel {
         Point loc = App.getFrame().getLocation();
         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
         dlg.setVisible(true);
-        if (dlg.CANCELLED)
+        if (dlg.CANCELLED) {
             return;
+        } else {
+            System.out.println("Hey");
+            studentList.addStudent(dlg.getStudent());
+            data = updateTable();
+            dtm.setDataVector(data, columnNames);
+            tableIndexSelected = -1;
+        }
     }
 
-    public Object[][] updateStudentTable(){
+    public Object[][] updateStudentTable() {
         int count = studentList.getAllStudentCount();
         Object[][] data = new Object[count][columnNames.length];
         for (int i = 0; i < count; i++) {

@@ -1,21 +1,14 @@
 package main.java.memoranda.ui;
 
-import main.java.memoranda.CurrentProject;
-import main.java.memoranda.date.CalendarDate;
+import main.java.memoranda.BeltRank;
+import main.java.memoranda.Student;
 import main.java.memoranda.util.Local;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class AddStudentDialog extends JDialog {
 
@@ -32,28 +25,22 @@ public class AddStudentDialog extends JDialog {
     JPanel jPanelInputs = new JPanel(new GridLayout(4,1));
     JPanel jPanelFirstName = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel jPanelLastName = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    JPanel jPanelAge = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel jPanelBeltRank = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel jPanelTrainRank = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel jPanelButtons = new JPanel(new FlowLayout(FlowLayout.CENTER));
     Border border1;
-    Border border4;
-    Border border8;
-    JLabel jLabel1 = new JLabel();
-    JLabel jLabel2 = new JLabel();
-    JLabel jLabel3 = new JLabel();
-    JLabel jLabel4 = new JLabel();
 
-
+    JFormattedTextField ageFormattedTextField = new JFormattedTextField();
     JTextField firstNameField = new JTextField();
     JTextField lastNameField = new JTextField();
     JButton cancelB = new JButton();
     JButton okB = new JButton();
 
-    String[] beltRank = {Local.getString("White"), Local.getString("Yellow"),
-            Local.getString("Green"), Local.getString("Red"),
-            Local.getString("Black")};
+    String[] beltRank = new String[0];
     JComboBox beltRankCB = new JComboBox(beltRank);
     JComboBox trainRankCB = new JComboBox(beltRank);
+    Student newStudent;
 
     public AddStudentDialog(Frame frame, String title) {
         super(frame, title, true);
@@ -95,6 +82,13 @@ public class AddStudentDialog extends JDialog {
         jPanelLastName.add(lastNameField);
         lastNameField.setPreferredSize(new Dimension(210, 24));
 
+        // Age Field
+        Border ageTitle = new TitledBorder((BorderFactory.createEmptyBorder(0,0,2,0)),
+                Local.getString("Age"), TitledBorder.LEFT, TitledBorder.BELOW_TOP);
+        jPanelAge.setBorder(ageTitle);
+        jPanelAge.add(ageFormattedTextField);
+        jPanelAge.setPreferredSize(new Dimension(105, 24));
+
         // Belt Rank Field
         beltRankTitleBorder = new TitledBorder(BorderFactory.createEmptyBorder(0, 0, 2, 0),
                 Local.getString(" Belt Rank"), TitledBorder.LEFT, TitledBorder.BELOW_TOP);
@@ -111,9 +105,17 @@ public class AddStudentDialog extends JDialog {
         trainRankCB.setBackground(Color.white);
         trainRankCB.setPreferredSize(new Dimension(105, 24));
 
+        int comboBoxSize = BeltRank.Rank.values().length;
+        String[] beltColors = new String[comboBoxSize];
+        for (int i = 0; i < comboBoxSize; i++) {
+            beltRankCB.addItem(BeltRank.Rank.values()[i].name());
+            trainRankCB.addItem(BeltRank.Rank.values()[i].name());
+        }
+
         // Inputs Field
         jPanelInputs.add(jPanelFirstName);
         jPanelInputs.add(jPanelLastName);
+        jPanelInputs.add(jPanelAge);
         jPanelInputs.add(jPanelBeltRank);
         jPanelInputs.add(jPanelTrainRank);
 
@@ -151,9 +153,15 @@ public class AddStudentDialog extends JDialog {
         this.add(jPanelActions);
     }
 
+
     void okB_actionPerformed(ActionEvent e) {
+        newStudent = new Student(firstNameField.getText(), lastNameField.getText(), 42, BeltRank.Rank.valueOf(String.valueOf(beltRankCB.getSelectedItem())), BeltRank.Rank.valueOf(String.valueOf(trainRankCB.getSelectedItem())));
         CANCELLED = false;
         this.dispose();
+    }
+
+    public Student getStudent() {
+        return newStudent;
     }
 
     void cancelB_actionPerformed(ActionEvent e) {
