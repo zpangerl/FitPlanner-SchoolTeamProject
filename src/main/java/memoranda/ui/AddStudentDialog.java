@@ -9,6 +9,7 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.text.NumberFormat;
 
 public class AddStudentDialog extends JDialog {
 
@@ -22,7 +23,7 @@ public class AddStudentDialog extends JDialog {
     Border trainRankTitleBorder;
     JPanel jPanelHeader = new JPanel(new BorderLayout());
     JPanel jPanelActions = new JPanel(new BorderLayout());
-    JPanel jPanelInputs = new JPanel(new GridLayout(4,1));
+    JPanel jPanelInputs = new JPanel(new GridLayout(5,1));
     JPanel jPanelFirstName = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel jPanelLastName = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel jPanelAge = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -30,8 +31,8 @@ public class AddStudentDialog extends JDialog {
     JPanel jPanelTrainRank = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JPanel jPanelButtons = new JPanel(new FlowLayout(FlowLayout.CENTER));
     Border border1;
-
-    JFormattedTextField ageFormattedTextField = new JFormattedTextField();
+    NumberFormat amountFormat;
+    JFormattedTextField ageFormattedTextField = new JFormattedTextField(amountFormat);
     JTextField firstNameField = new JTextField();
     JTextField lastNameField = new JTextField();
     JButton cancelB = new JButton();
@@ -87,7 +88,8 @@ public class AddStudentDialog extends JDialog {
                 Local.getString("Age"), TitledBorder.LEFT, TitledBorder.BELOW_TOP);
         jPanelAge.setBorder(ageTitle);
         jPanelAge.add(ageFormattedTextField);
-        jPanelAge.setPreferredSize(new Dimension(105, 24));
+        ageFormattedTextField.setPreferredSize(new Dimension(105, 24));
+        ageFormattedTextField.setValue(0);
 
         // Belt Rank Field
         beltRankTitleBorder = new TitledBorder(BorderFactory.createEmptyBorder(0, 0, 2, 0),
@@ -155,7 +157,7 @@ public class AddStudentDialog extends JDialog {
 
 
     void okB_actionPerformed(ActionEvent e) {
-        newStudent = new Student(firstNameField.getText(), lastNameField.getText(), 42, BeltRank.Rank.valueOf(String.valueOf(beltRankCB.getSelectedItem())), BeltRank.Rank.valueOf(String.valueOf(trainRankCB.getSelectedItem())));
+        newStudent = new Student(lastNameField.getText(), firstNameField.getText(),((Number)ageFormattedTextField.getValue()).intValue(), BeltRank.Rank.valueOf(String.valueOf(beltRankCB.getSelectedItem())), BeltRank.Rank.valueOf(String.valueOf(trainRankCB.getSelectedItem())));
         CANCELLED = false;
         this.dispose();
     }
