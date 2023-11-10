@@ -70,11 +70,6 @@ public class StudentPanel extends JPanel {
 
         // Static demo data for testing.
         // TODO: Implement reading student list from file.
-        studentList.addStudent(new Student("Smith", "Kathy", 42, BeltRank.Rank.WHITE, BeltRank.Rank.YELLOW));
-        studentList.addStudent(new Student("Doe", "John", 21, BeltRank.Rank.YELLOW, BeltRank.Rank.BLUE));
-        studentList.addStudent(new Student("Black", "Sue", 31, BeltRank.Rank.GREEN, BeltRank.Rank.GREEN_STRIPE));
-        studentList.addStudent(new Student("White", "Jane", 45, BeltRank.Rank.BROWN1, BeltRank.Rank.BROWN2));
-        studentList.addStudent(new Student("Brown", "Joe", 18, BeltRank.Rank.BLACK1, BeltRank.Rank.BLACK2));
 
         data = updateStudentTable();
         //studentTable = new JTable(data, columnNames);
@@ -92,7 +87,6 @@ public class StudentPanel extends JPanel {
                 int y = (int) e.getPoint().getY();
                 Point point = new Point(20, y);
                 int b = studentTable.rowAtPoint(point);
-                System.out.println("Mouse Clicked Row: " + b);
                 if(b < 0){
                     studentTable.clearSelection();
                     studentTable.updateUI();
@@ -134,7 +128,7 @@ public class StudentPanel extends JPanel {
                     dtm.setDataVector(data, columnNames);
                     tableIndexSelected = -1;
                 } else {
-                    System.out.println("Pressed NO");
+
                 }
             }
         });
@@ -156,24 +150,9 @@ public class StudentPanel extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                System.out.println("Scroll Bar Clicked");
             }
         });
-        /*
-        studentTable.addMouseListener(ppListener);
-        studentTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent e) {
-                tableIndexSelected = studentTable.getSelectedRow();
-                System.out.println("Mouse Clicked: Row " + tableIndexSelected);
 
-                boolean enbl = (studentTable.getRowCount() > 0) && (studentTable.getSelectedRow() > -1);
-
-                removeStudentB.setEnabled(enbl);
-                ppRemoveStudent.setEnabled(enbl);
-                ppRun.setEnabled(enbl);
-            }
-        });
-        */
         refreshB.setBorderPainted(false);
         refreshB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -281,7 +260,6 @@ public class StudentPanel extends JPanel {
         if (dlg.CANCELLED) {
             return;
         } else {
-            System.out.println("Hey");
             studentList.addStudent(dlg.getStudent());
             data = updateTable();
             dtm.setDataVector(data, columnNames);
