@@ -25,7 +25,7 @@ public class WorkPanel extends JPanel {
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
 	public ResourcesPanel filesPanel = new ResourcesPanel();
 	public TrainersPanel trainersPanel = new TrainersPanel();
-	public ClassPanel classPanel = new ClassPanel();
+	public GymClassPanel gymClassPanel = new GymClassPanel();
 	public JButton agendaB = new JButton();
 	public JButton classesB = new JButton();
 	public JButton eventsB = new JButton();
@@ -196,7 +196,7 @@ public class WorkPanel extends JPanel {
 		panel.add(dailyItemsPanel, "DAILYITEMS");
 		panel.add(filesPanel, "FILES");
 		panel.add(trainersPanel, "TRAINERS");
-		panel.add(classPanel, "CLASSES");
+		panel.add(gymClassPanel, "CLASSES");
 		toolBar.add(agendaB, null);
 		toolBar.add(eventsB, null);
 		toolBar.add(classesB, null);
@@ -212,7 +212,7 @@ public class WorkPanel extends JPanel {
 		dailyItemsPanel.setBorder(null);
 		filesPanel.setBorder(null);
 		trainersPanel.setBorder(null);
-		classPanel.setBorder(null);
+		gymClassPanel.setBorder(null);
 
 	}
 
