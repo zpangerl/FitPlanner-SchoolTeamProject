@@ -33,8 +33,10 @@ public class TrainersPanel extends JPanel {
     final String[] trainersTableColumnNames =
         {"First Name", "Last Name", "Training Rank", "Belt Rank"};
 
-    /* default constructor */
-    TrainersPanel() {
+    /**
+     * Default constructor.
+     */
+    public TrainersPanel() {
         // Set layout
         this.setLayout(new BorderLayout());
 

@@ -120,7 +120,7 @@ public class TrainerDialog extends JDialog {
         //c.fill = GridBagConstraints.BOTH;
         c.gridx = 1;
         c.gridy = 2;
-        trainingRankCombo = new JComboBox<>(getBeltRanks());
+        trainingRankCombo = new JComboBox<>(BeltRank.getBeltRanks());
         inputPanel.add(trainingRankCombo, c);
 
         // ####################################################################
@@ -133,7 +133,7 @@ public class TrainerDialog extends JDialog {
         //c.fill = GridBagConstraints.BOTH;
         c.gridx = 1;
         c.gridy = 3;
-        beltRankCombo = new JComboBox<>(getBeltRanks());
+        beltRankCombo = new JComboBox<>(BeltRank.getBeltRanks());
         inputPanel.add(beltRankCombo, c);
 
         // ####################################################################
@@ -153,20 +153,6 @@ public class TrainerDialog extends JDialog {
         inputPanel.add(cancelButton, c);
 
         this.getContentPane().add(inputPanel, BorderLayout.CENTER);
-    }
-
-    /**
-     * Convert BeltRank.Rank enums to array of Strings for JComboBox.
-     * @return String[] of Belt Ranks
-     */
-    String[] getBeltRanks() {
-        BeltRank.Rank[] beltRanks = BeltRank.Rank.values();
-        String[] beltRanksStrings = new String[beltRanks.length];
-        int i = 0;
-        for (BeltRank.Rank beltRank : BeltRank.Rank.values()) {
-            beltRanksStrings[i++] = BeltRank.getBeltRankName(beltRank);
-        }
-        return beltRanksStrings;
     }
 
     /**
