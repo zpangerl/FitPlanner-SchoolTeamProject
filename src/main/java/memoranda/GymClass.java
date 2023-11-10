@@ -12,7 +12,7 @@ import java.util.Date;
 public class GymClass {
 
     private Date date;
-    private Room room;
+    private Room.GymRoom room;
     private Trainer trainer;
     private ClassType classType;
 
@@ -32,7 +32,7 @@ public class GymClass {
     }
 
     public String getClassType() {
-        return classType.toString();
+        return classType != null ? classType.toString() : "N/A";
     }
 
     public void setTrainer(Trainer t) {
@@ -51,11 +51,11 @@ public class GymClass {
         return date;
     }
 
-    public void setRoom(Room r) {
+    public void setRoom(Room.GymRoom r) {
         room = r;
     }
 
-    public Room getRoom() {
+    public Room.GymRoom getRoom() {
         return room;
     }
 

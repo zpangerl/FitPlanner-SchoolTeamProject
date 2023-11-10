@@ -1,6 +1,6 @@
 package main.java.memoranda.ui;
 
-import main.java.memoranda.GymClass;
+import main.java.memoranda.*;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.date.DateListener;
@@ -10,7 +10,15 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
+import java.util.Date;
 import java.util.Vector;
+/*
+  File:	GymClassTable.java
+  Author: Rhett Harrison
+  Version: 2023.11.09
+
+  Description: Table for GymClass(es)
+*/
 
 public class GymClassTable extends JTable {
     public static final int GYMCLASS = 100;
@@ -31,11 +39,35 @@ public class GymClassTable extends JTable {
     }
 
     public void initTable(CalendarDate calendarDate) {
+        // Create three trainers to vary beltRank and trainingRank
+        Trainer tmpTrainer1 = new Trainer();
+        tmpTrainer1.setFirstName("FirstnameTest" + "-1");
+        tmpTrainer1.setLastName("LastnameTest" + "-1");
+        tmpTrainer1.setTrainingRank(BeltRank.Rank.BLUE);
+        tmpTrainer1.setBeltRank(BeltRank.Rank.BLUE_STRIPE); // STRIPE on belts
+        TrainerList.addTrainer(tmpTrainer1);
+
+        Trainer tmpTrainer2 = new Trainer();
+        tmpTrainer2.setFirstName("FirstnameTest" + "-2");
+        tmpTrainer2.setLastName("LastnameTest" + "-2");
+        tmpTrainer2.setTrainingRank(BeltRank.Rank.GREEN);
+        tmpTrainer2.setBeltRank(BeltRank.Rank.GREEN_STRIPE); // STRIPE on belts
+        TrainerList.addTrainer(tmpTrainer2);
+
+        Trainer tmpTrainer3 = new Trainer();
+        tmpTrainer3.setFirstName("FirstnameTest" + "-3");
+        tmpTrainer3.setLastName("LastnameTest" + "-3");
+        tmpTrainer3.setTrainingRank(BeltRank.Rank.BROWN1);
+        tmpTrainer3.setBeltRank(BeltRank.Rank.BROWN2);
+        TrainerList.addTrainer(tmpTrainer3);
         for(int i = 0; i < 10; i++) {
-            gymClasses.add(new GymClass(calendarDate.getDate(), null));
+            Date date = CalendarDate.today().getDate();
+            GymClass gymClass = new GymClass(date, tmpTrainer1);
+            gymClass.setRoom(Room.GymRoom.ROOM1);
+            gymClasses.add(gymClass);
         }
-        getColumnModel().getColumn(0).setPreferredWidth(60);
-        getColumnModel().getColumn(0).setMaxWidth(60);
+        getColumnModel().getColumn(0).setPreferredWidth(180);
+        getColumnModel().getColumn(0).setMaxWidth(180);
         clearSelection();
         updateUI();
     }
@@ -65,8 +97,7 @@ public class GymClassTable extends JTable {
                 "Date",
                 "Class Type",
                 "Trainer",
-                // TODO: Add room variable
-//                "Room"
+                "Room"
         };
 
         GymClassTableModel() {
@@ -86,21 +117,24 @@ public class GymClassTable extends JTable {
 
         @Override
         public int getColumnCount() {
-            // TODO: Add room variable
-            return 3;
+            return 4;
         }
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
             GymClass gymClass = (GymClass) gymClasses.get(rowIndex);
+            if(gymClass == null) {
+                return null;
+            }
             switch (columnIndex) {
                 case 0:
                     return gymClass.getDate();
                 case 1:
                     return gymClass.getClassType();
                 case 2:
-                    return gymClass.getTrainer();
-                // TODO: Add room variable
+                    return gymClass.getTrainer().getName();
+                case 3:
+                    return gymClass.getRoom();
                 default:
                     // ! This should never happen
                     return null;

@@ -3,15 +3,25 @@ package main.java.memoranda.ui;
 import main.java.memoranda.util.Local;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.TableModelEvent;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
+/*
+  File:	GymClassPanel.java
+  Author: Rhett Harrison
+  Version: 2023.11.09
+
+  Description: Simple GymClass panel to display add button and rows of GymClass(es)
+*/
+
 
 public class GymClassPanel extends JPanel {
     BorderLayout borderLayout1 = new BorderLayout();
     JToolBar toolBar = new JToolBar();
     JButton newClassB = new JButton();
+    GymClassTable gymClassTable = new GymClassTable();
     JButton removeResB = new JButton();
     JScrollPane scrollPane = new JScrollPane();
     JButton refreshB = new JButton();
@@ -48,6 +58,8 @@ public class GymClassPanel extends JPanel {
             }
         });
         newClassB.setBorderPainted(false);
+        gymClassTable.setMaximumSize(new Dimension(32767, 32767));
+        gymClassTable.setRowHeight(24);
         removeResB.setBorderPainted(false);
         removeResB.setFocusable(false);
         removeResB.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +81,15 @@ public class GymClassPanel extends JPanel {
         toolBar.addSeparator(new Dimension(8, 24));
         PopupListener ppListener = new PopupListener();
         scrollPane.addMouseListener(ppListener);
-        // TODO: Add table of classes here
+        gymClassTable.addMouseListener(ppListener);
+
+        gymClassTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                boolean enable = (gymClassTable.getRowCount() > 0) && (gymClassTable.getSelectedRow() > -1);
+                removeResB.setEnabled(enable);
+                ppRemoveClass.setEnabled(enable);
+            }
+        });
 
         refreshB.setBorderPainted(false);
         refreshB.addActionListener(new java.awt.event.ActionListener() {
@@ -92,8 +112,7 @@ public class GymClassPanel extends JPanel {
 
         ppRun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
-//                ppRun_actionPerformed(e);
+                ppRun_actionPerformed(e);
             }
         });
         ppRun.setEnabled(false);
@@ -104,7 +123,7 @@ public class GymClassPanel extends JPanel {
         ppRemoveClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-//                ppRemoveClass_actionPerformed(e);
+                ppRemoveClass_actionPerformed(e);
             }
         });
         ppRemoveClass.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removeresource.png")));
@@ -115,7 +134,7 @@ public class GymClassPanel extends JPanel {
         ppNewClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-//                ppNewClass_actionPerformed(e);
+                ppNewClass_actionPerformed(e);
             }
         });
         ppNewClass.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/addresource.png")));
@@ -125,7 +144,7 @@ public class GymClassPanel extends JPanel {
         ppRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-//                ppRefresh_actionPerformed(e);
+                ppRefresh_actionPerformed(e);
             }
         });
         ppRefresh.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/refreshres.png")));
@@ -135,7 +154,7 @@ public class GymClassPanel extends JPanel {
         toolBar.addSeparator();
         toolBar.add(refreshB, null);
         this.add(scrollPane, BorderLayout.CENTER);
-//        scrollPane.getViewport().add(resourcesTable, null);
+        scrollPane.getViewport().add(gymClassTable, null);
         this.add(toolBar, BorderLayout.NORTH);
         classPPMenu.add(ppRun);
         classPPMenu.addSeparator();
@@ -143,20 +162,36 @@ public class GymClassPanel extends JPanel {
         classPPMenu.add(ppRemoveClass);
         classPPMenu.addSeparator();
         classPPMenu.add(ppRefresh);
-        // remove resources using the DEL key
-        // TODO: Do this for Classes
-//        resourcesTable.addKeyListener(new KeyListener() {
-//            public void keyPressed(KeyEvent e){
-//                if(resourcesTable.getSelectedRows().length>0
-//                        && e.getKeyCode()==KeyEvent.VK_DELETE)
-//                    ppRemoveRes_actionPerformed(null);
-//            }
-//            public void	keyReleased(KeyEvent e){}
-//            public void keyTyped(KeyEvent e){}
-//        });
+        // remove class using the DEL key
+        gymClassTable.addKeyListener(new KeyListener() {
+            public void keyPressed(KeyEvent e){
+                if(gymClassTable.getSelectedRows().length>0
+                        && e.getKeyCode()==KeyEvent.VK_DELETE)
+                    ppRemoveClass_actionPerformed(null);
+            }
+            public void	keyReleased(KeyEvent e){}
+            public void keyTyped(KeyEvent e){}
+        });
 
         scrollPane.getViewport().setBackground(Color.white);
     }
+
+    private void ppRefresh_actionPerformed(ActionEvent e) {
+
+    }
+
+    private void ppNewClass_actionPerformed(ActionEvent e) {
+
+    }
+
+    private void ppRemoveClass_actionPerformed(Object o) {
+
+    }
+
+    /**
+     * Class to handle mouse events
+     */
+
     class PopupListener extends MouseAdapter {
 
         public void mouseClicked(MouseEvent e) {
@@ -177,6 +212,31 @@ public class GymClassPanel extends JPanel {
             }
         }
 
+    }
+
+    /**
+     * Refresh the table
+     * ? Not sure if this event param is needed yet
+     * @param event event to be consumed
+     */
+    void refreshB_actionPerformed(ActionEvent event) {
+        gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+    }
+
+    /**
+     *
+     * @param event event to be consumed
+     */
+    void ppRun_actionPerformed(ActionEvent event) {
+
+    }
+
+    /**
+     * Remove the selected class
+     * @param event event to be consumed
+     */
+    private void removeClassB_actionPerformed(ActionEvent event) {
+        // Remove the selected class
     }
 
 }
