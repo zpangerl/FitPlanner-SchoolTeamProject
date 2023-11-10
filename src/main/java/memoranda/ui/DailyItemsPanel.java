@@ -192,7 +192,7 @@ public class DailyItemsPanel extends JPanel {
         });
 
         CurrentProject.addProjectListener(new ProjectListener() {
-            public void projectChange(Project p, NoteList nl, TaskList tl, ResourcesList rl, TrainersList tr) {
+            public void projectChange(Project p, NoteList nl, TaskList tl, ResourcesList rl) {
 //            	Util.debug("DailyItemsPanel Project Listener: Project is going to be changed!");				
 //            	Util.debug("current project is " + CurrentProject.get().getTitle());
 

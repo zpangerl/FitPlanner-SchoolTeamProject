@@ -1,0 +1,100 @@
+/*
+  File: TestWhiteBoxTrainer.java
+  Author: Steven Stovall
+  Version: 2023-11-07
+
+  Description: Provides Unit Tests to ensure that Trainer related methods work correctly
+*/
+
+import main.java.memoranda.BeltRank;
+import main.java.memoranda.Trainer;
+import main.java.memoranda.TrainerList;
+import org.junit.Test;
+
+import java.util.ArrayList;
+
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.*;
+
+/**
+ Class: TestWhiteBoxTrainer
+
+ Description: Tests Trainer related functions
+ */
+public class TestWhiteBoxTrainer {
+
+    /**
+     * Test code paths in Trainer.java getter/setters
+     */
+    @Test
+    public void trainerGettersSetters() {
+        /* testing values */
+        String firstName = "Steven";
+        String lastName = "Stovall";
+        BeltRank.Rank beltRank = BeltRank.Rank.BLUE;
+        BeltRank.Rank trainingRank = BeltRank.Rank.YELLOW;
+        Trainer trainer = new Trainer();
+        assertNotNull(trainer);
+        /* set/get name */
+        trainer.setFirstName(firstName);
+        trainer.setLastName(lastName);
+        assertEquals(firstName, trainer.getFirstName());
+        assertEquals(lastName, trainer.getLastName());
+        assertEquals(firstName + " " + lastName, trainer.getName());
+        /* set/get training rank and belt rank */
+        trainer.setBeltRank(beltRank);
+        assertEquals(beltRank, trainer.getBeltRank());
+        trainer.setTrainingRank(trainingRank);
+        assertEquals(trainingRank, trainer.getTrainingRank());
+    }
+
+    /**
+     * Test code paths in Trainer.java constructor
+     */
+    @Test
+    public void trainerConstructor() {
+        /* testing values */
+        String firstName = "Steven";
+        String lastName = "Stovall";
+        BeltRank.Rank beltRank = BeltRank.Rank.BLUE;
+        BeltRank.Rank trainingRank = BeltRank.Rank.YELLOW;
+        /* test constructor that adds everything to trainer at once */
+        Trainer trainer = new Trainer(firstName, lastName, trainingRank, beltRank);
+        assertNotNull(trainer);
+        assertEquals(firstName, trainer.getFirstName());
+        assertEquals(lastName, trainer.getLastName());
+        assertEquals(firstName + " " + lastName, trainer.getName());
+        assertEquals(beltRank, trainer.getBeltRank());
+        assertEquals(trainingRank, trainer.getTrainingRank());
+    }
+
+    /**
+     * Test code paths in TrainerList.java
+     */
+    @Test
+    public void trainerListAddGetRemoveTrainers() {
+        /* test trainer returns empty and not null */
+        ArrayList<Trainer> trainers = TrainerList.getTrainers();
+        assertNotNull(trainers);
+
+        /* testing values */
+        // create trainer1, trainer2
+        Trainer trainer1 = new Trainer();
+        Trainer trainer2 = new Trainer();
+
+        // add trainer1 to TrainerList
+        TrainerList.addTrainer(trainer1);
+        assertThat(TrainerList.getTrainers(), hasItem(trainer1));
+        assertThat(TrainerList.getTrainers(), not(hasItem(trainer2)));
+        // add trainer2 to TrainerList
+        TrainerList.addTrainer(trainer2);
+        assertThat(TrainerList.getTrainers(), hasItem(trainer1));
+
+        // remove trainer1
+        TrainerList.removeTrainer(trainer1);
+        assertThat(TrainerList.getTrainers(), hasItem(trainer2));
+        assertThat(TrainerList.getTrainers(), not(hasItem(trainer1)));
+        }
+
+}

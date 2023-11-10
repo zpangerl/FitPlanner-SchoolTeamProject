@@ -230,8 +230,7 @@ public class AgendaPanel extends JPanel {
 					Project prj,
 					NoteList nl,
 					TaskList tl,
-					ResourcesList rl,
-					TrainersList tr) {
+					ResourcesList rl) {
 			}
 
 			public void projectWasChanged() {

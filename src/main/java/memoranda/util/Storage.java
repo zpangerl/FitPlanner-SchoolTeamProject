@@ -45,7 +45,4 @@ public interface Storage {
     
     void restoreContext();
     void storeContext();
-
-    TrainersList openTrainersList(Project project);
-    void storeTrainersList(TrainersList tl, Project project);
 }
