@@ -132,6 +132,7 @@ public class GymClassDialog extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 // cancelB_actionPerformed(e);
                 System.out.println("Cancel button pressed.");
+                // TODO: Perform action for cancel button
             }
         });
 
@@ -147,6 +148,7 @@ public class GymClassDialog extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 // okB_actionPerformed(e);
                 System.out.println("Okay button pressed.");
+                // TODO: Perform action for okay button
             }
         });
         
@@ -159,9 +161,9 @@ public class GymClassDialog extends JDialog {
         //dialogTitlePanel.setPreferredSize(new Dimension(159, 52));
         header.setFont(new java.awt.Font("Dialog", 0, 20));
         header.setForeground(new Color(0, 0, 124));
-        header.setText(Local.getString("To do"));
+        header.setText(Local.getString("New Class"));
         header.setIcon(new ImageIcon(main.java.memoranda.ui.TaskDialog.class.getResource(
-            "/ui/icons/task48.png")));
+            "/ui/icons/class48.png")));
         
         GridBagLayout gbLayout = (GridBagLayout) jPanel8.getLayout();
         jPanel8.setBorder(titledBorder);
