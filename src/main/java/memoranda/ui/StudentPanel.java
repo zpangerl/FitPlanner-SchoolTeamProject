@@ -10,6 +10,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.MouseInputListener;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -29,8 +30,16 @@ public class StudentPanel extends JPanel {
     JMenuItem ppNewStudent = new JMenuItem();
     JMenuItem ppRefresh = new JMenuItem();
     StudentListImpl studentList = new StudentListImpl();
-    int selectedStudent = -1;
-    ArrayList<String[]> data = new ArrayList<>();
+    int tableIndexSelected = -1;
+    Object[][] data = new Object[0][0];
+    String[] columnNames = {
+            "First Name",
+            "Last Name",
+            "Age",
+            "Belt Rank",
+            "Training Rank"
+    };
+    DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 
     public StudentPanel() {
         try {
@@ -59,14 +68,6 @@ public class StudentPanel extends JPanel {
         });
         newStudentB.setBorderPainted(false);
 
-        String[] columnNames = {
-                "First Name",
-                "Last Name",
-                "Age",
-                "Belt Rank",
-                "Training Rank"
-        };
-
         // Static demo data for testing.
         // TODO: Implement reading student list from file.
         studentList.addStudent(new Student("Smith", "Kathy", 42, BeltRank.Rank.WHITE, BeltRank.Rank.YELLOW));
@@ -75,22 +76,66 @@ public class StudentPanel extends JPanel {
         studentList.addStudent(new Student("White", "Jane", 45, BeltRank.Rank.BROWN1, BeltRank.Rank.BROWN2));
         studentList.addStudent(new Student("Brown", "Joe", 18, BeltRank.Rank.BLACK1, BeltRank.Rank.BLACK2));
 
-        //Object[][] data = new Object[studentList.getAllStudentCount()][columnNames.length];
-
-
-
-        studentTable = new JTable(data, columnNames);
+        data = updateStudentTable();
+        //studentTable = new JTable(data, columnNames);
+        dtm = new DefaultTableModel(data, columnNames);
+        JTable studentTable = new JTable(dtm);
+        studentTable.setLayout(new GridLayout(2,0));
         //table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         studentTable.setFillsViewportHeight(true);
-
         studentTable.setMaximumSize(new Dimension(32767, 32767));
         studentTable.setRowHeight(24);
+        studentTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                int y = (int) e.getPoint().getY();
+                Point point = new Point(20, y);
+                int b = studentTable.rowAtPoint(point);
+                System.out.println("Mouse Clicked Row: " + b);
+                if(b < 0){
+                    studentTable.clearSelection();
+                    studentTable.updateUI();
+                    tableIndexSelected = -1;
+                }
+                else {
+                    tableIndexSelected = b;
+                }
+            }
+        });
 
         removeStudentB.setBorderPainted(false);
         removeStudentB.setFocusable(false);
-        removeStudentB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                removeStudentB_actionPerformed(e);
+        removeStudentB.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                if (tableIndexSelected < 0) {
+                    return;
+                }
+                JPanel panel = new JPanel();
+                panel.setSize(new Dimension(200, 100));
+                panel.setLayout(null);
+                JLabel label1 = new JLabel("This will permanently remove the student.");
+                label1.setVerticalAlignment(SwingConstants.BOTTOM);
+                label1.setBounds(20, 20, 260, 30);
+                label1.setHorizontalAlignment(SwingConstants.CENTER);
+                panel.add(label1);
+                JLabel label2 = new JLabel("Do you still want to delete it?");
+                label2.setVerticalAlignment(SwingConstants.TOP);
+                label2.setHorizontalAlignment(SwingConstants.CENTER);
+                label2.setBounds(20, 80, 260, 30);
+                panel.add(label2);
+                UIManager.put("OptionPane.minimumSize", new Dimension(330, 200));
+                int res = JOptionPane.showConfirmDialog(null, panel, "Delete Student",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.PLAIN_MESSAGE);
+                if(res == 0) {
+                    studentList.removeStudent(studentList.getStudentByIndex(tableIndexSelected));
+                    data = updateTable();
+                    dtm.setDataVector(data, columnNames);
+                    tableIndexSelected = -1;
+                } else {
+                    System.out.println("Pressed NO");
+                }
             }
         });
         removeStudentB.setPreferredSize(new Dimension(24, 24));
@@ -114,11 +159,12 @@ public class StudentPanel extends JPanel {
                 System.out.println("Scroll Bar Clicked");
             }
         });
+        /*
         studentTable.addMouseListener(ppListener);
         studentTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
-                selectedStudent = studentTable.getSelectedRow();
-                System.out.println("Mouse Clicked: Row " + selectedStudent);
+                tableIndexSelected = studentTable.getSelectedRow();
+                System.out.println("Mouse Clicked: Row " + tableIndexSelected);
 
                 boolean enbl = (studentTable.getRowCount() > 0) && (studentTable.getSelectedRow() > -1);
 
@@ -127,6 +173,7 @@ public class StudentPanel extends JPanel {
                 ppRun.setEnabled(enbl);
             }
         });
+        */
         refreshB.setBorderPainted(false);
         refreshB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -154,11 +201,14 @@ public class StudentPanel extends JPanel {
 
         ppRemoveStudent.setFont(new java.awt.Font("Dialog", 1, 11));
         ppRemoveStudent.setText(Local.getString("Remove Student"));
+        /*
         ppRemoveStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppRemoveRes_actionPerformed(e);
             }
         });
+
+         */
         ppRemoveStudent.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removeresource.png")));
         ppRemoveStudent.setEnabled(false);
         ppNewStudent.setFont(new java.awt.Font("Dialog", 1, 11));
@@ -192,6 +242,7 @@ public class StudentPanel extends JPanel {
         studentPPMenu.add(ppRemoveStudent);
         studentPPMenu.addSeparator();
         studentPPMenu.add(ppRefresh);
+        /*
         studentTable.addKeyListener(new KeyListener() {
             public void keyPressed(KeyEvent e) {
                 if (studentTable.getSelectedRows().length > 0
@@ -205,6 +256,20 @@ public class StudentPanel extends JPanel {
             public void keyTyped(KeyEvent e) {
             }
         });
+
+         */
+    }
+
+    public Object[][] updateTable(){
+        Object[][] data = new Object[studentList.getAllStudentCount()][columnNames.length];
+        for (int i = 0; i < studentList.getAllStudentCount(); i++) {
+            data[i][0] = studentList.getStudentByIndex(i).getFirstName();
+            data[i][1] = studentList.getStudentByIndex(i).getLastName();
+            data[i][2] = studentList.getStudentByIndex(i).getAge();
+            data[i][3] = studentList.getStudentByIndex(i).getBeltRank();
+            data[i][4] = studentList.getStudentByIndex(i).getTrainingRank();
+        }
+        return data;
     }
 
     void newStudentB_actionPerformed(ActionEvent e) {
@@ -217,40 +282,18 @@ public class StudentPanel extends JPanel {
             return;
     }
 
-    void removeStudentB_actionPerformed(ActionEvent e) {
-        JPanel panel = new JPanel();
-        panel.setSize(new Dimension(200, 100));
-        panel.setLayout(null);
-        JLabel label1 = new JLabel("This will permanently remove the student.");
-        label1.setVerticalAlignment(SwingConstants.BOTTOM);
-        label1.setBounds(20, 20, 260, 30);
-        label1.setHorizontalAlignment(SwingConstants.CENTER);
-        panel.add(label1);
-        JLabel label2 = new JLabel("Do you still want to delete it?");
-        label2.setVerticalAlignment(SwingConstants.TOP);
-        label2.setHorizontalAlignment(SwingConstants.CENTER);
-        label2.setBounds(20, 80, 260, 30);
-        panel.add(label2);
-        UIManager.put("OptionPane.minimumSize", new Dimension(330, 200));
-        int res = JOptionPane.showConfirmDialog(null, panel, "Delete Student",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.PLAIN_MESSAGE);
-        if(res == 0) {
-            studentList.removeStudent(studentList.getStudentByIndex(selectedStudent));
-
-        } else {
-            System.out.println("Pressed NO");
+    public Object[][] updateStudentTable(){
+        int count = studentList.getAllStudentCount();
+        Object[][] data = new Object[count][columnNames.length];
+        for (int i = 0; i < count; i++) {
+            Student student = studentList.getStudentByIndex(i);
+            data[i][0] = student.getFirstName();
+            data[i][1] = student.getLastName();
+            data[i][2] = student.getAge();
+            data[i][3] = student.getBeltRank();
+            data[i][4] = student.getTrainingRank();
         }
-    }
-
-    public void updateStudentTable(){
-        for (int i = 0; i < studentList.getAllStudentCount(); i++) {
-            data[i][0] = studentList.getStudentByIndex(i).getFirstName();
-            data[i][1] = studentList.getStudentByIndex(i).getLastName();
-            data[i][2] = studentList.getStudentByIndex(i).getAge();
-            data[i][3] = studentList.getStudentByIndex(i).getBeltRank();
-            data[i][4] = studentList.getStudentByIndex(i).getTrainingRank();
-        }
+        return data;
     }
     class PopupListener extends MouseAdapter {
 
@@ -286,10 +329,11 @@ public class StudentPanel extends JPanel {
         //studentTable.tableChanged();
     }
 
+    /*
     void ppRemoveRes_actionPerformed(ActionEvent e) {
         removeStudentB_actionPerformed(e);
     }
-
+    */
     void ppNewStudent_actionPerformed(ActionEvent e) {
         newStudentB_actionPerformed(e);
     }
