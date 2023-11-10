@@ -7,8 +7,6 @@
 */
 
 package main.java.memoranda.ui;
-import main.java.memoranda.BeltRank;
-import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
 
 import javax.swing.*;
@@ -26,34 +24,6 @@ public class TrainersPanel extends JPanel {
 
     /* default constructor */
     TrainersPanel() {
-        boolean testDataEnabled = true; // TODO: set to false or remove test code below before merge to dev
-        if(testDataEnabled) {
-            // create some test trainers
-            for (int i = 0; i < 1; i++) {
-                // Create three trainers to vary beltRank and trainingRank
-                Trainer tmpTrainer1 = new Trainer();
-                tmpTrainer1.setFirstName("FirstnameTest" + i + "-1");
-                tmpTrainer1.setLastName("LastnameTest" + i + "-1");
-                tmpTrainer1.setTrainingRank(BeltRank.Rank.BLUE);
-                tmpTrainer1.setBeltRank(BeltRank.Rank.BLUE_STRIPE); // STRIPE on belts
-                TrainerList.addTrainer(tmpTrainer1);
-
-                Trainer tmpTrainer2 = new Trainer();
-                tmpTrainer2.setFirstName("FirstnameTest" + i + "-2");
-                tmpTrainer2.setLastName("LastnameTest" + i + "-2");
-                tmpTrainer2.setTrainingRank(BeltRank.Rank.GREEN);
-                tmpTrainer2.setBeltRank(BeltRank.Rank.GREEN_STRIPE); // STRIPE on belts
-                TrainerList.addTrainer(tmpTrainer2);
-
-                Trainer tmpTrainer3 = new Trainer();
-                tmpTrainer3.setFirstName("FirstnameTest" + i + "-3");
-                tmpTrainer3.setLastName("LastnameTest" + i + "-3");
-                tmpTrainer3.setTrainingRank(BeltRank.Rank.BROWN1);
-                tmpTrainer3.setBeltRank(BeltRank.Rank.BROWN2);
-                TrainerList.addTrainer(tmpTrainer3);
-            }
-        }
-
         // Set layout
         this.setLayout(new BorderLayout());
 
@@ -68,7 +38,7 @@ public class TrainersPanel extends JPanel {
         JPanel tablePanel = new JPanel();
         /* Add new trainer button */
         // Reference: https://www.geeksforgeeks.org/java-swing-jpanel-with-examples/
-        JButton addTrainerButton = new JButton("Add Trainer");
+        JButton addTrainerButton = getAddTrainerButton();
         buttonPanel.add(addTrainerButton);
 
         /* Delete trainer button */
@@ -95,6 +65,19 @@ public class TrainersPanel extends JPanel {
         mainPanel.add(tablePanel, c);
         this.add(mainPanel, BorderLayout.CENTER);
 
+    }
+
+    /**
+     * Create the add trainer button
+     * @return JButton add trainer button
+     */
+    private JButton getAddTrainerButton() {
+        JButton addTrainerButton = new JButton("Add Trainer");
+        addTrainerButton.addActionListener(e -> {
+            TrainerDialog trainerDialog = new TrainerDialog(this);
+            trainerDialog.setVisible(true);
+        });
+        return addTrainerButton;
     }
 
     /**
