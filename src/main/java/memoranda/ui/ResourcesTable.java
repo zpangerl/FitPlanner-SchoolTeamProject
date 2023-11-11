@@ -38,7 +38,7 @@ public class ResourcesTable extends JTable {
         initColumsWidth();
         //this.setModel(new ResourcesTableModel());
         CurrentProject.addProjectListener(new ProjectListener() {
-            public void projectChange(Project p, NoteList nl, TaskList tl, ResourcesList rl, TrainersList tr) {
+            public void projectChange(Project p, NoteList nl, TaskList tl, ResourcesList rl) {
                
             }
             public void projectWasChanged() {
