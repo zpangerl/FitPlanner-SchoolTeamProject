@@ -1,24 +1,5 @@
 package main.java.memoranda.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Map;
-
-import javax.swing.JButton;
-import javax.swing.JEditorPane;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JToolBar;
-import javax.swing.SwingUtilities;
-import javax.swing.event.HyperlinkEvent;
-import javax.swing.event.HyperlinkListener;
-
 import main.java.memoranda.*;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
@@ -27,10 +8,15 @@ import main.java.memoranda.util.AgendaGenerator;
 import main.java.memoranda.util.CurrentStorage;
 import main.java.memoranda.util.Local;
 import main.java.memoranda.util.Util;
-
-import javax.swing.JOptionPane;
-
 import nu.xom.Element;
+
+import javax.swing.*;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
 
 /*$Id: AgendaPanel.java,v 1.11 2005/02/15 16:58:02 rawsushi Exp $*/
 public class AgendaPanel extends JPanel {
@@ -75,10 +61,10 @@ public class AgendaPanel extends JPanel {
 					String d = e.getDescription();
 					if (d.equalsIgnoreCase("memoranda:events"))
 						parentPanel.alarmB_actionPerformed(null);
-					else if (d.startsWith("memoranda:tasks")) {
+					else if (d.startsWith("memoranda:classes")) {
 						String id = d.split("#")[1];
 						CurrentProject.set(ProjectManager.getProject(id));
-						parentPanel.taskB_actionPerformed(null);
+						parentPanel.classesB_actionPerformed(null);
 					} else if (d.startsWith("memoranda:project")) {
 						String id = d.split("#")[1];
 						CurrentProject.set(ProjectManager.getProject(id));
@@ -244,8 +230,7 @@ public class AgendaPanel extends JPanel {
 					Project prj,
 					NoteList nl,
 					TaskList tl,
-					ResourcesList rl,
-					TrainersList tr) {
+					ResourcesList rl) {
 			}
 
 			public void projectWasChanged() {
