@@ -2,11 +2,13 @@ package main.java.memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JTable;
+import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -18,6 +20,7 @@ import javax.swing.table.TableCellRenderer;
 
 import main.java.memoranda.GymClass;
 import main.java.memoranda.Room;
+import main.java.memoranda.Trainer;
 
 public class RoomsPanel extends JPanel {
     private JPanel switchPanel;
@@ -31,18 +34,24 @@ public class RoomsPanel extends JPanel {
     private JTable room4Table;
     private JPanel buttonPanel;
     private CardLayout cardLayout;
-    public ArrayList<GymClass> classesData;
+    private ArrayList<GymClass> classesData;
     final String[] roomsTableColNames = 
-        {"Room", "Class name", "Trainer", "Time"};
+        {"Class name", "Time", "Trainer"};
     
     public RoomsPanel() {
+        Trainer trainer1 = new Trainer("Zach", "Whar");
+        GymClass class1 = new GymClass(trainer1, "12:00");
+        class1.setClassType("Weights");
+        class1.setRoom(Room.GymRoom.ROOM2);
+        classesData = new ArrayList<>();
+        classesData.add(class1);
         this.setLayout(new BorderLayout());
         cardLayout = new CardLayout();
         switchPanel = new JPanel(cardLayout);
-        room1Panel = createRoomPanel("Room 1");
-        room2Panel = createRoomPanel("Room 2");
-        room3Panel = createRoomPanel("Room 3");
-        room4Panel = createRoomPanel("Room 4");
+        room1Panel = createRoomPanel("ROOM1");
+        room2Panel = createRoomPanel("ROOM2");
+        room3Panel = createRoomPanel("ROOM3");
+        room4Panel = createRoomPanel("ROOM4");
         buttonPanel = new JPanel(new GridLayout(1, 4));
         JButton room1Button = new JButton("Room 1");
         JButton room2Button = new JButton("Room 2");
@@ -61,8 +70,21 @@ public class RoomsPanel extends JPanel {
     }
     
     public JPanel createRoomPanel(String name) {
+        String borderTitle;
+        if(name.equals("ROOM1")) {
+            borderTitle = "Room 1";
+        }
+        else if(name.equals("ROOM2")) {
+            borderTitle = "Room 2";
+        }
+        else if(name.equals("ROOM3")) {
+            borderTitle = "Room 3";
+        }
+        else {
+            borderTitle = "Room 4";
+        }
         JPanel roomPanel = new JPanel(new BorderLayout());
-        Border border = BorderFactory.createTitledBorder(name);
+        Border border = BorderFactory.createTitledBorder(borderTitle);
         roomPanel.setBorder(border);
         createRoomTable(roomPanel, name);
         switchPanel.add(roomPanel, name);
@@ -90,13 +112,13 @@ public class RoomsPanel extends JPanel {
     private List<GymClass> filterClasses(ArrayList<GymClass> classesData, String name){
         List<GymClass> filtered = new ArrayList<>();
         Room.GymRoom roomNum;
-        if(name.equals("Room 1")) {
+        if(name.equals("ROOM1")) {
             roomNum = Room.GymRoom.ROOM1;
         }
-        else if(name.equals("Room 2")) {
+        else if(name.equals("ROOM2")) {
             roomNum = Room.GymRoom.ROOM2;
         }
-        else if(name.equals("Room 3")) {
+        else if(name.equals("ROOM3")) {
             roomNum = Room.GymRoom.ROOM3;
         }
         else {
