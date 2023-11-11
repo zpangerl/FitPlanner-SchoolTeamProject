@@ -56,9 +56,10 @@ public class GymClassDialog extends JDialog {
 
     JLabel jLabelClassName = new JLabel();
     JTextField classNameField = new JTextField();
-    JLabel jLabelDescription = new JLabel();
-    JTextArea descriptionField = new JTextArea();
-    JScrollPane descriptionScrollPane = new JScrollPane(descriptionField);
+    JLabel jLabelTrainer = new JLabel();
+    JComboBox jComboBoxTrainer = new JComboBox<>();
+    JLabel jLabelRoom = new JLabel();
+    JComboBox jComboBoxRoom = new JComboBox<>();
 
     JTextField effortField = new JTextField();
     Border border8;
@@ -184,26 +185,25 @@ public class GymClassDialog extends JDialog {
         gbLayout.setConstraints(classNameField, gbCon);
 
         // TODO: Add label for room, trainer, date, class type
-        // The lable for description
-        jLabelDescription.setMaximumSize(new Dimension(100, 16));
-        jLabelDescription.setMinimumSize(new Dimension(60, 16));
-        jLabelDescription.setText(Local.getString("Description"));
+        // The label for Room
+        jLabelRoom.setMaximumSize(new Dimension(100, 16));
+        jLabelRoom.setMinimumSize(new Dimension(60, 16));
+        jLabelRoom.setText(Local.getString("Room"));
         gbCon = new GridBagConstraints();
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 1;
         gbCon.anchor = GridBagConstraints.WEST;
-        gbLayout.setConstraints(jLabelDescription, gbCon);
+        gbLayout.setConstraints(jLabelRoom, gbCon);
 
-        descriptionField.setBorder(border8);
-        descriptionField.setPreferredSize(new Dimension(375, 387)); // 3 additional pixels from 384 so that the last
-                                                                    // line is not cut off
-        descriptionField.setLineWrap(true);
-        descriptionField.setWrapStyleWord(true);
+        // The label for Trainer
+        jLabelTrainer.setMaximumSize(new Dimension(100, 16));
+        jLabelTrainer.setMinimumSize(new Dimension(60, 16));
+        jLabelTrainer.setText(Local.getString("Trainer"));
         gbCon = new GridBagConstraints();
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
-        gbCon.weighty = 3;
-        descriptionScrollPane.setPreferredSize(new Dimension(375, 96));
-        gbLayout.setConstraints(descriptionScrollPane, gbCon);
+        gbCon.weighty = 1;
+        gbCon.anchor = GridBagConstraints.WEST;
+        gbLayout.setConstraints(jLabelTrainer, gbCon);
 
         jLabelEffort.setMaximumSize(new Dimension(100, 16));
         jLabelEffort.setMinimumSize(new Dimension(60, 16));
@@ -264,8 +264,8 @@ public class GymClassDialog extends JDialog {
         areaPanel.add(jPanel8, BorderLayout.NORTH);
         jPanel8.add(jLabelClassName);
         jPanel8.add(classNameField, null);
-        jPanel8.add(jLabelDescription);
-        jPanel8.add(descriptionScrollPane, null);
+        jPanel8.add(jLabelRoom);
+        jPanel8.add(jLabelTrainer);
         areaPanel.add(jPanel2, BorderLayout.CENTER);
         jPanel2.add(jPanel6, null);
         jPanel6.add(jLabel6, null);
