@@ -6,15 +6,11 @@
   Description: Provides Unit Tests to ensure that GymClassList class.
 */
 
+import java.util.*;
 import main.java.memoranda.*;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 /**
@@ -24,6 +20,9 @@ import static org.junit.Assert.*;
  */
 public class GymClassListTest {
 
+    /**
+     * Set up test data.
+     */
     @Before
     public void setUp() {
         GymClassList.getGymClasses().clear();

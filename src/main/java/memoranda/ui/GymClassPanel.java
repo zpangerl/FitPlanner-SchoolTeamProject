@@ -1,25 +1,18 @@
 package main.java.memoranda.ui;
 
-import main.java.memoranda.BeltRank;
-import main.java.memoranda.GymClass;
-import main.java.memoranda.GymClassList;
-import main.java.memoranda.Trainer;
-import main.java.memoranda.util.Local;
-
-import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.event.TableModelEvent;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Date;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import main.java.memoranda.*;
+import main.java.memoranda.util.*;
 /*
-  File:	GymClassPanel.java
-  Author: Rhett Harrison
-  Version: 2023.11.09
-
-  Description: Simple GymClass panel to display add button and rows of GymClass(es)
-*/
+ * File: GymClassPanel.java
+ * Author: Rhett Harrison
+ * Version: 2023.11.09
+ * Description: Simple GymClass panel to display add button and rows of GymClass(es)
+ */
 
 
 public class GymClassPanel extends JPanel {
@@ -30,12 +23,15 @@ public class GymClassPanel extends JPanel {
     JButton removeClassB = new JButton();
     JScrollPane scrollPane = new JScrollPane();
     JButton refreshB = new JButton();
-    JPopupMenu classPPMenu = new JPopupMenu();
+    JPopupMenu classPopUpMenu = new JPopupMenu();
     JMenuItem ppRun = new JMenuItem();
     JMenuItem ppRemoveClass = new JMenuItem();
     JMenuItem ppNewClass = new JMenuItem();
     JMenuItem ppRefresh = new JMenuItem();
 
+    /**
+     * Default constructor.
+     */
     public GymClassPanel() {
         try {
             jbInit();
@@ -50,7 +46,16 @@ public class GymClassPanel extends JPanel {
 
         // New Class Button
         newClassB.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/addresource.png")));
+                new ImageIcon(
+                        main
+                                .java
+                                .memoranda
+                                .ui
+                                .AppFrame
+                                .class
+                                .getResource(
+                                        "/ui/icons/addresource.png"
+                                )));
         newClassB.setEnabled(true);
         newClassB.setMaximumSize(new Dimension(24, 24));
         newClassB.setMinimumSize(new Dimension(24, 24));
@@ -83,7 +88,15 @@ public class GymClassPanel extends JPanel {
         removeClassB.setMaximumSize(new Dimension(24, 24));
         removeClassB.setIcon(
                 new ImageIcon(
-                        main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removeresource.png")));
+                        main
+                                .java
+                                .memoranda
+                                .ui
+                                .AppFrame
+                                .class
+                                .getResource(
+                                        "/ui/icons/removeresource.png"
+                                )));
         removeClassB.setEnabled(false);
 
         scrollPane.getViewport().setBackground(Color.white);
@@ -95,7 +108,9 @@ public class GymClassPanel extends JPanel {
 
         gymClassTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
-                boolean enable = (gymClassTable.getRowCount() > 0) && (gymClassTable.getSelectedRow() > -1);
+                boolean enable =
+                        (gymClassTable.getRowCount() > 0)
+                                && (gymClassTable.getSelectedRow() > -1);
                 removeClassB.setEnabled(enable);
                 ppRemoveClass.setEnabled(enable);
             }
@@ -116,7 +131,15 @@ public class GymClassPanel extends JPanel {
         refreshB.setMaximumSize(new Dimension(24, 24));
         refreshB.setEnabled(true);
         refreshB.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/refreshres.png")));
+                new ImageIcon(main
+                        .java
+                        .memoranda
+                        .ui
+                        .AppFrame
+                        .class
+                        .getResource(
+                                "/ui/icons/refreshres.png"
+                        )));
 
         ppRemoveClass.setFont(new java.awt.Font("Dialog", 1, 11));
         ppRemoveClass.setText(Local.getString("Remove class"));
@@ -126,7 +149,17 @@ public class GymClassPanel extends JPanel {
                 removeClassB_actionPerformed();
             }
         });
-        ppRemoveClass.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removeresource.png")));
+        ppRemoveClass.setIcon(
+                new ImageIcon(
+                        main
+                                .java
+                                .memoranda
+                                .ui
+                                .AppFrame
+                                .class
+                                .getResource(
+                                        "/ui/icons/removeresource.png"
+                                )));
         ppRemoveClass.setEnabled(false);
         ppNewClass.setFont(new java.awt.Font("Dialog", 1, 11));
         ppNewClass.setText(Local.getString("New class") + "...");
@@ -136,7 +169,16 @@ public class GymClassPanel extends JPanel {
                 ppNewClass_actionPerformed(e);
             }
         });
-        ppNewClass.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/addresource.png")));
+        ppNewClass.setIcon(new ImageIcon(
+                main
+                        .java
+                        .memoranda
+                        .ui
+                        .AppFrame
+                        .class
+                        .getResource(
+                                "/ui/icons/addresource.png"
+                        )));
 
         ppRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
         ppRefresh.setText(Local.getString("Refresh"));
@@ -145,7 +187,16 @@ public class GymClassPanel extends JPanel {
                 ppRefresh_actionPerformed(e);
             }
         });
-        ppRefresh.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/refreshres.png")));
+        ppRefresh.setIcon(new ImageIcon(
+                main
+                        .java
+                        .memoranda
+                        .ui
+                        .AppFrame
+                        .class
+                        .getResource(
+                                "/ui/icons/refreshres.png"
+                        )));
 
         toolBar.add(newClassB, null);
         toolBar.add(removeClassB, null);
@@ -154,19 +205,20 @@ public class GymClassPanel extends JPanel {
         this.add(scrollPane, BorderLayout.CENTER);
         scrollPane.getViewport().add(gymClassTable, null);
         this.add(toolBar, BorderLayout.NORTH);
-        classPPMenu.add(ppRun);
-        classPPMenu.addSeparator();
-        classPPMenu.add(ppNewClass);
-        classPPMenu.add(ppRemoveClass);
-        classPPMenu.addSeparator();
-        classPPMenu.add(ppRefresh);
+        classPopUpMenu.add(ppRun);
+        classPopUpMenu.addSeparator();
+        classPopUpMenu.add(ppNewClass);
+        classPopUpMenu.add(ppRemoveClass);
+        classPopUpMenu.addSeparator();
+        classPopUpMenu.add(ppRefresh);
 
         // remove class using the DEL key
         gymClassTable.addKeyListener(new KeyListener() {
             public void keyPressed(KeyEvent e) {
                 if (gymClassTable.getSelectedRows().length > 0
-                        && e.getKeyCode() == KeyEvent.VK_DELETE)
+                        && e.getKeyCode() == KeyEvent.VK_DELETE) {
                     removeClassB_actionPerformed();
+                }
             }
 
             public void keyReleased(KeyEvent e) {
@@ -188,7 +240,7 @@ public class GymClassPanel extends JPanel {
     }
 
     /**
-     * Class to handle mouse events
+     * Class to handle mouse events.
      */
 
     class PopupListener extends MouseAdapter {
@@ -207,21 +259,21 @@ public class GymClassPanel extends JPanel {
 
         private void maybeShowPopup(MouseEvent e) {
             if (e.isPopupTrigger()) {
-                classPPMenu.show(e.getComponent(), e.getX(), e.getY());
+                classPopUpMenu.show(e.getComponent(), e.getX(), e.getY());
             }
         }
 
     }
 
     /**
-     * Refresh the table
+     * Refresh the table.
      */
     void refreshB_actionPerformed() {
         gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
     }
 
     /**
-     * Remove the selected class
+     * Remove the selected class.
      */
     private void removeClassB_actionPerformed() {
         // Remove the selected class
@@ -233,7 +285,7 @@ public class GymClassPanel extends JPanel {
     }
 
     /**
-     * Create a new class
+     * Create a new class.
      */
     private void newClassB_actionPerformed() {
         // TODO: Implement a modal here that allows the user to create a new class

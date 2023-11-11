@@ -8,7 +8,7 @@
 
 package main.java.memoranda;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  Class: GymClassList
@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public final class GymClassList {
     // class variables
     private static ArrayList<GymClass> gymClasses;
+
     /* default constructor should not be used for utility class */
     public GymClassList() {
         // https://stackoverflow.com/questions/7766277/why-am-i-getting-this-warning-about-utility-classes-in-java
