@@ -3,24 +3,27 @@
   Author: Steven Stovall
   Version: 2023-11-07
 
-  Description: Provides Unit Tests to ensure that Trainer related methods work correctly
+  Description: Provides Unit Tests to ensure that Trainer related methods work correctly.
 */
-
-import main.java.memoranda.BeltRank;
-import main.java.memoranda.Trainer;
-import main.java.memoranda.TrainerList;
-import org.junit.Test;
-
-import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+
+import java.util.ArrayList;
+import main.java.memoranda.BeltRank;
+import main.java.memoranda.Trainer;
+import main.java.memoranda.TrainerList;
+import main.java.memoranda.ui.TrainerDialog;
+import main.java.memoranda.ui.TrainersPanel;
+import org.junit.Test;
 
 /**
  Class: TestWhiteBoxTrainer
 
- Description: Tests Trainer related functions
+ Description: Tests Trainer related functions.
  */
 public class TestWhiteBoxTrainer {
 
@@ -32,8 +35,6 @@ public class TestWhiteBoxTrainer {
         /* testing values */
         String firstName = "Steven";
         String lastName = "Stovall";
-        BeltRank.Rank beltRank = BeltRank.Rank.BLUE;
-        BeltRank.Rank trainingRank = BeltRank.Rank.YELLOW;
         Trainer trainer = new Trainer();
         assertNotNull(trainer);
         /* set/get name */
@@ -43,8 +44,10 @@ public class TestWhiteBoxTrainer {
         assertEquals(lastName, trainer.getLastName());
         assertEquals(firstName + " " + lastName, trainer.getName());
         /* set/get training rank and belt rank */
+        BeltRank.Rank beltRank = BeltRank.Rank.BLUE; // testing value
         trainer.setBeltRank(beltRank);
         assertEquals(beltRank, trainer.getBeltRank());
+        BeltRank.Rank trainingRank = BeltRank.Rank.YELLOW; // testing value
         trainer.setTrainingRank(trainingRank);
         assertEquals(trainingRank, trainer.getTrainingRank());
     }
@@ -95,6 +98,20 @@ public class TestWhiteBoxTrainer {
         TrainerList.removeTrainer(trainer1);
         assertThat(TrainerList.getTrainers(), hasItem(trainer2));
         assertThat(TrainerList.getTrainers(), not(hasItem(trainer1)));
-        }
+    }
 
+    /**
+     * Test BeltRank enum to String array conversion in TrainerDialog.
+     */
+    @Test
+    public void trainerDialogConvertBeltRanksToStringArray() {
+        String[] rankStrings = BeltRank.getBeltRanks();
+        BeltRank.Rank[] ranks = BeltRank.Rank.values();
+        assertEquals(ranks.length, rankStrings.length);
+        int idx = 0;
+        for (BeltRank.Rank rank : BeltRank.Rank.values()) {
+            assertEquals(rank.toString(), rankStrings[idx]);
+            idx++;
+        }
+    }
 }

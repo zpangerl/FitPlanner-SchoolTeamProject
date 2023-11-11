@@ -29,11 +29,11 @@ dependencies {
 // Configure Checkstyle
 /////////////////////////////////////////////////////////////////////
 apply plugin: 'checkstyle'
-// checkstyle {
-//   // Keep checkstyle a little quieter
-//   ignoreFailures = true
-//   showViolations = false
-// }
+checkstyle {
+  // Keep checkstyle a little quieter
+  ignoreFailures = true
+  showViolations = false
+}
 sourceSets {
     main {
         java {
@@ -70,7 +70,16 @@ tasks.withType(Checkstyle) {
     xml.enabled = false
   }
   // include '**/*.java'
-  include '**/ui/App.java'
+  // include '**/ui/App.java'
+  // Main FitPlanner files
+  include '**/BeltRank.java'
+  include '**/Trainer.java'
+  include '**/TrainerList.java'
+  // UI FitPlanner files
+  include '**/ui/TrainerDialog.java'
+  include '**/ui/TrainersPanel.java'
+  // FitPlanner Unit Tests
+  include '**/TestWhiteBoxTrainer.java'
  }
 
 checkstyle {

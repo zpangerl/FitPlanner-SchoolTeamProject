@@ -4,8 +4,8 @@ package main.java.memoranda;
  * BeltRank
  * Created on November 3, 2023
  * Author: Zach Pangerl
- * 
- * This class is used to represent different belt ranks.
+ *
+ * <p>This class is used to represent different belt ranks.
  */
 public class BeltRank {
     
@@ -29,9 +29,9 @@ public class BeltRank {
         BLACK3
     }
 
-    /** Return string representation of belt rank */
+    /** Return string representation of belt rank. */
     public static String getBeltRankName(BeltRank.Rank beltRank) {
-        switch(beltRank) {
+        switch (beltRank) {
             case WHITE:
                 return "WHITE";
             case YELLOW:
@@ -64,4 +64,19 @@ public class BeltRank {
                 return ""; // should be unreachable unless bad BeltRank.Rank
         }
     }
+
+    /**
+     * Convert BeltRank.Rank enums to array of Strings for JComboBox.
+     * @return String[] of Belt Ranks
+     */
+    public static String[] getBeltRanks() {
+        BeltRank.Rank[] beltRanks = BeltRank.Rank.values();
+        String[] beltRanksStrings = new String[beltRanks.length];
+        int i = 0;
+        for (BeltRank.Rank beltRank : BeltRank.Rank.values()) {
+            beltRanksStrings[i++] = BeltRank.getBeltRankName(beltRank);
+        }
+        return beltRanksStrings;
+    }
+
 }
