@@ -40,7 +40,7 @@ public class TaskPanel extends JPanel {
     JToolBar tasksToolBar = new JToolBar();
     JButton historyForwardB = new JButton();
     JButton newClassB = new JButton(); // TODO: New class button
-    JButton newTaskB = new JButton();
+    JButton newTaskB = new JButton(); // TODO: Remove new task and subtask button
     JButton subTaskB = new JButton();
     JButton editTaskB = new JButton();
     JButton removeTaskB = new JButton();
@@ -93,6 +93,7 @@ public class TaskPanel extends JPanel {
         historyForwardB.setMaximumSize(new Dimension(24, 24));
         historyForwardB.setText("");
 
+        // TODO: Remove new task button
         newTaskB.setIcon(
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new.png")));
         newTaskB.setEnabled(true);
@@ -126,6 +127,7 @@ public class TaskPanel extends JPanel {
         });
         newClassB.setBorderPainted(false);
         
+        // TODO: Remove subtask button
         subTaskB.setIcon(
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new_sub.png")));
         subTaskB.setEnabled(true);
@@ -500,6 +502,7 @@ public class TaskPanel extends JPanel {
         //taskTable.updateUI();
     }
 
+    // TODO: Remove new task button
     void newTaskB_actionPerformed(ActionEvent e) {
         TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New task"));
         
