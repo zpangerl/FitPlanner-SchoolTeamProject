@@ -53,14 +53,14 @@ public class GymClassDialog extends JDialog {
     JPanel jPanel8 = new JPanel(new GridBagLayout());
     Border border4;
     JPanel jPanel2 = new JPanel(new GridLayout(3, 2));
-    JTextField classNameField = new JTextField();
 
-    // added by rawsushi
-    JTextField effortField = new JTextField();
+    JLabel jLabelClassName = new JLabel();
+    JTextField classNameField = new JTextField();
+    JLabel jLabelDescription = new JLabel();
     JTextArea descriptionField = new JTextArea();
     JScrollPane descriptionScrollPane = new JScrollPane(descriptionField);
 
-    // Border border7;
+    JTextField effortField = new JTextField();
     Border border8;
     CalendarFrame startCalFrame = new CalendarFrame();
     CalendarFrame endCalFrame = new CalendarFrame();
@@ -87,10 +87,8 @@ public class GymClassDialog extends JDialog {
     JButton setNotifB = new JButton();
     JComboBox<String> priorityCB = new JComboBox<>(priority);
     JLabel jLabel7 = new JLabel();
-    // added by rawsushi
+
     JLabel jLabelEffort = new JLabel();
-    JLabel jLabelDescription = new JLabel();
-    JLabel jLabelClassName = new JLabel();
     JCheckBox chkEndDate = new JCheckBox();
 
     JPanel jPanelProgress = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -116,13 +114,13 @@ public class GymClassDialog extends JDialog {
                 new Color(142, 142, 142));
 
         border4 = BorderFactory.createEmptyBorder(0, 5, 0, 5);
-//        border5 = BorderFactory.createEmptyBorder();
-//        border6 = BorderFactory.createBevelBorder(BevelBorder.LOWERED,
-//            Color.white, Color.white, new Color(178, 178, 178),
-//            new Color(124, 124, 124));
-//        border7 = BorderFactory.createLineBorder(Color.white, 2);
-        border8 = BorderFactory.createEtchedBorder(Color.white, 
-            new Color(178, 178, 178));
+        // border5 = BorderFactory.createEmptyBorder();
+        // border6 = BorderFactory.createBevelBorder(BevelBorder.LOWERED,
+        // Color.white, Color.white, new Color(178, 178, 178),
+        // new Color(124, 124, 124));
+        // border7 = BorderFactory.createLineBorder(Color.white, 2);
+        border8 = BorderFactory.createEtchedBorder(Color.white,
+                new Color(178, 178, 178));
         cancelB.setMaximumSize(new Dimension(100, 26));
         cancelB.setMinimumSize(new Dimension(100, 26));
         cancelB.setPreferredSize(new Dimension(100, 26));
@@ -135,9 +133,9 @@ public class GymClassDialog extends JDialog {
             }
         });
 
-        startDate = new JSpinner(new SpinnerDateModel(new Date(),null,null,Calendar.DAY_OF_WEEK));
-        endDate = new JSpinner(new SpinnerDateModel(new Date(),null,null,Calendar.DAY_OF_WEEK));
-		
+        startDate = new JSpinner(new SpinnerDateModel(new Date(), null, null, Calendar.DAY_OF_WEEK));
+        endDate = new JSpinner(new SpinnerDateModel(new Date(), null, null, Calendar.DAY_OF_WEEK));
+
         chkEndDate.setSelected(false);
         okB.setMaximumSize(new Dimension(100, 26));
         okB.setMinimumSize(new Dimension(100, 26));
@@ -150,23 +148,23 @@ public class GymClassDialog extends JDialog {
                 // TODO: Perform action for okay button
             }
         });
-        
+
         this.getRootPane().setDefaultButton(okB);
         mPanel.setBorder(border1);
         areaPanel.setBorder(border2);
         dialogTitlePanel.setBackground(Color.WHITE);
         dialogTitlePanel.setBorder(border4);
-        //dialogTitlePanel.setMinimumSize(new Dimension(159, 52));
-        //dialogTitlePanel.setPreferredSize(new Dimension(159, 52));
+        // dialogTitlePanel.setMinimumSize(new Dimension(159, 52));
+        // dialogTitlePanel.setPreferredSize(new Dimension(159, 52));
         header.setFont(new java.awt.Font("Dialog", 0, 20));
         header.setForeground(new Color(0, 0, 124));
         header.setText(Local.getString("New Class"));
         header.setIcon(new ImageIcon(main.java.memoranda.ui.TaskDialog.class.getResource(
-            "/ui/icons/class48.png")));
-        
+                "/ui/icons/class48.png")));
+
         GridBagLayout gbLayout = (GridBagLayout) jPanel8.getLayout();
         jPanel8.setBorder(titledBorder);
-				
+
         // The lable for class name
         jLabelClassName.setMaximumSize(new Dimension(100, 16));
         jLabelClassName.setMinimumSize(new Dimension(60, 16));
@@ -175,7 +173,7 @@ public class GymClassDialog extends JDialog {
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 1;
         gbCon.anchor = GridBagConstraints.WEST;
-        gbLayout.setConstraints(jLabelClassName,gbCon);
+        gbLayout.setConstraints(jLabelClassName, gbCon);
 
         // The field for class name
         classNameField.setBorder(border8);
@@ -184,7 +182,7 @@ public class GymClassDialog extends JDialog {
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 1;
         gbLayout.setConstraints(classNameField, gbCon);
-        
+
         // TODO: Add label for room, trainer, date, class type
         // The lable for description
         jLabelDescription.setMaximumSize(new Dimension(100, 16));
@@ -194,17 +192,18 @@ public class GymClassDialog extends JDialog {
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 1;
         gbCon.anchor = GridBagConstraints.WEST;
-        gbLayout.setConstraints(jLabelDescription,gbCon);
+        gbLayout.setConstraints(jLabelDescription, gbCon);
 
         descriptionField.setBorder(border8);
-        descriptionField.setPreferredSize(new Dimension(375, 387)); // 3 additional pixels from 384 so that the last line is not cut off
+        descriptionField.setPreferredSize(new Dimension(375, 387)); // 3 additional pixels from 384 so that the last
+                                                                    // line is not cut off
         descriptionField.setLineWrap(true);
         descriptionField.setWrapStyleWord(true);
         gbCon = new GridBagConstraints();
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 3;
-        descriptionScrollPane.setPreferredSize(new Dimension(375,96));
-        gbLayout.setConstraints(descriptionScrollPane,gbCon);
+        descriptionScrollPane.setPreferredSize(new Dimension(375, 96));
+        gbLayout.setConstraints(descriptionScrollPane, gbCon);
 
         jLabelEffort.setMaximumSize(new Dimension(100, 16));
         jLabelEffort.setMinimumSize(new Dimension(60, 16));
@@ -213,45 +212,44 @@ public class GymClassDialog extends JDialog {
         effortField.setPreferredSize(new Dimension(30, 24));
 
         startDate.setBorder(border8);
-        startDate.setPreferredSize(new Dimension(80, 24));                
-		SimpleDateFormat sdf = new SimpleDateFormat();
-		sdf = (SimpleDateFormat)DateFormat.getDateInstance(DateFormat.SHORT);
-		// //Added by (jcscoobyrs) on 14-Nov-2003 at 10:45:16 PM
-		startDate.setEditor(new JSpinner.DateEditor(startDate, sdf.toPattern()));
-
+        startDate.setPreferredSize(new Dimension(80, 24));
+        SimpleDateFormat sdf = new SimpleDateFormat();
+        sdf = (SimpleDateFormat) DateFormat.getDateInstance(DateFormat.SHORT);
+        // //Added by (jcscoobyrs) on 14-Nov-2003 at 10:45:16 PM
+        startDate.setEditor(new JSpinner.DateEditor(startDate, sdf.toPattern()));
 
         jLabel6.setText(Local.getString("Start date"));
-        //jLabel6.setPreferredSize(new Dimension(60, 16));
+        // jLabel6.setPreferredSize(new Dimension(60, 16));
         jLabel6.setMinimumSize(new Dimension(60, 16));
         jLabel6.setMaximumSize(new Dimension(100, 16));
         setStartDateB.setMinimumSize(new Dimension(24, 24));
         setStartDateB.setPreferredSize(new Dimension(24, 24));
         setStartDateB.setText("");
         setStartDateB.setIcon(
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
-       
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
+
         jLabel2.setMaximumSize(new Dimension(270, 16));
-        //jLabel2.setPreferredSize(new Dimension(60, 16));
+        // jLabel2.setPreferredSize(new Dimension(60, 16));
         jLabel2.setHorizontalAlignment(SwingConstants.RIGHT);
         jLabel2.setText(Local.getString("End date"));
         endDate.setBorder(border8);
         endDate.setPreferredSize(new Dimension(80, 24));
-        
-		endDate.setEditor(new JSpinner.DateEditor(endDate, sdf.toPattern())); //Added by (jcscoobyrs) on
-		//14-Nov-2003 at 10:45:16PM
-        
+
+        endDate.setEditor(new JSpinner.DateEditor(endDate, sdf.toPattern())); // Added by (jcscoobyrs) on
+        // 14-Nov-2003 at 10:45:16PM
+
         setEndDateB.setMinimumSize(new Dimension(24, 24));
         setEndDateB.setPreferredSize(new Dimension(24, 24));
         setEndDateB.setText("");
         setEndDateB.setIcon(
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
-        
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
+
         setNotifB.setText(Local.getString("Set notification"));
         setNotifB.setIcon(
-            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/notify.png")));
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/notify.png")));
         jLabel7.setMaximumSize(new Dimension(100, 16));
         jLabel7.setMinimumSize(new Dimension(60, 16));
-        //jLabel7.setPreferredSize(new Dimension(60, 16));
+        // jLabel7.setPreferredSize(new Dimension(60, 16));
         jLabel7.setText(Local.getString("Priority"));
 
         priorityCB.setFont(new java.awt.Font("Dialog", 0, 11));
@@ -274,7 +272,7 @@ public class GymClassDialog extends JDialog {
         jPanel6.add(startDate, null);
         jPanel6.add(setStartDateB, null);
         jPanel2.add(jPanel1, null);
-		jPanel1.add(chkEndDate, null);
+        jPanel1.add(chkEndDate, null);
         jPanel1.add(jLabel2, null);
         jPanel1.add(endDate, null);
         jPanel1.add(setEndDateB, null);
@@ -286,14 +284,14 @@ public class GymClassDialog extends JDialog {
         jPanel2.add(jPanel4, null);
         jPanel4.add(priorityCB, null);
         jPanel2.add(jPanel3, null);
-        
+
         jPanel3.add(setNotifB, null);
-        
+
         jLabelProgress.setText(Local.getString("Progress"));
         jPanelProgress.add(jLabelProgress, null);
         jPanelProgress.add(progress, null);
         jPanel2.add(jPanelProgress);
-        
+
         priorityCB.setSelectedItem(Local.getString("Normal"));
 
     }
