@@ -6,6 +6,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import main.java.memoranda.*;
+import main.java.memoranda.Room.GymRoom;
 import main.java.memoranda.util.*;
 /*
  * File: GymClassPanel.java
@@ -296,6 +297,7 @@ public class GymClassPanel extends JPanel {
         tempTrainer.setBeltRank(BeltRank.Rank.GREEN_STRIPE);
 
         GymClass tempGymClass = new GymClass(new Date(), tempTrainer);
+        tempGymClass.setRoom(GymRoom.ROOM2);
         GymClassList.addGymClass(tempGymClass);
         gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
     }
