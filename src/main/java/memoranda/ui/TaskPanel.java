@@ -39,8 +39,8 @@ public class TaskPanel extends JPanel {
     JButton historyBackB = new JButton();
     JToolBar tasksToolBar = new JToolBar();
     JButton historyForwardB = new JButton();
-    JButton newClassB = new JButton(); // TODO: New class button
-    JButton newTaskB = new JButton(); // TODO: Remove new task and subtask button
+    JButton newClassB = new JButton(); 
+    JButton newTaskB = new JButton(); 
     JButton subTaskB = new JButton();
     JButton editTaskB = new JButton();
     JButton removeTaskB = new JButton();
@@ -110,7 +110,6 @@ public class TaskPanel extends JPanel {
         });
         newTaskB.setBorderPainted(false);
 
-        // TODO: New Class button
         newClassB.setIcon(
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/class_new.png")));
         newClassB.setEnabled(true);
@@ -329,7 +328,7 @@ public class TaskPanel extends JPanel {
         tasksToolBar.add(historyForwardB, null);
         tasksToolBar.addSeparator(new Dimension(8, 24));
 
-        tasksToolBar.add(newClassB, null); // TODO: New class button
+        tasksToolBar.add(newClassB, null); 
         tasksToolBar.add(newTaskB, null);
         tasksToolBar.add(subTaskB, null);
         tasksToolBar.add(removeTaskB, null);
@@ -534,7 +533,6 @@ public class TaskPanel extends JPanel {
         //taskTable.updateUI();
     }
 
-    // TODO: New class button pressed actions
     void newClass_actionPerformed(ActionEvent e) {
         GymClassDialog dlg = new GymClassDialog(App.getFrame(), Local.getString("New Class"));
 

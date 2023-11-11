@@ -18,24 +18,17 @@ import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingConstants;
 import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import main.java.memoranda.CurrentProject;
 import main.java.memoranda.Room;
 import main.java.memoranda.TrainerList;
 import main.java.memoranda.date.CalendarDate;
@@ -151,7 +144,6 @@ public class GymClassDialog extends JDialog {
         gbCon.weighty = 1;
         gbLayout.setConstraints(classNameField, gbCon);
 
-        // TODO: Add label for room, trainer, date, class type
         // The label for Room
         jLabelRoom.setMaximumSize(new Dimension(100, 16));
         jLabelRoom.setMinimumSize(new Dimension(60, 16));
@@ -188,7 +180,7 @@ public class GymClassDialog extends JDialog {
         gbCon.weighty = 1;
         gbLayout.setConstraints(jComboBoxTrainer, gbCon);
 
-        // TODO: Start date
+        // Start date
         startDate = new JSpinner(new SpinnerDateModel(new Date(), null, null, Calendar.DAY_OF_WEEK));
         startDate.setBorder(border8);
         startDate.setPreferredSize(new Dimension(80, 24));
@@ -225,7 +217,6 @@ public class GymClassDialog extends JDialog {
         });
 
         jLabel6.setText(Local.getString("Start date"));
-        // jLabel6.setPreferredSize(new Dimension(60, 16));
         jLabel6.setMinimumSize(new Dimension(60, 16));
         jLabel6.setMaximumSize(new Dimension(100, 16));
         setStartDateB.setMinimumSize(new Dimension(24, 24));
@@ -243,14 +234,12 @@ public class GymClassDialog extends JDialog {
         this.getContentPane().add(dialogTitlePanel, BorderLayout.NORTH);
         dialogTitlePanel.add(header, null);
         areaPanel.add(jPanel8, BorderLayout.NORTH);
-        // TODO
         jPanel8.add(jLabelClassName);
         jPanel8.add(classNameField, null);
         jPanel8.add(jLabelRoom);
         jPanel8.add(jComboBoxRoom);
         jPanel8.add(jLabelTrainer);
         jPanel8.add(jComboBoxTrainer);
-
         areaPanel.add(jPanel2, BorderLayout.CENTER);
         jPanel2.add(jPanel6, null);
         jPanel6.add(jLabel6, null);
