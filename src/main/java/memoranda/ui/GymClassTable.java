@@ -39,6 +39,7 @@ public class GymClassTable extends JTable {
     }
 
     public void initTable(CalendarDate calendarDate) {
+        // TODO: Change to list GymClassList
         // Create three trainers to vary beltRank and trainingRank
         Trainer tmpTrainer1 = new Trainer();
         tmpTrainer1.setFirstName("FirstnameTest" + "-1");
