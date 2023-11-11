@@ -1,6 +1,7 @@
 package main.java.memoranda.ui;
 
-import main.java.memoranda.*;
+import main.java.memoranda.GymClass;
+import main.java.memoranda.GymClassList;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.date.DateListener;
@@ -10,8 +11,6 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
-import java.util.Date;
-import java.util.Vector;
 /*
   File:	GymClassTable.java
   Author: Rhett Harrison
@@ -21,9 +20,6 @@ import java.util.Vector;
 */
 
 public class GymClassTable extends JTable {
-    public static final int GYMCLASS = 100;
-    public static final int GYMCLASS_ID = 101;
-    Vector gymClasses = new Vector();
 
     public GymClassTable() {
         super();
@@ -31,42 +27,19 @@ public class GymClassTable extends JTable {
         initTable(CurrentDate.get());
         this.setShowGrid(false);
         CurrentDate.addDateListener(new DateListener() {
-            public void dateChange(CalendarDate d) {
-                //updateUI();
-                initTable(d);
+            public void dateChange(CalendarDate date) {
+                updateUI();
+                initTable(date);
             }
         });
     }
 
-    public void initTable(CalendarDate calendarDate) {
-        // TODO: Change to list GymClassList
-        // Create three trainers to vary beltRank and trainingRank
-        Trainer tmpTrainer1 = new Trainer();
-        tmpTrainer1.setFirstName("FirstnameTest" + "-1");
-        tmpTrainer1.setLastName("LastnameTest" + "-1");
-        tmpTrainer1.setTrainingRank(BeltRank.Rank.BLUE);
-        tmpTrainer1.setBeltRank(BeltRank.Rank.BLUE_STRIPE); // STRIPE on belts
-        TrainerList.addTrainer(tmpTrainer1);
-
-        Trainer tmpTrainer2 = new Trainer();
-        tmpTrainer2.setFirstName("FirstnameTest" + "-2");
-        tmpTrainer2.setLastName("LastnameTest" + "-2");
-        tmpTrainer2.setTrainingRank(BeltRank.Rank.GREEN);
-        tmpTrainer2.setBeltRank(BeltRank.Rank.GREEN_STRIPE); // STRIPE on belts
-        TrainerList.addTrainer(tmpTrainer2);
-
-        Trainer tmpTrainer3 = new Trainer();
-        tmpTrainer3.setFirstName("FirstnameTest" + "-3");
-        tmpTrainer3.setLastName("LastnameTest" + "-3");
-        tmpTrainer3.setTrainingRank(BeltRank.Rank.BROWN1);
-        tmpTrainer3.setBeltRank(BeltRank.Rank.BROWN2);
-        TrainerList.addTrainer(tmpTrainer3);
-        for(int i = 0; i < 10; i++) {
-            Date date = CalendarDate.today().getDate();
-            GymClass gymClass = new GymClass(date, tmpTrainer1);
-            gymClass.setRoom(Room.GymRoom.ROOM1);
-            gymClasses.add(gymClass);
-        }
+    /**
+     * Initializes the table with the given date.
+     * @param date date to sort or filter table data by
+     */
+    public void initTable(CalendarDate date) {
+        // TODO: filter/sort table data by date
         getColumnModel().getColumn(0).setPreferredWidth(180);
         getColumnModel().getColumn(0).setMaxWidth(180);
         clearSelection();
@@ -80,20 +53,20 @@ public class GymClassTable extends JTable {
             public Component getTableCellRendererComponent(
                     JTable table, Object value, boolean isSelected,
                     boolean hasFocus, int row, int column) {
-                Component c = super.getTableCellRendererComponent(
+                Component tableCellRendererComponent = super.getTableCellRendererComponent(
                         table, value, isSelected, hasFocus, row, column);
-                GymClass gymClass = (GymClass) gymClasses.get(row);
+                GymClass gymClass = GymClassList.getGymClasses().get(row);
                 if (gymClass.getDate().before(CurrentDate.get().getDate())) {
-                    c.setFont(new Font("Dialog", Font.ITALIC, 11));
+                    tableCellRendererComponent.setFont(new Font("Dialog", Font.ITALIC, 11));
                 } else {
-                    c.setFont(new Font("Dialog", Font.PLAIN, 11));
+                    tableCellRendererComponent.setFont(new Font("Dialog", Font.PLAIN, 11));
                 }
-                return c;
+                return tableCellRendererComponent;
             }
         };
     }
 
-    class GymClassTableModel extends AbstractTableModel {
+    static class GymClassTableModel extends AbstractTableModel {
         String[] columnNames = {
                 "Date",
                 "Class Type",
@@ -109,7 +82,7 @@ public class GymClassTable extends JTable {
         public int getRowCount() {
             int i;
             try {
-                i = gymClasses.size();
+                i = GymClassList.getGymClasses().size();
             } catch (NullPointerException e) {
                 i = 0;
             }
@@ -123,7 +96,7 @@ public class GymClassTable extends JTable {
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
-            GymClass gymClass = (GymClass) gymClasses.get(rowIndex);
+            GymClass gymClass = GymClassList.getGymClasses().get(rowIndex);
             if(gymClass == null) {
                 return null;
             }
