@@ -5,6 +5,7 @@ import java.awt.CardLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JTable;
@@ -18,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import main.java.memoranda.BeltRank.Rank;
 import main.java.memoranda.GymClass;
 import main.java.memoranda.Room;
 import main.java.memoranda.Trainer;
@@ -36,11 +38,11 @@ public class RoomsPanel extends JPanel {
     private CardLayout cardLayout;
     private ArrayList<GymClass> classesData;
     final String[] roomsTableColNames = 
-        {"Class name", "Time", "Trainer"};
+        {"Class name", "Date", "Trainer"};
     
     public RoomsPanel() {
-        Trainer trainer1 = new Trainer("Zach", "Whar");
-        GymClass class1 = new GymClass(trainer1, "12:00");
+        Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
+        GymClass class1 = new GymClass(new Date(), trainer1);
         class1.setClassType("Weights");
         class1.setRoom(Room.GymRoom.ROOM2);
         classesData = new ArrayList<>();
@@ -103,7 +105,7 @@ public class RoomsPanel extends JPanel {
         for(int i = 0; i < filtered.size(); i++) {
             GymClass gymClass = filtered.get(i);
             data[i][0] = gymClass.getClassType();
-            data[i][1] = gymClass.getTime();
+            data[i][1] = gymClass.getDate();
             data[i][2] = gymClass.getTrainer().getName();
         }
         return data;
