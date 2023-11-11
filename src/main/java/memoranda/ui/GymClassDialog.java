@@ -35,6 +35,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import main.java.memoranda.Room;
+import main.java.memoranda.TrainerList;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.util.Local;
 
@@ -57,10 +58,10 @@ public class GymClassDialog extends JDialog {
 
     JLabel jLabelClassName = new JLabel();
     JTextField classNameField = new JTextField();
-    JLabel jLabelTrainer = new JLabel();
-    JComboBox jComboBoxTrainer = new JComboBox<>();
     JLabel jLabelRoom = new JLabel();
     JComboBox<Room.GymRoom> jComboBoxRoom = new JComboBox<>(Room.GymRoom.values());
+    JLabel jLabelTrainer = new JLabel();
+    JComboBox<String> jComboBoxTrainer = new JComboBox<String>(TrainerList.getTrainerNames());
 
     JTextField effortField = new JTextField();
     Border border8;
