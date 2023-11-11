@@ -34,6 +34,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import main.java.memoranda.Room;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.util.Local;
 
@@ -59,7 +60,7 @@ public class GymClassDialog extends JDialog {
     JLabel jLabelTrainer = new JLabel();
     JComboBox jComboBoxTrainer = new JComboBox<>();
     JLabel jLabelRoom = new JLabel();
-    JComboBox jComboBoxRoom = new JComboBox<>();
+    JComboBox<Room.GymRoom> jComboBoxRoom = new JComboBox<>(Room.GymRoom.values());
 
     JTextField effortField = new JTextField();
     Border border8;
@@ -195,6 +196,14 @@ public class GymClassDialog extends JDialog {
         gbCon.anchor = GridBagConstraints.WEST;
         gbLayout.setConstraints(jLabelRoom, gbCon);
 
+        // The combobox for Room
+        jComboBoxRoom.setBorder(border8);
+        jComboBoxRoom.setPreferredSize(new Dimension(375, 24));
+        gbCon = new GridBagConstraints();
+        gbCon.gridwidth = GridBagConstraints.REMAINDER;
+        gbCon.weighty = 1;
+        gbLayout.setConstraints(jComboBoxRoom, gbCon);
+
         // The label for Trainer
         jLabelTrainer.setMaximumSize(new Dimension(100, 16));
         jLabelTrainer.setMinimumSize(new Dimension(60, 16));
@@ -204,6 +213,14 @@ public class GymClassDialog extends JDialog {
         gbCon.weighty = 1;
         gbCon.anchor = GridBagConstraints.WEST;
         gbLayout.setConstraints(jLabelTrainer, gbCon);
+
+        // The combobox for Trainer
+        jComboBoxTrainer.setBorder(border8);
+        jComboBoxTrainer.setPreferredSize(new Dimension(375, 24));
+        gbCon = new GridBagConstraints();
+        gbCon.gridwidth = GridBagConstraints.REMAINDER;
+        gbCon.weighty = 1;
+        gbLayout.setConstraints(jComboBoxTrainer, gbCon);
 
         jLabelEffort.setMaximumSize(new Dimension(100, 16));
         jLabelEffort.setMinimumSize(new Dimension(60, 16));
@@ -262,10 +279,15 @@ public class GymClassDialog extends JDialog {
         this.getContentPane().add(dialogTitlePanel, BorderLayout.NORTH);
         dialogTitlePanel.add(header, null);
         areaPanel.add(jPanel8, BorderLayout.NORTH);
+
+        // TODO
         jPanel8.add(jLabelClassName);
         jPanel8.add(classNameField, null);
         jPanel8.add(jLabelRoom);
+        jPanel8.add(jComboBoxRoom);
         jPanel8.add(jLabelTrainer);
+        jPanel8.add(jComboBoxTrainer);
+
         areaPanel.add(jPanel2, BorderLayout.CENTER);
         jPanel2.add(jPanel6, null);
         jPanel6.add(jLabel6, null);
