@@ -39,7 +39,8 @@ public class TaskPanel extends JPanel {
     JButton historyBackB = new JButton();
     JToolBar tasksToolBar = new JToolBar();
     JButton historyForwardB = new JButton();
-    JButton newTaskB = new JButton();
+    JButton newClassB = new JButton(); 
+    JButton newTaskB = new JButton(); 
     JButton subTaskB = new JButton();
     JButton editTaskB = new JButton();
     JButton removeTaskB = new JButton();
@@ -92,6 +93,7 @@ public class TaskPanel extends JPanel {
         historyForwardB.setMaximumSize(new Dimension(24, 24));
         historyForwardB.setText("");
 
+        // TODO: Remove new task button
         newTaskB.setIcon(
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new.png")));
         newTaskB.setEnabled(true);
@@ -107,7 +109,24 @@ public class TaskPanel extends JPanel {
             }
         });
         newTaskB.setBorderPainted(false);
+
+        newClassB.setIcon(
+            new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/class_new.png")));
+        newClassB.setEnabled(true);
+        newClassB.setMaximumSize(new Dimension(24, 24));
+        newClassB.setMinimumSize(new Dimension(24, 24));
+        newClassB.setToolTipText(Local.getString("Add new class"));
+        newClassB.setRequestFocusEnabled(false);
+        newClassB.setPreferredSize(new Dimension(24, 24));
+        newClassB.setFocusable(false);
+        newClassB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                newClass_actionPerformed(e);
+            }
+        });
+        newClassB.setBorderPainted(false);
         
+        // TODO: Remove subtask button
         subTaskB.setIcon(
             new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/todo_new_sub.png")));
         subTaskB.setEnabled(true);
@@ -309,6 +328,7 @@ public class TaskPanel extends JPanel {
         tasksToolBar.add(historyForwardB, null);
         tasksToolBar.addSeparator(new Dimension(8, 24));
 
+        tasksToolBar.add(newClassB, null); 
         tasksToolBar.add(newTaskB, null);
         tasksToolBar.add(subTaskB, null);
         tasksToolBar.add(removeTaskB, null);
@@ -333,7 +353,7 @@ public class TaskPanel extends JPanel {
             }
         });
         CurrentProject.addProjectListener(new ProjectListener() {
-            public void projectChange(Project p, NoteList nl, TaskList tl, ResourcesList rl, TrainersList tr) {
+            public void projectChange(Project p, NoteList nl, TaskList tl, ResourcesList rl) {
                 newTaskB.setEnabled(
                     CurrentDate.get().inPeriod(p.getStartDate(), p.getEndDate()));
             }
@@ -481,6 +501,7 @@ public class TaskPanel extends JPanel {
         //taskTable.updateUI();
     }
 
+    // TODO: Remove new task button
     void newTaskB_actionPerformed(ActionEvent e) {
         TaskDialog dlg = new TaskDialog(App.getFrame(), Local.getString("New task"));
         
@@ -510,6 +531,15 @@ public class TaskPanel extends JPanel {
         taskTable.tableChanged();
         parentPanel.updateIndicators();
         //taskTable.updateUI();
+    }
+
+    void newClass_actionPerformed(ActionEvent e) {
+        GymClassDialog dlg = new GymClassDialog(App.getFrame(), Local.getString("New Class"));
+
+        Dimension frmSize = App.getFrame().getSize();
+        Point loc = App.getFrame().getLocation();
+        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+        dlg.setVisible(true);
     }
 
     void addSubTask_actionPerformed(ActionEvent e) {

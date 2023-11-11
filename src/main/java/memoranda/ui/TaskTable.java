@@ -110,7 +110,7 @@ public class TaskTable extends JTable {
         });
         CurrentProject.addProjectListener(new ProjectListener() {
             public void projectChange(Project p, NoteList nl, TaskList tl,
-                    ResourcesList rl, TrainersList tr) {
+                    ResourcesList rl) {
             }
 
             public void projectWasChanged() {
@@ -153,8 +153,6 @@ public class TaskTable extends JTable {
 		
 		// column name is repeated in 2 places, do something about it!
 		getColumn( "% " + Local.getString("done") ).setCellEditor(new TaskProgressEditor());
-		
-		// TODO: editor for task progress
 		
 		
 		//  grid.
