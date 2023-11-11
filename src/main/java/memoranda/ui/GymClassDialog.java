@@ -104,9 +104,7 @@ public class GymClassDialog extends JDialog {
         cancelB.setText(Local.getString("Cancel"));
         cancelB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // cancelB_actionPerformed(e);
-                System.out.println("Cancel button pressed.");
-                // TODO: Perform action for cancel button
+                cancelB_actionPerformed(e);
             }
         });
 
@@ -117,9 +115,7 @@ public class GymClassDialog extends JDialog {
         okB.setText(Local.getString("Create"));
         okB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // okB_actionPerformed(e);
-                System.out.println("Okay button pressed.");
-                // TODO: Perform action for okay button
+                okB_actionPerformed(e);
             }
         });
 
@@ -272,6 +268,15 @@ public class GymClassDialog extends JDialog {
     }
 
     public void setStartDate(CalendarDate d) {
-		this.startDate.getModel().setValue(d.getDate());
-	}
+        this.startDate.getModel().setValue(d.getDate());
+    }
+
+    void okB_actionPerformed(ActionEvent e) {
+        CANCELLED = false;
+        this.dispose();
+    }
+
+    void cancelB_actionPerformed(ActionEvent e) {
+        this.dispose();
+    }
 }
