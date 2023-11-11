@@ -2,6 +2,7 @@ package main.java.memoranda.ui;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -21,8 +22,16 @@ import javax.swing.table.TableCellRenderer;
 
 import main.java.memoranda.BeltRank.Rank;
 import main.java.memoranda.GymClass;
+import main.java.memoranda.GymClassList;
 import main.java.memoranda.Room;
 import main.java.memoranda.Trainer;
+
+/*
+ * File: RoomsPanel.java
+ * Author: Zachary Pangerl
+ * Version: 2023.11.11
+ * Description: Panel to display every class in each Room of the gym
+ */
 
 public class RoomsPanel extends JPanel {
     private JPanel switchPanel;
@@ -40,13 +49,13 @@ public class RoomsPanel extends JPanel {
     final String[] roomsTableColNames = 
         {"Class name", "Date", "Trainer"};
     
+    /*
+     * Default constructor for RoomsPanel.
+     * Sets up each of the four Room panels and the
+     * Button panel used to switch between rooms. 
+     */
     public RoomsPanel() {
-        Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
-        GymClass class1 = new GymClass(new Date(), trainer1);
-        class1.setClassType("Weights");
-        class1.setRoom(Room.GymRoom.ROOM2);
-        classesData = new ArrayList<>();
-        classesData.add(class1);
+        classesData = GymClassList.getGymClasses();
         this.setLayout(new BorderLayout());
         cardLayout = new CardLayout();
         switchPanel = new JPanel(cardLayout);
@@ -71,6 +80,11 @@ public class RoomsPanel extends JPanel {
         add(buttonPanel, BorderLayout.NORTH);
     }
     
+    /**
+     * Creates a panel for a specific room.
+     * @param name the name of the room to be created
+     * @return the created JPanel for the room
+     */
     public JPanel createRoomPanel(String name) {
         String borderTitle;
         if(name.equals("ROOM1")) {
@@ -87,19 +101,32 @@ public class RoomsPanel extends JPanel {
         }
         JPanel roomPanel = new JPanel(new BorderLayout());
         Border border = BorderFactory.createTitledBorder(borderTitle);
+        roomPanel.setName(name);
         roomPanel.setBorder(border);
         createRoomTable(roomPanel, name);
         switchPanel.add(roomPanel, name);
         return roomPanel;
     }
     
+    /**
+     * Creates the internal table for a room panel.
+     * @param roomPanel the panel the table will be made for
+     * @param name the name of the room
+     */
     private void createRoomTable(JPanel roomPanel, String name) {
         List<GymClass> filtered = filterClasses(classesData, name);
         DefaultTableModel roomTableModel = new DefaultTableModel(convertToData(filtered), roomsTableColNames);
         JTable roomTable = new JTable(roomTableModel);
+        roomTable.setEnabled(false);
         roomPanel.add(new JScrollPane(roomTable), BorderLayout.CENTER);
     }
     
+    /**
+     * Converts each GymClass into data that can be placed
+     * in the table.
+     * @param filtered a filtered list of GymClass objects
+     * @return the data from each class in the room
+     */
     private Object[][] convertToData(List<GymClass> filtered){
         Object[][] data = new Object[filtered.size()][3];
         for(int i = 0; i < filtered.size(); i++) {
@@ -111,6 +138,12 @@ public class RoomsPanel extends JPanel {
         return data;
     }
     
+    /**
+     * Filters the classes by room name for easier access.
+     * @param classesData the data for every GymClass
+     * @param name the name of the room
+     * @return a filtered list of GymClasses that are assigned to a specific room
+     */
     private List<GymClass> filterClasses(ArrayList<GymClass> classesData, String name){
         List<GymClass> filtered = new ArrayList<>();
         Room.GymRoom roomNum;
@@ -134,7 +167,25 @@ public class RoomsPanel extends JPanel {
         return filtered;
     }
     
+    /**
+     * Switches which room is currently being viewed.
+     * @param room the room to be switched to
+     */
     public void showRoom(Room.GymRoom room) {
         cardLayout.show(switchPanel, room.name());
+    }
+    
+    /**
+     * Updates the table in each room panel.
+     */
+    public void updateRoomTables() {
+        for(Component panel : switchPanel.getComponents()) {
+            if(panel instanceof JPanel) {
+                JPanel roomPanel = (JPanel) panel;
+                roomPanel.removeAll();
+                String roomName = roomPanel.getName();
+                createRoomTable(roomPanel, roomName);
+            }
+        }
     }
 }

@@ -247,6 +247,7 @@ public class WorkPanel extends JPanel {
 
 	public void eventsB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "ROOMS");
+		roomsPanel.updateRoomTables();
 		setCurrentButton(eventsB);
 		Context.put("CURRENT_PANEL", "ROOMS");
 	}
