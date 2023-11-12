@@ -1,207 +1,147 @@
+/*
+  File: TrainersPanel.java
+  Author: Steven Stovall
+  Version: 2023.11.07
+
+  Description: Simple Trainers panel to display add button and rows of Trainer(s) from TrainersList
+*/
+
 package main.java.memoranda.ui;
 
-import main.java.memoranda.util.Local;
-
-import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import main.java.memoranda.TrainerList;
 
 public class TrainersPanel extends JPanel {
-    BorderLayout borderLayout1 = new BorderLayout();
-    JToolBar toolBar = new JToolBar();
-    JButton newTrainerB = new JButton();
-    TrainersTable trainersTable = new TrainersTable();
-    JButton removeTrainerB = new JButton();
-    JScrollPane scrollPane = new JScrollPane();
-    JButton refreshB = new JButton();
-    JPopupMenu trainerPPMenu = new JPopupMenu();
-    JMenuItem ppRun = new JMenuItem();
-    JMenuItem ppRemoveTrainer = new JMenuItem();
-    JMenuItem ppNewTrainer = new JMenuItem();
-    JMenuItem ppRefresh = new JMenuItem();
+    private JTable trainersTable;
+    private DefaultTableModel trainersTableModel;
+    String[][] trainersDataArray;
+    final String[] trainersTableColumnNames =
+        {"First Name", "Last Name", "Training Rank", "Belt Rank"};
 
-
-
+    /**
+     * Default constructor.
+     */
     public TrainersPanel() {
-        try {
-            jbInit();
-        }
-        catch (Exception ex) {
-            new ExceptionDialog(ex);
-        }
-    }
-    void jbInit() throws Exception {
-        toolBar.setFloatable(false);
-        this.setLayout(borderLayout1);
-        newTrainerB.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/addresource.png")));
-        newTrainerB.setEnabled(true);
-        newTrainerB.setMaximumSize(new Dimension(24, 24));
-        newTrainerB.setMinimumSize(new Dimension(24, 24));
-        newTrainerB.setToolTipText(Local.getString("New trainer"));
-        newTrainerB.setRequestFocusEnabled(false);
-        newTrainerB.setPreferredSize(new Dimension(24, 24));
-        newTrainerB.setFocusable(false);
-        newTrainerB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                newTrainerB_actionPerformed(e);
-            }
-        });
-        newTrainerB.setBorderPainted(false);
-        trainersTable.setMaximumSize(new Dimension(32767, 32767));
-        trainersTable.setRowHeight(24);
-        removeTrainerB.setBorderPainted(false);
-        removeTrainerB.setFocusable(false);
-        removeTrainerB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                removeTrainerB_actionPerformed(e);
-            }
-        });
-        removeTrainerB.setPreferredSize(new Dimension(24, 24));
-        removeTrainerB.setRequestFocusEnabled(false);
-        removeTrainerB.setToolTipText(Local.getString("Remove trainer"));
-        removeTrainerB.setMinimumSize(new Dimension(24, 24));
-        removeTrainerB.setMaximumSize(new Dimension(24, 24));
-        removeTrainerB.setIcon(
-                new ImageIcon(
-                        main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removeresource.png")));
-        scrollPane.getViewport().setBackground(Color.white);
+        // Set layout
+        this.setLayout(new BorderLayout());
 
-        toolBar.addSeparator(new Dimension(8, 24));
-        toolBar.addSeparator(new Dimension(8, 24));
+        /* Trainers title */
+        // Reference: https://www.tutorialspoint.com/swingexamples/add_title_to_border_panel.htm
+        Border trainersPanelTitle = BorderFactory.createTitledBorder("Manage Trainers");
+        this.setBorder(trainersPanelTitle);
 
-        PopupListener ppListener = new PopupListener();
-        scrollPane.addMouseListener(ppListener);
-        trainersTable.addMouseListener(ppListener);
-        trainersTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent e) {
-                boolean enbl = (trainersTable.getRowCount() > 0) && (trainersTable.getSelectedRow() > -1);
+        JPanel buttonPanel = new JPanel(new GridLayout(3, 1));
+        /* Add new trainer button */
+        // Reference: https://www.geeksforgeeks.org/java-swing-jpanel-with-examples/
+        JButton addTrainerButton = getAddTrainerButton();
+        buttonPanel.add(addTrainerButton);
 
-                removeTrainerB.setEnabled(enbl); ppRemoveTrainer.setEnabled(enbl);
-                ppRun.setEnabled(enbl);
-            }
-        });
-        refreshB.setBorderPainted(false);
-        refreshB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                refreshB_actionPerformed(e);
-            }
-        });
-        refreshB.setFocusable(false);
-        refreshB.setPreferredSize(new Dimension(24, 24));
-        refreshB.setRequestFocusEnabled(false);
-        refreshB.setToolTipText(Local.getString("Refresh"));
-        refreshB.setMinimumSize(new Dimension(24, 24));
-        refreshB.setMaximumSize(new Dimension(24, 24));
-        refreshB.setEnabled(true);
-        refreshB.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/refreshres.png")));
-        trainerPPMenu.setFont(new java.awt.Font("Dialog", 1, 10));
-        ppRun.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppRun.setText(Local.getString("Open resource")+"...");
-        ppRun.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ppRun_actionPerformed(e);
-            }
-        });
-        ppRun.setEnabled(false);
+        /* Delete trainer button */
+        JLabel trainerDeleteLabel = new JLabel();
+        trainerDeleteLabel.setText("Select a Trainer row to delete:");
+        buttonPanel.add(trainerDeleteLabel);
+        JButton deleteTrainerButton = getDeleteTrainerButton();
+        buttonPanel.add(deleteTrainerButton);
 
-        ppRemoveTrainer.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppRemoveTrainer.setText(Local.getString("Remove trainer"));
-        ppRemoveTrainer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ppRemoveRes_actionPerformed(e);
-            }
-        });
-        ppRemoveTrainer.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removeresource.png")));
-        ppRemoveTrainer.setEnabled(false);
-        ppNewTrainer.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppNewTrainer.setText(Local.getString("New trainer")+"...");
-        ppNewTrainer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ppNewTrainer_actionPerformed(e);
-            }
-        });
-        ppNewTrainer.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/addresource.png")));
+        buildTrainersTable();
+        JPanel tablePanel = new JPanel();
+        tablePanel.add(new JScrollPane(trainersTable), BorderLayout.CENTER);
 
-        ppRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppRefresh.setText(Local.getString("Refresh"));
-        ppRefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ppRefresh_actionPerformed(e);
-            }
-        });
-        ppRefresh.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/refreshres.png")));
-
-        toolBar.add(newTrainerB, null);
-        toolBar.add(removeTrainerB, null);
-        toolBar.addSeparator();
-        toolBar.add(refreshB, null);
-        this.add(scrollPane, BorderLayout.CENTER);
-        scrollPane.getViewport().add(trainersTable, null);
-        this.add(toolBar, BorderLayout.NORTH);
-        trainerPPMenu.add(ppRun);
-        trainerPPMenu.addSeparator();
-        trainerPPMenu.add(ppNewTrainer);
-        trainerPPMenu.add(ppRemoveTrainer);
-        trainerPPMenu.addSeparator();
-        trainerPPMenu.add(ppRefresh);
-        trainersTable.addKeyListener(new KeyListener() {
-            public void keyPressed(KeyEvent e){
-                if(trainersTable.getSelectedRows().length>0
-                        && e.getKeyCode()==KeyEvent.VK_DELETE)
-                    ppRemoveRes_actionPerformed(null);
-            }
-            public void	keyReleased(KeyEvent e){}
-            public void keyTyped(KeyEvent e){}
-        });
-    }
-    void newTrainerB_actionPerformed(ActionEvent e) {
-        System.out.println("[DEBUG] newResB_actionPerformed");
-        // TODO: The resources equivalent of this method is in ResourcesPanel.java
-    }
-    void removeTrainerB_actionPerformed(ActionEvent e) {
-        System.out.println("[DEBUG] removeResB_actionPerformed");
-        // TODO: The resources equivalent of this method is in ResourcesPanel.java
-    }
-    class PopupListener extends MouseAdapter {
-
-        public void mouseClicked(MouseEvent e) {
-            // TODO: Equivalent method in TaskPanel.java
-            //editTaskB_actionPerformed(null);
-        }
-
-        public void mousePressed(MouseEvent e) {
-            maybeShowPopup(e);
-        }
-
-        public void mouseReleased(MouseEvent e) {
-            maybeShowPopup(e);
-        }
-
-        private void maybeShowPopup(MouseEvent e) {
-            if (e.isPopupTrigger()) {
-                trainerPPMenu.show(e.getComponent(), e.getX(), e.getY());
-            }
-        }
+        // Combine JPanel's
+        JPanel buttonPanelSqueeze = new JPanel();
+        buttonPanelSqueeze.add(buttonPanel, BorderLayout.CENTER);
+        // Reference: https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1.0;
+        c.weighty = 1.0;
+        c.gridx = 0;
+        c.gridy = 0;
+        JPanel mainPanel = new JPanel(new GridBagLayout());
+        mainPanel.add(buttonPanelSqueeze, c);
+        c.gridy = 1;
+        mainPanel.add(tablePanel, c);
+        this.add(mainPanel, BorderLayout.CENTER);
 
     }
-    void ppRun_actionPerformed(ActionEvent e) {
 
+    /**
+     * Create the add trainer button.
+     * @return JButton add trainer button
+     */
+    private JButton getAddTrainerButton() {
+        JButton addTrainerButton = new JButton("Add Trainer");
+        addTrainerButton.addActionListener(e -> {
+            TrainerDialog trainerDialog = new TrainerDialog(this);
+            trainerDialog.setVisible(true);
+        });
+        return addTrainerButton;
     }
-    void ppRefresh_actionPerformed(ActionEvent e) {
-        trainersTable.tableChanged();
+
+    /**
+     * Create the delete trainer button.
+     * @return JButton delete trainer button
+     */
+    private JButton getDeleteTrainerButton() {
+        JButton deleteTrainerButton = new JButton("Delete Trainer");
+        deleteTrainerButton.addActionListener(e -> {
+            final int nowRowSelected = -1;
+            int rowSelectedIdx = trainersTable.getSelectedRow();
+            if (rowSelectedIdx != nowRowSelected) {
+                TrainerList.removeTrainerByIndex(rowSelectedIdx);
+                refreshTrainersTable();
+            }
+        });
+        return deleteTrainerButton;
     }
-    void refreshB_actionPerformed(ActionEvent e) {
-        trainersTable.tableChanged();
+
+    /**
+     * builds the JTable trainers table and store to member variable trainersTable.
+     */
+    private void buildTrainersTable() {
+        // Reference: https://www.geeksforgeeks.org/java-swing-jtable/
+        trainersDataArray = TrainerList.getTrainersArray();
+        trainersTableModel = new DefaultTableModel(trainersDataArray, trainersTableColumnNames);
+        trainersTable = new JTable(trainersTableModel) {
+            // Alternate row color. white, light_gray
+            // Reference: https://blog.marcnuri.com/jtable-alternate-row-background
+            public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+                Component returnComp = super.prepareRenderer(renderer, row, column);
+                Color grayColor = Color.LIGHT_GRAY;
+                Color whiteColor = Color.WHITE;
+                if (!returnComp.getBackground().equals(getSelectionBackground())) {
+                    Color bg = (row % 2 == 0 ? whiteColor : grayColor);
+                    returnComp.setBackground(bg);
+                }
+                return returnComp;
+            }
+        };
+        // important for delete button - only allow to select one row at a time
+        trainersTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
-    void ppRemoveRes_actionPerformed(ActionEvent e) {
-        removeTrainerB_actionPerformed(e);
-    }
-    void ppNewTrainer_actionPerformed(ActionEvent e) {
-        newTrainerB_actionPerformed(e);
+
+    /**
+     * refresh JTable trainersTable after changes.
+     */
+    void refreshTrainersTable() {
+        trainersDataArray = TrainerList.getTrainersArray(); // refresh
+        trainersTableModel = new DefaultTableModel(trainersDataArray, trainersTableColumnNames);
+        trainersTable.setModel(trainersTableModel);
     }
 
 }
