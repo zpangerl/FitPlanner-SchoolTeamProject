@@ -462,34 +462,4 @@ public class FileStorage implements Storage {
                 "");
         }
     }
-
-    @Override
-    public TrainersList openTrainersList(Project project) {
-        String fn = JN_DOCPATH + project.getID() + File.separator + ".trainers";
-        if (documentExists(fn)) {
-            /*DEBUG*/
-            System.out.println("[DEBUG] Open trainers list: " + fn);
-            return new TrainersListImpl(openDocument(fn), project);
-        }
-        else {
-            /*DEBUG*/
-            System.out.println("[DEBUG] New note list created");
-            return new TrainersListImpl(project);
-        }
-    }
-
-    @Override
-    public void storeTrainersList(TrainersList tl, Project project) {
-        /*DEBUG*/
-        System.out.println(
-                "[DEBUG] Save trainers list: "
-                        + JN_DOCPATH
-                        + project.getID()
-                        + File.separator
-                        + ".trainers");
-        saveDocument(
-                tl.getXMLContent(),
-                JN_DOCPATH + project.getID() + File.separator + ".trainers");
-    }
-
 }

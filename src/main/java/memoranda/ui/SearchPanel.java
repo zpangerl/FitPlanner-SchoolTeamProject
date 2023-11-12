@@ -108,7 +108,7 @@ public class SearchPanel extends JPanel {
         jPanel4.add(regexpCB, BorderLayout.CENTER);
         jPanel3.add(searchB, BorderLayout.SOUTH);
         CurrentProject.addProjectListener(new ProjectListener() {
-            public void projectChange(Project p, NoteList nl, TaskList tl, ResourcesList rl, TrainersList tr) {
+            public void projectChange(Project p, NoteList nl, TaskList tl, ResourcesList rl) {
                 notesList.update(new Vector());
             }
             public void projectWasChanged() {}
