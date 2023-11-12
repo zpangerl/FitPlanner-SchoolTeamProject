@@ -19,7 +19,7 @@ public interface StudentList {
     Student getStudentByObject(Student student);
 
     /**
-     * Adds a Student object to the StudentList
+     * Adds a Student object to the StudentList.
      *
      * @param student_add Student object to add.
      */

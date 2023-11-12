@@ -34,6 +34,9 @@ public class StudentPanel extends JPanel {
     };
     DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 
+    /**
+     * Student Panel constructor.
+     */
     public StudentPanel() {
         try {
             jbInit();
@@ -117,7 +120,7 @@ public class StudentPanel extends JPanel {
                         JOptionPane.PLAIN_MESSAGE);
                 if(res == 0) {
                     studentList.removeStudent(studentList.getStudentByIndex(tableIndexSelected));
-                    data = updateTable();
+                    data = updateStudentTable();
                     dtm.setDataVector(data, columnNames);
                     tableIndexSelected = -1;
                 } else {
@@ -232,18 +235,10 @@ public class StudentPanel extends JPanel {
          */
     }
 
-    public Object[][] updateTable(){
-        Object[][] data = new Object[studentList.getAllStudentCount()][columnNames.length];
-        for (int i = 0; i < studentList.getAllStudentCount(); i++) {
-            data[i][0] = studentList.getStudentByIndex(i).getFirstName();
-            data[i][1] = studentList.getStudentByIndex(i).getLastName();
-            data[i][2] = studentList.getStudentByIndex(i).getAge();
-            data[i][3] = studentList.getStudentByIndex(i).getBeltRank();
-            data[i][4] = studentList.getStudentByIndex(i).getTrainingRank();
-        }
-        return data;
-    }
-
+    /**
+     * New student button clicked. Launch add student dialog.
+     * @param e New student button click event.
+     */
     void newStudentB_actionPerformed(ActionEvent e) {
         AddStudentDialog dlg = new AddStudentDialog(App.getFrame(), Local.getString("New Student"));
         Dimension frmSize = App.getFrame().getSize();
@@ -254,12 +249,16 @@ public class StudentPanel extends JPanel {
             return;
         } else {
             studentList.addStudent(dlg.getStudent());
-            data = updateTable();
+            data = updateStudentTable();
             dtm.setDataVector(data, columnNames);
             tableIndexSelected = -1;
         }
     }
 
+    /**
+     * Update the UI table with current student data.
+     * @return Double array of object, student data.
+     */
     public Object[][] updateStudentTable() {
         int count = studentList.getAllStudentCount();
         Object[][] data = new Object[count][columnNames.length];

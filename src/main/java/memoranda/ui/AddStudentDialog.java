@@ -43,6 +43,11 @@ public class AddStudentDialog extends JDialog {
     JComboBox trainRankCB = new JComboBox(beltRank);
     Student newStudent;
 
+    /**
+     * Constructor to launch the add student dialog.
+     * @param frame Dialog frame.
+     * @param title Dialog frame title.
+     */
     public AddStudentDialog(Frame frame, String title) {
         super(frame, title, true);
         try {
@@ -53,6 +58,10 @@ public class AddStudentDialog extends JDialog {
         }
     }
 
+    /**
+     * Build the UI.
+     * @throws Exception
+     */
     void jbInit() throws Exception {
         this.setPreferredSize(new Dimension(240, 400));
         this.setResizable(false);
@@ -155,17 +164,28 @@ public class AddStudentDialog extends JDialog {
         this.add(jPanelActions);
     }
 
-
+    /**
+     * Add button clicked. Construct student with given inputs.
+     * @param e Add button click event.
+     */
     void okB_actionPerformed(ActionEvent e) {
         newStudent = new Student(lastNameField.getText(), firstNameField.getText(),((Number)ageFormattedTextField.getValue()).intValue(), BeltRank.Rank.valueOf(String.valueOf(beltRankCB.getSelectedItem())), BeltRank.Rank.valueOf(String.valueOf(trainRankCB.getSelectedItem())));
         CANCELLED = false;
         this.dispose();
     }
 
+    /**
+     * Get student.
+     * @return Student created from user inputs.
+     */
     public Student getStudent() {
         return newStudent;
     }
 
+    /**
+     * Cancel button clicked. Exit with no changes.
+     * @param e Cancel button click event.
+     */
     void cancelB_actionPerformed(ActionEvent e) {
         this.dispose();
     }
