@@ -30,9 +30,10 @@ dependencies {
 /////////////////////////////////////////////////////////////////////
 apply plugin: 'checkstyle'
 checkstyle {
-    // Keep checkstyle a little quieter
-    ignoreFailures = true
-    showViolations = false
+  toolVersion = "8.8"
+  // Keep checkstyle a little quieter
+  ignoreFailures = true
+  showViolations = false
 }
 sourceSets {
     main {
@@ -85,11 +86,6 @@ tasks.withType(Checkstyle) {
     include '**/GymClassListTest.java'
     include '**/TestWhiteBoxTrainer.java'
 }
-
-checkstyle {
-    toolVersion = "8.8"
-}
-
 
 ///////////////////////////////////////////////////////////////////////
 // Configure SpotBugs
