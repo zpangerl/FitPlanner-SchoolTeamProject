@@ -603,7 +603,7 @@ public class AppFrame extends JFrame {
         CurrentProject.addProjectListener(new ProjectListener() {
 
             public void projectChange(Project prj, NoteList nl, TaskList tl,
-                                      ResourcesList rl, TrainersList tr) {
+                                      ResourcesList rl) {
             }
 
             public void projectWasChanged() {
