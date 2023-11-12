@@ -15,6 +15,7 @@ import main.java.memoranda.BeltRank;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
 import main.java.memoranda.TrainerListFileStorage;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -35,6 +36,19 @@ public class TestTrainerListFileStorage {
 
         // Reference: https://www.baeldung.com/junit-before-beforeclass-beforeeach-beforeall
         // Prepare clean test environment
+        File trainerFile = new File(TrainerListFileStorage.trainerListPath);
+        if (trainerFile.exists()) {
+            trainerFile.delete();
+        }
+        assertFalse(trainerFile.exists());
+    }
+
+    /**
+     * After all tests, leave a clean environment with no TrainerList data on disk.
+     */
+    @AfterClass
+    public static void tearDown() {
+        // Destructive: Intended to only run in dev environment
         File trainerFile = new File(TrainerListFileStorage.trainerListPath);
         if (trainerFile.exists()) {
             trainerFile.delete();
