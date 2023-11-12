@@ -644,6 +644,7 @@ public class AppFrame extends JFrame {
         Context.put("FRAME_XPOS", Integer.valueOf(this.getLocation().x));
         Context.put("FRAME_YPOS", Integer.valueOf(this.getLocation().y));
         TrainerListFileStorage.saveData(); // persist TrainerList to disk
+        StudentListFileStorage.saveData(); // persist StudentList to disk
         exitNotify();
         System.exit(0);
     }
