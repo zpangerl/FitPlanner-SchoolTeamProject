@@ -35,11 +35,13 @@ public class WorkPanel extends JPanel {
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
 	public ResourcesPanel filesPanel = new ResourcesPanel();
 	public TrainersPanel trainersPanel = new TrainersPanel();
+	public StudentPanel studentsPanel = new StudentPanel();
 	public JButton agendaB = new JButton();
 	public JButton tasksB = new JButton();
 	public JButton eventsB = new JButton();
 	public JButton filesB = new JButton();
 	public JButton trainersB = new JButton();
+	public JButton studentsB = new JButton();
 	JButton currentB = null;
 	Border border1;
 
@@ -198,16 +200,47 @@ public class WorkPanel extends JPanel {
 		trainersB.setOpaque(false);
 		trainersB.setMaximumSize(new Dimension(60, 80));
 		trainersB.setBackground(Color.white);
+
+		// Load StudentPanel Button
+		studentsB.setSelected(true);
+		studentsB.setMargin(new Insets(0, 0, 0, 0));
+		studentsB.setIcon(
+				new ImageIcon(
+						main.java.memoranda.ui.AppFrame.class.getResource(
+								"/ui/icons/student_48.png")));
+		studentsB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		studentsB.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				studentsB_actionPerformed(e);
+			}
+		});
+		studentsB.setFont(new java.awt.Font("Dialog", 1, 10));
+		studentsB.setVerticalAlignment(SwingConstants.TOP);
+		studentsB.setText(Local.getString("Students"));
+		studentsB.setHorizontalTextPosition(SwingConstants.CENTER);
+		studentsB.setFocusPainted(false);
+		studentsB.setBorderPainted(false);
+		studentsB.setContentAreaFilled(false);
+		studentsB.setPreferredSize(new Dimension(50, 50));
+		studentsB.setMinimumSize(new Dimension(30, 30));
+		studentsB.setOpaque(false);
+		studentsB.setMaximumSize(new Dimension(60, 80));
+		studentsB.setBackground(Color.white);
+		studentsB.setSelected(true);
+		studentsB.setMargin(new Insets(0, 0, 0, 0));
+
 		this.add(toolBar, BorderLayout.WEST);
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
 		panel.add(filesPanel, "FILES");
 		panel.add(trainersPanel, "TRAINERS");
+		panel.add(studentsPanel, "STUDENTS");
 		toolBar.add(agendaB, null);
 		toolBar.add(eventsB, null);
 		toolBar.add(tasksB, null);
 		toolBar.add(notesB, null);
 		toolBar.add(trainersB, null);
+		toolBar.add(studentsB, null);
 		currentB = agendaB;
 		// Default blue color
 		currentB.setBackground(new Color(215, 225, 250));
@@ -230,6 +263,8 @@ public class WorkPanel extends JPanel {
 				eventsB_actionPerformed(null);
 			else if (pan.equals("TRAINERS"))
 				trainersB_actionPerformed(null);
+			else if (pan.equals("STUDENTS"))
+				studentsB_actionPerformed(null);
 		}
 	}
 
@@ -265,6 +300,12 @@ public class WorkPanel extends JPanel {
 		cardLayout1.show(panel, "TRAINERS");
 		setCurrentButton(trainersB);
 		Context.put("CURRENT_PANEL", "TRAINERS");
+	}
+
+	public void studentsB_actionPerformed(ActionEvent e) {
+		cardLayout1.show(panel, "STUDENTS");
+		setCurrentButton(studentsB);
+		Context.put("CURRENT_PANEL", "STUDENTS");
 	}
 
 	void setCurrentButton(JButton cb) {
