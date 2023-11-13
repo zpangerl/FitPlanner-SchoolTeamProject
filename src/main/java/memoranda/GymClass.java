@@ -7,7 +7,7 @@
  */
 package main.java.memoranda;
 
-import java.util.Date;
+import java.util.*;
 
 public class GymClass {
 
@@ -16,7 +16,6 @@ public class GymClass {
     private Room.GymRoom room;
     private Trainer trainer;
     private ClassType classType;
-
     /**
      * Constructor for GymClass
      *
@@ -24,9 +23,10 @@ public class GymClass {
      * @param trainer, the trainer assigned to teach the class.
      */
     public GymClass(Date date, Trainer trainer) {
-        date = date;
-        trainer = trainer;
+        this.date = date;
+        this.trainer = trainer;
     }
+
 
     public void setClassType(String type) {
         this.classType = new ClassType(type);

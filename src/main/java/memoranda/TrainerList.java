@@ -8,8 +8,7 @@
 
 package main.java.memoranda;
 
-import java.util.ArrayList;
-import java.util.Vector;
+import java.util.*;
 
 /**
  Class: Trainer
@@ -86,5 +85,9 @@ public final class TrainerList {
      */
     public static void removeTrainerByIndex(int idx) {
         trainers.remove(idx);
+    }
+
+    public static String[] getTrainerNames() {
+        return (String[]) trainers.stream().map(Trainer::getName).toArray();
     }
 }

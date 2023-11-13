@@ -1,38 +1,15 @@
 package main.java.memoranda.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JSpinner;
-import javax.swing.JTextField;
-import javax.swing.SpinnerDateModel;
-import javax.swing.border.Border;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
-import main.java.memoranda.Room;
-import main.java.memoranda.TrainerList;
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.util.Local;
+import java.awt.*;
+import java.awt.event.*;
+import java.text.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.event.*;
+import main.java.memoranda.*;
+import main.java.memoranda.date.*;
+import main.java.memoranda.util.*;
 
 public class GymClassDialog extends JDialog {
 
@@ -56,7 +33,7 @@ public class GymClassDialog extends JDialog {
     JLabel jLabelRoom = new JLabel();
     JComboBox<Room.GymRoom> jComboBoxRoom = new JComboBox<>(Room.GymRoom.values());
     JLabel jLabelTrainer = new JLabel();
-    JComboBox<String> jComboBoxTrainer = new JComboBox<String>(TrainerList.getTrainerNames());
+    JComboBox<String> jComboBoxTrainer = new JComboBox<>(TrainerList.getTrainerNames());
 
     Border border8;
     JPanel jPanel4 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
