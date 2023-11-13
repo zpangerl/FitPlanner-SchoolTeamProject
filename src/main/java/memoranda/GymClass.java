@@ -12,6 +12,7 @@ import java.util.Date;
 public class GymClass {
 
     private Date date;
+
     private Room.GymRoom room;
     private Trainer trainer;
     private ClassType classType;
@@ -51,11 +52,13 @@ public class GymClass {
         return date;
     }
 
+
     public void setRoom(Room.GymRoom r) {
         room = r;
     }
 
     public Room.GymRoom getRoom() {
+
         return room;
     }
 

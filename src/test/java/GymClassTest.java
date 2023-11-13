@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+
 import java.util.Date;
 import main.java.memoranda.Room;
 import main.java.memoranda.Room.GymRoom;
