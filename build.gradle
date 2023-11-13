@@ -30,6 +30,7 @@ dependencies {
 /////////////////////////////////////////////////////////////////////
 apply plugin: 'checkstyle'
 checkstyle {
+  toolVersion = "8.8"
   // Keep checkstyle a little quieter
   ignoreFailures = true
   showViolations = false
@@ -73,21 +74,22 @@ tasks.withType(Checkstyle) {
   // include '**/ui/App.java'
   // Main FitPlanner files
   include '**/BeltRank.java'
+  include '**/Student.java'
+  include '**/StudentList.java'
+  include '**/StudentListImpl.java'
   include '**/Trainer.java'
   include '**/TrainerList.java'
   include '**/TrainerListFileStorage.java'
   // UI FitPlanner files
+  include '**/ui/AddStudentDialog.java'
+  include '**/ui/StudentPanel.java'
   include '**/ui/TrainerDialog.java'
   include '**/ui/TrainersPanel.java'
   // FitPlanner Unit Tests
+  include '**/TestStudentClasses.java'
   include '**/TestTrainerListFileStorage.java'
   include '**/TestWhiteBoxTrainer.java'
  }
-
-checkstyle {
-    toolVersion = "8.8"
-}
-
 
 ///////////////////////////////////////////////////////////////////////
 // Configure SpotBugs
