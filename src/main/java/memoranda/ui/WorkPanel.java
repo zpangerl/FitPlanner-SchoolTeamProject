@@ -1,13 +1,23 @@
 package main.java.memoranda.ui;
 
-import main.java.memoranda.util.Context;
-import main.java.memoranda.util.Local;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JToolBar;
+import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
-import java.awt.*;
-import java.awt.event.ActionEvent;
+
+import main.java.memoranda.util.Context;
+import main.java.memoranda.util.Local;
 
 /**
  * 
@@ -26,11 +36,13 @@ public class WorkPanel extends JPanel {
 	public ResourcesPanel filesPanel = new ResourcesPanel();
 	public TrainersPanel trainersPanel = new TrainersPanel();
 	public GymClassPanel gymClassPanel = new GymClassPanel();
+	public StudentPanel studentsPanel = new StudentPanel();
 	public JButton agendaB = new JButton();
 	public JButton classesB = new JButton();
 	public JButton eventsB = new JButton();
 	public JButton filesB = new JButton();
 	public JButton trainersB = new JButton();
+	public JButton studentsB = new JButton();
 	JButton currentB = null;
 	Border border1;
 
@@ -113,30 +125,30 @@ public class WorkPanel extends JPanel {
 		eventsB.setMargin(new Insets(0, 0, 0, 0));
 		//eventsB.setSelected(true);
 
-		classesB.setSelected(true);
-		classesB.setFont(new java.awt.Font("Dialog", 1, 10));
-		classesB.setMargin(new Insets(0, 0, 0, 0));
-		classesB.setIcon(
+		tasksB.setSelected(true);
+		tasksB.setFont(new java.awt.Font("Dialog", 1, 10));
+		tasksB.setMargin(new Insets(0, 0, 0, 0));
+		tasksB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
 					"/ui/icons/gym.png")));
-		classesB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		classesB.addActionListener(new java.awt.event.ActionListener() {
+		tasksB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		tasksB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				classesB_actionPerformed(e);
+				tasksB_actionPerformed(e);
 			}
 		});
-		classesB.setVerticalAlignment(SwingConstants.TOP);
-		classesB.setText(Local.getString("Classes"));
-		classesB.setHorizontalTextPosition(SwingConstants.CENTER);
-		classesB.setFocusPainted(false);
-		classesB.setBorderPainted(false);
-		classesB.setContentAreaFilled(false);
-		classesB.setPreferredSize(new Dimension(50, 50));
-		classesB.setMinimumSize(new Dimension(30, 30));
-		classesB.setOpaque(false);
-		classesB.setMaximumSize(new Dimension(60, 80));
-		classesB.setBackground(Color.white);
+		tasksB.setVerticalAlignment(SwingConstants.TOP);
+		tasksB.setText(Local.getString("Classes"));
+		tasksB.setHorizontalTextPosition(SwingConstants.CENTER);
+		tasksB.setFocusPainted(false);
+		tasksB.setBorderPainted(false);
+		tasksB.setContentAreaFilled(false);
+		tasksB.setPreferredSize(new Dimension(50, 50));
+		tasksB.setMinimumSize(new Dimension(30, 30));
+		tasksB.setOpaque(false);
+		tasksB.setMaximumSize(new Dimension(60, 80));
+		tasksB.setBackground(Color.white);
 
 		notesB.setFont(new java.awt.Font("Dialog", 1, 10));
 		notesB.setBackground(Color.white);
@@ -189,7 +201,34 @@ public class WorkPanel extends JPanel {
 		trainersB.setOpaque(false);
 		trainersB.setMaximumSize(new Dimension(60, 80));
 		trainersB.setBackground(Color.white);
-		// comment
+
+		// Load StudentPanel Button
+		studentsB.setSelected(true);
+		studentsB.setMargin(new Insets(0, 0, 0, 0));
+		studentsB.setIcon(
+				new ImageIcon(
+						main.java.memoranda.ui.AppFrame.class.getResource(
+								"/ui/icons/student_48.png")));
+		studentsB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		studentsB.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				studentsB_actionPerformed(e);
+			}
+		});
+		studentsB.setFont(new java.awt.Font("Dialog", 1, 10));
+		studentsB.setVerticalAlignment(SwingConstants.TOP);
+		studentsB.setText(Local.getString("Students"));
+		studentsB.setHorizontalTextPosition(SwingConstants.CENTER);
+		studentsB.setFocusPainted(false);
+		studentsB.setBorderPainted(false);
+		studentsB.setContentAreaFilled(false);
+		studentsB.setPreferredSize(new Dimension(50, 50));
+		studentsB.setMinimumSize(new Dimension(30, 30));
+		studentsB.setOpaque(false);
+		studentsB.setMaximumSize(new Dimension(60, 80));
+		studentsB.setBackground(Color.white);
+		studentsB.setSelected(true);
+		studentsB.setMargin(new Insets(0, 0, 0, 0));
 
 		this.add(toolBar, BorderLayout.WEST);
 		this.add(panel, BorderLayout.CENTER);
@@ -197,11 +236,13 @@ public class WorkPanel extends JPanel {
 		panel.add(filesPanel, "FILES");
 		panel.add(trainersPanel, "TRAINERS");
 		panel.add(gymClassPanel, "CLASSES");
+		panel.add(studentsPanel, "STUDENTS");
 		toolBar.add(agendaB, null);
 		toolBar.add(eventsB, null);
 		toolBar.add(classesB, null);
 		toolBar.add(notesB, null);
 		toolBar.add(trainersB, null);
+		toolBar.add(studentsB, null);
 		currentB = agendaB;
 		// Default blue color
 		currentB.setBackground(new Color(215, 225, 250));
@@ -220,12 +261,14 @@ public class WorkPanel extends JPanel {
 		if (pan != null) {
 			if (pan.equals("NOTES"))
 				notesB_actionPerformed(null);
-			else if (pan.equals("CLASSES"))
-				classesB_actionPerformed(null);
+			else if (pan.equals("TASKS"))
+				tasksB_actionPerformed(null);
 			else if (pan.equals("EVENTS"))
 				eventsB_actionPerformed(null);
 			else if (pan.equals("TRAINERS"))
 				trainersB_actionPerformed(null);
+			else if (pan.equals("STUDENTS"))
+				studentsB_actionPerformed(null);
 		}
 	}
 
@@ -259,6 +302,12 @@ public class WorkPanel extends JPanel {
 		cardLayout1.show(panel, "CLASSES");
 		setCurrentButton(classesB);
 		Context.put("CURRENT_PANEL", "CLASSES");
+	}
+
+	public void studentsB_actionPerformed(ActionEvent e) {
+		cardLayout1.show(panel, "STUDENTS");
+		setCurrentButton(studentsB);
+		Context.put("CURRENT_PANEL", "STUDENTS");
 	}
 
 	void setCurrentButton(JButton cb) {

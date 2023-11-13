@@ -5,27 +5,27 @@
  *
  * This class is used to represent a gym class.
  */
-
 package main.java.memoranda;
 
-import java.util.*;
+import java.util.Date;
 
 public class GymClass {
 
     private Date date;
+
     private Room.GymRoom room;
     private Trainer trainer;
     private ClassType classType;
 
     /**
-     * Constructor for GymClass.
+     * Constructor for GymClass
      *
-     * @param date the date for the planned class.
-     * @param trainer the trainer assigned to teach the class.
+     * @param date,    the date for the planned class.
+     * @param trainer, the trainer assigned to teach the class.
      */
     public GymClass(Date date, Trainer trainer) {
-        this.date = date;
-        this.trainer = trainer;
+        date = date;
+        trainer = trainer;
     }
 
     public void setClassType(String type) {
