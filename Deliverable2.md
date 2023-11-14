@@ -163,38 +163,35 @@ Copy the section for each team member and then everyone adds their individual co
 #### Rhett Harrison
 
 **Do you think you individually worked consistently and put in enough work into the project (give a short answer).
+I think I could have worked with others more to help get myself unblocked quicker.
 
 
 Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
 Example:
-[Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
 
 **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+[Task 90, and some parts to help with task 99](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e59ccf4542ece89f735058b4f01790e0b4d6bcd5)
+
+[Task 141](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/0207c66d562e8b3a2fad6ce6ac25fc0be2ca4b8b)
 
 **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+[Classes Panel with more checkstyle resolutions, other merge commits](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/47)
+
+[Classes Panel, essentially the same as the one above](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/38)
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-    - link1
-    - link2
-
+[GymClassListTest](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/rharrison/task90-create_class_panel/src/test/java/GymClassListTest.java)
 
 **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-    - link1
-    - link2
+[Review 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/44)
 
-**How did you contribute to Static Analysis -- fill out starting Sprint 4:
+[Review 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/39)
 
-    - link1
-    - link2
 
 #### Frank Lin
 
