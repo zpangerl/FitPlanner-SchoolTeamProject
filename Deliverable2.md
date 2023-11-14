@@ -93,7 +93,7 @@ Answer as a team!
 **Starting in Sprint 2**
 Include a screenshot of your Burndown chart here and analyse in detail for me why it looks the way it does and how you could improve it if it needs improving. 
 
-// TODO: upload screenshot and markdown to embed (discussed with screenshare)
+![Screenshot of Burndown chart](Deliverable2_burndown.png)
 
 > November 2-4: Good start and a couple 1 point tasks completed. <br> 5-7 chart flat due to dependencies <br> 8 huge drop in burndown due to at least two people completing difficult (high point) tasks on the same day <br> 9-12: steady progress with curve further increasing downward on the last day as the final work was completed.
 > 
@@ -316,7 +316,7 @@ Below I want links that I can click on to your commit or PullRequest with your w
 
 ## Below is just for you as a little reminder on what needs to be done
 ### Checklist for you to see if you are done with the current Sprint
-- [ ] Form above is complete - (Steven: TODO - don't forget embed burn)
+- [ ] Form above is complete
 - [ ] Your newest software is on the master branch on GitHub, it is tested and compiles/runs
 - [ ] This document is in your master branch on GitHub
 - [ ] Read the kickoff again to make sure you have all the details that I want
