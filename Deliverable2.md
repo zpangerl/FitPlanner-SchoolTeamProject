@@ -126,39 +126,53 @@ Copy the section for each team member and then everyone adds their individual co
 
 #### Steven Stovall
 
-  **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
+**Do you think you individually worked consistently and put in enough work into the project (give a short answer).
+> Yes, active in Slack and try to help team as much as possible with code, collaboration, design, and kept Deliverable2.md up-to-date with each standup meeting. I had a plan based upon reverse engineering in Sprint 1 to implement a simple design by replacing memoranda code with simplified, clean code and was able to execute and deliver the Trainers data, UI, and persistent storage.
+
+Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
+
+##### Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
+
+- [QualityPolicy.md](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/ea4b905b2952c5ee2f9e80dd47b39536b28f9b0e) - Updated QualityPolicy to add checklists
+- [US86 Task117](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/c76ee0bb04372dbd59223f6fc6a8cbdf5cb28702) - Rewrite Trainer, simplify, and create compatible UI TrainersPanel to display table with rows of Trainers
+- [US86 Task115](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/80dd23954715a2356ac100265d86d191220c8b13) - Implement the Add Trainer dialog
+- [US133 Task135](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/a2d1f7b2313b06890d024dc0f35f1380fc57730c) - Persist TrainerList data when program open/closed
+- [US86 Task117](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/US86-add_trainers_to_system/src/main/java/memoranda/TrainerList.java) - blame TrainerList due to show overall results of multiple small commits
+
+##### Main contribution by file (Added sub-section by Steven Stovall, easier to show contributions than commits)
+* Links to main code contributions (Unit Tests in unit test section)
+
+- [US86 Trainer.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/dev/src/main/java/memoranda/Trainer.java)
+- [US86 TrainerList.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/dev/src/main/java/memoranda/TrainerList.java)
+- [US86 TrainerDialog.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/dev/src/main/java/memoranda/ui/TrainerDialog.java)
+- [US86 TrainersPanel.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/dev/src/main/java/memoranda/ui/TrainersPanel.java)
+- [US133 TrainerListFileStorage.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/US133-Persistent_Storage/src/main/java/memoranda/TrainerListFileStorage.java)
+
+##### GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
+
+- [PR39 for US86](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/39)
+- [PR40 US133 Task135](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/40)
+- [PR41 Enable Github CI on master](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/41)
+
+##### GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
+> Based on individual assignments, I thought some of these were supposed to start earlier than Sprint 3 and unsure if this is for on-campus or online schedule
+
+- [TestWhiteBoxTrainer.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/US86-add_trainers_to_system/src/test/java/TestWhiteBoxTrainer.java) blame shows commits
+- [TestTrainerListFileStorage.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/US133-Persistent_Storage/src/test/java/TestTrainerListFileStorage.java)
 
 
- Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
+##### GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
+ > Based on individual assignments, I thought some of these were supposed to start earlier than Sprint 3 and unsure if this is for on-campus or online schedule
 
-  Example: 
-  [Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
+- [PR32 Review](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/32#pullrequestreview-1713820515)
+- [PR33 Review](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/33#pullrequestreview-1713821561)
+- [PR42 REview](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/42#pullrequestreview-1726253821)
 
-  **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
+##### How did you contribute to Static Analysis -- fill out starting Sprint 4:
+> Based on individual assignments, I thought some of these were supposed to start earlier than Sprint 3 and unsure if this is for on-campus or online schedule
 
-    - link1
-    - link2
-
-  **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
-
-    - link1
-    - link2
-
-   **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
-
-    - link1
-    - link2
-
-  
-  **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
-
-    - link1
-    - link2
-
-  **How did you contribute to Static Analysis -- fill out starting Sprint 4:
-
-    - link1
-    - link2
+- [US86 branch pending dev](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/US86-add_trainers_to_system/build.gradle#L74-L83) - Configured Checkstyle to check relevant FitPlanner files
+- [In process of enabling Github CI](https://github.com/amehlhase316/Schnapsidee-Fall23B/tree/configure_github_ci)
 
 #### Rhett Harrison
 
