@@ -268,28 +268,25 @@ Example:
 #### Sean Mckeighan
 
 **Do you think you individually worked consistently and put in enough work into the project (give a short answer).
-
+- Yes, I consistently worked on tasks assigned, teammates tasks ready for test, and pull request reviews. 
 
 Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
-Example:
-[Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
-
 **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
-
-    - link1
-    - link2
+- [Commit 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/1bb971a4096788b1f86adcfffc538c1da941fd18) - Implemented Student class.
+- [Commit 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/774a5d1929442ecac82103062ca2baf99bdb9661) - Implemented Student class unit tests.
+- [Commit 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/527ce53d76b0af961ad41c07570f43c5c4d8851f) - Implemented Student add dialog class.
+- [Commit 4](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/f38551f60e314b0f5b2fe30cddef440f67839b4d) - Implemented StudentList class.
+- [Commit 5](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/79b79ed08bac0c4fd2f197cfdcab7f56ef80c4e3) - Added Student icon to workpanel for navigation to Student Panel.
 
 **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+- [PR 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/1bb971a4096788b1f86adcfffc538c1da941fd18) - I was the only teammate working on this branch. Only needed the PR to dev once US was complete.
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
     - link1
     - link2
-
 
 **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
@@ -316,7 +313,7 @@ Example:
     - [ ] Frank Lin
     - [ ] Steven Stovall
     - [ ] Zachary Pangerl
-    - [ ] Sean Mckeighan
+    - [x] Sean Mckeighan
 
 #### For the next Sprint
   - [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
