@@ -211,6 +211,7 @@ Example:
 
 **Do you think you individually worked consistently and put in enough work into the project (give a short answer).
 
+> Absolutely, I believe I contributed consistently and put forth a solid effort towards the project. There's always room for growth and improvement, but my dedication and the work I've put in have been substantial and in line with the project's goals.
 
 Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -219,29 +220,24 @@ Example:
 
 **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+- [Implements the date selector on the new class dialog.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/a4dfe180f9a3e3be5c7c9722e1ff38c4f36027aa) 
+- [Imploements the class for gym class.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/74d4169a438f006b1d4609515c74dee7b4b5e625)
 
 **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+- [PR36 - Create the gym class class.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/36)
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-    - link1
-    - link2
-
+> N/A
 
 **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-    - link1
-    - link2
+  - [Code review for PR#39.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/39)
 
 **How did you contribute to Static Analysis -- fill out starting Sprint 4:
 
-    - link1
-    - link2
+> N/A
 
 #### Zachary Pangerl
 
