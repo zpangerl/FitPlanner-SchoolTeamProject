@@ -28,6 +28,8 @@ public class GymClassListTest {
         GymClassList.getGymClasses().clear();
 
         // Create three trainers to vary beltRank and trainingRank
+        // Borrowed from Trainer implementation to create Trainer test data
+        // Required for GymClassList testing
         Trainer tmpTrainer1 = new Trainer();
         tmpTrainer1.setFirstName("FirstnameTest" + "-1");
         tmpTrainer1.setLastName("LastnameTest" + "-1");
