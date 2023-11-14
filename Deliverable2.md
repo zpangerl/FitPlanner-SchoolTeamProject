@@ -232,7 +232,7 @@ Example:
 #### Zachary Pangerl
 
 **Do you think you individually worked consistently and put in enough work into the project (give a short answer).
-
+I think I did for the most part, there were a few days in the middle where I was unable to work due to my job schedule, but other than that I feel like I worked consistently
 
 Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -241,24 +241,28 @@ Example:
 
 **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+    - [Commit 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/9d36929816b09cdde08feabce71b7a4423d6a523)
+    - [Commit 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4e7a55552d83f9c93c19a930c5d9eedeab3930d0)
+    - [Commit 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/705718dab7f8d34af4010dcfef2f6e0d7b39d9d4)
 
 **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+    - [PR 1 - Add belt ranks](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/32)
+    - [PR 2 - Add rooms](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/33)
+    - [PR 3 - Add RoomsPanel to FitPlanner](<TODO>)
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-    - link1
-    - link2
+    - [GymClassTest](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/dev/src/test/java/GymClassTest.java)
+    - [RoomTest](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/dev/src/test/java/RoomTest.java)
+    - [TestBeltRank - Steven did the last test case](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/dev/src/test/java/TestBeltRank.java)
 
 
 **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-    - link1
-    - link2
+    - [Review 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/42)
+    - [Review 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/34)
+    - [Review 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/47)
 
 **How did you contribute to Static Analysis -- fill out starting Sprint 4:
 
