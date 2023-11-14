@@ -49,7 +49,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 | 2023-11-09 (Thu) | None                      | No obstacles/blockers. Everyone has tasks in-progress.                                     | Behind                                           | n/a for Sprint 2                           |                                                                                                                                |
 | 2023-11-10 (Fri) | Sean Mckeighan            | Good communication of obstacles and teamwork to resolve a blocking Task (GymClassList)     | Behind                                           | n/a for Sprint 2                           |                                                                                                                                |
 | 2023-11-11 (Sat) | None                      | No obstacles (Rhett has workaround for Task99)                                             | Behind                                           | n/a for Sprint 2                           |                                                                                                                                |
-| 2023-11-12 (Sun) | Frank Lin, Sean Mckeighan | Task99 blocking for Rhett. Zach delayed/blocked due to needing seond reviewer for PR.      | Behind                                           | n/a for Sprint 2                           |                                                                                                                                |
+| 2023-11-12 (Sun) | Frank Lin, Sean Mckeighan | Task99 blocking for Rhett. Zach delayed/blocked due to needing second reviewer for PR.     | Behind                                           | n/a for Sprint 2                           |                                                                                                                                |
 
 
 ## 3: After the Sprint
@@ -63,15 +63,15 @@ Answer as a team!
 
 **What do you think is the value you created this Sprint?**
 
-> Your Answer
+> The FitPlanner has the ability to add gym classes, students, trainers, and view classes by room.
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> Your Answer
+> As a team, we worked well on individual tasks and were responsive for tasks that were ready-to-test.
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> Your Answer
+> Based on the goal aligned with the customer expectations, we delivered a product that shows progress toward the end goal.
 
 
 ### Sprint Retrospective
@@ -80,40 +80,43 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Your Answer
+> Yes
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Your Answer
+> No
 
 **If not, what went wrong?**
 
-> Your Answer
+> The tasks were ambitious, and the Java GUI code was more time-consuming than expected. We had a lot of US/Task dependencies that we could improve in the future to better define US/Tasks with fewer dependencies.
 
 **Starting in Sprint 2**
 Include a screenshot of your Burndown chart here and analyse in detail for me why it looks the way it does and how you could improve it if it needs improving. 
 
-> Your Answer
+// TODO: upload screenshot and markdown to embed (discussed with screenshare)
+
+> November 2-4: Good start and a couple 1 point tasks completed. <br> 5-7 chart flat due to dependencies <br> 8 huge drop in burndown due to at least two people completing difficult (high point) tasks on the same day <br> 9-12: steady progress with curve further increasing downward on the last day as the final work was completed.
+> 
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> Your Answer
+> Yes, the overall trend is consistently decreasing. Although there were a couple with big jumps, they average out to consistent work.
 
 **Did you deliver business value?**
 
-> Your Answer
+> Yes, the software is able to help the gym electronically maintain a roster of students and trainers. The front desk owner will be able to quickly see the list of classes taking place in each room.
 
 **Did you follow the Scrum process (e.g. move Tasks correctly?, keep the Taiga board up to date? work consistently?)**
 
-> Your Answer
+> Yes, we followed the Scrum process, updated task comments during testing, and followed 1-2 task at a time rule.
 
 **Are there things the team thinks it can do better in the next Sprint? (not needed for last Sprint)**
 
-> Your Answer
+> Yes, better planning the tasks to have fewer dependencies. Making the User Stories a little less complex and adding additional smaller US if needed.
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
-> Your Answer
+> We are optimistic with a plan to take what we learned and do even better in Sprint 3.
 
 ### Contributions:
 
@@ -305,12 +308,12 @@ Example:
 
 ## Below is just for you as a little reminder on what needs to be done
 ### Checklist for you to see if you are done with the current Sprint
-- [ ] Form above is complete
+- [ ] Form above is complete - (Steven: TODO - don't forget embed burn)
 - [ ] Your newest software is on the master branch on GitHub, it is tested and compiles/runs
 - [ ] This document is in your master branch on GitHub
 - [ ] Read the kickoff again to make sure you have all the details that I want
 - [ ] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
-- [ ] Your Quality Policies are accurate and up to date
+- [x] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
     - [ ] Rhett Harrison
     - [ ] Frank Lin
