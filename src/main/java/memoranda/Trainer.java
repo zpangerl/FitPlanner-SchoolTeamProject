@@ -9,12 +9,14 @@
 
 package main.java.memoranda;
 
+import java.io.Serializable;
+
 /**
  Class: Trainer
 
  Description: Stores Trainer attributes first name, last name, training rank, and belt ranking.
  */
-public class Trainer {
+public class Trainer implements Serializable {
     // class variables
     private String firstName;
     private String lastName;
