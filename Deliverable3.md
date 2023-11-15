@@ -14,24 +14,24 @@
 ### Sprint Planning (For Sprint 1-3)
 Document your Sprint Planning here. Also check the kickoff document for more details on what needs to be done. This is just the documentation. 
 
-**Sprint Goal:** Your Sprint goal
+**Sprint Goal:** Gym Owner will be able to modify members of the gym and assign students to gym classes
 
-**How many User Stories did you add to the Product Backlog:**  Number
+**How many User Stories did you add to the Product Backlog:**  9, 3 carry-overs from last sprint
 
-**How many User Stories did you add to this Sprint:** 
+**How many User Stories did you add to this Sprint:** 8
 > Answer the questions below about your Sprint Planning?
 
 **Why did you add these US, why do you think you can get them done in the next Sprint?**
 
-> Your Answer
+> We believe that the addition of these USs will be a good milestone for the project as a whole. Since we already have working UIs, we are mostly making updates, which should make it easier to finish all the USs.
 
 **Why do you think these fit well with your Sprint goal? (details)**
 
-> Your Answer
+> Once all of these User Stories are done, the gym owner will be able to modify members of the gym, including trainers and students, and will be able to assign students to gym classes, fulfilling the sprint goal.
 
 **Do you have a rough idea what you need to do? (if the answer is no then please let me know on Slack)**
 
-> Your Answer
+> Yes, we do!
 
 
 
