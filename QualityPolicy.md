@@ -56,6 +56,8 @@ Add unit test to ensure new methods added work as described and return expected 
  - [ ] Code includes javadoc with short description of methods, parameters, return value
  - [ ] Unused imports have been removed
  - [ ] Code includes unit tests
+ - [ ] 0 Checkstyle errors for created/modified code
+ - [ ] 0 SpotBugs errors for created/modified code
 ```
 
   > Reviewer Checklist. Must be included in the Github Pull Request Review when you complete a review and approve.
@@ -65,10 +67,12 @@ Add unit test to ensure new methods added work as described and return expected 
  - [ ] Unit tests are present and correct
  - [ ] Comments and javadoc add value and are not too short or too long
  - [ ] Ensure that branch with PR has latest dev merged prior to merging to dev
+ - [ ] Verify CI builds pass
 ```
 
 **Static Analysis**  (online: start Sprint 3, campus: start Sprint 3)
-  > Your Static Analysis policy   
+  > 0 Checkstyle errors for code that you create or modify<br>
+  > 0 SpotBugs errors for code that you create or modify
 
 **Continuous Integration**  (start Sprint 3, campus: start Sprint 3)
-  > Your Continuous Integration policy
+  > Can only merge if CI passes(both dev and master)
