@@ -259,7 +259,7 @@ Example:
 
     - [PR 1 - Add belt ranks](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/32)
     - [PR 2 - Add rooms](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/33)
-    - [PR 3 - Add RoomsPanel to FitPlanner](<TODO>)
+    - [PR 3 - Add RoomsPanel to FitPlanner](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/50)
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
