@@ -57,7 +57,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 ### Sprint Review
 Answer as a team!
 
-**Screen Cast link**: Your link
+**Screen Cast link**: [Link to our video](https://www.youtube.com/watch?v=rHxs_F1LBY4&feature=youtu.be)
 
 > Answer the following questions as a team. 
 
@@ -316,23 +316,23 @@ Below I want links that I can click on to your commit or PullRequest with your w
 
 ## Below is just for you as a little reminder on what needs to be done
 ### Checklist for you to see if you are done with the current Sprint
-- [ ] Form above is complete
+- [x] Form above is complete
 - [ ] Your newest software is on the master branch on GitHub, it is tested and compiles/runs
 - [ ] This document is in your master branch on GitHub
 - [ ] Read the kickoff again to make sure you have all the details that I want
-- [ ] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
+- [x] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
 - [x] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-    - [ ] Rhett Harrison
+    - [x] Rhett Harrison
     - [ ] Frank Lin
-    - [ ] Steven Stovall
+    - [x] Steven Stovall
     - [ ] Zachary Pangerl
     - [x] Sean Mckeighan
 
 #### For the next Sprint
-  - [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
+  - [x] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
     - [ ] Basic information (part 1) for next Sprint was included in this new Deliverable document 
-  - [ ] You added new User Stories to your Product Backlog, they are correctly written (needed after Sprint 1, 2)
+  - [x] You added new User Stories to your Product Backlog, they are correctly written (needed after Sprint 1, 2)
   - [ ] All User Stories have acceptance tests
   - [ ] User Stories in your new Sprint Backlog have initial tasks which are in New column
-  - [ ] You know how to proceed (if not please reach out)
+  - [x] You know how to proceed (if not please reach out)
