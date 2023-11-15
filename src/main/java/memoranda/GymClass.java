@@ -9,10 +9,12 @@ package main.java.memoranda;
 
 import java.util.Date;
 
+import main.java.memoranda.Room.GymRoom;
+
 public class GymClass {
 
     private Date date;
-    private Room room;
+    private GymRoom room;
     private Trainer trainer;
     private ClassType classType;
 
@@ -51,11 +53,11 @@ public class GymClass {
         return date;
     }
 
-    public void setRoom(Room r) {
-        room = r;
+    public void setRoom(GymRoom room1) {
+        room = room1;
     }
 
-    public Room getRoom() {
+    public GymRoom getRoom() {
         return room;
     }
 
