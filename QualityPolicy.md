@@ -64,6 +64,7 @@ Add unit test to ensure new methods added work as described and return expected 
 ```
  - [ ] Unit tests are present and correct
  - [ ] Comments and javadoc add value and are not too short or too long
+ - [ ] Ensure that branch with PR has latest dev merged prior to merging to dev
 ```
 
 **Static Analysis**  (online: start Sprint 3, campus: start Sprint 3)
