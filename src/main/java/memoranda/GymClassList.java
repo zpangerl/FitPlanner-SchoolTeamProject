@@ -1,6 +1,6 @@
 /*
   File: GymClassList.Java
-  Author: Rhett Harrison (modified: US82, Task141)
+  Author: Rhett Harrison (modified: US82, Task141) and Steven Stovall
   Version: 2023.11.10
 
   Description: Stores GymClasses to have CRUDops performed on them.
@@ -14,6 +14,7 @@ import java.util.*;
  Class: GymClassList
 
  Description: Stores GymClass attributes date, room, trainer, and class type.
+ See TrainerList.java for similar implementation.
  */
 public final class GymClassList {
     // class variables

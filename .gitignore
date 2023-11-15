@@ -12,3 +12,7 @@ build/
 
 # ignore macOS files
 .DS_Store
+
+# FitPlannerDir - Stores persistent data, but we don't want it in the repo
+#  - Used by TrainerListFileStorage (Stovall)
+FitPlannerData/

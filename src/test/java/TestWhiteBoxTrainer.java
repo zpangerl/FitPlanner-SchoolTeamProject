@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
-import main.java.memoranda.ui.TrainerDialog;
-import main.java.memoranda.ui.TrainersPanel;
 import org.junit.Test;
 
 /**

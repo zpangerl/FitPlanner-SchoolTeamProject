@@ -162,7 +162,6 @@ public class FileExportDialog extends javax.swing.JDialog {
     }//GEN-END:initComponents
 
     private void xhtmlChBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xhtmlChBActionPerformed
-        // TODO add your handling code here:
     }
 
     private void chooserActionPerformed() {//GEN-FIRST:event_chooserActionPerformed
