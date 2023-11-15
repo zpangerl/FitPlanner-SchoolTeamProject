@@ -603,7 +603,7 @@ public class AppFrame extends JFrame {
         CurrentProject.addProjectListener(new ProjectListener() {
 
             public void projectChange(Project prj, NoteList nl, TaskList tl,
-                                      ResourcesList rl, TrainersList tr) {
+                                      ResourcesList rl) {
             }
 
             public void projectWasChanged() {
@@ -643,6 +643,7 @@ public class AppFrame extends JFrame {
         Context.put("FRAME_HEIGHT", Integer.valueOf(this.getHeight()));
         Context.put("FRAME_XPOS", Integer.valueOf(this.getLocation().x));
         Context.put("FRAME_YPOS", Integer.valueOf(this.getLocation().y));
+        TrainerListFileStorage.saveData(); // persist TrainerList to disk
         exitNotify();
         System.exit(0);
     }
