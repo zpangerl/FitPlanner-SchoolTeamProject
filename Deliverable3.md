@@ -33,7 +33,13 @@ Document your Sprint Planning here. Also check the kickoff document for more det
 
 > Yes, we do!
 
-
+### Schnapsidee Agreed Timeline
+```
+11/15-11/27 (11 day sprint + 2 days thanksgiving)
+Retro on 28 (wrap up any last minute commits)
+Turn in on 28 or 29 at absolute latest 
+*(Sprint 3 goes to master on 29th no matter what, plan accordingly)
+```
 
 ## 2: During the Sprint
 > Fill out the Meeting minutes during your Sprint and keep track of things. Update your Quality policies when needed, as explained in the lectures and in the Quality Policy documents on Canvas. 
