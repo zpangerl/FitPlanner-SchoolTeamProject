@@ -9,6 +9,7 @@
 package main.java.memoranda;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  Class: Trainer
@@ -56,6 +57,20 @@ public final class TrainerList {
             trainers[i] = trainer;
         }
         return trainers;
+    }
+
+
+    /**
+     * Returns a vector with the fullname of all trainers
+     * @return trainerNames Vector<String>
+     */
+    public static Vector<String> getTrainerNames() {
+        Vector<String> trainerNames = new Vector<>();
+        for (int i = 0; i < trainers.size(); i++) {
+            String fullname = trainers.get(i).getName();
+            trainerNames.add(fullname);
+        }
+        return trainerNames;
     }
 
     /**
