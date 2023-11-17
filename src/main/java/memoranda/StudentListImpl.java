@@ -1,11 +1,12 @@
 package main.java.memoranda;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
-public class StudentListImpl implements StudentList {
+public class StudentListImpl {
 
-    private ArrayList<Student> studentList = new ArrayList<Student>();
+    private static ArrayList<Student> studentList = new ArrayList<Student>();
 
     /**
      * Checks if a Student object exists in the StudentList.
@@ -13,7 +14,7 @@ public class StudentListImpl implements StudentList {
      * @param check_student Student object to check for.
      * @return Returns true if student is in list, false otherwise.
      */
-    public boolean studentExists(Student check_student){
+    public static boolean studentExists(Student check_student){
         return studentList.contains(check_student);
     }
 
@@ -24,7 +25,7 @@ public class StudentListImpl implements StudentList {
      * @param firstName Students first name.
      * @return Student object.
      */
-    @Override
+
     public Student getStudentByName(String lastName, String firstName) {
         for (int i = 0; i < studentList.size(); i++)
             if (studentList.get(i).getFirstName() == firstName && studentList.get(i).getLastName() == lastName)
@@ -38,7 +39,6 @@ public class StudentListImpl implements StudentList {
      * @param student Student object to search for.
      * @return Student object.
      */
-    @Override
     public Student getStudentByObject(Student student) {
         if(studentList.contains(student)) {
             return studentList.get(studentList.indexOf(student));
@@ -64,8 +64,7 @@ public class StudentListImpl implements StudentList {
      *
      * @param student_add Student object to add.
      */
-    @Override
-    public void addStudent(Student student_add) {
+    public static void addStudent(Student student_add) {
         if(studentExists(student_add)) {
             return;
         }
@@ -77,11 +76,18 @@ public class StudentListImpl implements StudentList {
      *
      * @param student_remove Student object to remove.
      */
-    @Override
-    public void removeStudent(Student student_remove) {
+    public static void removeStudent(Student student_remove) {
         if (studentExists(student_remove)) {
             studentList.remove(student_remove);
         }
+    }
+
+    /**
+     * Returns the list of students.
+     * @return List of students.
+     */
+    public static ArrayList<Student> getStudentList() {
+        return studentList;
     }
 
     /**
@@ -89,7 +95,6 @@ public class StudentListImpl implements StudentList {
      *
      * @return Count of current Students.
      */
-    @Override
     public int getAllStudentCount() {
         return studentList.size();
     }
