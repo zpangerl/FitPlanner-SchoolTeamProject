@@ -8,6 +8,7 @@
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
@@ -42,7 +43,8 @@ public class TestTrainerListFileStorage {
         // Prepare clean test environment
         File trainerFile = new File(TrainerListFileStorage.trainerListPath);
         if (trainerFile.exists()) {
-            trainerFile.delete();
+            boolean deletedSuccessfully = (trainerFile.delete());
+            assertTrue(deletedSuccessfully);
         }
         assertFalse(trainerFile.exists());
     }
@@ -55,7 +57,8 @@ public class TestTrainerListFileStorage {
         // Destructive: Intended to only run in dev environment
         File trainerFile = new File(TrainerListFileStorage.trainerListPath);
         if (trainerFile.exists()) {
-            trainerFile.delete();
+            boolean deletedSuccessfully = (trainerFile.delete());
+            assertTrue(deletedSuccessfully);
         }
         assertFalse(trainerFile.exists());
     }
