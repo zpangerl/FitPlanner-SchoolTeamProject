@@ -87,8 +87,8 @@ tasks.withType(Checkstyle) {
   include '**/ui/TrainerDialog.java'
   include '**/ui/TrainersPanel.java'
   // FitPlanner Unit Tests
-  include '**/TestStudentClasses.java'
   include '**/TestStudentListFileStorage.java'
+  include '**/TestStudentClasses.java'
   include '**/TestTrainerListFileStorage.java'
   include '**/TestWhiteBoxTrainer.java'
  }

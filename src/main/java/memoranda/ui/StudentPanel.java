@@ -22,7 +22,7 @@ public class StudentPanel extends JPanel {
     JMenuItem ppRemoveStudent = new JMenuItem();
     JMenuItem ppNewStudent = new JMenuItem();
     JMenuItem ppRefresh = new JMenuItem();
-    StudentListImpl studentList = new StudentListImpl();
+    StudentListImpl studentList;
     int tableIndexSelected = -1;
     Object[][] data = new Object[0][0];
     String[] columnNames = {
@@ -260,7 +260,7 @@ public class StudentPanel extends JPanel {
      * @return Double array of object, student data.
      */
     public Object[][] updateStudentTable() {
-        int count = studentList.getAllStudentCount();
+        int count = StudentListImpl.getStudentList().size();
         Object[][] data = new Object[count][columnNames.length];
         for (int i = 0; i < count; i++) {
             Student student = studentList.getStudentByIndex(i);

@@ -4,9 +4,14 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
-public class StudentListImpl {
+public final class StudentListImpl {
 
-    private static ArrayList<Student> studentList = new ArrayList<Student>();
+    private static ArrayList<Student> studentList;
+
+    public StudentListImpl() {
+        // https://stackoverflow.com/questions/7766277/why-am-i-getting-this-warning-about-utility-classes-in-java
+        throw new AssertionError("Do not instantiate utility class");
+    }
 
     /**
      * Checks if a Student object exists in the StudentList.
@@ -26,7 +31,7 @@ public class StudentListImpl {
      * @return Student object.
      */
 
-    public Student getStudentByName(String lastName, String firstName) {
+    public static Student getStudentByName(String lastName, String firstName) {
         for (int i = 0; i < studentList.size(); i++)
             if (studentList.get(i).getFirstName() == firstName && studentList.get(i).getLastName() == lastName)
                 return studentList.get(i);
@@ -39,7 +44,7 @@ public class StudentListImpl {
      * @param student Student object to search for.
      * @return Student object.
      */
-    public Student getStudentByObject(Student student) {
+    public static Student getStudentByObject(Student student) {
         if(studentList.contains(student)) {
             return studentList.get(studentList.indexOf(student));
         }
@@ -52,7 +57,7 @@ public class StudentListImpl {
      * @param index Index of student.
      * @return Student object.
      */
-    public Student getStudentByIndex(int index) {
+    public static Student getStudentByIndex(int index) {
         if(studentList.size() < index) {
             return null;
         }
@@ -65,6 +70,9 @@ public class StudentListImpl {
      * @param student_add Student object to add.
      */
     public static void addStudent(Student student_add) {
+        if (studentList == null) {
+            studentList = new ArrayList<>();
+        }
         if(studentExists(student_add)) {
             return;
         }
@@ -77,7 +85,7 @@ public class StudentListImpl {
      * @param student_remove Student object to remove.
      */
     public static void removeStudent(Student student_remove) {
-        if (studentExists(student_remove)) {
+        if (studentList != null && studentExists(student_remove)) {
             studentList.remove(student_remove);
         }
     }
@@ -87,6 +95,9 @@ public class StudentListImpl {
      * @return List of students.
      */
     public static ArrayList<Student> getStudentList() {
+        if (studentList == null) {
+            studentList = new ArrayList<>();
+        }
         return studentList;
     }
 
@@ -95,7 +106,7 @@ public class StudentListImpl {
      *
      * @return Count of current Students.
      */
-    public int getAllStudentCount() {
+    public static int getAllStudentCount() {
         return studentList.size();
     }
 }
