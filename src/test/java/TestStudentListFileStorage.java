@@ -6,7 +6,7 @@ import java.io.File;
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Student;
 import main.java.memoranda.StudentListImpl;
-import main.java.memoranda.util.StudentListFileStorage;
+import main.java.memoranda.StudentListFileStorage;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

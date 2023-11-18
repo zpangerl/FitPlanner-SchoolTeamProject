@@ -1,7 +1,8 @@
-package main.java.memoranda.util;
+package main.java.memoranda;
 
 import main.java.memoranda.Student;
 import main.java.memoranda.StudentListImpl;
+import main.java.memoranda.util.Util;
 
 import java.io.*;
 import java.util.ArrayList;

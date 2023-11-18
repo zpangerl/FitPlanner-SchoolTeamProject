@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.UIManager;
 
 import main.java.memoranda.EventsScheduler;
-import main.java.memoranda.util.StudentListFileStorage;
+import main.java.memoranda.StudentListFileStorage;
 import main.java.memoranda.TrainerListFileStorage;
 import main.java.memoranda.util.Configuration;
 
