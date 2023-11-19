@@ -58,7 +58,7 @@ public class GymClassDialog extends JDialog {
     JLabel jLabelRoom = new JLabel();
     JComboBox<Room.GymRoom> jComboBoxRoom = new JComboBox<>(Room.GymRoom.values());
     JLabel jLabelTrainer = new JLabel();
-    JComboBox<String> jComboBoxTrainer = new JComboBox<String>(TrainerList.getTrainerNames());
+    JComboBox<String> jComboBoxTrainer = new JComboBox<String>(TrainerList.getTrainerNamesVector());
 
     Border border8;
     JPanel jPanel4 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
