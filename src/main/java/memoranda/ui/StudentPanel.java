@@ -1,12 +1,11 @@
 package main.java.memoranda.ui;
 
-import main.java.memoranda.*;
-import main.java.memoranda.util.Local;
-
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.table.*;
+import main.java.memoranda.*;
+import main.java.memoranda.util.*;
 
 public class StudentPanel extends JPanel {
     BorderLayout borderLayout1 = new BorderLayout();
@@ -17,20 +16,20 @@ public class StudentPanel extends JPanel {
     JButton removeStudentB = new JButton();
     JScrollPane scrollPane = new JScrollPane();
     JButton refreshB = new JButton();
-    JPopupMenu studentPPMenu = new JPopupMenu();
-    JMenuItem ppRun = new JMenuItem();
-    JMenuItem ppRemoveStudent = new JMenuItem();
-    JMenuItem ppNewStudent = new JMenuItem();
-    JMenuItem ppRefresh = new JMenuItem();
+    JPopupMenu studentPopUpMenu = new JPopupMenu();
+    JMenuItem popUpRun = new JMenuItem();
+    JMenuItem popUpRemoveStudent = new JMenuItem();
+    JMenuItem popUpNewStudent = new JMenuItem();
+    JMenuItem popUpRefresh = new JMenuItem();
     StudentListImpl studentList = new StudentListImpl();
     int tableIndexSelected = -1;
     Object[][] data = new Object[0][0];
     String[] columnNames = {
-            "First Name",
-            "Last Name",
-            "Age",
-            "Belt Rank",
-            "Training Rank"
+        "First Name",
+        "Last Name",
+        "Age",
+        "Belt Rank",
+        "Training Rank"
     };
     DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 
@@ -49,7 +48,14 @@ public class StudentPanel extends JPanel {
         toolBar.setFloatable(false);
         this.setLayout(borderLayout1);
         newStudentB.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/addresource.png")));
+                new ImageIcon(
+                        main
+                                .java
+                                .memoranda
+                                .ui
+                                .AppFrame
+                                .class
+                                .getResource("/ui/icons/addresource.png")));
         newStudentB.setEnabled(true);
         newStudentB.setMaximumSize(new Dimension(24, 24));
         newStudentB.setMinimumSize(new Dimension(24, 24));
@@ -83,12 +89,11 @@ public class StudentPanel extends JPanel {
                 int y = (int) e.getPoint().getY();
                 Point point = new Point(20, y);
                 int b = studentTable.rowAtPoint(point);
-                if(b < 0){
+                if (b < 0) {
                     studentTable.clearSelection();
                     studentTable.updateUI();
                     tableIndexSelected = -1;
-                }
-                else {
+                } else {
                     tableIndexSelected = b;
                 }
             }
@@ -118,13 +123,11 @@ public class StudentPanel extends JPanel {
                 int res = JOptionPane.showConfirmDialog(null, panel, "Delete Student",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.PLAIN_MESSAGE);
-                if(res == 0) {
+                if (res == 0) {
                     studentList.removeStudent(studentList.getStudentByIndex(tableIndexSelected));
                     data = updateStudentTable();
                     dtm.setDataVector(data, columnNames);
                     tableIndexSelected = -1;
-                } else {
-
                 }
             }
         });
@@ -135,7 +138,13 @@ public class StudentPanel extends JPanel {
         removeStudentB.setMaximumSize(new Dimension(24, 24));
         removeStudentB.setIcon(
                 new ImageIcon(
-                        main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removeresource.png")));
+                        main
+                                .java
+                                .memoranda
+                                .ui
+                                .AppFrame
+                                .class
+                                .getResource("/ui/icons/removeresource.png")));
         scrollPane.getViewport().setBackground(Color.white);
 
         toolBar.addSeparator(new Dimension(8, 24));
@@ -163,19 +172,25 @@ public class StudentPanel extends JPanel {
         refreshB.setMaximumSize(new Dimension(24, 24));
         refreshB.setEnabled(true);
         refreshB.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/refreshres.png")));
-        studentPPMenu.setFont(new java.awt.Font("Dialog", 1, 10));
-        ppRun.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppRun.setText(Local.getString("Open resource") + "...");
-        ppRun.addActionListener(new java.awt.event.ActionListener() {
+                new ImageIcon(main
+                        .java
+                        .memoranda
+                        .ui
+                        .AppFrame
+                        .class
+                        .getResource("/ui/icons/refreshres.png")));
+        studentPopUpMenu.setFont(new java.awt.Font("Dialog", 1, 10));
+        popUpRun.setFont(new java.awt.Font("Dialog", 1, 11));
+        popUpRun.setText(Local.getString("Open resource") + "...");
+        popUpRun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppRun_actionPerformed(e);
             }
         });
-        ppRun.setEnabled(false);
+        popUpRun.setEnabled(false);
 
-        ppRemoveStudent.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppRemoveStudent.setText(Local.getString("Remove Student"));
+        popUpRemoveStudent.setFont(new java.awt.Font("Dialog", 1, 11));
+        popUpRemoveStudent.setText(Local.getString("Remove Student"));
         /*
         ppRemoveStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -184,25 +199,43 @@ public class StudentPanel extends JPanel {
         });
 
          */
-        ppRemoveStudent.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removeresource.png")));
-        ppRemoveStudent.setEnabled(false);
-        ppNewStudent.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppNewStudent.setText(Local.getString("New Student") + "...");
-        ppNewStudent.addActionListener(new java.awt.event.ActionListener() {
+        popUpRemoveStudent.setIcon(new ImageIcon(main
+                .java
+                .memoranda
+                .ui
+                .AppFrame
+                .class
+                .getResource("/ui/icons/removeresource.png")));
+        popUpRemoveStudent.setEnabled(false);
+        popUpNewStudent.setFont(new java.awt.Font("Dialog", 1, 11));
+        popUpNewStudent.setText(Local.getString("New Student") + "...");
+        popUpNewStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppNewStudent_actionPerformed(e);
             }
         });
-        ppNewStudent.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/addresource.png")));
+        popUpNewStudent.setIcon(new ImageIcon(main
+                .java
+                .memoranda
+                .ui
+                .AppFrame
+                .class
+                .getResource("/ui/icons/addresource.png")));
 
-        ppRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppRefresh.setText(Local.getString("Refresh"));
-        ppRefresh.addActionListener(new java.awt.event.ActionListener() {
+        popUpRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
+        popUpRefresh.setText(Local.getString("Refresh"));
+        popUpRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppRefresh_actionPerformed(e);
             }
         });
-        ppRefresh.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/refreshres.png")));
+        popUpRefresh.setIcon(new ImageIcon(main
+                .java
+                .memoranda
+                .ui
+                .AppFrame
+                .class
+                .getResource("/ui/icons/refreshres.png")));
 
         toolBar.add(newStudentB, null);
         toolBar.add(removeStudentB, null);
@@ -211,12 +244,12 @@ public class StudentPanel extends JPanel {
         this.add(scrollPane, BorderLayout.CENTER);
         scrollPane.getViewport().add(studentTable, null);
         this.add(toolBar, BorderLayout.NORTH);
-        studentPPMenu.add(ppRun);
-        studentPPMenu.addSeparator();
-        studentPPMenu.add(ppNewStudent);
-        studentPPMenu.add(ppRemoveStudent);
-        studentPPMenu.addSeparator();
-        studentPPMenu.add(ppRefresh);
+        studentPopUpMenu.add(popUpRun);
+        studentPopUpMenu.addSeparator();
+        studentPopUpMenu.add(popUpNewStudent);
+        studentPopUpMenu.add(popUpRemoveStudent);
+        studentPopUpMenu.addSeparator();
+        studentPopUpMenu.add(popUpRefresh);
         /*
         studentTable.addKeyListener(new KeyListener() {
             public void keyPressed(KeyEvent e) {
@@ -243,9 +276,13 @@ public class StudentPanel extends JPanel {
         AddStudentDialog dlg = new AddStudentDialog(App.getFrame(), Local.getString("New Student"));
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
-        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+        dlg.setLocation(
+                (frmSize.width - dlg.getSize().width) / 2
+                        + loc.x,
+                (frmSize.height - dlg.getSize().height) / 2
+                        + loc.y);
         dlg.setVisible(true);
-        if (dlg.CANCELLED) {
+        if (dlg.isCanceled) {
             return;
         } else {
             studentList.addStudent(dlg.getStudent());
@@ -272,6 +309,7 @@ public class StudentPanel extends JPanel {
         }
         return data;
     }
+
     class PopupListener extends MouseAdapter {
 
         public void mouseClicked(MouseEvent e) {
@@ -288,7 +326,7 @@ public class StudentPanel extends JPanel {
 
         private void maybeShowPopup(MouseEvent e) {
             if (e.isPopupTrigger()) {
-                studentPPMenu.show(e.getComponent(), e.getX(), e.getY());
+                studentPopUpMenu.show(e.getComponent(), e.getX(), e.getY());
             }
         }
 

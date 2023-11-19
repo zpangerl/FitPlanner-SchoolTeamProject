@@ -60,15 +60,7 @@ Add unit test to ensure new methods added work as described and return expected 
  - [ ] 0 SpotBugs errors for created/modified code
 ```
 
-  > Reviewer Checklist. Must be included in the Github Pull Request Review when you complete a review and approve.
-  > Add additional comments as needed. Copy/paste and complete checklist below
-
-```
- - [ ] Unit tests are present and correct
- - [ ] Comments and javadoc add value and are not too short or too long
- - [ ] Ensure that branch with PR has latest dev merged prior to merging to dev
- - [ ] Verify CI builds pass
-```
+  > Include a checklist/question list which every reviewer will need to fill out/anser when conducting a review, this checklist (and the answers of course) need to be put into the Pull Request review.
 
 **Static Analysis**  (online: start Sprint 3, campus: start Sprint 3)
   > 0 Checkstyle errors for code that you create or modify<br>

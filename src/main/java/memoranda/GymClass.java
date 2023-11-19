@@ -2,12 +2,12 @@
  * GymClass.java
  * Created: Nov. 2nd, 2023
  * Author: Frank Lin
- * 
+ *
  * This class is used to represent a gym class.
  */
 package main.java.memoranda;
 
-import java.util.Date;
+import java.util.*;
 
 import main.java.memoranda.Room.GymRoom;
 
@@ -17,24 +17,24 @@ public class GymClass {
     private GymRoom room;
     private Trainer trainer;
     private ClassType classType;
-
     /**
      * Constructor for GymClass
-     * 
+     *
      * @param date,    the date for the planned class.
      * @param trainer, the trainer assigned to teach the class.
      */
-    public GymClass(Date d, Trainer t) {
-        date = d;
-        trainer = t;
+    public GymClass(Date date, Trainer trainer) {
+        this.date = date;
+        this.trainer = trainer;
     }
+
 
     public void setClassType(String type) {
         this.classType = new ClassType(type);
     }
 
     public String getClassType() {
-        return classType.toString();
+        return classType != null ? classType.toString() : "N/A";
     }
 
     public void setTrainer(Trainer t) {
@@ -53,11 +53,11 @@ public class GymClass {
         return date;
     }
 
-    public void setRoom(GymRoom room1) {
-        room = room1;
+    public void setRoom(Room.GymRoom r) {
+        room = r;
     }
 
-    public GymRoom getRoom() {
+    public Room.GymRoom getRoom() {
         return room;
     }
 
