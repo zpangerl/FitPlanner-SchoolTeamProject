@@ -7,13 +7,12 @@
  */
 package main.java.memoranda;
 
-import java.util.*;
-
 import main.java.memoranda.Room.GymRoom;
+import main.java.memoranda.date.CalendarDate;
 
 public class GymClass {
 
-    private Date date;
+    private CalendarDate date;
     private GymRoom room;
     private Trainer trainer;
     private ClassType classType;
@@ -23,7 +22,7 @@ public class GymClass {
      * @param date,    the date for the planned class.
      * @param trainer, the trainer assigned to teach the class.
      */
-    public GymClass(Date date, Trainer trainer) {
+    public GymClass(CalendarDate date, Trainer trainer) {
         this.date = date;
         this.trainer = trainer;
     }
@@ -45,11 +44,11 @@ public class GymClass {
         return trainer;
     }
 
-    public void setDate(Date d) {
+    public void setDate(CalendarDate d) {
         date = d;
     }
 
-    public Date getDate() {
+    public CalendarDate getDate() {
         return date;
     }
 

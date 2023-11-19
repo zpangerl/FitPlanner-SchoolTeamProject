@@ -7,6 +7,8 @@ import javax.swing.*;
 import javax.swing.event.*;
 import main.java.memoranda.*;
 import main.java.memoranda.Room.*;
+import main.java.memoranda.date.CalendarDate;
+import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.util.*;
 /*
  * File: GymClassPanel.java
@@ -257,6 +259,7 @@ public class GymClassPanel extends JPanel {
 
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
+        dlg.startDate.getModel().setValue(CurrentDate.get().getDate());
         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x,
                 (frmSize.height - dlg.getSize().height) / 2 + loc.y);
         dlg.setVisible(true);
@@ -265,7 +268,8 @@ public class GymClassPanel extends JPanel {
         }
 
         Trainer trainer = TrainerList.getTrainerByIndex(dlg.jComboBoxTrainer.getSelectedIndex());
-        GymClass newClass = new GymClass(new Date(), trainer);
+        CalendarDate date = new CalendarDate((Date) dlg.startDate.getModel().getValue());
+        GymClass newClass = new GymClass(date, trainer);
         newClass.setClassType(dlg.classNameField.getText());
         newClass.setRoom(GymRoom.getRoomByIndex(dlg.jComboBoxRoom.getSelectedIndex()));
         GymClassList.addGymClass(newClass);
