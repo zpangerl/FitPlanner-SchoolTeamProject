@@ -264,6 +264,12 @@ public class GymClassPanel extends JPanel {
             return;
         }
 
+        Trainer trainer = TrainerList.getTrainerByIndex(dlg.jComboBoxTrainer.getSelectedIndex());
+        GymClass newClass = new GymClass(new Date(), trainer);
+        newClass.setClassType(dlg.classNameField.getText());
+        newClass.setRoom(GymRoom.getRoomByIndex(dlg.jComboBoxRoom.getSelectedIndex()));
+        GymClassList.addGymClass(newClass);
+        gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
 
 
         // Trainer tempTrainer = new Trainer();

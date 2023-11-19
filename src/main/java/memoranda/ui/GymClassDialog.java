@@ -288,6 +288,8 @@ public class GymClassDialog extends JDialog {
         this.dispose();
     }
 
+    // Checks to see if the class name field and combobox have been updated.
+    // If updated and both not empty, the ok button is set to enable. Or else, the ok button is disabled.
     public void formChanged() {
         if (classNameField.getText().equals("") || jComboBoxTrainer.getSelectedIndex() == -1) {
             okB.setEnabled(false);

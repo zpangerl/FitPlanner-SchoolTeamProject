@@ -94,12 +94,23 @@ public final class TrainerList {
         trainers.remove(idx);
     }
 
+    /**
+     * Returns a single trainer by index number.
+     * 
+     * @param idx index number of trainer to return
+     * @return trainer Trainer
+     */
+    public static Trainer getTrainerByIndex(int idx) {
+        return trainers.get(idx);
+    }
+
     public static String[] getTrainerNames() {
         return (String[]) trainers.stream().map(Trainer::getName).toArray();
     }
 
-        /**
+    /**
      * Returns a vector with the fullname of all trainers
+     * 
      * @return trainerNames Vector<String>
      */
     public static Vector<String> getTrainerNamesVector() {

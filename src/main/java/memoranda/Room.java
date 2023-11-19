@@ -16,6 +16,14 @@ public class Room {
         ROOM1,
         ROOM2,
         ROOM3,
-        ROOM4
+        ROOM4;
+
+        /**
+         * Returns the name of the room.
+         * @return name of room
+         */
+        public static GymRoom getRoomByIndex(int selectedIndex) {
+            return GymRoom.values()[selectedIndex];
+        }
     }
 }
