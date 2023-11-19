@@ -28,6 +28,8 @@ import javax.swing.SpinnerDateModel;
 import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import main.java.memoranda.Room;
 import main.java.memoranda.TrainerList;
@@ -106,6 +108,7 @@ public class GymClassDialog extends JDialog {
         okB.setMinimumSize(new Dimension(100, 26));
         okB.setPreferredSize(new Dimension(100, 26));
         okB.setText(Local.getString("Create"));
+        okB.setEnabled(false);
         okB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 okB_actionPerformed(e);
@@ -139,6 +142,22 @@ public class GymClassDialog extends JDialog {
         // The field for class name
         classNameField.setBorder(border8);
         classNameField.setPreferredSize(new Dimension(375, 24));
+        classNameField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                classNameFieldChanged();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                classNameFieldChanged();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                classNameFieldChanged();
+            }
+        });
         gbCon = new GridBagConstraints();
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 1;
@@ -267,5 +286,13 @@ public class GymClassDialog extends JDialog {
 
     void cancelB_actionPerformed(ActionEvent e) {
         this.dispose();
+    }
+
+    public void classNameFieldChanged() {
+        if (classNameField.getText().equals("")) {
+            okB.setEnabled(false);
+        } else {
+            okB.setEnabled(true);
+        }
     }
 }
