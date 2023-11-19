@@ -1,10 +1,12 @@
 /**
  * GymClass.java
  * Created: Nov. 2nd, 2023
+ * Modified: Nov. 17th, 2023 Rhett Harrison
  * Author: Frank Lin
  * 
  * This class is used to represent a gym class.
  */
+
 package main.java.memoranda;
 
 import java.util.ArrayList;
@@ -21,10 +23,10 @@ public class GymClass {
     private List<Student> students;
 
     /**
-     * Constructor for GymClass
+     * Constructor for GymClass.
      * 
-     * @param date,    the date for the planned class.
-     * @param trainer, the trainer assigned to teach the class.
+     * @param date the date for the planned class.
+     * @param trainer the trainer assigned to teach the class.
      */
     public GymClass(Date date, Trainer trainer) {
         this.date = date;
@@ -59,24 +61,37 @@ public class GymClass {
     public void setStudents(List<Student> s) {
         students = s;
     }
+
     public List<Student> getStudents() {
         return students;
     }
-    public boolean addStudent(Student s) {
-        if (students.size() < 20 && !students.contains(s)) {
-            students.add(s);
-            return true;
-        }
-        return false;
-    }
-    public boolean removeStudent(Student s) {
-        if (students.contains(s)) {
-            students.remove(s);
+
+    /**
+     * Adds a student to the class.
+     *
+     * @param student the student to add.
+     * @return true if the student was added, false otherwise.
+     */
+    public boolean addStudent(Student student) {
+        if (students.size() < 20 && !students.contains(student)) {
+            students.add(student);
             return true;
         }
         return false;
     }
 
+    /**
+     * Removes a student from the class.
+     * @param student the student to remove.
+     * @return true if the student was removed, false otherwise.
+     */
+    public boolean removeStudent(Student student) {
+        if (students.contains(student)) {
+            students.remove(student);
+            return true;
+        }
+        return false;
+    }
 
     public void setRoom(Room.GymRoom r) {
         room = r;
