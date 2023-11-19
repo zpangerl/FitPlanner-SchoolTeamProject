@@ -145,17 +145,17 @@ public class GymClassDialog extends JDialog {
         classNameField.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                classNameFieldChanged();
+                formChanged();
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                classNameFieldChanged();
+                formChanged();
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                classNameFieldChanged();
+                formChanged();
             }
         });
         gbCon = new GridBagConstraints();
@@ -288,8 +288,8 @@ public class GymClassDialog extends JDialog {
         this.dispose();
     }
 
-    public void classNameFieldChanged() {
-        if (classNameField.getText().equals("")) {
+    public void formChanged() {
+        if (classNameField.getText().equals("") || jComboBoxTrainer.getSelectedIndex() == -1) {
             okB.setEnabled(false);
         } else {
             okB.setEnabled(true);
