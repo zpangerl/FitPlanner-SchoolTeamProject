@@ -97,4 +97,17 @@ public final class TrainerList {
     public static String[] getTrainerNames() {
         return (String[]) trainers.stream().map(Trainer::getName).toArray();
     }
+
+        /**
+     * Returns a vector with the fullname of all trainers
+     * @return trainerNames Vector<String>
+     */
+    public static Vector<String> getTrainerNamesVector() {
+        Vector<String> trainerNames = new Vector<>();
+        for (int i = 0; i < trainers.size(); i++) {
+            String fullname = trainers.get(i).getName();
+            trainerNames.add(fullname);
+        }
+        return trainerNames;
+    }
 }
