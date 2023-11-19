@@ -8,18 +8,16 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
-
 import main.java.memoranda.BeltRank.Rank;
 import main.java.memoranda.GymClass;
 import main.java.memoranda.GymClassList;
@@ -49,7 +47,7 @@ public class RoomsPanel extends JPanel {
     final String[] roomsTableColNames = 
         {"Class name", "Date", "Trainer"};
     
-    /*
+    /**
      * Default constructor for RoomsPanel.
      * Sets up each of the four Room panels and the
      * Button panel used to switch between rooms. 
@@ -65,12 +63,12 @@ public class RoomsPanel extends JPanel {
         room4Panel = createRoomPanel("ROOM4");
         buttonPanel = new JPanel(new GridLayout(1, 4));
         JButton room1Button = new JButton("Room 1");
-        JButton room2Button = new JButton("Room 2");
-        JButton room3Button = new JButton("Room 3");
-        JButton room4Button = new JButton("Room 4");
         room1Button.addActionListener(e -> showRoom(Room.GymRoom.ROOM1));
+        JButton room2Button = new JButton("Room 2");
         room2Button.addActionListener(e -> showRoom(Room.GymRoom.ROOM2));
+        JButton room3Button = new JButton("Room 3");
         room3Button.addActionListener(e -> showRoom(Room.GymRoom.ROOM3));
+        JButton room4Button = new JButton("Room 4");
         room4Button.addActionListener(e -> showRoom(Room.GymRoom.ROOM4));
         buttonPanel.add(room1Button);
         buttonPanel.add(room2Button);
@@ -87,16 +85,13 @@ public class RoomsPanel extends JPanel {
      */
     public JPanel createRoomPanel(String name) {
         String borderTitle;
-        if(name.equals("ROOM1")) {
+        if (name.equals("ROOM1")) {
             borderTitle = "Room 1";
-        }
-        else if(name.equals("ROOM2")) {
+        } else if (name.equals("ROOM2")) {
             borderTitle = "Room 2";
-        }
-        else if(name.equals("ROOM3")) {
+        } else if (name.equals("ROOM3")) {
             borderTitle = "Room 3";
-        }
-        else {
+        } else {
             borderTitle = "Room 4";
         }
         JPanel roomPanel = new JPanel(new BorderLayout());
@@ -115,7 +110,8 @@ public class RoomsPanel extends JPanel {
      */
     private void createRoomTable(JPanel roomPanel, String name) {
         List<GymClass> filtered = filterClasses(classesData, name);
-        DefaultTableModel roomTableModel = new DefaultTableModel(convertToData(filtered), roomsTableColNames);
+        DefaultTableModel roomTableModel = 
+                new DefaultTableModel(convertToData(filtered), roomsTableColNames);
         JTable roomTable = new JTable(roomTableModel);
         roomTable.setEnabled(false);
         roomPanel.add(new JScrollPane(roomTable), BorderLayout.CENTER);
@@ -127,9 +123,9 @@ public class RoomsPanel extends JPanel {
      * @param filtered a filtered list of GymClass objects
      * @return the data from each class in the room
      */
-    private Object[][] convertToData(List<GymClass> filtered){
+    private Object[][] convertToData(List<GymClass> filtered) {
         Object[][] data = new Object[filtered.size()][3];
-        for(int i = 0; i < filtered.size(); i++) {
+        for (int i = 0; i < filtered.size(); i++) {
             GymClass gymClass = filtered.get(i);
             data[i][0] = gymClass.getClassType();
             data[i][1] = gymClass.getDate();
@@ -144,23 +140,20 @@ public class RoomsPanel extends JPanel {
      * @param name the name of the room
      * @return a filtered list of GymClasses that are assigned to a specific room
      */
-    private List<GymClass> filterClasses(ArrayList<GymClass> classesData, String name){
+    private List<GymClass> filterClasses(ArrayList<GymClass> classesData, String name) {
         List<GymClass> filtered = new ArrayList<>();
         Room.GymRoom roomNum;
-        if(name.equals("ROOM1")) {
+        if (name.equals("ROOM1")) {
             roomNum = Room.GymRoom.ROOM1;
-        }
-        else if(name.equals("ROOM2")) {
+        } else if (name.equals("ROOM2")) {
             roomNum = Room.GymRoom.ROOM2;
-        }
-        else if(name.equals("ROOM3")) {
+        } else if (name.equals("ROOM3")) {
             roomNum = Room.GymRoom.ROOM3;
-        }
-        else {
+        } else {
             roomNum = Room.GymRoom.ROOM4;
         }
-        for(GymClass gc : classesData) {
-            if(gc.getRoom() == roomNum) {
+        for (GymClass gc : classesData) {
+            if (gc.getRoom() == roomNum) {
                 filtered.add(gc);
             }
         }
@@ -179,8 +172,8 @@ public class RoomsPanel extends JPanel {
      * Updates the table in each room panel.
      */
     public void updateRoomTables() {
-        for(Component panel : switchPanel.getComponents()) {
-            if(panel instanceof JPanel) {
+        for (Component panel : switchPanel.getComponents()) {
+            if (panel instanceof JPanel) {
                 JPanel roomPanel = (JPanel) panel;
                 roomPanel.removeAll();
                 String roomName = roomPanel.getName();
