@@ -31,4 +31,49 @@ public class GymClassTest {
         class4.setRoom(GymRoom.ROOM4);
         assertEquals(3, class4.getRoom().ordinal());
     }
+
+    /**
+     * Test get and set class type.
+     */
+    @Test
+    public void testGetSetClassType() {
+        Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
+        GymClass class1 = new GymClass(new CalendarDate(), trainer1);
+        class1.setClassType("Yoga");
+        assertEquals("Yoga", class1.getClassType());
+    }
+
+    /**
+     * Test get and set class Trainer.
+     */
+    @Test
+    public void testGetSetClassTrainer() {
+        Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
+        GymClass class1 = new GymClass(new CalendarDate(), trainer1);
+        Trainer trainer2 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
+        class1.setTrainer(trainer2);
+        assertEquals(trainer2, class1.getTrainer());
+    }
+
+    /**
+     * Test get and set class date.
+     */
+    @Test
+    public void testGetSetClassDate() {
+        Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
+        GymClass class1 = new GymClass(new CalendarDate(2, 12, 2023), trainer1);
+        CalendarDate date2 = new CalendarDate(2, 12, 2023);
+        class1.setDate(date2);
+        assertEquals(date2, class1.getDate());
+    }
+
+    /**
+     * Test get class type if null.
+     */
+    @Test
+    public void testGetClassTypeNull() {
+        Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
+        GymClass class1 = new GymClass(new CalendarDate(), trainer1);
+        assertEquals("N/A", class1.getClassType());
+    }
 }
