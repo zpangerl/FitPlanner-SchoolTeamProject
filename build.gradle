@@ -1,6 +1,6 @@
 plugins {
-    // id "com.github.spotbugs" version "4.5.1"
     id "checkstyle"
+    id "com.github.spotbugs" version "5.0.12"
 }
 
 ant.importBuild 'build.xml'
@@ -95,15 +95,16 @@ tasks.withType(Checkstyle) {
 // Configure SpotBugs
 ///////////////////////////////////////////////////////////////////////
 // To generate an HTML report instead of XML
-// spotbugsMain {
-//     reports {
-//         xml.enabled = false
-//         html.enabled = true
-//     }
-// }
-// spotbugs {
-//     toolVersion = '4.2.2'
-//     ignoreFailures = true
-//     showProgress = true
-//     effort = 'max'
-// }
+// https://github.com/spotbugs/spotbugs-gradle-plugin#readme
+// To generate an HTML report instead of XML
+spotbugsMain {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+spotbugs {
+    ignoreFailures = true
+    showProgress = true
+    effort = 'max'
+}
