@@ -1,11 +1,14 @@
 package main.java.memoranda.ui;
 
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.*;
-import javax.swing.table.*;
-import main.java.memoranda.*;
-import main.java.memoranda.util.*;
+import javax.swing.table.DefaultTableModel;
+import main.java.memoranda.Student;
+import main.java.memoranda.StudentListImpl;
+import main.java.memoranda.util.Local;
 
 public class StudentPanel extends JPanel {
     BorderLayout borderLayout1 = new BorderLayout();

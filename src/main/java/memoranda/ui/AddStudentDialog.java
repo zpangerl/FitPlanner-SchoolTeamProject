@@ -1,12 +1,15 @@
 package main.java.memoranda.ui;
 
 import java.awt.*;
-import java.awt.event.*;
-import java.text.*;
+import java.awt.event.ActionEvent;
+import java.text.NumberFormat;
 import javax.swing.*;
-import javax.swing.border.*;
-import main.java.memoranda.*;
-import main.java.memoranda.util.*;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+import main.java.memoranda.BeltRank;
+import main.java.memoranda.Student;
+import main.java.memoranda.ui.htmleditor.util.Local;
+
 
 public class AddStudentDialog extends JDialog {
     public boolean isCanceled = true;
