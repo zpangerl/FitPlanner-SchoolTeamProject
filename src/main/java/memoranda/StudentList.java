@@ -21,16 +21,16 @@ public interface StudentList {
     /**
      * Adds a Student object to the StudentList.
      *
-     * @param student_add Student object to add.
+     * @param studentAdd Student object to add.
      */
-    void addStudent(Student student_add);
+    void addStudent(Student studentAdd);
 
     /**
      * Removes a Student object for the StudentList.
      *
-     * @param student_remove Student object to remove.
+     * @param studentRemove Student object to remove.
      */
-    void removeStudent(Student student_remove);
+    void removeStudent(Student studentRemove);
 
     /**
      * Returns the current number of Students in the StudentList.

@@ -86,4 +86,8 @@ public final class TrainerList {
     public static void removeTrainerByIndex(int idx) {
         trainers.remove(idx);
     }
+
+    public static String[] getTrainerNames() {
+        return (String[]) trainers.stream().map(Trainer::getName).toArray();
+    }
 }
