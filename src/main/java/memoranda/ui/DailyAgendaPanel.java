@@ -9,6 +9,7 @@ package main.java.memoranda.ui;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.GridLayout;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -26,7 +27,6 @@ import javax.swing.table.DefaultTableModel;
 import main.java.memoranda.GymClass;
 import main.java.memoranda.GymClassList;
 import main.java.memoranda.Room;
-import main.java.memoranda.Room.GymRoom;
 
 public class DailyAgendaPanel extends JPanel {
     private JPanel room1Panel;
@@ -135,10 +135,12 @@ public class DailyAgendaPanel extends JPanel {
      */
     private Object[][] convertToData(List<GymClass> filtered) {
         Object[][] data = new Object[filtered.size()][3];
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
         for (int i = 0; i < filtered.size(); i++) {
             GymClass gymClass = filtered.get(i);
+            String formattedTime = dateFormat.format(gymClass.getDate());
             data[i][0] = gymClass.getClassType();
-            data[i][1] = gymClass.getDate().getTime();
+            data[i][1] = formattedTime;
             data[i][2] = gymClass.getTrainer().getName();
         }
         return data;
