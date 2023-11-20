@@ -2,7 +2,6 @@
  * GymClass.java
  * Created: Nov. 2nd, 2023
  * Author: Frank Lin
-
  *
  * This class is used to represent a gym class.
  */
