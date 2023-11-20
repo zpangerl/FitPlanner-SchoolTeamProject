@@ -35,10 +35,10 @@ public class StudentPanel extends JPanel {
     JScrollPane scrollPane = new JScrollPane();
     JButton refreshB = new JButton();
     JPopupMenu studentPopUpMenu = new JPopupMenu();
-    JMenuItem ppRun = new JMenuItem();
-    JMenuItem ppRemoveStudent = new JMenuItem();
-    JMenuItem ppNewStudent = new JMenuItem();
-    JMenuItem ppRefresh = new JMenuItem();
+    JMenuItem popUpRun = new JMenuItem();
+    JMenuItem popUpRemoveStudent = new JMenuItem();
+    JMenuItem popUpNewStudent = new JMenuItem();
+    JMenuItem popUpRefresh = new JMenuItem();
     StudentListImpl studentList = new StudentListImpl();
     int tableIndexSelected = -1;
     Object[][] data = new Object[0][0];
@@ -198,17 +198,17 @@ public class StudentPanel extends JPanel {
                         .class
                         .getResource("/ui/icons/refreshres.png")));
         studentPopUpMenu.setFont(new java.awt.Font("Dialog", 1, 10));
-        ppRun.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppRun.setText(Local.getString("Open resource") + "...");
-        ppRun.addActionListener(new java.awt.event.ActionListener() {
+        popUpRun.setFont(new java.awt.Font("Dialog", 1, 11));
+        popUpRun.setText(Local.getString("Open resource") + "...");
+        popUpRun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppRun_actionPerformed(e);
             }
         });
-        ppRun.setEnabled(false);
+        popUpRun.setEnabled(false);
 
-        ppRemoveStudent.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppRemoveStudent.setText(Local.getString("Remove Student"));
+        popUpRemoveStudent.setFont(new java.awt.Font("Dialog", 1, 11));
+        popUpRemoveStudent.setText(Local.getString("Remove Student"));
         /*
         ppRemoveStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -217,22 +217,22 @@ public class StudentPanel extends JPanel {
         });
 
          */
-        ppRemoveStudent.setIcon(new ImageIcon(main
+        popUpRemoveStudent.setIcon(new ImageIcon(main
                 .java
                 .memoranda
                 .ui
                 .AppFrame
                 .class
                 .getResource("/ui/icons/removeresource.png")));
-        ppRemoveStudent.setEnabled(false);
-        ppNewStudent.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppNewStudent.setText(Local.getString("New Student") + "...");
-        ppNewStudent.addActionListener(new java.awt.event.ActionListener() {
+        popUpRemoveStudent.setEnabled(false);
+        popUpNewStudent.setFont(new java.awt.Font("Dialog", 1, 11));
+        popUpNewStudent.setText(Local.getString("New Student") + "...");
+        popUpNewStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppNewStudent_actionPerformed(e);
             }
         });
-        ppNewStudent.setIcon(new ImageIcon(main
+        popUpNewStudent.setIcon(new ImageIcon(main
                 .java
                 .memoranda
                 .ui
@@ -240,14 +240,14 @@ public class StudentPanel extends JPanel {
                 .class
                 .getResource("/ui/icons/addresource.png")));
 
-        ppRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppRefresh.setText(Local.getString("Refresh"));
-        ppRefresh.addActionListener(new java.awt.event.ActionListener() {
+        popUpRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
+        popUpRefresh.setText(Local.getString("Refresh"));
+        popUpRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppRefresh_actionPerformed(e);
             }
         });
-        ppRefresh.setIcon(new ImageIcon(main
+        popUpRefresh.setIcon(new ImageIcon(main
                 .java
                 .memoranda
                 .ui
@@ -262,12 +262,12 @@ public class StudentPanel extends JPanel {
         this.add(scrollPane, BorderLayout.CENTER);
         scrollPane.getViewport().add(studentTable, null);
         this.add(toolBar, BorderLayout.NORTH);
-        studentPopUpMenu.add(ppRun);
+        studentPopUpMenu.add(popUpRun);
         studentPopUpMenu.addSeparator();
-        studentPopUpMenu.add(ppNewStudent);
-        studentPopUpMenu.add(ppRemoveStudent);
+        studentPopUpMenu.add(popUpNewStudent);
+        studentPopUpMenu.add(popUpRemoveStudent);
         studentPopUpMenu.addSeparator();
-        studentPopUpMenu.add(ppRefresh);
+        studentPopUpMenu.add(popUpRefresh);
         /*
         studentTable.addKeyListener(new KeyListener() {
             public void keyPressed(KeyEvent e) {
@@ -294,11 +294,13 @@ public class StudentPanel extends JPanel {
         AddStudentDialog dlg = new AddStudentDialog(App.getFrame(), Local.getString("New Student"));
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
-        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2
-                + loc.x, (frmSize.height - dlg.getSize().height) / 2
-                + loc.y);
+        dlg.setLocation(
+                (frmSize.width - dlg.getSize().width) / 2
+                        + loc.x,
+                (frmSize.height - dlg.getSize().height) / 2
+                        + loc.y);
         dlg.setVisible(true);
-        if (dlg.canceled) {
+        if (dlg.isCanceled) {
             return;
         } else {
             studentList.addStudent(dlg.getStudent());

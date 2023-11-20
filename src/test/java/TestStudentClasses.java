@@ -1,9 +1,11 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Student;
 import main.java.memoranda.StudentListImpl;
-import org.junit.Assert;
 import org.junit.Test;
 
 public class TestStudentClasses {
@@ -14,8 +16,8 @@ public class TestStudentClasses {
     @Test
     public void createStudentJustName() {
         Student tempStudent = new Student("Mckeighan", "Sean");
-        Assert.assertEquals("Sean", tempStudent.getFirstName());
-        Assert.assertEquals("Mckeighan", tempStudent.getLastName());
+        assertEquals("Sean", tempStudent.getFirstName());
+        assertEquals("Mckeighan", tempStudent.getLastName());
     }
 
     /**
@@ -26,11 +28,11 @@ public class TestStudentClasses {
         BeltRank.Rank belt = BeltRank.Rank.WHITE;
         BeltRank.Rank beltTrain = BeltRank.Rank.YELLOW;
         Student tempStudent = new Student("Mckeighan", "Sean", 20, belt, beltTrain);
-        Assert.assertEquals("Sean", tempStudent.getFirstName());
-        Assert.assertEquals("Mckeighan", tempStudent.getLastName());
-        Assert.assertEquals(20, tempStudent.getAge());
-        Assert.assertEquals(BeltRank.Rank.WHITE, tempStudent.getBeltRank());
-        Assert.assertEquals(BeltRank.Rank.YELLOW, tempStudent.getTrainingRank());
+        assertEquals("Sean", tempStudent.getFirstName());
+        assertEquals("Mckeighan", tempStudent.getLastName());
+        assertEquals(20, tempStudent.getAge());
+        assertEquals(BeltRank.Rank.WHITE, tempStudent.getBeltRank());
+        assertEquals(BeltRank.Rank.YELLOW, tempStudent.getTrainingRank());
     }
 
     /**
@@ -41,8 +43,8 @@ public class TestStudentClasses {
         Student tempStudent = new Student("mckeighan", "sean");
         tempStudent.setFirstName("Sean");
         tempStudent.setLastName("Mckeighan");
-        Assert.assertEquals("Sean", tempStudent.getFirstName());
-        Assert.assertEquals("Mckeighan", tempStudent.getLastName());
+        assertEquals("Sean", tempStudent.getFirstName());
+        assertEquals("Mckeighan", tempStudent.getLastName());
     }
 
     /**
@@ -55,8 +57,8 @@ public class TestStudentClasses {
         Student tempStudent = new Student("Mckeighan", "Sean", 20, belt, beltTrain);
         tempStudent.setBeltColor(BeltRank.Rank.BLACK1);
         tempStudent.setTrainingRank(BeltRank.Rank.BLACK2);
-        Assert.assertEquals(BeltRank.Rank.BLACK1, tempStudent.getBeltRank());
-        Assert.assertEquals(BeltRank.Rank.BLACK2, tempStudent.getTrainingRank());
+        assertEquals(BeltRank.Rank.BLACK1, tempStudent.getBeltRank());
+        assertEquals(BeltRank.Rank.BLACK2, tempStudent.getTrainingRank());
     }
 
     /**
@@ -67,7 +69,7 @@ public class TestStudentClasses {
         StudentListImpl testList = new StudentListImpl();
         Student tempStudent1 = new Student("Mckeighan", "Sean");
         testList.addStudent(tempStudent1);
-        Assert.assertTrue(testList.studentExists(tempStudent1));
+        assertTrue(testList.studentExists(tempStudent1));
     }
 
     /**
@@ -79,7 +81,7 @@ public class TestStudentClasses {
         Student tempStudent1 = new Student("Mckeighan", "Sean");
         testList.addStudent(tempStudent1);
         testList.addStudent(tempStudent1);
-        Assert.assertEquals(1, testList.getAllStudentCount());
+        assertEquals(1, testList.getAllStudentCount());
     }
 
     /**
@@ -90,7 +92,7 @@ public class TestStudentClasses {
         StudentListImpl testList = new StudentListImpl();
         Student tempStudent1 = new Student("Mckeighan", "Sean");
         testList.addStudent(tempStudent1);
-        Assert.assertEquals(testList.getStudentByObject(tempStudent1), tempStudent1);
+        assertEquals(testList.getStudentByObject(tempStudent1), tempStudent1);
     }
 
     /**
@@ -101,7 +103,7 @@ public class TestStudentClasses {
         StudentListImpl testList = new StudentListImpl();
         Student tempStudent1 = new Student("Mckeighan", "Sean");
         testList.addStudent(tempStudent1);
-        Assert.assertEquals(testList.getStudentByName("Sckeighan", "Mean"), null);
+        assertNull(testList.getStudentByName("Sckeighan", "Mean"));
     }
 
     /**
@@ -113,7 +115,7 @@ public class TestStudentClasses {
         Student tempStudent1 = new Student("Mckeighan", "Sean");
         testList.addStudent(tempStudent1);
         testList.removeStudent(tempStudent1);
-        Assert.assertFalse(testList.studentExists(tempStudent1));
+        assertFalse(testList.studentExists(tempStudent1));
     }
 
     /**

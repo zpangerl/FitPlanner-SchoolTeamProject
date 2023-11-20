@@ -66,11 +66,13 @@ public class Student {
      * @param inputBeltRank Students current belt rank.
      * @param inputTrainingRank Students current training rank.
      */
-    public Student(String inputLastName,
-                   String inputFirstName,
-                   int inputAge,
-                   BeltRank.Rank inputBeltRank,
-                   BeltRank.Rank inputTrainingRank) {
+    public Student(
+            String inputLastName,
+            String inputFirstName,
+            int inputAge,
+            BeltRank.Rank inputBeltRank,
+            BeltRank.Rank inputTrainingRank
+    ) {
         this.lastName = inputLastName;
         this.firstName = inputFirstName;
         this.age = inputAge;

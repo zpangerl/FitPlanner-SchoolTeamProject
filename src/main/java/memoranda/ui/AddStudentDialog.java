@@ -21,27 +21,26 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Student;
-import main.java.memoranda.util.Local;
+import main.java.memoranda.ui.htmleditor.util.Local;
+
 
 public class AddStudentDialog extends JDialog {
-
-    public boolean canceled = true;
-
+    public boolean isCanceled = true;
     JPanel dialogTitlePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JLabel header = new JLabel();
     Border firstNameTitleBorder;
     Border lastNameTitleBorder;
     Border beltRankTitleBorder;
     Border trainRankTitleBorder;
-    JPanel headerPanel = new JPanel(new BorderLayout());
-    JPanel actionsPanel = new JPanel(new BorderLayout());
-    JPanel inputsPanel = new JPanel(new GridLayout(5,1));
-    JPanel firstNamePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    JPanel lastNamePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    JPanel agePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    JPanel beltRankPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    JPanel trainingRankPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+    JPanel jpanelHeader = new JPanel(new BorderLayout());
+    JPanel jpanelActions = new JPanel(new BorderLayout());
+    JPanel jpanelInputs = new JPanel(new GridLayout(5,1));
+    JPanel jpanelFirstName = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    JPanel jpanelLastName = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    JPanel jpanelAge = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    JPanel jpanelBeltRank = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    JPanel jpanelTrainRank = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    JPanel jpanelButtons = new JPanel(new FlowLayout(FlowLayout.CENTER));
     Border border1;
     NumberFormat amountFormat;
     JFormattedTextField ageFormattedTextField = new JFormattedTextField(amountFormat);
@@ -72,7 +71,6 @@ public class AddStudentDialog extends JDialog {
 
     /**
      * Build the UI.
-     * @throws Exception exception thrown.
      */
     void jbInit() throws Exception {
         this.setPreferredSize(new Dimension(240, 400));
@@ -93,38 +91,38 @@ public class AddStudentDialog extends JDialog {
         // First Name Field
         firstNameTitleBorder = new TitledBorder(BorderFactory.createEmptyBorder(2, 0, 2, 0),
                 Local.getString(" First Name"), TitledBorder.LEFT, TitledBorder.BELOW_TOP);
-        firstNamePanel.setBorder(firstNameTitleBorder);
-        firstNamePanel.add(firstNameField);
+        jpanelFirstName.setBorder(firstNameTitleBorder);
+        jpanelFirstName.add(firstNameField);
         firstNameField.setPreferredSize(new Dimension(210, 24));
 
         // Last Name Field
         lastNameTitleBorder = new TitledBorder(BorderFactory.createEmptyBorder(0, 0, 2, 0),
                 Local.getString(" Last Name"), TitledBorder.LEFT, TitledBorder.BELOW_TOP);
-        lastNamePanel.setBorder(lastNameTitleBorder);
-        lastNamePanel.add(lastNameField);
+        jpanelLastName.setBorder(lastNameTitleBorder);
+        jpanelLastName.add(lastNameField);
         lastNameField.setPreferredSize(new Dimension(210, 24));
 
         // Age Field
         Border ageTitle = new TitledBorder((BorderFactory.createEmptyBorder(0,0,2,0)),
                 Local.getString("Age"), TitledBorder.LEFT, TitledBorder.BELOW_TOP);
-        agePanel.setBorder(ageTitle);
-        agePanel.add(ageFormattedTextField);
+        jpanelAge.setBorder(ageTitle);
+        jpanelAge.add(ageFormattedTextField);
         ageFormattedTextField.setPreferredSize(new Dimension(105, 24));
         ageFormattedTextField.setValue(0);
 
         // Belt Rank Field
         beltRankTitleBorder = new TitledBorder(BorderFactory.createEmptyBorder(0, 0, 2, 0),
                 Local.getString(" Belt Rank"), TitledBorder.LEFT, TitledBorder.BELOW_TOP);
-        beltRankPanel.setBorder(beltRankTitleBorder);
-        beltRankPanel.add(beltRankComboBox);
+        jpanelBeltRank.setBorder(beltRankTitleBorder);
+        jpanelBeltRank.add(beltRankComboBox);
         beltRankComboBox.setBackground(Color.white);
         beltRankComboBox.setPreferredSize(new Dimension(105, 24));
 
         // Train Rank Field
         trainRankTitleBorder = new TitledBorder(BorderFactory.createEmptyBorder(0, 0, 2, 0),
                 Local.getString(" Train Rank"), TitledBorder.LEFT, TitledBorder.BELOW_TOP);
-        trainingRankPanel.setBorder(trainRankTitleBorder);
-        trainingRankPanel.add(trainRankComboBox);
+        jpanelTrainRank.setBorder(trainRankTitleBorder);
+        jpanelTrainRank.add(trainRankComboBox);
         trainRankComboBox.setBackground(Color.white);
         trainRankComboBox.setPreferredSize(new Dimension(105, 24));
 
@@ -136,11 +134,11 @@ public class AddStudentDialog extends JDialog {
         }
 
         // Inputs Field
-        inputsPanel.add(firstNamePanel);
-        inputsPanel.add(lastNamePanel);
-        inputsPanel.add(agePanel);
-        inputsPanel.add(beltRankPanel);
-        inputsPanel.add(trainingRankPanel);
+        jpanelInputs.add(jpanelFirstName);
+        jpanelInputs.add(jpanelLastName);
+        jpanelInputs.add(jpanelAge);
+        jpanelInputs.add(jpanelBeltRank);
+        jpanelInputs.add(jpanelTrainRank);
 
         // Cancel Button
         cancelB.setMaximumSize(new Dimension(100, 26));
@@ -165,15 +163,15 @@ public class AddStudentDialog extends JDialog {
             }
         });
 
-        buttonsPanel.add(okB);
-        buttonsPanel.add(cancelB);
-        buttonsPanel.setBorder(border1);
+        jpanelButtons.add(okB);
+        jpanelButtons.add(cancelB);
+        jpanelButtons.setBorder(border1);
 
-        actionsPanel.add(inputsPanel);
-        actionsPanel.add(buttonsPanel, BorderLayout.SOUTH);
+        jpanelActions.add(jpanelInputs);
+        jpanelActions.add(jpanelButtons, BorderLayout.SOUTH);
 
         this.getContentPane().add(dialogTitlePanel, BorderLayout.NORTH);
-        this.add(actionsPanel);
+        this.add(jpanelActions);
     }
 
     /**
@@ -186,9 +184,8 @@ public class AddStudentDialog extends JDialog {
                 firstNameField.getText(),
                 ((Number)ageFormattedTextField.getValue()).intValue(),
                 BeltRank.Rank.valueOf(String.valueOf(beltRankComboBox.getSelectedItem())),
-                BeltRank.Rank.valueOf(String.valueOf(trainRankComboBox.getSelectedItem()))
-        );
-        canceled = false;
+                BeltRank.Rank.valueOf(String.valueOf(trainRankComboBox.getSelectedItem())));
+        isCanceled = false;
         this.dispose();
     }
 
