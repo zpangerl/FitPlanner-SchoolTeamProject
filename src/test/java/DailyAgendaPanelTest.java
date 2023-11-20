@@ -26,15 +26,15 @@ public class DailyAgendaPanelTest {
         class1.setRoom(GymRoom.ROOM2);
         classes.add(class1);
         GymClass class2 = new GymClass(new Date(), trainer1);
-        class2.setRoom(GymRoom.ROOM1);
+        class2.setRoom(GymRoom.ROOM3);
         classes.add(class2);
         GymClass class3 = new GymClass(new Date(), trainer1);
-        class3.setRoom(GymRoom.ROOM3);
+        class3.setRoom(GymRoom.ROOM4);
         classes.add(class3);
         GymClass class4 = new GymClass(new Date(2000, 4, 1), trainer1);
         class4.setRoom(GymRoom.ROOM1);
         classes.add(class4);
         DailyAgendaPanel panel = new DailyAgendaPanel();
-        assertEquals(1, panel.filterClasses(classes, "ROOM1").size());
+        assertEquals(1, panel.filterClasses(classes, "ROOM3").size());
     }
 }
