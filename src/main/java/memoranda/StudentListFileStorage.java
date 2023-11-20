@@ -63,7 +63,7 @@ public class StudentListFileStorage {
 
         try (FileOutputStream fileOutputStream = new FileOutputStream(studentListPath)) {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            // write TrainerList Object from disk
+            // write StudentList Object from disk
             objectOutputStream.writeObject(StudentListImpl.getStudentList());
             Util.debug("Save student list: " + studentListPath);
         } catch (IOException e) {

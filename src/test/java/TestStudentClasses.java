@@ -1,10 +1,16 @@
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Student;
 import main.java.memoranda.StudentListImpl;
+import main.java.memoranda.TrainerList;
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
+
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.junit.Assert.*;
 
 public class TestStudentClasses {
 
@@ -64,21 +70,25 @@ public class TestStudentClasses {
      */
     @Test
     public void studentListModification(){
+        while (StudentListImpl.getStudentList().size() > 0) {
+            StudentListImpl.removeStudent(StudentListImpl.getStudentByIndex(0));
+        }
+
         Student tempStudent_1 = new Student("Mckeighan", "Sean");
         // Check student added is present in list
         StudentListImpl.addStudent(tempStudent_1);
-        Assert.assertTrue(StudentListImpl.studentExists(tempStudent_1));
+        assertTrue(StudentListImpl.studentExists(tempStudent_1));
         // Check duplicate student is not added
         StudentListImpl.addStudent(tempStudent_1);
-        Assert.assertEquals(1, StudentListImpl.getStudentList().size());
+        assertEquals(1, StudentListImpl.getStudentList().size());
         // Check ability to get existing student
         StudentListImpl.addStudent(tempStudent_1);
-        Assert.assertEquals(StudentListImpl.getStudentByObject(tempStudent_1), tempStudent_1);
+        assertEquals(StudentListImpl.getStudentByObject(tempStudent_1), tempStudent_1);
         // Check return on non-existing student get
-        Assert.assertEquals(StudentListImpl.getStudentByName("Sckeighan", "Mean"), null);
+        assertEquals(StudentListImpl.getStudentByName("Sckeighan", "Mean"), null);
         // Check removal of student
         StudentListImpl.removeStudent(tempStudent_1);
-        Assert.assertTrue(!StudentListImpl.studentExists(tempStudent_1));
+        assertTrue(!StudentListImpl.studentExists(tempStudent_1));
         // Check return of empty list count
         assertEquals(0, StudentListImpl.getStudentList().size());
         // Check return count of list when multiple student present
@@ -92,5 +102,8 @@ public class TestStudentClasses {
         StudentListImpl.addStudent(tempStudent_4);
         StudentListImpl.addStudent(tempStudent_5);
         assertEquals(5, StudentListImpl.getStudentList().size());
+        while (StudentListImpl.getStudentList().size() > 0) {
+            StudentListImpl.removeStudent(StudentListImpl.getStudentByIndex(0));
+        }
     }
 }

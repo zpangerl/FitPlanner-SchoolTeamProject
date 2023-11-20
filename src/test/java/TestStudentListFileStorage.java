@@ -70,9 +70,9 @@ public class TestStudentListFileStorage {
         assertEquals(0, StudentListImpl.getStudentList().size());
         // load list
         StudentListFileStorage.loadData();
-        // list should contain testTrainer
+        // list should contain test student
         assertEquals(1, StudentListImpl.getStudentList().size());
-        // verify testTrainer
+        // verify testStudent
         Student testStudentFromDisk;
         testStudentFromDisk = StudentListImpl.getStudentList().get(0);
         assertEquals(testStudent.getFirstName(),testStudentFromDisk.getFirstName());

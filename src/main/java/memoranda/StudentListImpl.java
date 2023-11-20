@@ -73,10 +73,10 @@ public final class StudentListImpl {
         if (studentList == null) {
             studentList = new ArrayList<>();
         }
-        if(studentExists(student_add)) {
-            return;
+        if(!studentExists(student_add)) {
+            studentList.add(student_add);
         }
-        studentList.add(student_add);
+
     }
 
     /**
@@ -98,7 +98,9 @@ public final class StudentListImpl {
         if (studentList == null) {
             studentList = new ArrayList<>();
         }
-        return studentList;
+        ArrayList<Student> temp = new ArrayList<>();
+        temp = studentList;
+        return temp;
     }
 
     /**
