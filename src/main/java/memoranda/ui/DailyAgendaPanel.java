@@ -15,13 +15,13 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
 
 import main.java.memoranda.GymClass;
 import main.java.memoranda.GymClassList;
@@ -55,6 +55,11 @@ public class DailyAgendaPanel extends JPanel {
         this.add(room4Panel);
     }
     
+    /**
+     * Creates a panel for a specific room.
+     * @param name the name of the room
+     * @return the created panel
+     */
     public JPanel createRoomPanel(String name) {
         String borderTitle;
         if (name.equals("ROOM1")) {
@@ -76,6 +81,11 @@ public class DailyAgendaPanel extends JPanel {
         return roomPanel;
     }
     
+    /**
+     * Creates a table for a specific room panel.
+     * @param roomPanel the panel that the table will be added to
+     * @param name the name of the panel
+     */
     private void createDailyRoomTable(JPanel roomPanel, String name) {
         List<GymClass> filtered = filterClasses(classesData, name);
         DefaultTableModel roomTableModel =
@@ -85,30 +95,43 @@ public class DailyAgendaPanel extends JPanel {
         roomPanel.add(new JScrollPane(roomTable), BorderLayout.CENTER);
     }
     
-    private List<GymClass> filterClasses(ArrayList<GymClass> classes,
+    /**
+     * Filters GymClasses by Room and Date.
+     * @param classes the list of GymClasses
+     * @param name the name of the Room
+     * @return the filtered List
+     */
+    public List<GymClass> filterClasses(ArrayList<GymClass> classes,
             String name) {
         List<GymClass> filtered = new ArrayList<>();
-        Room.GymRoom roomNum = null;
+        Room.GymRoom roomNum;
         Date classDate = new Date();
-        for(GymRoom room : GymRoom.values()) {
-            if (room.toString().equals(name)) {
-                roomNum = room;
-                break;
-            }
-        }
-        for(GymClass gc : classes) {
-            if(gc.getRoom() == roomNum && 
-                    gc.getDate().getDate() == classDate.getDate() &&
-                    gc.getDate().getMonth() == classDate.getMonth() &&
-                    gc.getDate().getYear() == classDate.getYear()) {
+        if (name.equals("ROOM1")) {
+            roomNum = Room.GymRoom.ROOM1;
+        } else if (name.equals("ROOM2")) {
+            roomNum = Room.GymRoom.ROOM2;
+        } else if (name.equals("ROOM3")) {
+            roomNum = Room.GymRoom.ROOM3;
+        } else roomNum = Room.GymRoom.ROOM4;
+        for (GymClass gc : classes) {
+            if (gc.getRoom() == roomNum
+                    && gc.getDate().getDate() == classDate.getDate() 
+                    && gc.getDate().getMonth() == classDate.getMonth()
+                    && gc.getDate().getYear() == classDate.getYear()) {
                 filtered.add(gc);
             }
         }
-        Collections.sort(filtered, Comparator.comparing(GymClass::getDate));
+        //Collections.sort(filtered, Comparator.comparing(GymClass::getDate));
         return filtered;
     }
     
-    private Object[][] convertToData(List<GymClass> filtered){
+    /**
+     * Converts each GymClass into data that can be placed.
+     * in the table
+     * @param filtered a filtered list of GymClass objects
+     * @return the data from each Class in the list
+     */
+    private Object[][] convertToData(List<GymClass> filtered) {
         Object[][] data = new Object[filtered.size()][3];
         for (int i = 0; i < filtered.size(); i++) {
             GymClass gymClass = filtered.get(i);
@@ -119,8 +142,11 @@ public class DailyAgendaPanel extends JPanel {
         return data;
     }
     
+    /**
+     * Updates the table in each room panel.
+     */
     public void updateTables() {
-        for(Component panel : this.getComponents()) {
+        for (Component panel : this.getComponents()) {
             if (panel instanceof JPanel) {
                 JPanel roomPanel = (JPanel) panel;
                 roomPanel.removeAll();
