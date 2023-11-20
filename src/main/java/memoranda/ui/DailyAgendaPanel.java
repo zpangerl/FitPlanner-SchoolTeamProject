@@ -112,7 +112,9 @@ public class DailyAgendaPanel extends JPanel {
             roomNum = Room.GymRoom.ROOM2;
         } else if (name.equals("ROOM3")) {
             roomNum = Room.GymRoom.ROOM3;
-        } else roomNum = Room.GymRoom.ROOM4;
+        } else { 
+            roomNum = Room.GymRoom.ROOM4;
+        }
         for (GymClass gc : classes) {
             if (gc.getRoom() == roomNum
                     && gc.getDate().getDate() == classDate.getDate() 
