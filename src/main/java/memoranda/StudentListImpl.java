@@ -1,6 +1,7 @@
 package main.java.memoranda;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class StudentListImpl implements StudentList {
@@ -10,11 +11,11 @@ public class StudentListImpl implements StudentList {
     /**
      * Checks if a Student object exists in the StudentList.
      *
-     * @param check_student Student object to check for.
+     * @param checkStudent Student object to check for.
      * @return Returns true if student is in list, false otherwise.
      */
-    public boolean studentExists(Student check_student){
-        return studentList.contains(check_student);
+    public boolean studentExists(Student checkStudent) {
+        return studentList.contains(checkStudent);
     }
 
     /**
@@ -26,9 +27,13 @@ public class StudentListImpl implements StudentList {
      */
     @Override
     public Student getStudentByName(String lastName, String firstName) {
-        for (int i = 0; i < studentList.size(); i++)
-            if (studentList.get(i).getFirstName() == firstName && studentList.get(i).getLastName() == lastName)
-                return studentList.get(i);
+        for (Student student : studentList) {
+            if (Objects.equals(
+                    student.getFirstName(), firstName)
+                    && Objects.equals(student.getLastName(), lastName)) {
+                return student;
+            }
+        }
         return null;
     }
 
@@ -40,7 +45,7 @@ public class StudentListImpl implements StudentList {
      */
     @Override
     public Student getStudentByObject(Student student) {
-        if(studentList.contains(student)) {
+        if (studentList.contains(student)) {
             return studentList.get(studentList.indexOf(student));
         }
         return null;
@@ -53,7 +58,7 @@ public class StudentListImpl implements StudentList {
      * @return Student object.
      */
     public Student getStudentByIndex(int index) {
-        if(studentList.size() < index) {
+        if (studentList.size() < index) {
             return null;
         }
         return studentList.get(index);
@@ -62,25 +67,25 @@ public class StudentListImpl implements StudentList {
     /**
      * Adds Student object to StudentList.
      *
-     * @param student_add Student object to add.
+     * @param studentAdd Student object to add.
      */
     @Override
-    public void addStudent(Student student_add) {
-        if(studentExists(student_add)) {
+    public void addStudent(Student studentAdd) {
+        if (studentExists(studentAdd)) {
             return;
         }
-        studentList.add(student_add);
+        studentList.add(studentAdd);
     }
 
     /**
      * Removes Student object from StudentList.
      *
-     * @param student_remove Student object to remove.
+     * @param studentRemove Student object to remove.
      */
     @Override
-    public void removeStudent(Student student_remove) {
-        if (studentExists(student_remove)) {
-            studentList.remove(student_remove);
+    public void removeStudent(Student studentRemove) {
+        if (studentExists(studentRemove)) {
+            studentList.remove(studentRemove);
         }
     }
 

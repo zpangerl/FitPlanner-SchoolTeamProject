@@ -6,9 +6,8 @@ import main.java.memoranda.GymClass;
 import main.java.memoranda.Room.GymRoom;
 import main.java.memoranda.Student;
 import main.java.memoranda.Trainer;
+import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class GymClassTest {
 
@@ -20,7 +19,7 @@ public class GymClassTest {
         Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class1 = new GymClass(new Date(), trainer1);
         class1.setRoom(GymRoom.ROOM1);
-        assertEquals(0, class1.getRoom().ordinal());
+        Assert.assertEquals(0, class1.getRoom().ordinal());
     }
     
     @Test
@@ -31,7 +30,7 @@ public class GymClassTest {
         Trainer trainer4 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class4 = new GymClass(new Date(), trainer4);
         class4.setRoom(GymRoom.ROOM4);
-        assertEquals(3, class4.getRoom().ordinal());
+        Assert.assertEquals(3, class4.getRoom().ordinal());
     }
 
     @Test
@@ -43,8 +42,8 @@ public class GymClassTest {
         GymClass class1 = new GymClass(new Date(), trainer1);
         class1.setRoom(GymRoom.ROOM1);
         Student student1 = new Student("John", "Doe");
-        assertTrue(class1.addStudent(student1));
-        assertEquals(1, class1.getStudents().size());
+        Assert.assertTrue(class1.addStudent(student1));
+        Assert.assertEquals(1, class1.getStudents().size());
     }
 
     @Test
@@ -56,10 +55,10 @@ public class GymClassTest {
         GymClass class1 = new GymClass(new Date(), trainer1);
         class1.setRoom(GymRoom.ROOM1);
         Student student1 = new Student("John", "Doe");
-        assertTrue(class1.addStudent(student1));
-        assertEquals(1, class1.getStudents().size());
-        assertTrue(class1.removeStudent(student1));
-        assertEquals(0, class1.getStudents().size());
+        Assert.assertTrue(class1.addStudent(student1));
+        Assert.assertEquals(1, class1.getStudents().size());
+        Assert.assertTrue(class1.removeStudent(student1));
+        Assert.assertEquals(0, class1.getStudents().size());
     }
 
     @Test
@@ -72,12 +71,12 @@ public class GymClassTest {
         class1.setRoom(GymRoom.ROOM1);
         for (int i = 0; i < 20; i++) {
             Student student = new Student("John", "Doe");
-            assertTrue(class1.addStudent(student));
+            Assert.assertTrue(class1.addStudent(student));
         }
-        assertEquals(20, class1.getStudents().size());
+        Assert.assertEquals(20, class1.getStudents().size());
         Student student = new Student("John", "Doe");
-        assertFalse(class1.addStudent(student));
-        assertEquals(20, class1.getStudents().size());
+        Assert.assertFalse(class1.addStudent(student));
+        Assert.assertEquals(20, class1.getStudents().size());
     }
 
     @Test
@@ -89,9 +88,9 @@ public class GymClassTest {
         GymClass class1 = new GymClass(new Date(), trainer1);
         class1.setRoom(GymRoom.ROOM1);
         Student student1 = new Student("John", "Doe");
-        assertEquals(0, class1.getStudents().size());
-        assertFalse(class1.removeStudent(student1));
-        assertEquals(0, class1.getStudents().size());
+        Assert.assertEquals(0, class1.getStudents().size());
+        Assert.assertFalse(class1.removeStudent(student1));
+        Assert.assertEquals(0, class1.getStudents().size());
     }
 
     @Test
@@ -103,9 +102,9 @@ public class GymClassTest {
         GymClass class1 = new GymClass(new Date(), trainer1);
         class1.setRoom(GymRoom.ROOM1);
         Student student1 = new Student("John", "Doe");
-        assertTrue(class1.addStudent(student1));
-        assertEquals(1, class1.getStudents().size());
-        assertFalse(class1.addStudent(student1));
-        assertEquals(1, class1.getStudents().size());
+        Assert.assertTrue(class1.addStudent(student1));
+        Assert.assertEquals(1, class1.getStudents().size());
+        Assert.assertFalse(class1.addStudent(student1));
+        Assert.assertEquals(1, class1.getStudents().size());
     }
 }
