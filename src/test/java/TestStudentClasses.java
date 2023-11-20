@@ -1,5 +1,7 @@
-import main.java.memoranda.*;
-import org.junit.*;
+import main.java.memoranda.BeltRank;
+import main.java.memoranda.Student;
+import main.java.memoranda.StudentListImpl;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
 

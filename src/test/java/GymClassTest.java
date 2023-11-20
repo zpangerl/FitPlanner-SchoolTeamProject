@@ -1,16 +1,12 @@
 package test;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-
 import java.util.Date;
-import main.java.memoranda.Room;
-import main.java.memoranda.Room.GymRoom;
 import main.java.memoranda.BeltRank.Rank;
 import main.java.memoranda.GymClass;
+import main.java.memoranda.Room.GymRoom;
 import main.java.memoranda.Trainer;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class GymClassTest {
 
@@ -22,7 +18,7 @@ public class GymClassTest {
         Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class1 = new GymClass(new Date(), trainer1);
         class1.setRoom(GymRoom.ROOM1);
-        assertEquals(0, class1.getRoom().ordinal());
+        Assert.assertEquals(0, class1.getRoom().ordinal());
     }
     
     @Test
@@ -33,6 +29,6 @@ public class GymClassTest {
         Trainer trainer4 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class4 = new GymClass(new Date(), trainer4);
         class4.setRoom(GymRoom.ROOM4);
-        assertEquals(3, class4.getRoom().ordinal());
+        Assert.assertEquals(3, class4.getRoom().ordinal());
     }
 }

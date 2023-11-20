@@ -1,26 +1,27 @@
 package main.java.memoranda.ui;
 
+import java.awt.Component;
+import java.awt.Font;
+import javax.swing.JTable;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 import main.java.memoranda.GymClass;
 import main.java.memoranda.GymClassList;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.date.DateListener;
 
-import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableCellRenderer;
-import java.awt.*;
-/*
-  File:	GymClassTable.java
-  Author: Rhett Harrison
-  Version: 2023.11.09
-
-  Description: Table for GymClass(es)
+/**
+ *  File: GymClassTable.java
+ *  Author: Rhett Harrison
+ *  Version: 2023.11.09
+ *  Description: Table for GymClass(es)
 */
-
 public class GymClassTable extends JTable {
-
+    /**
+     * Constructor for GymClassTable.
+     */
     public GymClassTable() {
         super();
         setModel(new GymClassTableModel());
@@ -45,9 +46,17 @@ public class GymClassTable extends JTable {
         clearSelection();
         updateUI();
     }
+
     public void refresh() {
         initTable(CurrentDate.get());
     }
+
+    /**
+     * Returns the cell renderer for the given row and column.
+     * @param row row of the cell
+     * @param column column of the cell
+     * @return TableCellRenderer
+     */
     public TableCellRenderer getCellRenderer(int row, int column) {
         return new DefaultTableCellRenderer() {
             public Component getTableCellRendererComponent(
@@ -66,12 +75,15 @@ public class GymClassTable extends JTable {
         };
     }
 
+    /**
+     * Table model for GymClassTable.
+     */
     static class GymClassTableModel extends AbstractTableModel {
         String[] columnNames = {
-                "Date",
-                "Class Type",
-                "Trainer",
-                "Room"
+            "Date",
+            "Class Type",
+            "Trainer",
+            "Room"
         };
 
         GymClassTableModel() {
@@ -97,7 +109,7 @@ public class GymClassTable extends JTable {
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
             GymClass gymClass = GymClassList.getGymClasses().get(rowIndex);
-            if(gymClass == null) {
+            if (gymClass == null) {
                 return null;
             }
             switch (columnIndex) {
@@ -120,4 +132,4 @@ public class GymClassTable extends JTable {
         }
     }
 
-    }
+}

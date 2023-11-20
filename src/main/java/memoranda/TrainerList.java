@@ -8,7 +8,7 @@
 
 package main.java.memoranda;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  Class: Trainer

@@ -1,13 +1,20 @@
 package main.java.memoranda.ui;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.*;
-import java.util.*;
+import java.util.Date;
 import javax.swing.*;
-import javax.swing.event.*;
-import main.java.memoranda.*;
-import main.java.memoranda.Room.*;
-import main.java.memoranda.util.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.TableModelEvent;
+import main.java.memoranda.BeltRank;
+import main.java.memoranda.GymClass;
+import main.java.memoranda.GymClassList;
+import main.java.memoranda.Room.GymRoom;
+import main.java.memoranda.Trainer;
+import main.java.memoranda.util.Local;
 /*
  * File: GymClassPanel.java
  * Author: Rhett Harrison
