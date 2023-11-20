@@ -1,9 +1,12 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Student;
 import main.java.memoranda.StudentListImpl;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class TestStudentClasses {
 
