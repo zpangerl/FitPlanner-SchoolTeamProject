@@ -16,7 +16,6 @@ import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.*;
 
-
 /**
  Class: GymClassList
 
