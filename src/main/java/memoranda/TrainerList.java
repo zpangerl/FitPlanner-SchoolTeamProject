@@ -86,4 +86,13 @@ public final class TrainerList {
     public static void removeTrainerByIndex(int idx) {
         trainers.remove(idx);
     }
+
+    /**
+     * Find a trainer by index value.
+     * @param idx int index of trainer.
+     * @return Trainer at index.
+     */
+    public static Trainer getTrainerByIndex(int idx) {
+        return trainers.get(idx);
+    }
 }

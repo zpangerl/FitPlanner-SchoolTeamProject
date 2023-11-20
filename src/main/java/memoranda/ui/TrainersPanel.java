@@ -45,7 +45,7 @@ public class TrainersPanel extends JPanel {
         Border trainersPanelTitle = BorderFactory.createTitledBorder("Manage Trainers");
         this.setBorder(trainersPanelTitle);
 
-        JPanel buttonPanel = new JPanel(new GridLayout(3, 1));
+        JPanel buttonPanel = new JPanel(new GridLayout(5, 1));
         /* Add new trainer button */
         // Reference: https://www.geeksforgeeks.org/java-swing-jpanel-with-examples/
         JButton addTrainerButton = getAddTrainerButton();
@@ -57,6 +57,12 @@ public class TrainersPanel extends JPanel {
         buttonPanel.add(trainerDeleteLabel);
         JButton deleteTrainerButton = getDeleteTrainerButton();
         buttonPanel.add(deleteTrainerButton);
+        /* Edit trainer button */
+        JLabel trainerEditLabel = new JLabel();
+        trainerEditLabel.setText("Select a Trainer row to edit:");
+        buttonPanel.add(trainerEditLabel);
+        JButton editTrainerButton = getEditTrainerButton();
+        buttonPanel.add(editTrainerButton);
 
         buildTrainersTable();
         JPanel tablePanel = new JPanel();
@@ -108,6 +114,24 @@ public class TrainersPanel extends JPanel {
             }
         });
         return deleteTrainerButton;
+    }
+
+    /**
+     * Create the edit trainer button.
+     * @return JButton edit trainer button
+     */
+    private JButton getEditTrainerButton() {
+        JButton editTrainerButton = new JButton("Edit Trainer");
+        editTrainerButton.addActionListener(e -> {
+            final int noRowSelected = -1;
+            int rowSelectedIdx = trainersTable.getSelectedRow();
+            if (rowSelectedIdx != noRowSelected) {
+                TrainerDialogEdit trainerDialogEdit =
+                        new TrainerDialogEdit(this, rowSelectedIdx);
+                trainerDialogEdit.setVisible(true);
+            }
+        });
+        return editTrainerButton;
     }
 
     /**
