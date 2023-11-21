@@ -1,14 +1,11 @@
-import org.junit.Test;
-
-import main.java.memoranda.Room.GymRoom;
-import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.BeltRank.Rank;
 import main.java.memoranda.GymClass;
+import main.java.memoranda.Room.GymRoom;
 import main.java.memoranda.Trainer;
-
-import static org.junit.Assert.assertEquals;
+import main.java.memoranda.date.CalendarDate;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 public class GymClassTest {
 
@@ -31,7 +28,7 @@ public class GymClassTest {
         Trainer trainer4 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class4 = new GymClass(new CalendarDate(), trainer4);
         class4.setRoom(GymRoom.ROOM4);
-        assertEquals(3, class4.getRoom().ordinal());
+        Assert.assertEquals(3, class4.getRoom().ordinal());
     }
 
     /**
@@ -42,7 +39,7 @@ public class GymClassTest {
         Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class1 = new GymClass(new CalendarDate(), trainer1);
         class1.setClassType("Yoga");
-        assertEquals("Yoga", class1.getClassType());
+        Assert.assertEquals("Yoga", class1.getClassType());
     }
 
     /**
@@ -54,7 +51,7 @@ public class GymClassTest {
         GymClass class1 = new GymClass(new CalendarDate(), trainer1);
         Trainer trainer2 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         class1.setTrainer(trainer2);
-        assertEquals(trainer2, class1.getTrainer());
+        Assert.assertEquals(trainer2, class1.getTrainer());
     }
 
     /**
@@ -66,7 +63,7 @@ public class GymClassTest {
         GymClass class1 = new GymClass(new CalendarDate(2, 12, 2023), trainer1);
         CalendarDate date2 = new CalendarDate(2, 12, 2023);
         class1.setDate(date2);
-        assertEquals(date2, class1.getDate());
+        Assert.assertEquals(date2, class1.getDate());
     }
 
     /**
@@ -76,6 +73,6 @@ public class GymClassTest {
     public void testGetClassTypeNull() {
         Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class1 = new GymClass(new CalendarDate(), trainer1);
-        assertEquals("N/A", class1.getClassType());
+        Assert.assertEquals("N/A", class1.getClassType());
     }
 }

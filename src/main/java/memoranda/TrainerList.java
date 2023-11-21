@@ -13,7 +13,6 @@ import java.util.Vector;
 
 /**
  * Class: Trainer
- * 
  * Description: Stores Trainer attributes first name, last name, training rank,
  * and belt ranking.
  */
@@ -109,9 +108,9 @@ public final class TrainerList {
     }
 
     /**
-     * Returns a vector with the fullname of all trainers
+     * Returns a vector with the fullname of all trainers.
      * 
-     * @return trainerNames Vector<String>
+     * @return trainerNames Vector
      */
     public static Vector<String> getTrainerNamesVector() {
         Vector<String> trainerNames = new Vector<>();
