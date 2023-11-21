@@ -95,4 +95,8 @@ public final class TrainerList {
     public static Trainer getTrainerByIndex(int idx) {
         return trainers.get(idx);
     }
+    
+    public static String[] getTrainerNames() {
+        return (String[]) trainers.stream().map(Trainer::getName).toArray();
+    }
 }
