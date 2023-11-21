@@ -22,7 +22,6 @@ import main.java.memoranda.TrainerList;
 import org.junit.Before;
 import org.junit.Test;
 
-
 /**
  Class: GymClassList
 

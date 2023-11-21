@@ -86,6 +86,7 @@ tasks.withType(Checkstyle) {
   include '**/ui/AddStudentDialog.java'
   include '**/ui/GymClassPanel.java'
   include '**/ui/GymClassTable.java'
+  include '**/ui/RoomsPanel.java'
   include '**/ui/StudentPanel.java'
   include '**/ui/TrainerDialog.java'
   include '**/ui/TrainersPanel.java'
@@ -103,7 +104,6 @@ tasks.withType(Checkstyle) {
 ///////////////////////////////////////////////////////////////////////
 // To generate an HTML report instead of XML
 // https://github.com/spotbugs/spotbugs-gradle-plugin#readme
-// To generate an HTML report instead of XML
 spotbugsMain {
     reports {
         xml.enabled = false
