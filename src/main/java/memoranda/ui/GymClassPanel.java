@@ -1,15 +1,34 @@
 package main.java.memoranda.ui;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-import javax.swing.*;
-import javax.swing.event.*;
-import main.java.memoranda.*;
-import main.java.memoranda.Room.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JToolBar;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.TableModelEvent;
+import main.java.memoranda.BeltRank;
+import main.java.memoranda.GymClass;
+import main.java.memoranda.GymClassList;
+import main.java.memoranda.Room.GymRoom;
 import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.date.CurrentDate;
-import main.java.memoranda.util.*;
+import main.java.memoranda.Trainer;
+import main.java.memoranda.TrainerList;
+import main.java.memoranda.util.Local;
 /*
  * File: GymClassPanel.java
  * Author: Rhett Harrison
@@ -253,7 +272,6 @@ public class GymClassPanel extends JPanel {
      * Create a new class.
      */
     private void newClassB_actionPerformed() {
-        // TODO: Implement a modal here that allows the user to create a new class
 
         GymClassDialog dlg = new GymClassDialog(App.getFrame(), Local.getString("New Class"));
 
@@ -274,19 +292,6 @@ public class GymClassPanel extends JPanel {
         newClass.setRoom(GymRoom.getRoomByIndex(dlg.jComboBoxRoom.getSelectedIndex()));
         GymClassList.addGymClass(newClass);
         gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
-
-
-        // Trainer tempTrainer = new Trainer();
-        // tempTrainer.setFirstName("FirstnameTest");
-        // tempTrainer.setLastName("LastnameTest");
-        // tempTrainer.setTrainingRank(BeltRank.Rank.GREEN);
-        // tempTrainer.setBeltRank(BeltRank.Rank.GREEN_STRIPE);
-
-        // GymClass tempGymClass = new GymClass(new Date(), tempTrainer);
-        // tempGymClass.setClassType("Test Class Type");
-        // tempGymClass.setRoom(GymRoom.ROOM1);
-        // GymClassList.addGymClass(tempGymClass);
-        // gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
     }
 
 }

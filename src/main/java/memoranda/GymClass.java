@@ -3,8 +3,10 @@
  * Created: Nov. 2nd, 2023
  * Author: Frank Lin
  *
+ *
  * This class is used to represent a gym class.
  */
+
 package main.java.memoranda;
 
 import main.java.memoranda.Room.GymRoom;
@@ -26,6 +28,7 @@ public class GymClass {
         this.date = date;
         this.trainer = trainer;
     }
+
 
 
     public void setClassType(String type) {

@@ -6,14 +6,22 @@
   Description: Provides Unit Tests to ensure that GymClassList class.
 */
 
-import java.util.*;
-import main.java.memoranda.*;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+
+import java.util.ArrayList;
+import main.java.memoranda.BeltRank;
+import main.java.memoranda.GymClass;
+import main.java.memoranda.GymClassList;
+import main.java.memoranda.Trainer;
+import main.java.memoranda.TrainerList;
 import main.java.memoranda.date.CalendarDate;
 
-import org.junit.*;
-
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  Class: GymClassList

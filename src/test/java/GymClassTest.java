@@ -1,5 +1,3 @@
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import main.java.memoranda.Room.GymRoom;
@@ -7,6 +5,10 @@ import main.java.memoranda.date.CalendarDate;
 import main.java.memoranda.BeltRank.Rank;
 import main.java.memoranda.GymClass;
 import main.java.memoranda.Trainer;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Assert;
 
 public class GymClassTest {
 
@@ -18,9 +20,9 @@ public class GymClassTest {
         Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class1 = new GymClass(new CalendarDate(), trainer1);
         class1.setRoom(GymRoom.ROOM1);
-        assertEquals(0, class1.getRoom().ordinal());
+        Assert.assertEquals(0, class1.getRoom().ordinal());
     }
-    
+
     @Test
     /**
      * Tests to ensure that Room 4 is set properly on creation.

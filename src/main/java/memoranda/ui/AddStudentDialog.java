@@ -1,12 +1,28 @@
 package main.java.memoranda.ui;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.text.*;
-import javax.swing.*;
-import javax.swing.border.*;
-import main.java.memoranda.*;
-import main.java.memoranda.util.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.text.NumberFormat;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+import main.java.memoranda.BeltRank;
+import main.java.memoranda.Student;
+import main.java.memoranda.ui.htmleditor.util.Local;
+
 
 public class AddStudentDialog extends JDialog {
     public boolean isCanceled = true;
