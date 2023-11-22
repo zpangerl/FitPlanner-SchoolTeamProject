@@ -38,6 +38,7 @@ import main.java.memoranda.util.Local;
 
 public class GymClassDialog extends JDialog {
 
+    Border titledBorder;
     JPanel mPanel = new JPanel(new BorderLayout());
     JPanel areaPanel = new JPanel(new BorderLayout());
     JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -60,6 +61,7 @@ public class GymClassDialog extends JDialog {
     JComboBox<String> jComboBoxTrainer = new JComboBox<String>(TrainerList.getTrainerNamesVector());
 
     Border border8;
+    JPanel jPanel4 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
     JPanel jPanel6 = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JLabel jLabel6 = new JLabel();
     JButton setStartDateB = new JButton();
@@ -125,6 +127,7 @@ public class GymClassDialog extends JDialog {
                 "/ui/icons/class48.png")));
 
         GridBagLayout gbLayout = (GridBagLayout) jPanel8.getLayout();
+        jPanel8.setBorder(titledBorder);
 
         // The lable for class name
         jLabelClassName.setMaximumSize(new Dimension(100, 16));
@@ -200,8 +203,8 @@ public class GymClassDialog extends JDialog {
         startDate = new JSpinner(new SpinnerDateModel(new Date(), null, null, Calendar.DAY_OF_WEEK));
         startDate.setBorder(border8);
         startDate.setPreferredSize(new Dimension(80, 24));
-
-        SimpleDateFormat sdf = (SimpleDateFormat) DateFormat.getDateInstance(DateFormat.SHORT);
+        SimpleDateFormat sdf = new SimpleDateFormat();
+        sdf = (SimpleDateFormat) DateFormat.getDateInstance(DateFormat.SHORT);
         // //Added by (jcscoobyrs) on 14-Nov-2003 at 10:45:16 PM
         startDate.setEditor(new JSpinner.DateEditor(startDate, sdf.toPattern()));
         startDate.addChangeListener(new ChangeListener() {
