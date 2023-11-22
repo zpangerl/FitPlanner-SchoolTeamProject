@@ -37,7 +37,13 @@
 
 **Unit Tests Blackbox** (start Sprint 2)
   > gradle should be configured as team to use junit:4.12 (gradle) with unit tests in `src/test/java/`
+  > Configure build.gradle for Jacoco (Frankie is adding Jacoco as part of his PR)
+  > `gradle jacocoTestReport` - Developer should review to target at least 80% coverage for FitPlanner code added/modified
   > Blackbox testing policy
+  > Areas to test? Focus on FitPlanner specific code implemented as part of Task or US but open to test other memoranda code or code from peers to meet the unit test requirement (e.g. if working on UI and need something else to test)
+  > Who will test? Follow Developer and Reviewer checklist so that tests are verified by both.
+  > How will you test? Equivalence Partitions are most likely for FitPlanner due to features being valid/invalid. Boundary Value Analysis may make sense if we get to weight class features by the end of Sprint 3.
+
 ```
 Add unit test to ensure some or all of the User Story or task(s) work as expected.
 
