@@ -159,17 +159,21 @@ public class TrainerDialogEdit extends JDialog {
     private JButton getSaveButton() {
         JButton saveButton = new JButton("Save");
         saveButton.addActionListener(e -> {
-            // TODO: update and save trainer
-            /*Trainer newTrainer = new Trainer();
-            newTrainer.setFirstName(firstNameTextField.getText());
-            newTrainer.setLastName(lastNameTextField.getText());
-            newTrainer.setBeltRank(BeltRank.Rank.valueOf((String) beltRankCombo.getSelectedItem()));
-            newTrainer.setTrainingRank(
-                BeltRank.Rank.valueOf((String) trainingRankCombo.getSelectedItem()));
-            TrainerList.addTrainer(newTrainer);*/
-            trainersPanel.refreshTrainersTable();
-            JOptionPane.showMessageDialog(null, "Successfully saved Trainer!");
-            dispose(); // close dialog
+            String errorMessage = trainerToEdit.editTrainer(firstNameTextField.getText(),
+                lastNameTextField.getText(),
+                BeltRank.Rank.valueOf((String) trainingRankCombo.getSelectedItem()),
+                BeltRank.Rank.valueOf((String) beltRankCombo.getSelectedItem()));
+
+            if (errorMessage.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Successfully edited Trainer!");
+                trainersPanel.refreshTrainersTable();
+                dispose(); // close dialog
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        errorMessage,
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
         });
         return saveButton;
     }
