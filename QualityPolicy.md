@@ -40,8 +40,6 @@
 
 **Unit Tests Blackbox** (start Sprint 2)
   > gradle should be configured as team to use junit:4.12 (gradle) with unit tests in `src/test/java/`
-  > Configure build.gradle for Jacoco (Frankie is adding Jacoco as part of his PR)
-  > `gradle jacocoTestReport` - Developer should review to target at least 80% coverage for FitPlanner code added/modified
   > Blackbox testing policy
   > Areas to test? Focus on FitPlanner specific code implemented as part of Task or US but open to test other memoranda code or code from peers to meet the unit test requirement (e.g. if working on UI and need something else to test)
   > Who will test? Follow Developer and Reviewer checklist so that tests are verified by both.
@@ -54,6 +52,10 @@ Higher level abstraction that may touch multiple methods and parts of the code.
 ```
  **Unit Tests Whitebox** (online: start Sprint 2, campus: start Sprint 3)
   > Your Whitebox testing policy 
+  > Tool? Configure build.gradle for Jacoco (Frankie is adding Jacoco as part of his PR)
+  > Areas to test? Focus on FitPlanner specific code implemented as part of Task or US but open to test other memoranda code or code from peers to meet the unit test requirement (e.g. if working on UI and need something else to test)
+  > Criteria? `gradle jacocoTestReport` - Developer should review to target at least 80% coverage for FitPlanner code added/modified
+  > Who will test? Follow Developer and Reviewer checklist so that tests are verified by both.
 ```
 Add unit test to ensure new methods added work as described and return expected value
 ```
