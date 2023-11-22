@@ -152,12 +152,12 @@ public class Trainer implements Serializable {
     public String validateName(String name, String parameterName) {
         // must not be null
         if (name == null) {
-            return parameterName + " must not be null \n";
+            return parameterName + " must not be null\n";
         }
 
         // must be between 1-12 characters
         if (name.isEmpty() || name.length() > 12) {
-            return parameterName + " must be between 1-12 characters \n";
+            return parameterName + " must be between 1-12 characters\n";
         }
 
         // name must only contain letters
@@ -165,7 +165,7 @@ public class Trainer implements Serializable {
         // https://stackoverflow.com/questions/24086968/tell-if-string-contains-a-z-chars
         for (char character : name.toCharArray()) {
             if (!Character.isLetter(character)) {
-                return parameterName + " must only contain letters \n";
+                return parameterName + " must only contain letters\n";
             }
         }
 

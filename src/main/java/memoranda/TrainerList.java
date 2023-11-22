@@ -99,4 +99,26 @@ public final class TrainerList {
     public static String[] getTrainerNames() {
         return (String[]) trainers.stream().map(Trainer::getName).toArray();
     }
+
+    /**
+     * Set TrainerList trainers to null for unit testing.
+     */
+    public static void setTrainersNull() {
+        trainers = null;
+    }
+
+    /**
+     * Check if trainers null for unit testing.
+     * @return true if trainers null
+     */
+    public static boolean isTrainersNull(){
+        return trainers == null;
+    }
+
+    /**
+     * Clear trainers list.
+     */
+    public static void clearTrainers() {
+        trainers.clear();
+    }
 }
