@@ -1,4 +1,3 @@
-package test;
 
 import java.util.Date;
 import main.java.memoranda.BeltRank.Rank;
@@ -21,7 +20,7 @@ public class GymClassTest {
         class1.setRoom(GymRoom.ROOM1);
         Assert.assertEquals(0, class1.getRoom().ordinal());
     }
-    
+
     @Test
     /**
      * Tests to ensure that Room 4 is set properly on creation.
