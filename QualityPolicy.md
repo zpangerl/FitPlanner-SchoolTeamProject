@@ -39,11 +39,11 @@
 
 
 **Unit Tests Blackbox** (start Sprint 2)
-  > gradle should be configured as team to use junit:4.12 (gradle) with unit tests in `src/test/java/`
-  > Blackbox testing policy
-  > Areas to test? Focus on FitPlanner specific code implemented as part of Task or US but open to test other memoranda code or code from peers to meet the unit test requirement (e.g. if working on UI and need something else to test)
-  > Who will test? Follow Developer and Reviewer checklist so that tests are verified by both.
-  > How will you test? Equivalence Partitions are most likely for FitPlanner due to features being valid/invalid. Boundary Value Analysis may make sense if we get to weight class features by the end of Sprint 3.
+  >  - gradle should be configured as team to use junit:4.12 (gradle) with unit tests in `src/test/java/`
+  >  - Blackbox testing policy
+  >  - Areas to test? Focus on FitPlanner specific code implemented as part of Task or US but open to test other memoranda code or code from peers to meet the unit test requirement (e.g. if working on UI and need something else to test)
+  >  - Who will test? Follow Developer and Reviewer checklist so that tests are verified by both.
+  >  - How will you test? Equivalence Partitions are most likely for FitPlanner due to features being valid/invalid. Boundary Value Analysis may make sense if we get to weight class features by the end of Sprint 3.
 
 ```
 Add unit test to ensure some or all of the User Story or task(s) work as expected.
@@ -51,11 +51,11 @@ Add unit test to ensure some or all of the User Story or task(s) work as expecte
 Higher level abstraction that may touch multiple methods and parts of the code.
 ```
  **Unit Tests Whitebox** (online: start Sprint 2, campus: start Sprint 3)
-  > Your Whitebox testing policy 
-  > Tool? Configure build.gradle for Jacoco (Frankie is adding Jacoco as part of his PR)
-  > Areas to test? Focus on FitPlanner specific code implemented as part of Task or US but open to test other memoranda code or code from peers to meet the unit test requirement (e.g. if working on UI and need something else to test)
-  > Criteria? `gradle jacocoTestReport` - Developer should review to target at least 80% coverage for FitPlanner code added/modified
-  > Who will test? Follow Developer and Reviewer checklist so that tests are verified by both.
+  >  - Your Whitebox testing policy
+  >  - Tool? Configure build.gradle for Jacoco (Frankie is adding Jacoco as part of his PR)
+  >  - Areas to test? Focus on FitPlanner specific code implemented as part of Task or US but open to test other memoranda code or code from peers to meet the unit test requirement (e.g. if working on UI and need something else to test)
+  >  - Criteria? `gradle jacocoTestReport` - Developer should review to target at least 80% coverage for FitPlanner code added/modified
+  >  - Who will test? Follow Developer and Reviewer checklist so that tests are verified by both.
 ```
 Add unit test to ensure new methods added work as described and return expected value
 ```
@@ -72,8 +72,8 @@ Add unit test to ensure new methods added work as described and return expected 
  - [ ] 0 SpotBugs errors for created/modified code
 ```
 
-  > Reviewer Checklist. Must be included in the Github Pull Request Review when you complete a review and approve.
-  > Add additional comments as needed. Copy/paste and complete checklist below
+  >  - Reviewer Checklist. Must be included in the Github Pull Request Review when you complete a review and approve.
+  >  - Add additional comments as needed. Copy/paste and complete checklist below
 
 ```
  - [ ] Unit tests are present and correct
