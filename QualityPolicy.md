@@ -14,6 +14,9 @@
   >  - `Task#-a_short_description` (replace # with appropriate number) (`_` instead of spaces to remove need to escape space characters)
   >  - NOTE: hyphen after the number for US and Task branch names
 
+  > Maintain US and Task branches
+  >  - To avoid merge conflicts, consider US dependencies to avoid the need to merge from other US branches not pulled to dev
+
   > Maintain dev branch
   >  - No commits directly to dev without pull request
   >  - Only pull request to merge from US branches to dev
