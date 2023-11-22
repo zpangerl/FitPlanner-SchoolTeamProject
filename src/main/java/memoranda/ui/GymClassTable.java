@@ -92,13 +92,7 @@ public class GymClassTable extends JTable {
 
         @Override
         public int getRowCount() {
-            int i;
-            try {
-                i = GymClassList.getGymClasses().size();
-            } catch (NullPointerException e) {
-                i = 0;
-            }
-            return i;
+            return GymClassList.getGymClasses() != null ? GymClassList.getGymClasses().size() : 0;
         }
 
         @Override
