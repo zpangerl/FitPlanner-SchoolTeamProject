@@ -7,6 +7,7 @@
   >  - ALL commits must include US# and Task# (replace # with appropriate number)
   >  - It is okay to include "WIP" to save/commit work when not fully completed
   >  - Use imperative mood, capitalize the subject, and do not end subject line with a period
+  >  - Unit Tests: `US# Task# Unit Test: <description>` (replace # with appropriate number)
 
   > Branch names
   >  - `US#-a_short_description` (replace # with appropriate number) (`_` instead of spaces to remove need to escape space characters)
