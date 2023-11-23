@@ -1,15 +1,13 @@
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import main.java.memoranda.Room;
+import org.junit.Test;
 
 /**
  * RoomTest.java
  * Created on November 3, 2023
  * Author: Zach Pangerl
- * 
  * This test case tests the enum values from Room.
  */
 public class RoomTest {

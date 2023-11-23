@@ -302,15 +302,15 @@ public class GymClassPanel extends JPanel {
         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x,
                 (frmSize.height - dlg.getSize().height) / 2 + loc.y);
         dlg.setVisible(true);
-        if (dlg.CANCELLED) {
+        if (dlg.canceled) {
             return;
         }
 
-        Trainer trainer = TrainerList.getTrainerByIndex(dlg.jComboBoxTrainer.getSelectedIndex());
+        Trainer trainer = TrainerList.getTrainerByIndex(dlg.jcomboBoxTrainer.getSelectedIndex());
         CalendarDate date = new CalendarDate((Date) dlg.startDate.getModel().getValue());
         GymClass newClass = new GymClass(date, trainer);
         newClass.setClassType(dlg.classNameField.getText());
-        newClass.setRoom(GymRoom.getRoomByIndex(dlg.jComboBoxRoom.getSelectedIndex()));
+        newClass.setRoom(GymRoom.getRoomByIndex(dlg.jcomboBoxRoom.getSelectedIndex()));
         GymClassList.addGymClass(newClass);
         gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
     }
@@ -327,8 +327,8 @@ public class GymClassPanel extends JPanel {
         // Set the fields in the dialog
         GymClassDialog dlg = new GymClassDialog(App.getFrame(), Local.getString("Edit Class"));
         dlg.startDate.getModel().setValue(gymClass.getDate());
-        dlg.jComboBoxTrainer.setSelectedIndex(trainerIndex);
-        dlg.jComboBoxRoom.setSelectedIndex(gymRoomIndex);
+        dlg.jcomboBoxTrainer.setSelectedIndex(trainerIndex);
+        dlg.jcomboBoxRoom.setSelectedIndex(gymRoomIndex);
         dlg.classNameField.setText(gymClass.getClassType());
 
         Dimension frmSize = App.getFrame().getSize();
@@ -337,16 +337,16 @@ public class GymClassPanel extends JPanel {
         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x,
                 (frmSize.height - dlg.getSize().height) / 2 + loc.y);
         dlg.setVisible(true);
-        if (dlg.CANCELLED) {
+        if (dlg.canceled) {
             return;
         }
 
-        Trainer trainer = TrainerList.getTrainerByIndex(dlg.jComboBoxTrainer.getSelectedIndex());
+        Trainer trainer = TrainerList.getTrainerByIndex(dlg.jcomboBoxTrainer.getSelectedIndex());
         CalendarDate date = new CalendarDate((Date) dlg.startDate.getModel().getValue());
         gymClass.setTrainer(trainer);
         gymClass.setCalendarDate(date);
         gymClass.setClassType(dlg.classNameField.getText());
-        gymClass.setRoom(GymRoom.getRoomByIndex(dlg.jComboBoxRoom.getSelectedIndex()));
+        gymClass.setRoom(GymRoom.getRoomByIndex(dlg.jcomboBoxRoom.getSelectedIndex()));
         gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
     }
 

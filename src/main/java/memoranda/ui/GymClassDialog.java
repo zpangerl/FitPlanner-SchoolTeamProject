@@ -39,7 +39,7 @@ import main.java.memoranda.util.Local;
 public class GymClassDialog extends JDialog {
 
     Border titledBorder;
-    JPanel mPanel = new JPanel(new BorderLayout());
+    JPanel mpanel = new JPanel(new BorderLayout());
     JPanel areaPanel = new JPanel(new BorderLayout());
     JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
     JButton cancelB = new JButton();
@@ -48,30 +48,32 @@ public class GymClassDialog extends JDialog {
     Border border2;
     JPanel dialogTitlePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
     JLabel header = new JLabel();
-    public boolean CANCELLED = true;
-    JPanel jPanel8 = new JPanel(new GridBagLayout());
+    public boolean canceled = true;
+    JPanel jpanel8 = new JPanel(new GridBagLayout());
     Border border4;
-    JPanel jPanel2 = new JPanel(new GridLayout(3, 2));
+    JPanel jpanel2 = new JPanel(new GridLayout(3, 2));
 
-    JLabel jLabelClassName = new JLabel();
+    JLabel jlabelClassName = new JLabel();
     JTextField classNameField = new JTextField();
-    JLabel jLabelRoom = new JLabel();
-    JComboBox<Room.GymRoom> jComboBoxRoom = new JComboBox<>(Room.GymRoom.values());
-    JLabel jLabelTrainer = new JLabel();
-    JComboBox<String> jComboBoxTrainer = new JComboBox<String>(TrainerList.getTrainerNamesVector());
+    JLabel jlabelRoom = new JLabel();
+    JComboBox<Room.GymRoom> jcomboBoxRoom = new JComboBox<>(Room.GymRoom.values());
+    JLabel jlabelTrainer = new JLabel();
+    JComboBox<String> jcomboBoxTrainer = new JComboBox<String>(TrainerList.getTrainerNamesVector());
 
     Border border8;
-    JPanel jPanel4 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-    JPanel jPanel6 = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    JLabel jLabel6 = new JLabel();
+    JPanel jpanel6 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    JLabel jlabel6 = new JLabel();
     JButton setStartDateB = new JButton();
-    JPanel jPanel1 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-    JLabel jLabel2 = new JLabel();
+    JPanel jpanel1 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+    JLabel jlabel2 = new JLabel();
     JSpinner startDate;
     CalendarFrame startCalFrame = new CalendarFrame();
     String okButtonText = "Save";
     boolean ignoreStartChanged = false;
 
+    /**
+     * Constructor for the dialog.
+     */
     public GymClassDialog(Frame frame, String title) {
         super(frame, title, true);
         try {
@@ -117,7 +119,7 @@ public class GymClassDialog extends JDialog {
         });
 
         this.getRootPane().setDefaultButton(okB);
-        mPanel.setBorder(border1);
+        mpanel.setBorder(border1);
         areaPanel.setBorder(border2);
         dialogTitlePanel.setBackground(Color.WHITE);
         dialogTitlePanel.setBorder(border4);
@@ -127,18 +129,18 @@ public class GymClassDialog extends JDialog {
         header.setIcon(new ImageIcon(main.java.memoranda.ui.TaskDialog.class.getResource(
                 "/ui/icons/class48.png")));
 
-        GridBagLayout gbLayout = (GridBagLayout) jPanel8.getLayout();
-        jPanel8.setBorder(titledBorder);
-
-        // The lable for class name
-        jLabelClassName.setMaximumSize(new Dimension(100, 16));
-        jLabelClassName.setMinimumSize(new Dimension(60, 16));
-        jLabelClassName.setText(Local.getString("Class Name"));
+        GridBagLayout gbLayout = (GridBagLayout) jpanel8.getLayout();
+        jpanel8.setBorder(titledBorder);
         GridBagConstraints gbCon = new GridBagConstraints();
+        gbLayout.setConstraints(jlabelClassName, gbCon);
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 1;
         gbCon.anchor = GridBagConstraints.WEST;
-        gbLayout.setConstraints(jLabelClassName, gbCon);
+
+        // The lable for class name
+        jlabelClassName.setMaximumSize(new Dimension(100, 16));
+        jlabelClassName.setMinimumSize(new Dimension(60, 16));
+        jlabelClassName.setText(Local.getString("Class Name"));
 
         // The field for class name
         classNameField.setBorder(border8);
@@ -165,43 +167,49 @@ public class GymClassDialog extends JDialog {
         gbLayout.setConstraints(classNameField, gbCon);
 
         // The label for Room
-        jLabelRoom.setMaximumSize(new Dimension(100, 16));
-        jLabelRoom.setMinimumSize(new Dimension(60, 16));
-        jLabelRoom.setText(Local.getString("Room"));
+        jlabelRoom.setMaximumSize(new Dimension(100, 16));
+        jlabelRoom.setMinimumSize(new Dimension(60, 16));
+        jlabelRoom.setText(Local.getString("Room"));
         gbCon = new GridBagConstraints();
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 1;
         gbCon.anchor = GridBagConstraints.WEST;
-        gbLayout.setConstraints(jLabelRoom, gbCon);
+        gbLayout.setConstraints(jlabelRoom, gbCon);
 
         // The combobox for Room
-        jComboBoxRoom.setBorder(border8);
-        jComboBoxRoom.setPreferredSize(new Dimension(375, 24));
+        jcomboBoxRoom.setBorder(border8);
+        jcomboBoxRoom.setPreferredSize(new Dimension(375, 24));
         gbCon = new GridBagConstraints();
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 1;
-        gbLayout.setConstraints(jComboBoxRoom, gbCon);
+        gbLayout.setConstraints(jcomboBoxRoom, gbCon);
 
         // The label for Trainer
-        jLabelTrainer.setMaximumSize(new Dimension(100, 16));
-        jLabelTrainer.setMinimumSize(new Dimension(60, 16));
-        jLabelTrainer.setText(Local.getString("Trainer"));
+        jlabelTrainer.setMaximumSize(new Dimension(100, 16));
+        jlabelTrainer.setMinimumSize(new Dimension(60, 16));
+        jlabelTrainer.setText(Local.getString("Trainer"));
         gbCon = new GridBagConstraints();
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 1;
         gbCon.anchor = GridBagConstraints.WEST;
-        gbLayout.setConstraints(jLabelTrainer, gbCon);
+        gbLayout.setConstraints(jlabelTrainer, gbCon);
 
         // The combobox for Trainer
-        jComboBoxTrainer.setBorder(border8);
-        jComboBoxTrainer.setPreferredSize(new Dimension(375, 24));
+        jcomboBoxTrainer.setBorder(border8);
+        jcomboBoxTrainer.setPreferredSize(new Dimension(375, 24));
         gbCon = new GridBagConstraints();
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 1;
-        gbLayout.setConstraints(jComboBoxTrainer, gbCon);
+        gbLayout.setConstraints(jcomboBoxTrainer, gbCon);
 
         // Start date
-        startDate = new JSpinner(new SpinnerDateModel(new Date(), null, null, Calendar.DAY_OF_WEEK));
+        startDate = new JSpinner(
+                new SpinnerDateModel(
+                        new Date(),
+                        null,
+                        null,
+                        Calendar.DAY_OF_WEEK
+                ));
         startDate.setBorder(border8);
         startDate.setPreferredSize(new Dimension(80, 24));
         SimpleDateFormat sdf = new SimpleDateFormat();
@@ -211,12 +219,16 @@ public class GymClassDialog extends JDialog {
         startDate.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 // it's an ugly hack so that the spinner can increase day by day
-                SpinnerDateModel sdm = new SpinnerDateModel((Date) startDate.getModel().getValue(), null, null,
+                SpinnerDateModel sdm = new SpinnerDateModel(
+                        (Date) startDate.getModel().getValue(),
+                        null,
+                        null,
                         Calendar.DAY_OF_WEEK);
                 startDate.setModel(sdm);
 
-                if (ignoreStartChanged)
+                if (ignoreStartChanged) {
                     return;
+                }
                 ignoreStartChanged = true;
                 Date sd = (Date) startDate.getModel().getValue();
                 startCalFrame.cal.set(new CalendarDate(sd));
@@ -230,43 +242,50 @@ public class GymClassDialog extends JDialog {
         });
         startCalFrame.cal.addSelectionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (ignoreStartChanged)
+                if (ignoreStartChanged) {
                     return;
+                }
                 startDate.getModel().setValue(startCalFrame.cal.get().getCalendar().getTime());
             }
         });
 
-        jLabel6.setText(Local.getString("Start date"));
-        jLabel6.setMinimumSize(new Dimension(60, 16));
-        jLabel6.setMaximumSize(new Dimension(100, 16));
+        jlabel6.setText(Local.getString("Start date"));
+        jlabel6.setMinimumSize(new Dimension(60, 16));
+        jlabel6.setMaximumSize(new Dimension(100, 16));
         setStartDateB.setMinimumSize(new Dimension(24, 24));
         setStartDateB.setPreferredSize(new Dimension(24, 24));
         setStartDateB.setText("");
         setStartDateB.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/calendar.png")));
+                new ImageIcon(main
+                        .java
+                        .memoranda
+                        .ui
+                        .AppFrame
+                        .class
+                        .getResource("/ui/icons/calendar.png")));
 
         // Add components to panel
-        getContentPane().add(mPanel);
-        mPanel.add(areaPanel, BorderLayout.CENTER);
-        mPanel.add(buttonsPanel, BorderLayout.SOUTH);
+        getContentPane().add(mpanel);
+        mpanel.add(areaPanel, BorderLayout.CENTER);
+        mpanel.add(buttonsPanel, BorderLayout.SOUTH);
         buttonsPanel.add(okB, null);
         buttonsPanel.add(cancelB, null);
         this.getContentPane().add(dialogTitlePanel, BorderLayout.NORTH);
         dialogTitlePanel.add(header, null);
-        areaPanel.add(jPanel8, BorderLayout.NORTH);
-        jPanel8.add(jLabelClassName);
-        jPanel8.add(classNameField, null);
-        jPanel8.add(jLabelRoom);
-        jPanel8.add(jComboBoxRoom);
-        jPanel8.add(jLabelTrainer);
-        jPanel8.add(jComboBoxTrainer);
-        areaPanel.add(jPanel2, BorderLayout.CENTER);
-        jPanel2.add(jPanel6, null);
-        jPanel6.add(jLabel6, null);
-        jPanel6.add(startDate, null);
-        jPanel6.add(setStartDateB, null);
-        jPanel2.add(jPanel1, null);
-        jPanel1.add(jLabel2, null);
+        areaPanel.add(jpanel8, BorderLayout.NORTH);
+        jpanel8.add(jlabelClassName);
+        jpanel8.add(classNameField, null);
+        jpanel8.add(jlabelRoom);
+        jpanel8.add(jcomboBoxRoom);
+        jpanel8.add(jlabelTrainer);
+        jpanel8.add(jcomboBoxTrainer);
+        areaPanel.add(jpanel2, BorderLayout.CENTER);
+        jpanel2.add(jpanel6, null);
+        jpanel6.add(jlabel6, null);
+        jpanel6.add(startDate, null);
+        jpanel6.add(setStartDateB, null);
+        jpanel2.add(jpanel1, null);
+        jpanel1.add(jlabel2, null);
     }
 
     void setStartDateB_actionPerformed(ActionEvent e) {
@@ -281,7 +300,7 @@ public class GymClassDialog extends JDialog {
     }
 
     void okB_actionPerformed(ActionEvent e) {
-        CANCELLED = false;
+        canceled = false;
         this.dispose();
     }
 
@@ -289,10 +308,15 @@ public class GymClassDialog extends JDialog {
         this.dispose();
     }
 
-    // Checks to see if the class name field and combobox have been updated.
-    // If updated and both not empty, the ok button is set to enable. Or else, the ok button is disabled.
+    /**
+     * Checks to see if the class name field and combobox have been updated.
+     * If updated and both not empty,
+     * the ok button is set to enable.
+     * Or else, the ok button is disabled.
+     */
     public void formChanged() {
-        if (classNameField.getText().equals("") || jComboBoxTrainer.getSelectedIndex() == -1) {
+        if (classNameField.getText().equals("")
+                || jcomboBoxTrainer.getSelectedIndex() == -1) {
             okB.setEnabled(false);
         } else {
             okB.setEnabled(true);
