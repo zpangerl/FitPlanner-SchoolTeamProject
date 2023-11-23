@@ -7,11 +7,15 @@
   >  - ALL commits must include US# and Task# (replace # with appropriate number)
   >  - It is okay to include "WIP" to save/commit work when not fully completed
   >  - Use imperative mood, capitalize the subject, and do not end subject line with a period
+  >  - Unit Tests: `US# Task# Unit Test: <description>` (replace # with appropriate number)
 
   > Branch names
   >  - `US#-a_short_description` (replace # with appropriate number) (`_` instead of spaces to remove need to escape space characters)
   >  - `Task#-a_short_description` (replace # with appropriate number) (`_` instead of spaces to remove need to escape space characters)
   >  - NOTE: hyphen after the number for US and Task branch names
+
+  > Maintain US and Task branches
+  >  - To avoid merge conflicts, consider US dependencies to avoid the need to merge from other US branches not pulled to dev
 
   > Maintain dev branch
   >  - No commits directly to dev without pull request
@@ -35,15 +39,23 @@
 
 
 **Unit Tests Blackbox** (start Sprint 2)
-  > gradle should be configured as team to use junit:4.12 (gradle) with unit tests in `src/test/java/`
-  > Blackbox testing policy
+  >  - gradle should be configured as team to use junit:4.12 (gradle) with unit tests in `src/test/java/`
+  >  - Blackbox testing policy
+  >  - Areas to test? Focus on FitPlanner specific code implemented as part of Task or US but open to test other memoranda code or code from peers to meet the unit test requirement (e.g. if working on UI and need something else to test)
+  >  - Who will test? Follow Developer and Reviewer checklist so that tests are verified by both.
+  >  - How will you test? Equivalence Partitions are most likely for FitPlanner due to features being valid/invalid. Boundary Value Analysis may make sense if we get to weight class features by the end of Sprint 3.
+
 ```
 Add unit test to ensure some or all of the User Story or task(s) work as expected.
 
 Higher level abstraction that may touch multiple methods and parts of the code.
 ```
  **Unit Tests Whitebox** (online: start Sprint 2, campus: start Sprint 3)
-  > Your Whitebox testing policy 
+  >  - Your Whitebox testing policy
+  >  - Tool? Configure build.gradle for Jacoco (Frankie is adding Jacoco as part of his PR)
+  >  - Areas to test? Focus on FitPlanner specific code implemented as part of Task or US but open to test other memoranda code or code from peers to meet the unit test requirement (e.g. if working on UI and need something else to test)
+  >  - Criteria? `gradle jacocoTestReport` - Developer should review to target at least 80% coverage for FitPlanner code added/modified
+  >  - Who will test? Follow Developer and Reviewer checklist so that tests are verified by both.
 ```
 Add unit test to ensure new methods added work as described and return expected value
 ```
@@ -60,8 +72,8 @@ Add unit test to ensure new methods added work as described and return expected 
  - [ ] 0 SpotBugs errors for created/modified code
 ```
 
-  > Reviewer Checklist. Must be included in the Github Pull Request Review when you complete a review and approve.
-  > Add additional comments as needed. Copy/paste and complete checklist below
+  >  - Reviewer Checklist. Must be included in the Github Pull Request Review when you complete a review and approve.
+  >  - Add additional comments as needed. Copy/paste and complete checklist below
 
 ```
  - [ ] Unit tests are present and correct
