@@ -1,15 +1,40 @@
 package main.java.memoranda.ui;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.text.*;
-import java.util.*;
-import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
-import main.java.memoranda.*;
-import main.java.memoranda.date.*;
-import main.java.memoranda.util.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerDateModel;
+import javax.swing.border.Border;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
+import main.java.memoranda.Room;
+import main.java.memoranda.TrainerList;
+import main.java.memoranda.date.CalendarDate;
+import main.java.memoranda.util.Local;
 
 public class GymClassDialog extends JDialog {
 
@@ -33,7 +58,7 @@ public class GymClassDialog extends JDialog {
     JLabel jLabelRoom = new JLabel();
     JComboBox<Room.GymRoom> jComboBoxRoom = new JComboBox<>(Room.GymRoom.values());
     JLabel jLabelTrainer = new JLabel();
-    JComboBox<String> jComboBoxTrainer = new JComboBox<>(TrainerList.getTrainerNames());
+    JComboBox<String> jComboBoxTrainer = new JComboBox<String>(TrainerList.getTrainerNamesVector());
 
     Border border8;
     JPanel jPanel4 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -83,6 +108,7 @@ public class GymClassDialog extends JDialog {
         okB.setMinimumSize(new Dimension(100, 26));
         okB.setPreferredSize(new Dimension(100, 26));
         okB.setText(Local.getString("Create"));
+        okB.setEnabled(false);
         okB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 okB_actionPerformed(e);
@@ -116,6 +142,22 @@ public class GymClassDialog extends JDialog {
         // The field for class name
         classNameField.setBorder(border8);
         classNameField.setPreferredSize(new Dimension(375, 24));
+        classNameField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                formChanged();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                formChanged();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                formChanged();
+            }
+        });
         gbCon = new GridBagConstraints();
         gbCon.gridwidth = GridBagConstraints.REMAINDER;
         gbCon.weighty = 1;
@@ -244,5 +286,15 @@ public class GymClassDialog extends JDialog {
 
     void cancelB_actionPerformed(ActionEvent e) {
         this.dispose();
+    }
+
+    // Checks to see if the class name field and combobox have been updated.
+    // If updated and both not empty, the ok button is set to enable. Or else, the ok button is disabled.
+    public void formChanged() {
+        if (classNameField.getText().equals("") || jComboBoxTrainer.getSelectedIndex() == -1) {
+            okB.setEnabled(false);
+        } else {
+            okB.setEnabled(true);
+        }
     }
 }

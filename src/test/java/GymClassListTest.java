@@ -13,12 +13,13 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
-import java.util.Date;
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.GymClass;
 import main.java.memoranda.GymClassList;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
+import main.java.memoranda.date.CalendarDate;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -61,9 +62,9 @@ public class GymClassListTest {
         TrainerList.addTrainer(tmpTrainer3);
 
         // Create three gym classes
-        GymClass gymClass1 = new GymClass(new Date(), tmpTrainer1);
-        GymClass gymClass2 = new GymClass(new Date(), tmpTrainer2);
-        GymClass gymClass3 = new GymClass(new Date(), tmpTrainer3);
+        GymClass gymClass1 = new GymClass(new CalendarDate(), tmpTrainer1);
+        GymClass gymClass2 = new GymClass(new CalendarDate(), tmpTrainer2);
+        GymClass gymClass3 = new GymClass(new CalendarDate(), tmpTrainer3);
 
         GymClassList.addGymClass(gymClass1);
         GymClassList.addGymClass(gymClass2);
@@ -81,8 +82,8 @@ public class GymClassListTest {
         assertNotNull(gymClasses);
         assertNotEquals(0, gymClasses.size());
 
-        GymClass gymClass1 = new GymClass(new Date(), TrainerList.getTrainers().get(0));
-        GymClass gymClass2 = new GymClass(new Date(), TrainerList.getTrainers().get(1));
+        GymClass gymClass1 = new GymClass(new CalendarDate(), TrainerList.getTrainers().get(0));
+        GymClass gymClass2 = new GymClass(new CalendarDate(), TrainerList.getTrainers().get(1));
 
         // add gymClass1 to GymClassList
         GymClassList.addGymClass(gymClass1);

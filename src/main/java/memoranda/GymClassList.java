@@ -11,10 +11,9 @@ package main.java.memoranda;
 import java.util.ArrayList;
 
 /**
- Class: GymClassList
-
- Description: Stores GymClass attributes date, room, trainer, and class type.
- See TrainerList.java for similar implementation.
+ * Class: GymClassList
+ * Description: Stores GymClass attributes date, room, trainer, and class type.
+ * See TrainerList.java for similar implementation.
  */
 public final class GymClassList {
     // class variables
@@ -28,6 +27,7 @@ public final class GymClassList {
 
     /**
      * Returns an ArrayList of GymClasses.
+     * 
      * @return gymClasses
      */
     public static ArrayList<GymClass> getGymClasses() {
@@ -41,6 +41,7 @@ public final class GymClassList {
 
     /**
      * Adds a new gymClass to gymClasses.
+     * 
      * @param gymClass gymClass to add
      */
     public static void addGymClass(GymClass gymClass) {
@@ -52,6 +53,7 @@ public final class GymClassList {
 
     /**
      * Removes a gymClass from gymClasses.
+     * 
      * @param gymClass gymClass to remove
      */
     public static void removeGymClass(GymClass gymClass) {
@@ -62,6 +64,7 @@ public final class GymClassList {
 
     /**
      * Removes a gymClass from gymClasses by index number.
+     * 
      * @param idx index number of gymClass to remove
      */
     public static void removeGymClassByIndex(int idx) {

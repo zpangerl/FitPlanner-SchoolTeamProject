@@ -121,7 +121,7 @@ public class RoomsPanel extends JPanel {
         for (int i = 0; i < filtered.size(); i++) {
             GymClass gymClass = filtered.get(i);
             data[i][0] = gymClass.getClassType();
-            data[i][1] = gymClass.getDate();
+            data[i][1] = gymClass.getCalendarDate();
             data[i][2] = gymClass.getTrainer().getName();
         }
         return data;

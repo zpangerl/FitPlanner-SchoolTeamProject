@@ -11,28 +11,27 @@ package main.java.memoranda;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import main.java.memoranda.date.CalendarDate;
 
 public class GymClass {
 
-    private Date date;
-
+    private CalendarDate date;
     private Room.GymRoom room;
     private Trainer trainer;
     private ClassType classType;
-    private List<Student> students;
+    private final List<Student> students;
 
     /**
      * Constructor for GymClass.
      *
-     * @param date the date for the planned class.
+     * @param date    the date for the planned class.
      * @param trainer the trainer assigned to teach the class.
      */
-    public GymClass(Date date, Trainer trainer) {
+    public GymClass(CalendarDate date, Trainer trainer) {
         this.date = date;
         this.trainer = trainer;
         this.students = new ArrayList<>();
     }
-
 
     public void setClassType(String type) {
         this.classType = new ClassType(type);
@@ -50,12 +49,16 @@ public class GymClass {
         return trainer;
     }
 
-    public void setDate(Date d) {
+    public void setCalendarDate(CalendarDate d) {
         date = d;
     }
 
-    public Date getDate() {
+    public CalendarDate getCalendarDate() {
         return date;
+    }
+
+    public Date getDate() {
+        return date.getDate();
     }
 
     public void setRoom(Room.GymRoom r) {

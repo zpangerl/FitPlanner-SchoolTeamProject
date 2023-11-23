@@ -3,6 +3,7 @@ package main.java.memoranda.ui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -19,11 +20,13 @@ import javax.swing.JToolBar;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.TableModelEvent;
-import main.java.memoranda.BeltRank;
 import main.java.memoranda.GymClass;
 import main.java.memoranda.GymClassList;
 import main.java.memoranda.Room.GymRoom;
 import main.java.memoranda.Trainer;
+import main.java.memoranda.TrainerList;
+import main.java.memoranda.date.CalendarDate;
+import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.util.Local;
 /*
  * File: GymClassPanel.java
@@ -31,7 +34,6 @@ import main.java.memoranda.util.Local;
  * Version: 2023.11.09
  * Description: Simple GymClass panel to display add button and rows of GymClass(es)
  */
-
 
 public class GymClassPanel extends JPanel {
     BorderLayout borderLayout1 = new BorderLayout();
@@ -65,15 +67,9 @@ public class GymClassPanel extends JPanel {
         // New Class Button
         newClassB.setIcon(
                 new ImageIcon(
-                        main
-                                .java
-                                .memoranda
-                                .ui
-                                .AppFrame
-                                .class
+                        main.java.memoranda.ui.AppFrame.class
                                 .getResource(
-                                        "/ui/icons/addresource.png"
-                                )));
+                                        "/ui/icons/class_new.png")));
         newClassB.setEnabled(true);
         newClassB.setMaximumSize(new Dimension(24, 24));
         newClassB.setMinimumSize(new Dimension(24, 24));
@@ -106,15 +102,9 @@ public class GymClassPanel extends JPanel {
         removeClassB.setMaximumSize(new Dimension(24, 24));
         removeClassB.setIcon(
                 new ImageIcon(
-                        main
-                                .java
-                                .memoranda
-                                .ui
-                                .AppFrame
-                                .class
+                        main.java.memoranda.ui.AppFrame.class
                                 .getResource(
-                                        "/ui/icons/removeresource.png"
-                                )));
+                                        "/ui/icons/removeresource.png")));
         removeClassB.setEnabled(false);
 
         scrollPane.getViewport().setBackground(Color.white);
@@ -126,9 +116,8 @@ public class GymClassPanel extends JPanel {
 
         gymClassTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
-                boolean enable =
-                        (gymClassTable.getRowCount() > 0)
-                                && (gymClassTable.getSelectedRow() > -1);
+                boolean enable = (gymClassTable.getRowCount() > 0)
+                        && (gymClassTable.getSelectedRow() > -1);
                 removeClassB.setEnabled(enable);
                 ppRemoveClass.setEnabled(enable);
             }
@@ -149,15 +138,9 @@ public class GymClassPanel extends JPanel {
         refreshB.setMaximumSize(new Dimension(24, 24));
         refreshB.setEnabled(true);
         refreshB.setIcon(
-                new ImageIcon(main
-                        .java
-                        .memoranda
-                        .ui
-                        .AppFrame
-                        .class
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class
                         .getResource(
-                                "/ui/icons/refreshres.png"
-                        )));
+                                "/ui/icons/refreshres.png")));
 
         ppRemoveClass.setFont(new java.awt.Font("Dialog", 1, 11));
         ppRemoveClass.setText(Local.getString("Remove class"));
@@ -169,15 +152,9 @@ public class GymClassPanel extends JPanel {
         });
         ppRemoveClass.setIcon(
                 new ImageIcon(
-                        main
-                                .java
-                                .memoranda
-                                .ui
-                                .AppFrame
-                                .class
+                        main.java.memoranda.ui.AppFrame.class
                                 .getResource(
-                                        "/ui/icons/removeresource.png"
-                                )));
+                                        "/ui/icons/removeresource.png")));
         ppRemoveClass.setEnabled(false);
         ppNewClass.setFont(new java.awt.Font("Dialog", 1, 11));
         ppNewClass.setText(Local.getString("New class") + "...");
@@ -188,15 +165,9 @@ public class GymClassPanel extends JPanel {
             }
         });
         ppNewClass.setIcon(new ImageIcon(
-                main
-                        .java
-                        .memoranda
-                        .ui
-                        .AppFrame
-                        .class
+                main.java.memoranda.ui.AppFrame.class
                         .getResource(
-                                "/ui/icons/addresource.png"
-                        )));
+                                "/ui/icons/addresource.png")));
 
         ppRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
         ppRefresh.setText(Local.getString("Refresh"));
@@ -206,15 +177,9 @@ public class GymClassPanel extends JPanel {
             }
         });
         ppRefresh.setIcon(new ImageIcon(
-                main
-                        .java
-                        .memoranda
-                        .ui
-                        .AppFrame
-                        .class
+                main.java.memoranda.ui.AppFrame.class
                         .getResource(
-                                "/ui/icons/refreshres.png"
-                        )));
+                                "/ui/icons/refreshres.png")));
 
         toolBar.add(newClassB, null);
         toolBar.add(removeClassB, null);
@@ -264,7 +229,7 @@ public class GymClassPanel extends JPanel {
     class PopupListener extends MouseAdapter {
 
         public void mouseClicked(MouseEvent e) {
-            //editTaskB_actionPerformed(null);
+            // editTaskB_actionPerformed(null);
         }
 
         public void mousePressed(MouseEvent e) {
@@ -306,17 +271,25 @@ public class GymClassPanel extends JPanel {
      * Create a new class.
      */
     private void newClassB_actionPerformed() {
-        // TODO: Implement a modal here that allows the user to create a new class
-        Trainer tempTrainer = new Trainer();
-        tempTrainer.setFirstName("FirstnameTest");
-        tempTrainer.setLastName("LastnameTest");
-        tempTrainer.setTrainingRank(BeltRank.Rank.GREEN);
-        tempTrainer.setBeltRank(BeltRank.Rank.GREEN_STRIPE);
 
-        GymClass tempGymClass = new GymClass(new Date(), tempTrainer);
-        tempGymClass.setClassType("Test Class Type");
-        tempGymClass.setRoom(GymRoom.ROOM1);
-        GymClassList.addGymClass(tempGymClass);
+        GymClassDialog dlg = new GymClassDialog(App.getFrame(), Local.getString("New Class"));
+
+        Dimension frmSize = App.getFrame().getSize();
+        Point loc = App.getFrame().getLocation();
+        dlg.startDate.getModel().setValue(CurrentDate.get().getDate());
+        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x,
+                (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+        dlg.setVisible(true);
+        if (dlg.CANCELLED) {
+            return;
+        }
+
+        Trainer trainer = TrainerList.getTrainerByIndex(dlg.jComboBoxTrainer.getSelectedIndex());
+        CalendarDate date = new CalendarDate((Date) dlg.startDate.getModel().getValue());
+        GymClass newClass = new GymClass(date, trainer);
+        newClass.setClassType(dlg.classNameField.getText());
+        newClass.setRoom(GymRoom.getRoomByIndex(dlg.jComboBoxRoom.getSelectedIndex()));
+        GymClassList.addGymClass(newClass);
         gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
     }
 

@@ -6,6 +6,7 @@ plugins {
 ant.importBuild 'build.xml'
 
 apply plugin: 'application'
+apply plugin: 'jacoco'
 
 // version = '0.1.0'
 
@@ -23,6 +24,23 @@ dependencies {
   implementation 'net.sourceforge.nekohtml:nekohtml:1.9.+'
   implementation "junit:junit:4.12"
   implementation 'org.hamcrest:hamcrest-core:1.3'
+}
+
+///////////////////////////////////////////////////////////////////////
+// Configure Jacoco
+///////////////////////////////////////////////////////////////////////
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////
