@@ -11,8 +11,6 @@ import java.awt.Component;
 import java.awt.GridLayout;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +18,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -123,7 +120,6 @@ public class DailyAgendaPanel extends JPanel {
                 filtered.add(gc);
             }
         }
-        //Collections.sort(filtered, Comparator.comparing(GymClass::getDate));
         return filtered;
     }
     
