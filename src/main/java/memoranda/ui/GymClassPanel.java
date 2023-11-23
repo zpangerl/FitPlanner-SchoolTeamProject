@@ -48,6 +48,8 @@ public class GymClassPanel extends JPanel {
     JMenuItem ppRemoveClass = new JMenuItem();
     JMenuItem ppNewClass = new JMenuItem();
     JMenuItem ppRefresh = new JMenuItem();
+    JButton sortClassesAscendingB = new JButton();
+    JButton sortClassesDescendingB = new JButton();
 
     /**
      * Default constructor.
@@ -106,6 +108,50 @@ public class GymClassPanel extends JPanel {
                                 .getResource(
                                         "/ui/icons/removeresource.png")));
         removeClassB.setEnabled(false);
+
+        sortClassesAscendingB.setBorderPainted(false);
+        sortClassesAscendingB.setFocusable(false);
+        sortClassesAscendingB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                GymClassList.sortClassesByDateAscending();
+                gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+            }
+        });
+        sortClassesAscendingB.setPreferredSize(new Dimension(24, 24));
+        sortClassesAscendingB.setRequestFocusEnabled(false);
+        sortClassesAscendingB.setToolTipText(Local.getString("Sort classes ascending"));
+        sortClassesAscendingB.setMinimumSize(new Dimension(24, 24));
+        sortClassesAscendingB.setMaximumSize(new Dimension(24, 24));
+        sortClassesAscendingB.setIcon(
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class
+                        .getResource(
+                                "/ui/icons/sort_ascending.png")));
+
+        sortClassesDescendingB.setBorderPainted(false);
+        sortClassesDescendingB.setFocusable(false);
+        sortClassesDescendingB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                GymClassList.sortClassesByDateDescending();
+                gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+            }
+        });
+        sortClassesDescendingB.setPreferredSize(new Dimension(24, 24));
+        sortClassesDescendingB.setRequestFocusEnabled(false);
+        sortClassesDescendingB.setToolTipText(Local.getString("Sort classes descending"));
+        sortClassesDescendingB.setMinimumSize(new Dimension(24, 24));
+        sortClassesDescendingB.setMaximumSize(new Dimension(24, 24));
+        sortClassesDescendingB.setIcon(
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class
+                        .getResource(
+                                "/ui/icons/sort_descending.png")));
+        sortClassesDescendingB.setFocusable(false);
+        sortClassesDescendingB.setBorderPainted(false);
+        sortClassesDescendingB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                GymClassList.sortClassesByDateDescending();
+                gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+            }
+        });
 
         scrollPane.getViewport().setBackground(Color.white);
         toolBar.addSeparator(new Dimension(8, 24));
@@ -185,6 +231,8 @@ public class GymClassPanel extends JPanel {
         toolBar.add(removeClassB, null);
         toolBar.addSeparator();
         toolBar.add(refreshB, null);
+        toolBar.add(sortClassesAscendingB, null);
+        toolBar.add(sortClassesDescendingB, null);
         this.add(scrollPane, BorderLayout.CENTER);
         scrollPane.getViewport().add(gymClassTable, null);
         this.add(toolBar, BorderLayout.NORTH);
