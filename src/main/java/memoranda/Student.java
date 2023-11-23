@@ -1,5 +1,7 @@
 package main.java.memoranda;
 
+import java.util.Objects;
+
 public class Student {
     private String firstName;
     private String lastName;
@@ -78,5 +80,37 @@ public class Student {
         this.age = inputAge;
         this.beltRank = inputBeltRank;
         this.trainingRank = inputTrainingRank;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Student student = (Student) o;
+        return age == student.age
+                && Objects.equals(firstName, student.firstName)
+                && Objects.equals(lastName, student.lastName)
+                && beltRank == student.beltRank
+                && trainingRank == student.trainingRank;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, age, beltRank, trainingRank);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{"
+                + "firstName='" + firstName + '\''
+                + ", lastName='" + lastName + '\''
+                + ", age=" + age
+                + ", beltRank=" + beltRank
+                + ", trainingRank=" + trainingRank
+                + '}';
     }
 }

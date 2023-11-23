@@ -69,7 +69,7 @@ public class GymClassTest {
         GymClass class1 = new GymClass(new Date(), trainer1);
         class1.setRoom(GymRoom.ROOM1);
         for (int i = 0; i < 20; i++) {
-            Student student = new Student("John", "Doe");
+            Student student = new Student("John" + i, "Doe");
             Assert.assertTrue(class1.addStudent(student));
         }
         Assert.assertEquals(20, class1.getStudents().size());
