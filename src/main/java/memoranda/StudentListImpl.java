@@ -1,6 +1,7 @@
 package main.java.memoranda;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Objects;
 
 
@@ -62,6 +63,20 @@ public class StudentListImpl implements StudentList {
             return null;
         }
         return studentList.get(index);
+    }
+
+    /**
+     * Sorts the StudentList by first name in ascending order.
+     */
+    public void sortStudentListAscending() {
+        studentList.sort(Comparator.comparing(Student::getFirstName));
+    }
+
+    /**
+     * Sorts the StudentList by first name in descending order.
+     */
+    public void sortStudentListDescending() {
+        studentList.sort(Comparator.comparing(Student::getFirstName).reversed());
     }
 
     /**

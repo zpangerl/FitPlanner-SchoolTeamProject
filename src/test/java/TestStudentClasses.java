@@ -157,4 +157,52 @@ public class TestStudentClasses {
         assertEquals(5, testList.getAllStudentCount());
     }
 
+    /**
+     * Tests the ability to sort a student list in ascending order.
+     */
+    @Test
+    public void sortStudentListAscending() {
+        Student tempStudent1 = new Student("Mckeighan", "Sean");
+        Student tempStudent2 = new Student("Harrison", "Rhett");
+        Student tempStudent3 = new Student("Stovall", "Steven");
+        Student tempStudent4 = new Student("Pangerl", "Zach");
+        Student tempStudent5 = new Student("NotSure", "Frankie");
+        StudentListImpl testList = new StudentListImpl();
+        testList.addStudent(tempStudent1);
+        testList.addStudent(tempStudent2);
+        testList.addStudent(tempStudent3);
+        testList.addStudent(tempStudent4);
+        testList.addStudent(tempStudent5);
+        testList.sortStudentListAscending();
+        assertEquals(tempStudent5, testList.getStudentByIndex(0));
+        assertEquals(tempStudent2, testList.getStudentByIndex(1));
+        assertEquals(tempStudent1, testList.getStudentByIndex(2));
+        assertEquals(tempStudent3, testList.getStudentByIndex(3));
+        assertEquals(tempStudent4, testList.getStudentByIndex(4));
+    }
+
+    /**
+     * Tests the ability to sort a student list in descending order.
+     */
+    @Test
+    public void sortStudentListDescending() {
+        Student tempStudent1 = new Student("Mckeighan", "Sean");
+        Student tempStudent2 = new Student("Harrison", "Rhett");
+        Student tempStudent3 = new Student("Stovall", "Steven");
+        Student tempStudent4 = new Student("Pangerl", "Zach");
+        Student tempStudent5 = new Student("NotSure", "Frankie");
+        StudentListImpl testList = new StudentListImpl();
+        testList.addStudent(tempStudent1);
+        testList.addStudent(tempStudent2);
+        testList.addStudent(tempStudent3);
+        testList.addStudent(tempStudent4);
+        testList.addStudent(tempStudent5);
+        testList.sortStudentListDescending();
+        assertEquals(tempStudent4, testList.getStudentByIndex(0));
+        assertEquals(tempStudent3, testList.getStudentByIndex(1));
+        assertEquals(tempStudent1, testList.getStudentByIndex(2));
+        assertEquals(tempStudent2, testList.getStudentByIndex(3));
+        assertEquals(tempStudent5, testList.getStudentByIndex(4));
+    }
+
 }
