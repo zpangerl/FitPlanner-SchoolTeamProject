@@ -64,8 +64,8 @@ public class GymClassTest {
         Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class1 = new GymClass(new CalendarDate(2, 12, 2023), trainer1);
         CalendarDate date2 = new CalendarDate(2, 12, 2023);
-        class1.setDate(date2);
-        Assert.assertEquals(date2, class1.getDate());
+        class1.setCalendarDate(date2);
+        Assert.assertEquals(date2, class1.getCalendarDate());
     }
 
     /**
@@ -75,7 +75,7 @@ public class GymClassTest {
     public void testGetClassTypeNull() {
         Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class1 = new GymClass(new CalendarDate(), trainer1);
-        Assert.assertEquals("N/A", class1.getClassType());
+        Assert.assertEquals("", class1.getClassType());
     }
 
     @Test

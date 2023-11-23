@@ -75,9 +75,12 @@ public class TestWhiteBoxTrainer {
      */
     @Test
     public void trainerListAddGetRemoveTrainers() {
+        // Clear the list
+        TrainerList.getTrainers().clear();
         /* test trainer returns empty and not null */
         ArrayList<Trainer> trainers = TrainerList.getTrainers();
         assertNotNull(trainers);
+
 
         /* testing values */
         // create trainer1, trainer2

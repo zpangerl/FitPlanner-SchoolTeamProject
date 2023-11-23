@@ -65,7 +65,7 @@ public class GymClassTable extends JTable {
                 Component tableCellRendererComponent = super.getTableCellRendererComponent(
                         table, value, isSelected, hasFocus, row, column);
                 GymClass gymClass = GymClassList.getGymClasses().get(row);
-                if (gymClass.getDate().before(CurrentDate.get())) {
+                if (gymClass.getCalendarDate().before(CurrentDate.get())) {
                     tableCellRendererComponent.setFont(new Font("Dialog", Font.ITALIC, 11));
                 } else {
                     tableCellRendererComponent.setFont(new Font("Dialog", Font.PLAIN, 11));
@@ -114,7 +114,7 @@ public class GymClassTable extends JTable {
             }
             switch (columnIndex) {
                 case 0:
-                    return gymClass.getDate();
+                    return gymClass.getCalendarDate();
                 case 1:
                     return gymClass.getClassType();
                 case 2:

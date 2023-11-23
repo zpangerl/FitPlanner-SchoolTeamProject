@@ -114,5 +114,4 @@ public class Trainer implements Serializable {
     public void setBeltRank(BeltRank.Rank beltRank) {
         this.beltRank = beltRank;
     }
-
 }
