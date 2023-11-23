@@ -53,6 +53,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 | 11/16 | Nobody             | Initial updates for the sprint               | Behind                                           | Yes                                        | :)                        |
 | 11/18 | Nobody             | First real standup meeting. Team is working. | Behind                                           | Yes                                        | :)                        |
 | 11/20 | Nobody             | Team is at work. Getting the things done.    | Less Behind                                      | Yes                                        | Focusing on Pull Requests |
+| 11/22 | Nobody             | We are deep in development. Wide open.       | Less Behind                                      | Yes                                        | :)                        |
 
 
 ## 3: After the Sprint
