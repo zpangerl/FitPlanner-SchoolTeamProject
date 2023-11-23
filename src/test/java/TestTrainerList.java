@@ -6,19 +6,14 @@
   Description: Provides Unit Tests to ensure that TrainerList related methods work correctly.
 */
 
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertFalse;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
-import main.java.memoranda.TrainerListFileStorage;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
