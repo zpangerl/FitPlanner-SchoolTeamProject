@@ -69,6 +69,7 @@ public class GymClassDialog extends JDialog {
     JLabel jLabel2 = new JLabel();
     JSpinner startDate;
     CalendarFrame startCalFrame = new CalendarFrame();
+    String okButtonText = "Save";
     boolean ignoreStartChanged = false;
 
     public GymClassDialog(Frame frame, String title) {
@@ -107,7 +108,7 @@ public class GymClassDialog extends JDialog {
         okB.setMaximumSize(new Dimension(100, 26));
         okB.setMinimumSize(new Dimension(100, 26));
         okB.setPreferredSize(new Dimension(100, 26));
-        okB.setText(Local.getString("Create"));
+        okB.setText(Local.getString(okButtonText));
         okB.setEnabled(false);
         okB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {

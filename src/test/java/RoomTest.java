@@ -45,4 +45,15 @@ public class RoomTest {
     public void testRoom4() {
         assertEquals(3, Room.GymRoom.ROOM4.ordinal());
     }
+
+    /**
+     * Tests the getIndexByRoom method.
+     */
+    @Test
+    public void testGetRoomByIndex() {
+        assertEquals(Room.GymRoom.ROOM1, Room.GymRoom.getRoomByIndex(0));
+        assertEquals(Room.GymRoom.ROOM2, Room.GymRoom.getRoomByIndex(1));
+        assertEquals(Room.GymRoom.ROOM3, Room.GymRoom.getRoomByIndex(2));
+        assertEquals(Room.GymRoom.ROOM4, Room.GymRoom.getRoomByIndex(3));
+    }
 }

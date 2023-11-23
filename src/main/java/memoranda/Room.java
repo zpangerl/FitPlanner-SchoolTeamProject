@@ -25,5 +25,12 @@ public class Room {
         public static GymRoom getRoomByIndex(int selectedIndex) {
             return GymRoom.values()[selectedIndex];
         }
+
+        /**
+         * Gets the index of the room.
+         */
+        public static int getIndexByRoom(GymRoom room) {
+            return room.ordinal();
+        }
     }
 }
