@@ -108,7 +108,7 @@ public class GymClassTable extends JTable {
             }
             switch (columnIndex) {
                 case 0:
-                    return gymClass.getDate();
+                    return gymClass.getCalendarDate();
                 case 1:
                     return gymClass.getClassType();
                 case 2:
