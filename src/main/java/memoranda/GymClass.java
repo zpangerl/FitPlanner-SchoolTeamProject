@@ -9,6 +9,7 @@
 package main.java.memoranda;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import main.java.memoranda.date.CalendarDate;
 
@@ -48,12 +49,16 @@ public class GymClass {
         return trainer;
     }
 
-    public void setDate(CalendarDate d) {
+    public void setCalendarDate(CalendarDate d) {
         date = d;
     }
 
-    public CalendarDate getDate() {
+    public CalendarDate getCalendarDate() {
         return date;
+    }
+
+    public Date getDate() {
+        return date.getDate();
     }
 
     public void setRoom(Room.GymRoom r) {
