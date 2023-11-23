@@ -37,7 +37,7 @@ public class TestTrainerList {
         /* Rhett's clear solution from GymClassListTest.java
            Make sure TrainerList is clear at start, since GymClassListTest
            adds trainers */
-        TrainerList.getTrainers().clear();
+        TrainerList.clearTrainers();
     }
 
     /**
@@ -45,7 +45,7 @@ public class TestTrainerList {
      */
     @AfterClass
     public static void tearDown() {
-        TrainerList.getTrainers().clear();
+        TrainerList.clearTrainers();
         assertEquals(0, TrainerList.getTrainers().size()); // ensure empty
     }
 

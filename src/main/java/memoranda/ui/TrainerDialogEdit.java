@@ -35,7 +35,6 @@ import main.java.memoranda.util.Local;
  * Provides Pop-up dialog box to edit a trainer.
  */
 public class TrainerDialogEdit extends JDialog {
-    private final TrainersPanel trainersPanel;
     private final JTextField firstNameTextField;
     private final JTextField lastNameTextField;
     private final JComboBox<String> trainingRankCombo;
@@ -44,15 +43,12 @@ public class TrainerDialogEdit extends JDialog {
 
     /**
      * Constructor.
-     * @param trainersPanel TrainersPanel panel that has JTable with trainers.
      * @param selectedRowToEditIndex int idx of row selected when edit dialog launched.
      */
-    public TrainerDialogEdit(TrainersPanel trainersPanel, int selectedRowToEditIndex) {
+    public TrainerDialogEdit(int selectedRowToEditIndex) {
         // -------------------------------------------------------------------
         // Reference: TaskDialog.java START
         super(App.getFrame(), "Edit Trainer", true);
-        // need trainersPanel to refresh()
-        this.trainersPanel = trainersPanel;
         // Find trainer to edit
         trainerToEdit = TrainerList.getTrainerByIndex(selectedRowToEditIndex);
 
@@ -179,7 +175,7 @@ public class TrainerDialogEdit extends JDialog {
 
             if (errorMessage.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Successfully edited Trainer!");
-                trainersPanel.refreshTrainersTable();
+                TrainersPanel.refreshTrainersTable();
                 dispose(); // close dialog
             } else {
                 JOptionPane.showMessageDialog(null,

@@ -36,7 +36,7 @@ public final class TrainerList {
             trainers = new ArrayList<>();
         }
 
-        return trainers;
+        return new ArrayList<>(trainers);
     }
 
     /**
@@ -119,6 +119,8 @@ public final class TrainerList {
      * Clear trainers list.
      */
     public static void clearTrainers() {
-        trainers.clear();
+        if (trainers != null) {
+            trainers.clear();
+        }
     }
 }

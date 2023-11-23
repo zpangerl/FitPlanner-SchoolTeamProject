@@ -27,10 +27,10 @@ import javax.swing.table.TableCellRenderer;
 import main.java.memoranda.TrainerList;
 
 public class TrainersPanel extends JPanel {
-    private JTable trainersTable;
-    private DefaultTableModel trainersTableModel;
-    String[][] trainersDataArray;
-    final String[] trainersTableColumnNames =
+    private static JTable trainersTable;
+    private static DefaultTableModel trainersTableModel;
+    private static String[][] trainersDataArray;
+    private static final String[] trainersTableColumnNames =
         {"First Name", "Last Name", "Training Rank", "Belt Rank"};
 
     /**
@@ -93,7 +93,7 @@ public class TrainersPanel extends JPanel {
     private JButton getAddTrainerButton() {
         JButton addTrainerButton = new JButton("Add Trainer");
         addTrainerButton.addActionListener(e -> {
-            TrainerDialog trainerDialog = new TrainerDialog(this);
+            TrainerDialog trainerDialog = new TrainerDialog();
             trainerDialog.setVisible(true);
         });
         return addTrainerButton;
@@ -127,7 +127,7 @@ public class TrainersPanel extends JPanel {
             int rowSelectedIdx = trainersTable.getSelectedRow();
             if (rowSelectedIdx != noRowSelected) {
                 TrainerDialogEdit trainerDialogEdit =
-                        new TrainerDialogEdit(this, rowSelectedIdx);
+                        new TrainerDialogEdit(rowSelectedIdx);
                 trainerDialogEdit.setVisible(true);
             }
         });
@@ -162,7 +162,7 @@ public class TrainersPanel extends JPanel {
     /**
      * refresh JTable trainersTable after changes.
      */
-    void refreshTrainersTable() {
+    static void refreshTrainersTable() {
         trainersDataArray = TrainerList.getTrainersArray(); // refresh
         trainersTableModel = new DefaultTableModel(trainersDataArray, trainersTableColumnNames);
         trainersTable.setModel(trainersTableModel);

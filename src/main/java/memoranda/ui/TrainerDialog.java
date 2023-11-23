@@ -34,7 +34,6 @@ import main.java.memoranda.util.Local;
  * Provides Pop-up dialog box to add a trainer.
  */
 public class TrainerDialog extends JDialog {
-    private final TrainersPanel trainersPanel;
     private final JTextField firstNameTextField;
     private final JTextField lastNameTextField;
     private final JComboBox<String> trainingRankCombo;
@@ -43,12 +42,10 @@ public class TrainerDialog extends JDialog {
     /**
      * Default constructor.
      */
-    public TrainerDialog(TrainersPanel trainersPanel) {
+    public TrainerDialog() {
         // -------------------------------------------------------------------
         // Reference: TaskDialog.java START
         super(App.getFrame(), "Add Trainer", true);
-        // need trainersPanel to refresh()
-        this.trainersPanel = trainersPanel;
 
         // ####################################################################
         // header: Add Trainer and Trainer logo
@@ -169,7 +166,7 @@ public class TrainerDialog extends JDialog {
             newTrainer.setTrainingRank(
                 BeltRank.Rank.valueOf((String) trainingRankCombo.getSelectedItem()));
             TrainerList.addTrainer(newTrainer);
-            trainersPanel.refreshTrainersTable();
+            TrainersPanel.refreshTrainersTable();
             JOptionPane.showMessageDialog(null, "Successfully added Trainer!");
             dispose(); // close dialog
         });
