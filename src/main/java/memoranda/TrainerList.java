@@ -120,4 +120,11 @@ public final class TrainerList {
         }
         return trainerNames;
     }
+
+    /**
+     * Get the index of a trainer in the trainers list.
+     */
+    public static int getTrainerIndex(Trainer trainer) {
+        return trainers.indexOf(trainer);
+    }
 }

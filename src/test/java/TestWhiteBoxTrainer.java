@@ -112,4 +112,33 @@ public class TestWhiteBoxTrainer {
             idx++;
         }
     }
+
+    /**
+     * Test getting index of trainer in TrainerList.
+     */
+    @Test
+    public void trainerListGetIndexOfTrainer() {
+        TrainerList.getTrainers().clear();
+        /* testing values */
+        // create trainer1, trainer2
+        Trainer trainer1 = new Trainer();
+        Trainer trainer2 = new Trainer();
+        // add trainer1 to TrainerList
+        TrainerList.addTrainer(trainer1);
+        // add trainer2 to TrainerList
+        TrainerList.addTrainer(trainer2);
+        // get index of trainer1
+        int idx = TrainerList.getTrainerIndex(trainer1);
+        assertEquals(0, idx);
+        // get index of trainer2
+        idx = TrainerList.getTrainerIndex(trainer2);
+        assertEquals(1, idx);
+
+        Trainer trainer3 = new Trainer();
+        idx = TrainerList.getTrainerIndex(trainer3);
+        assertEquals(-1, idx);
+
+        TrainerList.removeTrainer(trainer1);
+        TrainerList.removeTrainer(trainer2);
+    }
 }

@@ -1,15 +1,13 @@
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import main.java.memoranda.Room;
+import org.junit.Test;
 
 /**
  * RoomTest.java
  * Created on November 3, 2023
  * Author: Zach Pangerl
- * 
  * This test case tests the enum values from Room.
  */
 public class RoomTest {
@@ -44,5 +42,16 @@ public class RoomTest {
     @Test
     public void testRoom4() {
         assertEquals(3, Room.GymRoom.ROOM4.ordinal());
+    }
+
+    /**
+     * Tests the getIndexByRoom method.
+     */
+    @Test
+    public void testGetRoomByIndex() {
+        assertEquals(Room.GymRoom.ROOM1, Room.GymRoom.getRoomByIndex(0));
+        assertEquals(Room.GymRoom.ROOM2, Room.GymRoom.getRoomByIndex(1));
+        assertEquals(Room.GymRoom.ROOM3, Room.GymRoom.getRoomByIndex(2));
+        assertEquals(Room.GymRoom.ROOM4, Room.GymRoom.getRoomByIndex(3));
     }
 }
