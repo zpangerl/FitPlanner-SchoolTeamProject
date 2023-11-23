@@ -102,6 +102,7 @@ tasks.withType(Checkstyle) {
   include '**/TrainerListFileStorage.java'
   // UI FitPlanner files
   include '**/ui/AddStudentDialog.java'
+  include '**/ui/DailyAgendaPanel.java'
   include '**/ui/GymClassPanel.java'
   include '**/ui/GymClassTable.java'
   include '**/ui/RoomsPanel.java'
@@ -110,6 +111,7 @@ tasks.withType(Checkstyle) {
   include '**/ui/TrainersPanel.java'
   include '**GymClassDialog.java'
   // FitPlanner Unit Tests
+  include '**/DailyAgendaPanelTest.java'
   include '**/TestStudentClasses.java'
   include '**/GymClassListTest.java'
   include '**/GymClassTest.java'

@@ -22,6 +22,7 @@ public class WorkPanel extends JPanel {
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
 	public ResourcesPanel filesPanel = new ResourcesPanel();
 	public TrainersPanel trainersPanel = new TrainersPanel();
+	public DailyAgendaPanel agendaPanel = new DailyAgendaPanel();
 	public RoomsPanel roomsPanel = new RoomsPanel();
 	public GymClassPanel gymClassPanel = new GymClassPanel();
 	public StudentPanel studentsPanel = new StudentPanel();
@@ -71,7 +72,7 @@ public class WorkPanel extends JPanel {
 		agendaB.setContentAreaFilled(false);
 		agendaB.setFocusPainted(false);
 		agendaB.setHorizontalTextPosition(SwingConstants.CENTER);
-		agendaB.setText(Local.getString("Agenda"));
+		agendaB.setText(Local.getString("Schedule"));
 		agendaB.setVerticalAlignment(SwingConstants.TOP);
 		agendaB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		agendaB.addActionListener(new java.awt.event.ActionListener() {
@@ -222,6 +223,7 @@ public class WorkPanel extends JPanel {
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
 		panel.add(filesPanel, "FILES");
+		panel.add(agendaPanel, "DAILYCLASSES");
 		panel.add(trainersPanel, "TRAINERS");
 		panel.add(roomsPanel, "ROOMS");
 		panel.add(gymClassPanel, "CLASSES");
@@ -241,15 +243,18 @@ public class WorkPanel extends JPanel {
 		panel.setBorder(null);
 		dailyItemsPanel.setBorder(null);
 		filesPanel.setBorder(null);
+		agendaPanel.setBorder(null);
 		trainersPanel.setBorder(null);
 		gymClassPanel.setBorder(null);
-
+		selectPanel("DAILYCLASSES");
 	}
 
 	public void selectPanel(String pan) {
 		if (pan != null) {
 			if (pan.equals("NOTES"))
 				notesB_actionPerformed(null);
+			else if (pan.equals("DAILYCLASSES"))
+			    agendaB_actionPerformed(null);
 			else if (pan.equals("EVENTS"))
 				eventsB_actionPerformed(null);
 			else if (pan.equals("TRAINERS"))
@@ -260,10 +265,10 @@ public class WorkPanel extends JPanel {
 	}
 
 	public void agendaB_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "DAILYITEMS");
-		dailyItemsPanel.selectPanel("AGENDA");
+		cardLayout1.show(panel, "DAILYCLASSES");
+		agendaPanel.updateTables();
 		setCurrentButton(agendaB);
-		Context.put("CURRENT_PANEL", "AGENDA");
+		Context.put("CURRENT_PANEL", "DAILYCLASSES");
 	}
 
 	public void notesB_actionPerformed(ActionEvent e) {
