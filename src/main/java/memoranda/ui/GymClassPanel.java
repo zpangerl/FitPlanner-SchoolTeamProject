@@ -20,14 +20,13 @@ import javax.swing.JToolBar;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.TableModelEvent;
-import main.java.memoranda.BeltRank;
 import main.java.memoranda.GymClass;
 import main.java.memoranda.GymClassList;
 import main.java.memoranda.Room.GymRoom;
-import main.java.memoranda.date.CalendarDate;
-import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
+import main.java.memoranda.date.CalendarDate;
+import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.util.Local;
 /*
  * File: GymClassPanel.java
