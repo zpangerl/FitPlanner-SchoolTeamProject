@@ -1,6 +1,8 @@
 import main.java.memoranda.BeltRank.Rank;
+
 import main.java.memoranda.GymClass;
 import main.java.memoranda.Room.GymRoom;
+import main.java.memoranda.Student;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.date.CalendarDate;
 
@@ -74,5 +76,80 @@ public class GymClassTest {
         Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class1 = new GymClass(new CalendarDate(), trainer1);
         Assert.assertEquals("N/A", class1.getClassType());
+    }
+
+    @Test
+    /**
+     * Test to ensure students can be added to a class.
+     */
+    public void testAddStudent() {
+        Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
+        GymClass class1 = new GymClass(new CalendarDate(), trainer1);
+        class1.setRoom(GymRoom.ROOM1);
+        Student student1 = new Student("John", "Doe");
+        Assert.assertTrue(class1.addStudent(student1));
+        Assert.assertEquals(1, class1.getStudents().size());
+    }
+
+    @Test
+    /**
+     * Test to ensure students can be removed from a class.
+     */
+    public void testRemoveStudent() {
+        Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
+        GymClass class1 = new GymClass(new CalendarDate(), trainer1);
+        class1.setRoom(GymRoom.ROOM1);
+        Student student1 = new Student("John", "Doe");
+        Assert.assertTrue(class1.addStudent(student1));
+        Assert.assertEquals(1, class1.getStudents().size());
+        Assert.assertTrue(class1.removeStudent(student1));
+        Assert.assertEquals(0, class1.getStudents().size());
+    }
+
+    @Test
+    /**
+     * Test to ensure students cannot be added to a full class.
+     */
+    public void testClassFull() {
+        Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
+        GymClass class1 = new GymClass(new CalendarDate(), trainer1);
+        class1.setRoom(GymRoom.ROOM1);
+        for (int i = 0; i < 20; i++) {
+            Student student = new Student("John", "Doe");
+            Assert.assertTrue(class1.addStudent(student));
+        }
+        Assert.assertEquals(20, class1.getStudents().size());
+        Student student = new Student("John", "Doe");
+        Assert.assertFalse(class1.addStudent(student));
+        Assert.assertEquals(20, class1.getStudents().size());
+    }
+
+    @Test
+    /**
+     * Test to ensure students cannot be removed from a class they are not in.
+     */
+    public void testRemoveStudentNotInClass() {
+        Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
+        GymClass class1 = new GymClass(new CalendarDate(), trainer1);
+        class1.setRoom(GymRoom.ROOM1);
+        Student student1 = new Student("John", "Doe");
+        Assert.assertEquals(0, class1.getStudents().size());
+        Assert.assertFalse(class1.removeStudent(student1));
+        Assert.assertEquals(0, class1.getStudents().size());
+    }
+
+    @Test
+    /**
+     * Test to ensure students cannot be added to a class they are already in.
+     */
+    public void testAddStudentAlreadyInClass() {
+        Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
+        GymClass class1 = new GymClass(new CalendarDate(), trainer1);
+        class1.setRoom(GymRoom.ROOM1);
+        Student student1 = new Student("John", "Doe");
+        Assert.assertTrue(class1.addStudent(student1));
+        Assert.assertEquals(1, class1.getStudents().size());
+        Assert.assertFalse(class1.addStudent(student1));
+        Assert.assertEquals(1, class1.getStudents().size());
     }
 }
