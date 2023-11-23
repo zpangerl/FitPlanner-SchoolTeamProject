@@ -111,7 +111,7 @@ public final class TrainerList {
      * Check if trainers null for unit testing.
      * @return true if trainers null
      */
-    public static boolean isTrainersNull(){
+    public static boolean isTrainersNull() {
         return trainers == null;
     }
 

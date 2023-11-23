@@ -9,14 +9,27 @@
 
 package main.java.memoranda.ui;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.util.Objects;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
 import main.java.memoranda.util.Local;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.Objects;
 
 /**
  * Provides Pop-up dialog box to edit a trainer.
@@ -30,7 +43,7 @@ public class TrainerDialogEdit extends JDialog {
     private final Trainer trainerToEdit;
 
     /**
-     * Constructor
+     * Constructor.
      * @param trainersPanel TrainersPanel panel that has JTable with trainers.
      * @param selectedRowToEditIndex int idx of row selected when edit dialog launched.
      */

@@ -159,8 +159,8 @@ public class TestWhiteBoxTrainer {
                 beltRank,
                 trainingRank);
         assertEquals("firstName must be between 1-12 characters\n"
-                + "lastName must be between 1-12 characters\n"
-                , errorMessage);
+                + "lastName must be between 1-12 characters\n",
+                errorMessage);
         // 1.2.1 first name length 1
         firstNameEdit = "a";
         errorMessage = trainer.editTrainer(firstNameEdit,
@@ -210,8 +210,8 @@ public class TestWhiteBoxTrainer {
                 lastName,
                 beltRank,
                 trainingRank);
-        assertEquals("firstName must be between 1-12 characters\n"
-                , errorMessage);
+        assertEquals("firstName must be between 1-12 characters\n",
+                errorMessage);
         // 1.4.2 last name length >12
         lastNameEdit = "abcdabcdabcdz";
         assertEquals(13, lastNameEdit.length());
@@ -219,16 +219,16 @@ public class TestWhiteBoxTrainer {
                 lastNameEdit,
                 beltRank,
                 trainingRank);
-        assertEquals("lastName must be between 1-12 characters\n"
-                , errorMessage);
+        assertEquals("lastName must be between 1-12 characters\n",
+                errorMessage);
         // 1.4.3 firstName and last name length >12
         errorMessage = trainer.editTrainer(firstNameEdit,
                 lastNameEdit,
                 beltRank,
                 trainingRank);
         assertEquals("firstName must be between 1-12 characters\n"
-                + "lastName must be between 1-12 characters\n"
-                , errorMessage);
+                + "lastName must be between 1-12 characters\n",
+                errorMessage);
     }
 
     /**
