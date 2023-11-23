@@ -1,6 +1,7 @@
 package main.java.memoranda;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class StudentListImpl implements StudentList {
@@ -27,7 +28,9 @@ public class StudentListImpl implements StudentList {
     @Override
     public Student getStudentByName(String lastName, String firstName) {
         for (Student student : studentList) {
-            if (student.getFirstName() == firstName && student.getLastName() == lastName) {
+            if (Objects.equals(
+                    student.getFirstName(), firstName)
+                    && Objects.equals(student.getLastName(), lastName)) {
                 return student;
             }
         }

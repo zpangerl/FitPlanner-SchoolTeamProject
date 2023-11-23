@@ -8,7 +8,9 @@
 
 package main.java.memoranda;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class GymClass {
 
@@ -17,6 +19,7 @@ public class GymClass {
     private Room.GymRoom room;
     private Trainer trainer;
     private ClassType classType;
+    private List<Student> students;
 
     /**
      * Constructor for GymClass.
@@ -27,6 +30,7 @@ public class GymClass {
     public GymClass(Date date, Trainer trainer) {
         this.date = date;
         this.trainer = trainer;
+        this.students = new ArrayList<>();
     }
 
 
@@ -60,6 +64,36 @@ public class GymClass {
 
     public Room.GymRoom getRoom() {
         return room;
+    }
+
+    /**
+     * Returns the list of students in the class.
+     * @param student the student to add to the class.
+     * @return true if the student was added, false otherwise.
+     */
+    public boolean addStudent(Student student) {
+        if (!students.contains(student) && students.size() < 20) {
+            students.add(student);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Removes a student from the class.
+     * @param student the student to remove from the class.
+     * @return true if the student was removed, false otherwise.
+     */
+    public boolean removeStudent(Student student) {
+        if (students.contains(student)) {
+            students.remove(student);
+            return true;
+        }
+        return false;
+    }
+
+    public List<Student> getStudents() {
+        return students;
     }
 
     /**

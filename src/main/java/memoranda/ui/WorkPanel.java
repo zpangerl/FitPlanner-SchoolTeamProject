@@ -23,6 +23,7 @@ public class WorkPanel extends JPanel {
 	public ResourcesPanel filesPanel = new ResourcesPanel();
 	public TrainersPanel trainersPanel = new TrainersPanel();
 	public DailyAgendaPanel agendaPanel = new DailyAgendaPanel();
+	public RoomsPanel roomsPanel = new RoomsPanel();
 	public GymClassPanel gymClassPanel = new GymClassPanel();
 	public StudentPanel studentsPanel = new StudentPanel();
 	public JButton agendaB = new JButton();
@@ -224,6 +225,7 @@ public class WorkPanel extends JPanel {
 		panel.add(filesPanel, "FILES");
 		panel.add(agendaPanel, "DAILYCLASSES");
 		panel.add(trainersPanel, "TRAINERS");
+		panel.add(roomsPanel, "ROOMS");
 		panel.add(gymClassPanel, "CLASSES");
 		panel.add(studentsPanel, "STUDENTS");
 		toolBar.add(agendaB, null);
@@ -277,10 +279,10 @@ public class WorkPanel extends JPanel {
 	}
 
 	public void eventsB_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "DAILYITEMS");
-		dailyItemsPanel.selectPanel("EVENTS");
+		cardLayout1.show(panel, "ROOMS");
+		roomsPanel.updateRoomTables();
 		setCurrentButton(eventsB);
-		Context.put("CURRENT_PANEL", "EVENTS");
+		Context.put("CURRENT_PANEL", "ROOMS");
 	}
 
 	public void trainersB_actionPerformed(ActionEvent e) {
