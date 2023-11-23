@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -112,15 +113,13 @@ public class DailyAgendaPanel extends JPanel {
         } else { 
             roomNum = Room.GymRoom.ROOM4;
         }
-        for (GymClass gc : classes) {
-            if (gc.getRoom() == roomNum
-                    && gc.getDate().getDate() == classDate.getDate() 
-                    && gc.getDate().getMonth() == classDate.getMonth()
-                    && gc.getDate().getYear() == classDate.getYear()) {
-                filtered.add(gc);
-            }
-        }
-        return filtered;
+        // functional version, courtesy of Rhett
+        return classes.stream().filter(gymClass -> {
+            return gymClass.getRoom() == roomNum
+                    && gymClass.getDate().getDate() == classDate.getDate()
+                    && gymClass.getDate().getMonth() == classDate.getMonth()
+                    && gymClass.getDate().getYear() == classDate.getYear();
+        }).collect(Collectors.toList());
     }
     
     /**
