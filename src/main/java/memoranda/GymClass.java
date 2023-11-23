@@ -25,7 +25,7 @@ public class GymClass {
     /**
      * Constructor for GymClass.
      *
-     * @param date    the date for the planned class.
+     * @param date the date for the planned class.
      * @param trainer the trainer assigned to teach the class.
      */
     public GymClass(CalendarDate date, Trainer trainer) {

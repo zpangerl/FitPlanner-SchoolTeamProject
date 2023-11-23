@@ -20,8 +20,8 @@ import main.java.memoranda.GymClass;
 import main.java.memoranda.GymClassList;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
-import main.java.memoranda.date.CalendarDate;
 
+import main.java.memoranda.date.CalendarDate;
 import org.junit.Before;
 import org.junit.Test;
 
