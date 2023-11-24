@@ -43,6 +43,7 @@ public class GymClassPanel extends JPanel {
     JButton removeClassB = new JButton();
     JScrollPane scrollPane = new JScrollPane();
     JButton refreshB = new JButton();
+    JButton editClassB = new JButton();
     JPopupMenu classPopUpMenu = new JPopupMenu();
     JMenuItem ppRun = new JMenuItem();
     JMenuItem ppRemoveClass = new JMenuItem();
@@ -188,6 +189,26 @@ public class GymClassPanel extends JPanel {
                         .getResource(
                                 "/ui/icons/refreshres.png")));
 
+        // Edit class button
+        editClassB.setBorderPainted(false);
+        editClassB.setFocusable(false);
+        editClassB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                editClassB_actionPerformed();
+            }
+        });
+        editClassB.setPreferredSize(new Dimension(24, 24));
+        editClassB.setRequestFocusEnabled(false);
+        editClassB.setToolTipText(Local.getString("Edit class"));
+        editClassB.setMinimumSize(new Dimension(24, 24));
+        editClassB.setMaximumSize(new Dimension(24, 24));
+        editClassB.setIcon(
+                new ImageIcon(
+                        main.java.memoranda.ui.AppFrame.class
+                                .getResource(
+                                        "/ui/icons/edit_pencil.png")));
+        editClassB.setEnabled(true);
+
         ppRemoveClass.setFont(new java.awt.Font("Dialog", 1, 11));
         ppRemoveClass.setText(Local.getString("Remove class"));
 
@@ -231,6 +252,7 @@ public class GymClassPanel extends JPanel {
         toolBar.add(removeClassB, null);
         toolBar.addSeparator();
         toolBar.add(refreshB, null);
+        toolBar.add(editClassB, null);
         toolBar.add(sortClassesAscendingB, null);
         toolBar.add(sortClassesDescendingB, null);
         this.add(scrollPane, BorderLayout.CENTER);
@@ -328,16 +350,51 @@ public class GymClassPanel extends JPanel {
         dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x,
                 (frmSize.height - dlg.getSize().height) / 2 + loc.y);
         dlg.setVisible(true);
-        if (dlg.CANCELLED) {
+        if (dlg.canceled) {
             return;
         }
 
-        Trainer trainer = TrainerList.getTrainerByIndex(dlg.jComboBoxTrainer.getSelectedIndex());
+        Trainer trainer = TrainerList.getTrainerByIndex(dlg.jcomboBoxTrainer.getSelectedIndex());
         CalendarDate date = new CalendarDate((Date) dlg.startDate.getModel().getValue());
         GymClass newClass = new GymClass(date, trainer);
         newClass.setClassType(dlg.classNameField.getText());
-        newClass.setRoom(GymRoom.getRoomByIndex(dlg.jComboBoxRoom.getSelectedIndex()));
+        newClass.setRoom(GymRoom.getRoomByIndex(dlg.jcomboBoxRoom.getSelectedIndex()));
         GymClassList.addGymClass(newClass);
+        gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+    }
+
+    /**
+     * Edit the selected class.
+     */
+    private void editClassB_actionPerformed() {
+        int selectedRowIndex = gymClassTable.getSelectedRow();
+        GymClass gymClass = GymClassList.getGymClasses().get(selectedRowIndex);
+        int trainerIndex = TrainerList.getTrainerIndex(gymClass.getTrainer());
+        int gymRoomIndex = GymRoom.getIndexByRoom(gymClass.getRoom());
+
+        // Set the fields in the dialog
+        GymClassDialog dlg = new GymClassDialog(App.getFrame(), Local.getString("Edit Class"));
+        dlg.startDate.getModel().setValue(gymClass.getDate());
+        dlg.jcomboBoxTrainer.setSelectedIndex(trainerIndex);
+        dlg.jcomboBoxRoom.setSelectedIndex(gymRoomIndex);
+        dlg.classNameField.setText(gymClass.getClassType());
+
+        Dimension frmSize = App.getFrame().getSize();
+        Point loc = App.getFrame().getLocation();
+        dlg.startDate.getModel().setValue(gymClass.getDate());
+        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x,
+                (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+        dlg.setVisible(true);
+        if (dlg.canceled) {
+            return;
+        }
+
+        Trainer trainer = TrainerList.getTrainerByIndex(dlg.jcomboBoxTrainer.getSelectedIndex());
+        CalendarDate date = new CalendarDate((Date) dlg.startDate.getModel().getValue());
+        gymClass.setTrainer(trainer);
+        gymClass.setCalendarDate(date);
+        gymClass.setClassType(dlg.classNameField.getText());
+        gymClass.setRoom(GymRoom.getRoomByIndex(dlg.jcomboBoxRoom.getSelectedIndex()));
         gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
     }
 
