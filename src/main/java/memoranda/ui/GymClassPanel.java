@@ -48,6 +48,7 @@ public class GymClassPanel extends JPanel {
     JMenuItem ppRun = new JMenuItem();
     JMenuItem ppRemoveClass = new JMenuItem();
     JMenuItem ppNewClass = new JMenuItem();
+    JMenuItem ppEditClass = new JMenuItem();
     JMenuItem ppRefresh = new JMenuItem();
 
     // Components for adding a student to a class
@@ -143,11 +144,18 @@ public class GymClassPanel extends JPanel {
             public void valueChanged(ListSelectionEvent e) {
                 boolean enable = (gymClassTable.getRowCount() > 0)
                         && (gymClassTable.getSelectedRow() > -1);
+                
+                // Enable the edit class if a class is selected
                 removeClassB.setEnabled(enable);
                 ppRemoveClass.setEnabled(enable);
 
-                // Enable the add student button if a class is selected
+                // Enable the add student if a class is selected
                 addStudentB.setEnabled(enable);
+                ppAddStudent.setEnabled(enable);
+
+                // Enable the edit class if a class is selected
+                editClassB.setEnabled(enable);
+                ppEditClass.setEnabled(enable);
             }
         });
 
@@ -188,7 +196,7 @@ public class GymClassPanel extends JPanel {
                         main.java.memoranda.ui.AppFrame.class
                                 .getResource(
                                         "/ui/icons/edit_pencil.png")));
-        editClassB.setEnabled(true);
+        editClassB.setEnabled(false);
 
         // Remove class menu item
         ppRemoveClass.setFont(new java.awt.Font("Dialog", 1, 11));
@@ -234,6 +242,20 @@ public class GymClassPanel extends JPanel {
                                 "/ui/icons/addstudenttoclass.png")));
         ppAddStudent.setEnabled(false);
 
+        // Edit class menu item
+        ppEditClass.setFont(new java.awt.Font("Dialog", 1, 11));
+        ppEditClass.setText(Local.getString("Edit class") + "...");
+        ppEditClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                editClassB_actionPerformed();
+            }
+        });
+        ppEditClass.setIcon(new ImageIcon(
+                main.java.memoranda.ui.AppFrame.class
+                        .getResource(
+                                "/ui/icons/edit_pencil.png")));
+        ppEditClass.setEnabled(false);
+
         // Refresh menu item
         ppRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
         ppRefresh.setText(Local.getString("Refresh"));
@@ -249,10 +271,10 @@ public class GymClassPanel extends JPanel {
 
         toolBar.add(newClassB, null);
         toolBar.add(removeClassB, null);
+        toolBar.add(editClassB, null);
         toolBar.add(addStudentB, null);
         toolBar.addSeparator();
-        toolBar.add(refreshB, null);
-        toolBar.add(editClassB, null);
+        toolBar.add(refreshB, null);;
         this.add(scrollPane, BorderLayout.CENTER);
         scrollPane.getViewport().add(gymClassTable, null);
         this.add(toolBar, BorderLayout.NORTH);
@@ -260,6 +282,7 @@ public class GymClassPanel extends JPanel {
         classPopUpMenu.addSeparator();
         classPopUpMenu.add(ppNewClass);
         classPopUpMenu.add(ppRemoveClass);
+        classPopUpMenu.add(ppEditClass);
         classPopUpMenu.add(ppAddStudent);
         classPopUpMenu.addSeparator();
         classPopUpMenu.add(ppRefresh);
@@ -401,6 +424,7 @@ public class GymClassPanel extends JPanel {
      * Add a student to the selected class.
      */
     private void addStudentB_actionPerformed() {
+        // TODO: Open a dialog to add a student to the selected class
         return;
     }
 
