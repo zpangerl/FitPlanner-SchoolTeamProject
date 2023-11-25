@@ -9,11 +9,12 @@
 package main.java.memoranda;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
- Class: Trainer
-
- Description: Stores Trainer attributes first name, last name, training rank, and belt ranking.
+ * Class: Trainer
+ * Description: Stores Trainer attributes first name, last name, training rank,
+ * and belt ranking.
  */
 public final class TrainerList {
     // class variables
@@ -28,6 +29,7 @@ public final class TrainerList {
 
     /**
      * Returns an ArrayList of Trainers.
+     * 
      * @return trainers
      */
     public static ArrayList<Trainer> getTrainers() {
@@ -41,6 +43,7 @@ public final class TrainerList {
 
     /**
      * Returns an String[][] of Trainers (e.g. to use in JTable).
+     * 
      * @return trainers 2D array
      */
     public static String[][] getTrainersArray() {
@@ -52,7 +55,7 @@ public final class TrainerList {
             String lastName = trainer1.getLastName();
             String trainingRank = BeltRank.getBeltRankName(trainer1.getTrainingRank());
             String beltRank = BeltRank.getBeltRankName(trainer1.getBeltRank());
-            String[] trainer = {firstName, lastName, trainingRank, beltRank};
+            String[] trainer = { firstName, lastName, trainingRank, beltRank };
             trainers[i] = trainer;
         }
         return trainers;
@@ -60,6 +63,7 @@ public final class TrainerList {
 
     /**
      * Adds a new trainer to trainers.
+     * 
      * @param trainer trainer to add
      */
     public static void addTrainer(Trainer trainer) {
@@ -71,6 +75,7 @@ public final class TrainerList {
 
     /**
      * Removes a trainer from trainers.
+     * 
      * @param trainer trainer to remove
      */
     public static void removeTrainer(Trainer trainer) {
@@ -81,13 +86,45 @@ public final class TrainerList {
 
     /**
      * Removes a trainer from trainers by index number.
+     * 
      * @param idx index number of trainer to remove
      */
     public static void removeTrainerByIndex(int idx) {
         trainers.remove(idx);
     }
 
+    /**
+     * Returns a single trainer by index number.
+     * 
+     * @param idx index number of trainer to return
+     * @return trainer Trainer
+     */
+    public static Trainer getTrainerByIndex(int idx) {
+        return trainers.get(idx);
+    }
+
     public static String[] getTrainerNames() {
         return (String[]) trainers.stream().map(Trainer::getName).toArray();
+    }
+
+    /**
+     * Returns a vector with the fullname of all trainers.
+     * 
+     * @return trainerNames Vector
+     */
+    public static Vector<String> getTrainerNamesVector() {
+        Vector<String> trainerNames = new Vector<>();
+        for (int i = 0; i < trainers.size(); i++) {
+            String fullname = trainers.get(i).getName();
+            trainerNames.add(fullname);
+        }
+        return trainerNames;
+    }
+
+    /**
+     * Get the index of a trainer in the trainers list.
+     */
+    public static int getTrainerIndex(Trainer trainer) {
+        return trainers.indexOf(trainer);
     }
 }
