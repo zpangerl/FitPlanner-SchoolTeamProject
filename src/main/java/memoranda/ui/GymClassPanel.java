@@ -144,7 +144,7 @@ public class GymClassPanel extends JPanel {
             public void valueChanged(ListSelectionEvent e) {
                 boolean enable = (gymClassTable.getRowCount() > 0)
                         && (gymClassTable.getSelectedRow() > -1);
-                
+
                 // Enable the edit class if a class is selected
                 removeClassB.setEnabled(enable);
                 ppRemoveClass.setEnabled(enable);
@@ -274,7 +274,8 @@ public class GymClassPanel extends JPanel {
         toolBar.add(editClassB, null);
         toolBar.add(addStudentB, null);
         toolBar.addSeparator();
-        toolBar.add(refreshB, null);;
+        toolBar.add(refreshB, null);
+        ;
         this.add(scrollPane, BorderLayout.CENTER);
         scrollPane.getViewport().add(gymClassTable, null);
         this.add(toolBar, BorderLayout.NORTH);
@@ -425,7 +426,20 @@ public class GymClassPanel extends JPanel {
      */
     private void addStudentB_actionPerformed() {
         // TODO: Open a dialog to add a student to the selected class
-        return;
+        int selectedRowIndex = gymClassTable.getSelectedRow();
+        GymClass gymClass = GymClassList.getGymClasses().get(selectedRowIndex);
+
+        // Opens a dialog to add a student to the selected class
+        AddStudentToClassDialog dlg = new AddStudentToClassDialog(App.getFrame(),
+                Local.getString("Add Student to" + " " + gymClass.getClassType()));
+        Dimension frmSize = App.getFrame().getSize();
+        Point loc = App.getFrame().getLocation();
+        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x,
+                (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+        dlg.setVisible(true);
+        if (dlg.cancelled) {
+            return;
+        }
     }
 
     /**
