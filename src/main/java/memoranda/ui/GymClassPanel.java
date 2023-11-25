@@ -425,7 +425,6 @@ public class GymClassPanel extends JPanel {
      * Add a student to the selected class.
      */
     private void addStudentB_actionPerformed() {
-        // TODO: Open a dialog to add a student to the selected class
         int selectedRowIndex = gymClassTable.getSelectedRow();
         GymClass gymClass = GymClassList.getGymClasses().get(selectedRowIndex);
 
@@ -440,6 +439,8 @@ public class GymClassPanel extends JPanel {
         if (dlg.cancelled) {
             return;
         }
+
+        // TODO: Save the student to the selected class
     }
 
     /**
