@@ -3,13 +3,11 @@ package main.java.memoranda.ui;
 import main.java.memoranda.*;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.ui.htmleditor.HTMLEditor;
-import main.java.memoranda.util.*;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
 
-import javax.swing.*;
 import javax.swing.text.html.HTMLDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,6 +18,30 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
+
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JSplitPane;
+import javax.swing.JToolBar;
+import javax.swing.UIManager;
+
+import main.java.memoranda.util.Configuration;
+import main.java.memoranda.util.Context;
+import main.java.memoranda.util.CurrentStorage;
+import main.java.memoranda.util.Local;
+import main.java.memoranda.util.ProjectExporter;
+import main.java.memoranda.util.ProjectPackager;
+import main.java.memoranda.util.Util;
 
 /**
  * 
@@ -611,6 +633,7 @@ public class AppFrame extends JFrame {
         Context.put("FRAME_HEIGHT", Integer.valueOf(this.getHeight()));
         Context.put("FRAME_XPOS", Integer.valueOf(this.getLocation().x));
         Context.put("FRAME_YPOS", Integer.valueOf(this.getLocation().y));
+        StudentListFileStorage.saveData(); // persist StudentList to disk
         TrainerListFileStorage.saveData(); // persist TrainerList to disk
         exitNotify();
         System.exit(0);

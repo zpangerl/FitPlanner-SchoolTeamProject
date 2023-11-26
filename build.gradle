@@ -97,6 +97,7 @@ tasks.withType(Checkstyle) {
   include '**/Student.java'
   include '**/StudentList.java'
   include '**/StudentListImpl.java'
+  include '**/StudentListFileStorage.java'
   include '**/Trainer.java'
   include '**/TrainerList.java'
   include '**/TrainerListFileStorage.java'
@@ -112,6 +113,7 @@ tasks.withType(Checkstyle) {
   include '**/ui/TrainersPanel.java'
   // FitPlanner Unit Tests
   include '**/DailyAgendaPanelTest.java'
+  include '**/TestStudentListFileStorage.java'
   include '**/TestStudentClasses.java'
   include '**/GymClassListTest.java'
   include '**/GymClassTest.java'

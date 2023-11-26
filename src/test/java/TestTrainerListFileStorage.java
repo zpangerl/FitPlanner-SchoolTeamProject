@@ -107,5 +107,4 @@ public class TestTrainerListFileStorage {
         assertEquals(testTrainer.getBeltRank(), testTrainerFromDisk.getBeltRank());
         assertEquals(testTrainer.getTrainingRank(), testTrainerFromDisk.getTrainingRank());
     }
-
 }
