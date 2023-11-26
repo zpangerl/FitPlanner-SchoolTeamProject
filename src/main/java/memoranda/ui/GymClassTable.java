@@ -40,7 +40,7 @@ public class GymClassTable extends JTable {
      * @param date date to sort or filter table data by
      */
     public void initTable(CalendarDate date) {
-        // TODO: filter/sort table data by date
+        GymClassList.sortClassesByDateAscending();
         getColumnModel().getColumn(0).setPreferredWidth(180);
         getColumnModel().getColumn(0).setMaxWidth(180);
         clearSelection();
@@ -92,13 +92,7 @@ public class GymClassTable extends JTable {
 
         @Override
         public int getRowCount() {
-            int i;
-            try {
-                i = GymClassList.getGymClasses().size();
-            } catch (NullPointerException e) {
-                i = 0;
-            }
-            return i;
+            return GymClassList.getGymClasses() != null ? GymClassList.getGymClasses().size() : 0;
         }
 
         @Override
@@ -114,7 +108,7 @@ public class GymClassTable extends JTable {
             }
             switch (columnIndex) {
                 case 0:
-                    return gymClass.getDate();
+                    return gymClass.getCalendarDate();
                 case 1:
                     return gymClass.getClassType();
                 case 2:

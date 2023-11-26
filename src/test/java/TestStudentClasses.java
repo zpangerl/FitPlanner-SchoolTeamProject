@@ -156,5 +156,4 @@ public class TestStudentClasses {
         testList.addStudent(tempStudent5);
         assertEquals(5, testList.getAllStudentCount());
     }
-
 }

@@ -9,6 +9,7 @@
 package main.java.memoranda;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * Class: GymClassList
@@ -69,5 +70,19 @@ public final class GymClassList {
      */
     public static void removeGymClassByIndex(int idx) {
         gymClasses.remove(idx);
+    }
+
+    /**
+     * Sort classes by date ascending.
+     */
+    public static void sortClassesByDateAscending() {
+        gymClasses.sort(Comparator.comparing(GymClass::getDate));
+    }
+
+    /**
+     * Sort classes by date descending.
+     */
+    public static void sortClassesByDateDescending() {
+        gymClasses.sort(Comparator.comparing(GymClass::getDate).reversed());
     }
 }
