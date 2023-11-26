@@ -1,5 +1,6 @@
-import main.java.memoranda.BeltRank.Rank;
 
+import java.util.Date;
+import main.java.memoranda.BeltRank.Rank;
 import main.java.memoranda.GymClass;
 import main.java.memoranda.Room.GymRoom;
 import main.java.memoranda.Student;
@@ -75,7 +76,7 @@ public class GymClassTest {
     public void testGetClassTypeNull() {
         Trainer trainer1 = new Trainer("Zach", "Pangerl", Rank.BLACK1, Rank.BLACK2);
         GymClass class1 = new GymClass(new CalendarDate(), trainer1);
-        Assert.assertEquals("N/A", class1.getClassType());
+        Assert.assertEquals("", class1.getClassType());
     }
 
     @Test
@@ -115,7 +116,7 @@ public class GymClassTest {
         GymClass class1 = new GymClass(new CalendarDate(), trainer1);
         class1.setRoom(GymRoom.ROOM1);
         for (int i = 0; i < 20; i++) {
-            Student student = new Student("John", "Doe");
+            Student student = new Student("John" + i, "Doe");
             Assert.assertTrue(class1.addStudent(student));
         }
         Assert.assertEquals(20, class1.getStudents().size());

@@ -11,6 +11,7 @@ package main.java.memoranda;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import main.java.memoranda.date.CalendarDate;
 
 public class GymClass {
@@ -18,27 +19,28 @@ public class GymClass {
     private CalendarDate date;
     private Room.GymRoom room;
     private Trainer trainer;
-    private ClassType classType;
+    private String classType;
     private final List<Student> students;
 
     /**
      * Constructor for GymClass.
      *
-     * @param date    the date for the planned class.
+     * @param date the date for the planned class.
      * @param trainer the trainer assigned to teach the class.
      */
     public GymClass(CalendarDate date, Trainer trainer) {
         this.date = date;
         this.trainer = trainer;
         this.students = new ArrayList<>();
+        this.classType = "";
     }
 
     public void setClassType(String type) {
-        this.classType = new ClassType(type);
+        this.classType = type;
     }
 
     public String getClassType() {
-        return classType != null ? classType.toString() : "N/A";
+        return classType;
     }
 
     public void setTrainer(Trainer t) {
@@ -57,6 +59,10 @@ public class GymClass {
         return date;
     }
 
+    /**
+     * Return the date of the class in Date format rather than CalendarDate.
+     * @return the date of the class.
+     */
     public Date getDate() {
         return date.getDate();
     }
@@ -99,22 +105,34 @@ public class GymClass {
         return students;
     }
 
-    /**
-     * Declares what type the class is.
-     */
-    public class ClassType {
-
-        String type;
-
-        /*
-         * ClassType Contructor
-         */
-        public ClassType(String type) {
-            this.type = type;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
         }
-
-        public String toString() {
-            return type;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
         }
+        GymClass gymClass = (GymClass) o;
+        return Objects.equals(date, gymClass.date)
+                && room == gymClass.room
+                && Objects.equals(trainer, gymClass.trainer)
+                && Objects.equals(classType, gymClass.classType)
+                && Objects.equals(students, gymClass.students);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(date, room, trainer, classType, students);
+    }
+
+    @Override
+    public String toString() {
+        return "GymClass{"
+                + "date=" + date
+                + ", room=" + room
+                + ", trainer=" + trainer
+                + ", classType='" + classType + '\''
+                + ", students=" + students + '}';
     }
 }
