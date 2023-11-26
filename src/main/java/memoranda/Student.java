@@ -1,33 +1,52 @@
 package main.java.memoranda;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Student implements Serializable {
+
     private String firstName;
     private String lastName;
     private int age;
     private BeltRank.Rank beltRank;
     private BeltRank.Rank trainingRank;
 
-    public String getFirstName() { return this.firstName; }
-    public String getLastName() { return this.lastName; }
-    public int getAge() { return this.age; }
-    public BeltRank.Rank getBeltRank() { return this.beltRank; }
-    public BeltRank.Rank getTrainingRank() { return this.trainingRank; }
+    public String getFirstName() {
+        return this.firstName;
+    }
 
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public BeltRank.Rank getBeltRank() {
+        return this.beltRank;
+    }
+
+    public BeltRank.Rank getTrainingRank() {
+        return this.trainingRank;
+    }
 
     public void setFirstName(String inputFirstName) {
         this.firstName = inputFirstName;
     }
+
     public void setLastName(String inputLastName) {
         this.lastName = inputLastName;
     }
+
     public void setAge(int inputAge) {
         this.age = inputAge;
     }
+
     public void setBeltColor(BeltRank.Rank inputColor) {
         this.beltRank = inputColor;
     }
+
     public void setTrainingRank(BeltRank.Rank inputRank) {
         this.trainingRank = inputRank;
     }
@@ -37,7 +56,7 @@ public class Student implements Serializable {
      * @param inputLastName Last name of student.
      * @param inputFirstName First name of student.
      */
-    public Student(String inputLastName, String inputFirstName){
+    public Student(String inputLastName, String inputFirstName) {
         this.lastName = inputLastName;
         this.firstName = inputFirstName;
     }
@@ -51,11 +70,49 @@ public class Student implements Serializable {
      * @param inputBeltRank Students current belt rank.
      * @param inputTrainingRank Students current training rank.
      */
-    public Student(String inputLastName, String inputFirstName, int inputAge, BeltRank.Rank inputBeltRank, BeltRank.Rank inputTrainingRank){
+    public Student(
+            String inputLastName,
+            String inputFirstName,
+            int inputAge,
+            BeltRank.Rank inputBeltRank,
+            BeltRank.Rank inputTrainingRank
+    ) {
         this.lastName = inputLastName;
         this.firstName = inputFirstName;
         this.age = inputAge;
         this.beltRank = inputBeltRank;
         this.trainingRank = inputTrainingRank;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Student student = (Student) o;
+        return age == student.age
+                && Objects.equals(firstName, student.firstName)
+                && Objects.equals(lastName, student.lastName)
+                && beltRank == student.beltRank
+                && trainingRank == student.trainingRank;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, age, beltRank, trainingRank);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{"
+                + "firstName='" + firstName + '\''
+                + ", lastName='" + lastName + '\''
+                + ", age=" + age
+                + ", beltRank=" + beltRank
+                + ", trainingRank=" + trainingRank
+                + '}';
     }
 }

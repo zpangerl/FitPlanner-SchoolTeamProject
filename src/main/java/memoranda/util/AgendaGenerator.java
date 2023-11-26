@@ -68,8 +68,7 @@ public class AgendaGenerator {
 		else {
 			s += Local.getString("Actual tasks") + ":<br>\n<ul>\n";            
 
-			//            TaskSorter.sort(tasks, date, TaskSorter.BY_IMP_RATE); // TODO: configurable method
-			Collections.sort(tasks);
+			//            TaskSorter.sort(tasks, date, TaskSorter.BY_IMP_RATE);
 			for (Iterator i = tasks.iterator(); i.hasNext();) {
 				Task t = (Task) i.next();
 				// Always show active tasks only on agenda page from now on.

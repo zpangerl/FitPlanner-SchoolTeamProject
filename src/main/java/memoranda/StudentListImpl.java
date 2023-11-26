@@ -2,6 +2,8 @@ package main.java.memoranda;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Objects;
 
 
 public final class StudentListImpl {
@@ -16,7 +18,7 @@ public final class StudentListImpl {
     /**
      * Checks if a Student object exists in the StudentList.
      *
-     * @param check_student Student object to check for.
+     * @param checkStudent Student object to check for.
      * @return Returns true if student is in list, false otherwise.
      */
     public static boolean studentExists(Student check_student){
@@ -30,7 +32,6 @@ public final class StudentListImpl {
      * @param firstName Students first name.
      * @return Student object.
      */
-
     public static Student getStudentByName(String lastName, String firstName) {
         for (int i = 0; i < studentList.size(); i++)
             if (studentList.get(i).getFirstName() == firstName && studentList.get(i).getLastName() == lastName)
@@ -46,11 +47,11 @@ public final class StudentListImpl {
      */
     public static Student getStudentByObject(Student student) {
         if(studentList.contains(student)) {
+
             return studentList.get(studentList.indexOf(student));
         }
         return null;
     }
-
     /**
      * Returns a Student object given the students index in the arraylist.
      *
@@ -67,7 +68,7 @@ public final class StudentListImpl {
     /**
      * Adds Student object to StudentList.
      *
-     * @param student_add Student object to add.
+     * @param studentAdd Student object to add.
      */
     public static void addStudent(Student student_add) {
         if (studentList == null) {
@@ -76,13 +77,12 @@ public final class StudentListImpl {
         if(!studentExists(student_add)) {
             studentList.add(student_add);
         }
-
     }
 
     /**
      * Removes Student object from StudentList.
      *
-     * @param student_remove Student object to remove.
+     * @param studentRemove Student object to remove.
      */
     public static void removeStudent(Student student_remove) {
         if (studentList != null && studentExists(student_remove)) {
