@@ -3,11 +3,13 @@ package main.java.memoranda.ui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Objects;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -34,6 +36,7 @@ public class StudentPanel extends JPanel {
     JButton removeStudentB = new JButton();
     JScrollPane scrollPane = new JScrollPane();
     JButton refreshB = new JButton();
+    JButton editStudentB = new JButton();
     JPopupMenu studentPPMenu = new JPopupMenu();
     JMenuItem ppRun = new JMenuItem();
     JMenuItem ppRemoveStudent = new JMenuItem();
@@ -42,7 +45,7 @@ public class StudentPanel extends JPanel {
     StudentListImpl studentList;
     int tableIndexSelected = -1;
     Object[][] data = new Object[0][0];
-    String[] columnNames = {
+    static String[] columnNames = {
             "First Name",
             "Last Name",
             "Age",
@@ -80,9 +83,30 @@ public class StudentPanel extends JPanel {
             }
         });
         newStudentB.setBorderPainted(false);
-
-        // Static demo data for testing.
-        // TODO: Implement reading student list from file.
+        // START: Edit Student Button ###################
+        // Reference: newStudentB
+        editStudentB.setIcon(
+                new ImageIcon(Objects.requireNonNull
+                        (AppFrame.class
+                        .getResource("/ui/icons/editproject.png"))));
+        editStudentB.setEnabled(true);
+        editStudentB.setMaximumSize(new Dimension(24, 24));
+        editStudentB.setMinimumSize(new Dimension(24, 24));
+        editStudentB.setToolTipText(Local.getString("Edit Student"));
+        editStudentB.setRequestFocusEnabled(false);
+        editStudentB.setPreferredSize(new Dimension(24, 24));
+        editStudentB.setFocusable(false);
+        editStudentB.addActionListener(e -> {
+            // Reference: TrainersPanel.getEditTrainerButton
+            final int noRowSelected = -1;
+            int rowSelectedIdx = tableIndexSelected;
+            if (rowSelectedIdx != noRowSelected) {
+                StudentDialogEdit studentDialogEdit =
+                        new StudentDialogEdit(rowSelectedIdx);
+                studentDialogEdit.setVisible(true);
+            }
+        });
+        // END: Edit Student Button #####################
 
         data = updateStudentTable();
         //studentTable = new JTable(data, columnNames);
@@ -223,6 +247,7 @@ public class StudentPanel extends JPanel {
 
         toolBar.add(newStudentB, null);
         toolBar.add(removeStudentB, null);
+        toolBar.add(editStudentB, null);
         toolBar.addSeparator();
         toolBar.add(refreshB, null);
         this.add(scrollPane, BorderLayout.CENTER);
@@ -276,11 +301,11 @@ public class StudentPanel extends JPanel {
      * Update the UI table with current student data.
      * @return Double array of object, student data.
      */
-    public Object[][] updateStudentTable() {
+    public static Object[][] updateStudentTable() {
         int count = StudentListImpl.getStudentList().size();
         Object[][] data = new Object[count][columnNames.length];
         for (int i = 0; i < count; i++) {
-            Student student = studentList.getStudentByIndex(i);
+            Student student = StudentListImpl.getStudentByIndex(i);
             data[i][0] = student.getFirstName();
             data[i][1] = student.getLastName();
             data[i][2] = student.getAge();
