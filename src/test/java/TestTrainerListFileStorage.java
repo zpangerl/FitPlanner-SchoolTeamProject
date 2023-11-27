@@ -35,7 +35,7 @@ public class TestTrainerListFileStorage {
         /* Rhett's clear solution from GymClassListTest.java
            Make sure TrainerList is clear at start, since GymClassListTest
            adds trainers */
-        TrainerList.getTrainers().clear();
+        TrainerList.clearTrainers();
         // Destructive: Intended to only run in dev environment
         // Deletes trainer data to test with clean environment
 
