@@ -48,12 +48,14 @@ I would also advise you to already fill out the Contributions section (End of sp
 ### Meeting minutes of your Daily Scrums (3 per week, should not take longer than 10 minutes):
 > Add as many rows as needed and fill out the table. (Burndown starts with Sprint 2, and Continuous Integration starts with Sprint 3, not needed before that). 
 
-| Date  | Who did NOT attend | Meeting notes (very brief)                   | Burndown Info (on track, ahead behind is enough) | GitHub Actions info (does the master pass) | Additional Info           |
-|-------|--------------------|----------------------------------------------|--------------------------------------------------|--------------------------------------------|---------------------------|
-| 11/16 | Nobody             | Initial updates for the sprint               | Behind                                           | Yes                                        | :)                        |
-| 11/18 | Nobody             | First real standup meeting. Team is working. | Behind                                           | Yes                                        | :)                        |
-| 11/20 | Nobody             | Team is at work. Getting the things done.    | Less Behind                                      | Yes                                        | Focusing on Pull Requests |
-| 11/22 | Nobody             | We are deep in development. Wide open.       | Less Behind                                      | Yes                                        | :)                        |
+| Date  | Who did NOT attend | Meeting notes (very brief)                                                                     | Burndown Info (on track, ahead behind is enough) | GitHub Actions info (does the master pass) | Additional Info           |
+|-------|--------------------|------------------------------------------------------------------------------------------------|--------------------------------------------------|--------------------------------------------|---------------------------|
+| 11/16 | Nobody             | Initial updates for the sprint                                                                 | Behind                                           | Yes                                        | :)                        |
+| 11/18 | Nobody             | First real standup meeting. Team is working.                                                   | Behind                                           | Yes                                        | :)                        |
+| 11/20 | Nobody             | Team is at work. Getting the things done.                                                      | Less Behind                                      | Yes                                        | Focusing on Pull Requests |
+| 11/22 | Nobody             | We are deep in development. Wide open.                                                         | Less Behind                                      | Yes                                        | :)                        |
+| 11/25 | Frankie, Sean      | Not much was done (expected) due to Thanksgiving. Towards the end of development of the sprint | On Track                                         | Yes                                        | :)                        |
+| 11/27 | TBD                | Wrapping up sprint                                                                             | Behind                                           | Yes                                        | :)                        |
 
 
 ## 3: After the Sprint
