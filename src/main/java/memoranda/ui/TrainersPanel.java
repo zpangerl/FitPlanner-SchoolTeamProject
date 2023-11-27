@@ -156,7 +156,8 @@ public class TrainersPanel extends JPanel {
             }
 
             // disable double-click editing by default in JTable
-            // credit to Zach and Rhett for suggestin
+            // credit to Zach and Rhett for suggestion
+            // reference: https://www.tutorialspoint.com/how-can-we-disable-the-cell-editing-inside-a-jtable-in-java
             public boolean editCellAt(int row, int column, java.util.EventObject e) {
                 return false;
             }
