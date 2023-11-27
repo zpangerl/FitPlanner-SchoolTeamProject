@@ -154,6 +154,12 @@ public class TrainersPanel extends JPanel {
                 }
                 return returnComp;
             }
+
+            // disable double-click editing by default in JTable
+            // credit to Zach and Rhett for suggestin
+            public boolean editCellAt(int row, int column, java.util.EventObject e) {
+                return false;
+            }
         };
         // important for delete button - only allow to select one row at a time
         trainersTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
