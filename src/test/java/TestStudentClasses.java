@@ -204,4 +204,176 @@ public class TestStudentClasses {
             StudentListImpl.removeStudent(StudentListImpl.getStudentByIndex(0));
         }
     }
+
+    /**
+     * Test to ensure success and error messages of naming validation
+     * when editing student. Partially BlackBox due to reliance
+     * on validateName to build error messages.
+     * Possible refactor opportunity of similar (not quite duplicate)
+     * but Trainer related is in separate branch pending review
+     * and running out of time (TestWhiteBoxTrainer.java).
+     */
+    @Test
+    public void studentEditStudent() {
+        /* initial student for tests */
+        String firstName = "a";
+        String lastName = "b";
+        int age = 99;
+        BeltRank.Rank beltRank = BeltRank.Rank.BLUE;
+        BeltRank.Rank trainingRank = BeltRank.Rank.YELLOW;
+        Student student = new Student(lastName, firstName, age, beltRank, trainingRank);
+
+        /* 1. Boundary Value analysis:
+         *  1.1 name length < 1 - error
+         *  1.2 name length 1   - success
+         *  1.3 name length 12  - success
+         *  1.4 name length > 12 - error
+         */
+        // 1.1.1 first name length < 1
+        String firstNameEdit = "";
+        String errorMessage = student.editStudent(firstNameEdit,
+                lastName,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("firstName must be between 1-12 characters\n", errorMessage);
+        // 1.1.2 last name length < 1
+        String lastNameEdit = "";
+        errorMessage = student.editStudent(firstName,
+                lastNameEdit,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("lastName must be between 1-12 characters\n", errorMessage);
+        // 1.1.3 firstName and last name length < 1
+        errorMessage = student.editStudent(firstNameEdit,
+                lastNameEdit,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("firstName must be between 1-12 characters\n"
+                        + "lastName must be between 1-12 characters\n",
+                errorMessage);
+        // 1.2.1 first name length 1
+        firstNameEdit = "a";
+        errorMessage = student.editStudent(firstNameEdit,
+                lastName,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("", errorMessage);
+        // 1.2.2 last name length 1
+        lastNameEdit = "a";
+        errorMessage = student.editStudent(firstName,
+                lastNameEdit,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("", errorMessage);
+        // 1.2.3 firstName and last name length 1
+        errorMessage = student.editStudent(firstNameEdit,
+                lastNameEdit,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("", errorMessage);
+        // 1.3.1 first name length 12
+        firstNameEdit = "abcdabcdabcd";
+        assertEquals(12, firstNameEdit.length());
+        errorMessage = student.editStudent(firstNameEdit,
+                lastName,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("", errorMessage);
+        // 1.3.2 last name length 12
+        lastNameEdit = "abcdabcdabcd";
+        assertEquals(12, lastNameEdit.length());
+        errorMessage = student.editStudent(firstName,
+                lastNameEdit,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("", errorMessage);
+        // 1.3.3 firstName and last name length 12
+        errorMessage = student.editStudent(firstNameEdit,
+                lastNameEdit,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("", errorMessage);
+        // 1.4.1 first name length >12
+        firstNameEdit = "abcdabcdabcdz";
+        assertEquals(13, firstNameEdit.length());
+        errorMessage = student.editStudent(firstNameEdit,
+                lastName,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("firstName must be between 1-12 characters\n",
+                errorMessage);
+        // 1.4.2 last name length >12
+        lastNameEdit = "abcdabcdabcdz";
+        assertEquals(13, lastNameEdit.length());
+        errorMessage = student.editStudent(firstName,
+                lastNameEdit,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("lastName must be between 1-12 characters\n",
+                errorMessage);
+        // 1.4.3 firstName and last name length >12
+        errorMessage = student.editStudent(firstNameEdit,
+                lastNameEdit,
+                age,
+                trainingRank,
+                beltRank);
+        assertEquals("firstName must be between 1-12 characters\n"
+                        + "lastName must be between 1-12 characters\n",
+                errorMessage);
+    }
+
+    /**
+     * Test to ensure success and error messages of naming validation
+     * when validating name.
+     * Possible refactor opportunity of similar (not quite duplicate)
+     * but Trainer related is in separate branch pending review
+     * and running out of time (TestWhiteBoxTrainer.java).
+     */
+    @Test
+    public void studentValidateName() {
+        /* initial student for tests */
+        String firstName = "a";
+        String lastName = "b";
+        int age = 99;
+        BeltRank.Rank beltRank = BeltRank.Rank.BLUE;
+        BeltRank.Rank trainingRank = BeltRank.Rank.YELLOW;
+        Student student = new Student(lastName, firstName, age, beltRank, trainingRank);
+
+        // equivalent partition: null, non-null
+        // 1.1: null
+        String testName = null;
+        String parameterName = "parameterName";
+        String errorMessage = student.validateName(testName,
+                parameterName);
+        assertEquals(parameterName + " must not be null\n", errorMessage);
+        // 1.2: non-null (and meet [a-z] and length [1-12])
+        testName = "a"; // non-null
+        errorMessage = student.validateName(testName,
+                parameterName);
+        assertEquals("", errorMessage);
+
+        // equivalent partition: contains letters, non-letters
+        // 2.1 letters (and meet length [1-12])
+        testName = "a";
+        errorMessage = student.validateName(testName,
+                parameterName);
+        assertEquals("", errorMessage);
+        // 2.2 non-letters (and meet length [1-12])
+        testName = "1";
+        errorMessage = student.validateName(testName,
+                parameterName);
+        assertEquals(parameterName + " must only contain letters\n", errorMessage);
+    }
+
 }
