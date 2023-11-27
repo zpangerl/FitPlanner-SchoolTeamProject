@@ -29,9 +29,12 @@ public final class StudentListImpl {
      * @return Student object.
      */
     public static Student getStudentByName(String lastName, String firstName) {
-        for (int i = 0; i < studentList.size(); i++)
-            if (studentList.get(i).getFirstName() == firstName && studentList.get(i).getLastName() == lastName)
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getFirstName() == firstName
+                    && studentList.get(i).getLastName() == lastName) {
                 return studentList.get(i);
+            }
+        }
         return null;
     }
 
@@ -42,7 +45,7 @@ public final class StudentListImpl {
      * @return Student object.
      */
     public static Student getStudentByObject(Student student) {
-        if(studentList.contains(student)) {
+        if (studentList.contains(student)) {
             return studentList.get(studentList.indexOf(student));
         }
         return null;
@@ -55,7 +58,7 @@ public final class StudentListImpl {
      * @return Student object.
      */
     public static Student getStudentByIndex(int index) {
-        if(studentList.size() < index) {
+        if (studentList.size() < index) {
             return null;
         }
         return studentList.get(index);
@@ -70,7 +73,7 @@ public final class StudentListImpl {
         if (studentList == null) {
             studentList = new ArrayList<>();
         }
-        if(!studentExists(studentAdd)) {
+        if (!studentExists(studentAdd)) {
             studentList.add(studentAdd);
         }
 
@@ -106,9 +109,10 @@ public final class StudentListImpl {
      * @return Count of current Students.
      */
     public static int getAllStudentCount() {
-        if (studentList == null)
+        if (studentList == null) {
             return 0;
-        else
+        } else {
             return studentList.size();
+        }
     }
 }

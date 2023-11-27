@@ -21,9 +21,9 @@ public class TestStudentClasses {
         StudentListImpl.getStudentList().clear();
     }
 
-        /**
-         * Tests the creation of student using last and first name.
-         */
+    /**
+     * Tests the creation of student using last and first name.
+     */
     @Test
     public void createStudentJustName() {
         Student tempStudent = new Student("Mckeighan", "Sean");
@@ -167,38 +167,38 @@ public class TestStudentClasses {
      * Tests adding student to a student list.
      */
     @Test
-    public void studentListModification(){
+    public void studentListModification() {
         while (StudentListImpl.getStudentList().size() > 0) {
             StudentListImpl.removeStudent(StudentListImpl.getStudentByIndex(0));
         }
 
-        Student tempStudent_1 = new Student("Mckeighan", "Sean");
+        Student tempStudent1 = new Student("Mckeighan", "Sean");
         // Check student added is present in list
-        StudentListImpl.addStudent(tempStudent_1);
-        assertTrue(StudentListImpl.studentExists(tempStudent_1));
+        StudentListImpl.addStudent(tempStudent1);
+        assertTrue(StudentListImpl.studentExists(tempStudent1));
         // Check duplicate student is not added
-        StudentListImpl.addStudent(tempStudent_1);
+        StudentListImpl.addStudent(tempStudent1);
         assertEquals(1, StudentListImpl.getStudentList().size());
         // Check ability to get existing student
-        StudentListImpl.addStudent(tempStudent_1);
-        assertEquals(StudentListImpl.getStudentByObject(tempStudent_1), tempStudent_1);
+        StudentListImpl.addStudent(tempStudent1);
+        assertEquals(StudentListImpl.getStudentByObject(tempStudent1), tempStudent1);
         // Check return on non-existing student get
         assertEquals(StudentListImpl.getStudentByName("Sckeighan", "Mean"), null);
         // Check removal of student
-        StudentListImpl.removeStudent(tempStudent_1);
-        assertTrue(!StudentListImpl.studentExists(tempStudent_1));
+        StudentListImpl.removeStudent(tempStudent1);
+        assertTrue(!StudentListImpl.studentExists(tempStudent1));
         // Check return of empty list count
         assertEquals(0, StudentListImpl.getStudentList().size());
         // Check return count of list when multiple student present
-        Student tempStudent_2 = new Student("Harrison", "Rhett");
-        Student tempStudent_3 = new Student("Stovall", "Steven");
-        Student tempStudent_4 = new Student("Pangerl", "Zach");
-        Student tempStudent_5 = new Student("NotSure", "Frankie");
-        StudentListImpl.addStudent(tempStudent_1);
-        StudentListImpl.addStudent(tempStudent_2);
-        StudentListImpl.addStudent(tempStudent_3);
-        StudentListImpl.addStudent(tempStudent_4);
-        StudentListImpl.addStudent(tempStudent_5);
+        Student tempStudent2 = new Student("Harrison", "Rhett");
+        Student tempStudent3 = new Student("Stovall", "Steven");
+        Student tempStudent4 = new Student("Pangerl", "Zach");
+        Student tempStudent5 = new Student("NotSure", "Frankie");
+        StudentListImpl.addStudent(tempStudent1);
+        StudentListImpl.addStudent(tempStudent2);
+        StudentListImpl.addStudent(tempStudent3);
+        StudentListImpl.addStudent(tempStudent4);
+        StudentListImpl.addStudent(tempStudent5);
         assertEquals(5, StudentListImpl.getStudentList().size());
         while (StudentListImpl.getStudentList().size() > 0) {
             StudentListImpl.removeStudent(StudentListImpl.getStudentByIndex(0));
