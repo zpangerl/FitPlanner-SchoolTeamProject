@@ -40,6 +40,8 @@ public class StudentListFileStorage {
                     StudentListImpl.addStudent(student);
                 }
                 Util.debug("Open student list: " + studentListPath);
+                objectInputStream.close();
+                fileInputStream.close();
             } catch (IOException | ClassNotFoundException e) {
                 /* Dangerous to automatically delete StudentList. Could break other related data
                    structures. Better to throw RuntimeException and fix the bug if this
@@ -72,6 +74,8 @@ public class StudentListFileStorage {
             // write StudentList Object from disk
             objectOutputStream.writeObject(StudentListImpl.getStudentList());
             Util.debug("Save student list: " + studentListPath);
+            objectOutputStream.close();
+            fileOutputStream.close();
         } catch (IOException e) {
             Util.debug("Save student list: " + studentListPath + "ERROR: " + e.getMessage());
             /* Developer note: printStackTrace will help to resolve the following issues:
