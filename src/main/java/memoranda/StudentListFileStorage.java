@@ -1,11 +1,14 @@
 package main.java.memoranda;
 
-import main.java.memoranda.Student;
-import main.java.memoranda.StudentListImpl;
-import main.java.memoranda.util.Util;
-
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+
+import main.java.memoranda.util.Util;
 
 public class StudentListFileStorage {
     public static final String fitPlannerDataDir = "FitPlannerData";
@@ -15,6 +18,9 @@ public class StudentListFileStorage {
 
     }
 
+    /**
+     * Load data from disk storage to StudentList.
+     */
     public static void loadData() {
         // Start.java (hook app startup)
 

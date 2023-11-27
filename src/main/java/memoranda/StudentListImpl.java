@@ -21,8 +21,8 @@ public final class StudentListImpl {
      * @param checkStudent Student object to check for.
      * @return Returns true if student is in list, false otherwise.
      */
-    public static boolean studentExists(Student check_student){
-        return studentList.contains(check_student);
+    public static boolean studentExists(Student checkStudent) {
+        return studentList.contains(checkStudent);
     }
 
     /**
@@ -33,9 +33,12 @@ public final class StudentListImpl {
      * @return Student object.
      */
     public static Student getStudentByName(String lastName, String firstName) {
-        for (int i = 0; i < studentList.size(); i++)
-            if (studentList.get(i).getFirstName() == firstName && studentList.get(i).getLastName() == lastName)
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getFirstName().equals(firstName)
+                    && studentList.get(i).getLastName().equals(lastName)) {
                 return studentList.get(i);
+            }
+        }
         return null;
     }
 
@@ -46,12 +49,12 @@ public final class StudentListImpl {
      * @return Student object.
      */
     public static Student getStudentByObject(Student student) {
-        if(studentList.contains(student)) {
-
+        if (studentList.contains(student)) {
             return studentList.get(studentList.indexOf(student));
         }
         return null;
     }
+    
     /**
      * Returns a Student object given the students index in the arraylist.
      *
@@ -59,7 +62,7 @@ public final class StudentListImpl {
      * @return Student object.
      */
     public static Student getStudentByIndex(int index) {
-        if(studentList.size() < index) {
+        if (studentList.size() < index) {
             return null;
         }
         return studentList.get(index);
@@ -70,12 +73,12 @@ public final class StudentListImpl {
      *
      * @param studentAdd Student object to add.
      */
-    public static void addStudent(Student student_add) {
+    public static void addStudent(Student studentAdd) {
         if (studentList == null) {
             studentList = new ArrayList<>();
         }
-        if(!studentExists(student_add)) {
-            studentList.add(student_add);
+        if (!studentExists(studentAdd)) {
+            studentList.add(studentAdd);
         }
     }
 
@@ -84,9 +87,9 @@ public final class StudentListImpl {
      *
      * @param studentRemove Student object to remove.
      */
-    public static void removeStudent(Student student_remove) {
-        if (studentList != null && studentExists(student_remove)) {
-            studentList.remove(student_remove);
+    public static void removeStudent(Student studentRemove) {
+        if (studentList != null && studentExists(studentRemove)) {
+            studentList.remove(studentRemove);
         }
     }
 
