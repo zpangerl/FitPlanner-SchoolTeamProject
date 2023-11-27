@@ -6,16 +6,8 @@ import static org.junit.Assert.assertTrue;
 import main.java.memoranda.BeltRank;
 import main.java.memoranda.Student;
 import main.java.memoranda.StudentListImpl;
-import main.java.memoranda.TrainerList;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.util.ArrayList;
-
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.junit.Assert.*;
 
 public class TestStudentClasses {
 

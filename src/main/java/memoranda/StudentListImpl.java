@@ -2,7 +2,6 @@ package main.java.memoranda;
 
 import java.util.ArrayList;
 
-
 public final class StudentListImpl {
 
     private static ArrayList<Student> studentList;
