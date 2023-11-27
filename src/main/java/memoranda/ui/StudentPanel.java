@@ -111,7 +111,14 @@ public class StudentPanel extends JPanel {
         data = updateStudentTable();
         //studentTable = new JTable(data, columnNames);
         dtm = new DefaultTableModel(data, columnNames);
-        JTable studentTable = new JTable(dtm);
+        JTable studentTable = new JTable(dtm) {
+            // disable double-click editing by default in JTable
+            // credit to Zach and Rhett for suggestion
+            // reference: https://www.tutorialspoint.com/how-can-we-disable-the-cell-editing-inside-a-jtable-in-java
+            public boolean editCellAt(int row, int column, java.util.EventObject e) {
+                return false;
+            }
+        };
         studentTable.setLayout(new GridLayout(2,0));
         //table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         studentTable.setFillsViewportHeight(true);
