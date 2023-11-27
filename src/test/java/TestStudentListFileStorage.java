@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
@@ -7,6 +8,7 @@ import main.java.memoranda.BeltRank;
 import main.java.memoranda.Student;
 import main.java.memoranda.StudentListFileStorage;
 import main.java.memoranda.StudentListImpl;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -30,6 +32,20 @@ public class TestStudentListFileStorage {
         File studentFile = new File(StudentListFileStorage.studentListPath);
         if (studentFile.exists()) {
             studentFile.delete();
+        }
+        assertFalse(studentFile.exists());
+    }
+    
+    /**
+     * After tests, clear all Student data from the disk.
+     */
+    @AfterClass
+    public static void tearDown() {
+        // Destructive: Intended to only run in dev environment
+        File studentFile = new File(StudentListFileStorage.studentListPath);
+        if (studentFile.exists()) {
+            boolean deleted = (studentFile.delete());
+            assertTrue(deleted);
         }
         assertFalse(studentFile.exists());
     }
