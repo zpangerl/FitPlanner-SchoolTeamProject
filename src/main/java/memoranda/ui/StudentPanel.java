@@ -43,7 +43,7 @@ public class StudentPanel extends JPanel {
     JMenuItem ppRefresh = new JMenuItem();
     StudentListImpl studentList;
     int tableIndexSelected = -1;
-    Object[][] data = new Object[0][0];
+    static Object[][] data = new Object[0][0];
     static String[] columnNames = {
         "First Name",
         "Last Name",
@@ -51,7 +51,7 @@ public class StudentPanel extends JPanel {
         "Belt Rank",
         "Training Rank"
     };
-    DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
+    static DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 
     /**
      * Student Panel constructor.
@@ -323,6 +323,14 @@ public class StudentPanel extends JPanel {
             data[i][4] = student.getTrainingRank();
         }
         return data;
+    }
+
+    /**
+     * Update and refresh data of student table.
+     */
+    public static void refreshStudentTable() {
+        data = updateStudentTable();
+        dtm.setDataVector(data, columnNames);
     }
 
     class PopupListener extends MouseAdapter {

@@ -106,6 +106,7 @@ public class Student implements Serializable {
         if (errorMessage.isEmpty()) {
             setFirstName(firstName);
             setLastName(lastName);
+            setAge(age);
             setBeltColor(beltRank);
             setTrainingRank(trainingRank);
         }

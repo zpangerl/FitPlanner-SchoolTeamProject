@@ -188,7 +188,7 @@ public class StudentDialogEdit extends JDialog {
 
             if (errorMessage.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Successfully edited Student!");
-                StudentPanel.updateStudentTable();
+                StudentPanel.refreshStudentTable();
                 dispose(); // close dialog
             } else {
                 JOptionPane.showMessageDialog(null,
