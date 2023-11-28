@@ -126,6 +126,17 @@ public class TestStudentClasses {
     }
     
     /**
+     * Tests count with a single student in list.
+     */
+    @Test
+    public void singleStudentListCount() {
+        Student tempStudent = new Student("Mckeighan", "Sean");
+        StudentListImpl testList = new StudentListImpl();
+        testList.addStudent(tempStudent);
+        assertEquals(1, testList.getAllStudentCount());
+    }
+    
+    /**
      * Tests modifying the StudentList.
      */
     @Test
