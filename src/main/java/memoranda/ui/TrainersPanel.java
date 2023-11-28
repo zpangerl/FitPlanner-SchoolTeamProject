@@ -27,10 +27,10 @@ import javax.swing.table.TableCellRenderer;
 import main.java.memoranda.TrainerList;
 
 public class TrainersPanel extends JPanel {
-    private JTable trainersTable;
-    private DefaultTableModel trainersTableModel;
-    String[][] trainersDataArray;
-    final String[] trainersTableColumnNames =
+    private static JTable trainersTable;
+    private static DefaultTableModel trainersTableModel;
+    private static String[][] trainersDataArray;
+    private static final String[] trainersTableColumnNames =
         {"First Name", "Last Name", "Training Rank", "Belt Rank"};
 
     /**
@@ -45,7 +45,7 @@ public class TrainersPanel extends JPanel {
         Border trainersPanelTitle = BorderFactory.createTitledBorder("Manage Trainers");
         this.setBorder(trainersPanelTitle);
 
-        JPanel buttonPanel = new JPanel(new GridLayout(3, 1));
+        JPanel buttonPanel = new JPanel(new GridLayout(5, 1));
         /* Add new trainer button */
         // Reference: https://www.geeksforgeeks.org/java-swing-jpanel-with-examples/
         JButton addTrainerButton = getAddTrainerButton();
@@ -57,6 +57,12 @@ public class TrainersPanel extends JPanel {
         buttonPanel.add(trainerDeleteLabel);
         JButton deleteTrainerButton = getDeleteTrainerButton();
         buttonPanel.add(deleteTrainerButton);
+        /* Edit trainer button */
+        JLabel trainerEditLabel = new JLabel();
+        trainerEditLabel.setText("Select a Trainer row to edit:");
+        buttonPanel.add(trainerEditLabel);
+        JButton editTrainerButton = getEditTrainerButton();
+        buttonPanel.add(editTrainerButton);
 
         buildTrainersTable();
         JPanel tablePanel = new JPanel();
@@ -87,7 +93,7 @@ public class TrainersPanel extends JPanel {
     private JButton getAddTrainerButton() {
         JButton addTrainerButton = new JButton("Add Trainer");
         addTrainerButton.addActionListener(e -> {
-            TrainerDialog trainerDialog = new TrainerDialog(this);
+            TrainerDialog trainerDialog = new TrainerDialog();
             trainerDialog.setVisible(true);
         });
         return addTrainerButton;
@@ -111,6 +117,24 @@ public class TrainersPanel extends JPanel {
     }
 
     /**
+     * Create the edit trainer button.
+     * @return JButton edit trainer button
+     */
+    private JButton getEditTrainerButton() {
+        JButton editTrainerButton = new JButton("Edit Trainer");
+        editTrainerButton.addActionListener(e -> {
+            final int noRowSelected = -1;
+            int rowSelectedIdx = trainersTable.getSelectedRow();
+            if (rowSelectedIdx != noRowSelected) {
+                TrainerDialogEdit trainerDialogEdit =
+                        new TrainerDialogEdit(rowSelectedIdx);
+                trainerDialogEdit.setVisible(true);
+            }
+        });
+        return editTrainerButton;
+    }
+
+    /**
      * builds the JTable trainers table and store to member variable trainersTable.
      */
     private void buildTrainersTable() {
@@ -130,6 +154,13 @@ public class TrainersPanel extends JPanel {
                 }
                 return returnComp;
             }
+
+            // disable double-click editing by default in JTable
+            // credit to Zach and Rhett for suggestion
+            // reference: https://www.tutorialspoint.com/how-can-we-disable-the-cell-editing-inside-a-jtable-in-java
+            public boolean editCellAt(int row, int column, java.util.EventObject e) {
+                return false;
+            }
         };
         // important for delete button - only allow to select one row at a time
         trainersTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -138,7 +169,7 @@ public class TrainersPanel extends JPanel {
     /**
      * refresh JTable trainersTable after changes.
      */
-    void refreshTrainersTable() {
+    static void refreshTrainersTable() {
         trainersDataArray = TrainerList.getTrainersArray(); // refresh
         trainersTableModel = new DefaultTableModel(trainersDataArray, trainersTableColumnNames);
         trainersTable.setModel(trainersTableModel);

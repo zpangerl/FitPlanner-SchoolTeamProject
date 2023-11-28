@@ -1,8 +1,10 @@
 package main.java.memoranda;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Student {
+public class Student implements Serializable {
+
     private String firstName;
     private String lastName;
     private int age;

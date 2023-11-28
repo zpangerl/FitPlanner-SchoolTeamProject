@@ -38,11 +38,11 @@ public final class TrainerList {
             trainers = new ArrayList<>();
         }
 
-        return trainers;
+        return new ArrayList<>(trainers);
     }
 
     /**
-     * Returns an String[][] of Trainers (e.g. to use in JTable).
+     * Returns a String[][] of Trainers (e.g. to use in JTable).
      * 
      * @return trainers 2D array
      */
@@ -108,7 +108,31 @@ public final class TrainerList {
     }
 
     /**
-     * Returns a vector with the fullname of all trainers.
+     * Set TrainerList trainers to null for unit testing.
+     */
+    public static void setTrainersNull() {
+        trainers = null;
+    }
+
+    /**
+     * Check if trainers null for unit testing.
+     * @return true if trainers null
+     */
+    public static boolean isTrainersNull() {
+        return trainers == null;
+    }
+
+    /**
+     * Clear trainers list.
+     */
+    public static void clearTrainers() {
+        if (trainers != null) {
+            trainers.clear();
+        }
+    }
+
+    /**
+     *  Returns a vector with the fullname of all trainers.
      * 
      * @return trainerNames Vector
      */
