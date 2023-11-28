@@ -72,6 +72,63 @@ public class TestStudentClasses {
      * Tests adding student to a student list.
      */
     @Test
+    public void addStudent() {
+        StudentListImpl testList = new StudentListImpl();
+        Student tempStudent1 = new Student("Mckeighan", "Sean");
+        testList.addStudent(tempStudent1);
+        assertTrue(testList.studentExists(tempStudent1));
+    }
+
+    /**
+     * Tests adding student to a student list where that student is already present.
+     */
+    @Test
+    public void addExistingStudent() {
+        StudentListImpl testList = new StudentListImpl();
+        Student tempStudent1 = new Student("Mckeighan", "Sean");
+        testList.addStudent(tempStudent1);
+        testList.addStudent(tempStudent1);
+        assertEquals(1, testList.getAllStudentCount());
+    }
+
+    /**
+     * Tests ability to retrieve student from list given last and first name.
+     */
+    @Test
+    public void getExistingStudent() {
+        StudentListImpl testList = new StudentListImpl();
+        Student tempStudent1 = new Student("Mckeighan", "Sean");
+        testList.addStudent(tempStudent1);
+        assertEquals(testList.getStudentByObject(tempStudent1), tempStudent1);
+    }
+
+    /**
+     * Tests ability to return null when given last and first name not in list.
+     */
+    @Test
+    public void getNonExistentStudent() {
+        StudentListImpl testList = new StudentListImpl();
+        Student tempStudent1 = new Student("Mckeighan", "Sean");
+        testList.addStudent(tempStudent1);
+        assertNull(testList.getStudentByName("Sckeighan", "Mean"));
+    }
+
+    /**
+     * Tests the ability to remove a student from a student list.
+     */
+    @Test
+    public void removeStudent() {
+        StudentListImpl testList = new StudentListImpl();
+        Student tempStudent1 = new Student("Mckeighan", "Sean");
+        testList.addStudent(tempStudent1);
+        testList.removeStudent(tempStudent1);
+        assertFalse(testList.studentExists(tempStudent1));
+    }
+    
+    /**
+     * Tests modifying the StudentList.
+     */
+    @Test
     public void studentListModification() {
         while (StudentListImpl.getStudentList().size() > 0) {
             StudentListImpl.removeStudent(StudentListImpl.getStudentByIndex(0));
