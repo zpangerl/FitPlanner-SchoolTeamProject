@@ -38,7 +38,7 @@ public class StudentPanel extends JPanel {
     JButton editStudentB = new JButton();
     JPopupMenu studentJpopupMenu = new JPopupMenu();
     JMenuItem ppRun = new JMenuItem();
-    JMenuItem ppRemoveStudent = new JMenuItem();
+    JMenuItem popUpRemoveStudent = new JMenuItem();
     JMenuItem ppNewStudent = new JMenuItem();
     JMenuItem ppRefresh = new JMenuItem();
     StudentListImpl studentList;
@@ -221,8 +221,8 @@ public class StudentPanel extends JPanel {
         });
         ppRun.setEnabled(false);
 
-        ppRemoveStudent.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppRemoveStudent.setText(Local.getString("Remove Student"));
+        popUpRemoveStudent.setFont(new java.awt.Font("Dialog", 1, 11));
+        popUpRemoveStudent.setText(Local.getString("Remove Student"));
         /*
         ppRemoveStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -231,9 +231,9 @@ public class StudentPanel extends JPanel {
         });
 
          */
-        ppRemoveStudent.setIcon(new ImageIcon(Objects.requireNonNull(
+        popUpRemoveStudent.setIcon(new ImageIcon(Objects.requireNonNull(
                 AppFrame.class.getResource("/ui/icons/removeresource.png"))));
-        ppRemoveStudent.setEnabled(false);
+        popUpRemoveStudent.setEnabled(false);
         ppNewStudent.setFont(new java.awt.Font("Dialog", 1, 11));
         ppNewStudent.setText(Local.getString("New Student") + "...");
         ppNewStudent.addActionListener(new java.awt.event.ActionListener() {
@@ -265,7 +265,7 @@ public class StudentPanel extends JPanel {
         studentJpopupMenu.add(ppRun);
         studentJpopupMenu.addSeparator();
         studentJpopupMenu.add(ppNewStudent);
-        studentJpopupMenu.add(ppRemoveStudent);
+        studentJpopupMenu.add(popUpRemoveStudent);
         studentJpopupMenu.addSeparator();
         studentJpopupMenu.add(ppRefresh);
         /*

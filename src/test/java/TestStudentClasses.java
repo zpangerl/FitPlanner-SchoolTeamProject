@@ -209,10 +209,10 @@ public class TestStudentClasses {
         StudentListImpl.addStudent(tempStudent1);
         assertEquals(StudentListImpl.getStudentByObject(tempStudent1), tempStudent1);
         // Check return on non-existing student get
-        assertEquals(StudentListImpl.getStudentByName("Sckeighan", "Mean"), null);
+        assertNull(StudentListImpl.getStudentByName("Sckeighan", "Mean"));
         // Check removal of student
         StudentListImpl.removeStudent(tempStudent1);
-        assertTrue(!StudentListImpl.studentExists(tempStudent1));
+        assertFalse(StudentListImpl.studentExists(tempStudent1));
         // Check return of empty list count
         assertEquals(0, StudentListImpl.getStudentList().size());
         // Check return count of list when multiple student present
@@ -226,9 +226,7 @@ public class TestStudentClasses {
         StudentListImpl.addStudent(tempStudent4);
         StudentListImpl.addStudent(tempStudent5);
         assertEquals(5, StudentListImpl.getStudentList().size());
-        while (StudentListImpl.getStudentList().size() > 0) {
-            StudentListImpl.removeStudent(StudentListImpl.getStudentByIndex(0));
-        }
+        StudentListImpl.getStudentList().removeAll(StudentListImpl.getStudentList());
     }
 
     /**
@@ -377,15 +375,13 @@ public class TestStudentClasses {
         Student student = new Student(lastName, firstName, age, beltRank, trainingRank);
 
         // equivalent partition: null, non-null
-        // 1.1: null
+        // 1.1: null - removed null test based on PR review since should never happen
+        // and would be confusing to present to end-user as error message
         String testName = null;
         String parameterName = "parameterName";
-        String errorMessage = student.validateName(testName,
-                parameterName);
-        assertEquals(parameterName + " must not be null\n", errorMessage);
         // 1.2: non-null (and meet [a-z] and length [1-12])
         testName = "a"; // non-null
-        errorMessage = student.validateName(testName,
+        String errorMessage = student.validateName(testName,
                 parameterName);
         assertEquals("", errorMessage);
 

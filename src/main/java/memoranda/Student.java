@@ -122,11 +122,6 @@ public class Student implements Serializable {
      * @return "" empty if no error, or an error message if validation fails.
      */
     public String validateName(String name, String parameterName) {
-        // must not be null
-        if (name == null) {
-            return parameterName + " must not be null\n";
-        }
-
         // must be between 1-12 characters
         if (name.isEmpty() || name.length() > 12) {
             return parameterName + " must be between 1-12 characters\n";
