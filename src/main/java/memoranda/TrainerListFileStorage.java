@@ -49,12 +49,14 @@ public class TrainerListFileStorage {
         if (!new File(trainerListPath).exists()) {
             Util.debug("Open trainer list (file does not exist): " + trainerListPath);
         } else {
-            //try {
+            ObjectInputStream objectInputStream;
             try (FileInputStream fileInputStream = new FileInputStream(trainerListPath)) {
-                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+                objectInputStream = new ObjectInputStream(fileInputStream);
                 // read TrainerList Object from disk
                 ArrayList<Trainer> trainerList =
                         (ArrayList<Trainer>) objectInputStream.readObject();
+                objectInputStream.close();
+                fileInputStream.close();
 
                 // add each trainer to static TrainerList
                 for (Trainer trainer : trainerList) {
@@ -92,6 +94,8 @@ public class TrainerListFileStorage {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             // write TrainerList Object from disk
             objectOutputStream.writeObject(TrainerList.getTrainers());
+            objectOutputStream.close();
+            fileOutputStream.close();
             Util.debug("Save trainer list: " + trainerListPath);
         } catch (IOException e) {
             Util.debug("Save trainer list: " + trainerListPath + "ERROR: " + e.getMessage());

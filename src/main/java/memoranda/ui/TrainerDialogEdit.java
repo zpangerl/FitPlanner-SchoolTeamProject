@@ -1,9 +1,10 @@
 /*
-  File: TrainerDialog.java
+  File: TrainerDialogEdit.java
   Author: Steven Stovall
-  Version: 2023.11.09
+  Version: 2023.11.19
 
-  Description: Trainer dialog to add a trainer
+  Description: Trainer dialog to edit a trainer
+  Reference: Cloned from TrainerDialog.java (add a trainer)
 */
 
 package main.java.memoranda.ui;
@@ -31,30 +32,34 @@ import main.java.memoranda.TrainerList;
 import main.java.memoranda.util.Local;
 
 /**
- * Provides Pop-up dialog box to add a trainer.
+ * Provides Pop-up dialog box to edit a trainer.
  */
-public class TrainerDialog extends JDialog {
+public class TrainerDialogEdit extends JDialog {
     private final JTextField firstNameTextField;
     private final JTextField lastNameTextField;
     private final JComboBox<String> trainingRankCombo;
     private final JComboBox<String> beltRankCombo;
+    private final Trainer trainerToEdit;
 
     /**
-     * Default constructor.
+     * Constructor.
+     * @param selectedRowToEditIndex int idx of row selected when edit dialog launched.
      */
-    public TrainerDialog() {
+    public TrainerDialogEdit(int selectedRowToEditIndex) {
         // -------------------------------------------------------------------
         // Reference: TaskDialog.java START
-        super(App.getFrame(), "Add Trainer", true);
+        super(App.getFrame(), "Edit Trainer", true);
+        // Find trainer to edit
+        trainerToEdit = TrainerList.getTrainerByIndex(selectedRowToEditIndex);
 
         // ####################################################################
-        // header: Add Trainer and Trainer logo
+        // header: Edit Trainer and Trainer logo
         JLabel header = new JLabel();
-        header.setFont(new java.awt.Font("Dialog", Font.BOLD, 20));
+        header.setFont(new Font("Dialog", Font.BOLD, 20));
         // ASU Maroon: 140, 29, 64
         // https://brandguide.asu.edu/brand-elements/design/color
         header.setForeground(new Color(140, 29, 64));
-        header.setText(Local.getString("Add Trainer"));
+        header.setText(Local.getString("Edit Trainer"));
         // IntelliJ suggested requireNonNull
         // Reference: WorkPanel.java - add the Trainer icon to make it look nice
         header.setIcon(new ImageIcon(
@@ -90,6 +95,7 @@ public class TrainerDialog extends JDialog {
         int textColumnWidth = 16;
         firstNameTextField = new JTextField(textColumnWidth);
         inputPanel.add(firstNameTextField, gridBagConstraints);
+        firstNameTextField.setText(trainerToEdit.getFirstName());
 
         // ####################################################################
         // Last Name
@@ -102,6 +108,7 @@ public class TrainerDialog extends JDialog {
         gridBagConstraints.gridy = 1;
         lastNameTextField = new JTextField(textColumnWidth);
         inputPanel.add(lastNameTextField, gridBagConstraints);
+        lastNameTextField.setText(trainerToEdit.getLastName());
 
         // ####################################################################
         // Training Rank
@@ -119,6 +126,7 @@ public class TrainerDialog extends JDialog {
         gridBagConstraints.gridy = 2;
         trainingRankCombo = new JComboBox<>(BeltRank.getBeltRanks());
         inputPanel.add(trainingRankCombo, gridBagConstraints);
+        trainingRankCombo.setSelectedIndex(trainerToEdit.getTrainingRank().ordinal());
 
         // ####################################################################
         // Belt Rank
@@ -132,16 +140,17 @@ public class TrainerDialog extends JDialog {
         gridBagConstraints.gridy = 3;
         beltRankCombo = new JComboBox<>(BeltRank.getBeltRanks());
         inputPanel.add(beltRankCombo, gridBagConstraints);
+        beltRankCombo.setSelectedIndex(trainerToEdit.getBeltRank().ordinal());
 
         // ####################################################################
-        // Buttons: Add, Cancel
+        // Buttons: Save, Cancel
         // https://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Insets.html
         // top, right, bottom, left
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new Insets(10, 10, 0, 5);
-        JButton addButton = getAddButton();
-        inputPanel.add(addButton, gridBagConstraints);
+        JButton saveButton = getSaveButton();
+        inputPanel.add(saveButton, gridBagConstraints);
         //gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -153,24 +162,29 @@ public class TrainerDialog extends JDialog {
     }
 
     /**
-     * Create the Add button.
-     * @return JButton Add button
+     * Create the Save button.
+     * @return JButton Save button
      */
-    private JButton getAddButton() {
-        JButton addButton = new JButton("Add");
-        addButton.addActionListener(e -> {
-            Trainer newTrainer = new Trainer();
-            newTrainer.setFirstName(firstNameTextField.getText());
-            newTrainer.setLastName(lastNameTextField.getText());
-            newTrainer.setBeltRank(BeltRank.Rank.valueOf((String) beltRankCombo.getSelectedItem()));
-            newTrainer.setTrainingRank(
-                BeltRank.Rank.valueOf((String) trainingRankCombo.getSelectedItem()));
-            TrainerList.addTrainer(newTrainer);
-            TrainersPanel.refreshTrainersTable();
-            JOptionPane.showMessageDialog(null, "Successfully added Trainer!");
-            dispose(); // close dialog
+    private JButton getSaveButton() {
+        JButton saveButton = new JButton("Save");
+        saveButton.addActionListener(e -> {
+            String errorMessage = trainerToEdit.editTrainer(firstNameTextField.getText(),
+                lastNameTextField.getText(),
+                BeltRank.Rank.valueOf((String) trainingRankCombo.getSelectedItem()),
+                BeltRank.Rank.valueOf((String) beltRankCombo.getSelectedItem()));
+
+            if (errorMessage.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Successfully edited Trainer!");
+                TrainersPanel.refreshTrainersTable();
+                dispose(); // close dialog
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        errorMessage,
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
         });
-        return addButton;
+        return saveButton;
     }
 
     /**

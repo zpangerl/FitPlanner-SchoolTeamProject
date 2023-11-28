@@ -3,7 +3,6 @@ package main.java.memoranda;
 import java.util.ArrayList;
 
 public final class StudentListImpl {
-
     private static ArrayList<Student> studentList;
 
     public StudentListImpl() {
@@ -30,8 +29,8 @@ public final class StudentListImpl {
      */
     public static Student getStudentByName(String lastName, String firstName) {
         for (int i = 0; i < studentList.size(); i++) {
-            if (studentList.get(i).getFirstName() == firstName
-                    && studentList.get(i).getLastName() == lastName) {
+            if (studentList.get(i).getFirstName().equals(firstName)
+                    && studentList.get(i).getLastName().equals(lastName)) {
                 return studentList.get(i);
             }
         }
@@ -50,7 +49,7 @@ public final class StudentListImpl {
         }
         return null;
     }
-
+    
     /**
      * Returns a Student object given the students index in the arraylist.
      *
@@ -76,7 +75,6 @@ public final class StudentListImpl {
         if (!studentExists(studentAdd)) {
             studentList.add(studentAdd);
         }
-
     }
 
     /**
