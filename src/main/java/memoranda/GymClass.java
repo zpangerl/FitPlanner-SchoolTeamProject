@@ -8,13 +8,14 @@
 
 package main.java.memoranda;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import main.java.memoranda.date.CalendarDate;
 
-public class GymClass {
+public class GymClass implements Serializable {
 
     private CalendarDate date;
     private Room.GymRoom room;

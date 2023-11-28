@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.UIManager;
 
 import main.java.memoranda.EventsScheduler;
+import main.java.memoranda.GymClassListFileStorage;
+import main.java.memoranda.StudentListFileStorage;
 import main.java.memoranda.TrainerListFileStorage;
 import main.java.memoranda.util.Configuration;
 
@@ -57,7 +59,9 @@ public class App {
 
 	public App(boolean fullmode) {
 		super();
+		StudentListFileStorage.loadData();
 		TrainerListFileStorage.loadData();
+		GymClassListFileStorage.loadData();
 		if (fullmode)
 			fullmode = !Configuration.get("START_MINIMIZED").equals("yes");
 		/* DEBUG */
