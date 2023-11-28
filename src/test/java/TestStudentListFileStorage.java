@@ -24,6 +24,9 @@ public class TestStudentListFileStorage {
      */
     @BeforeClass
     public static void setup() {
+        /* Rhett's clear solution from GymClassListTest.java
+        Make sure StudentListImpl is clear at start. */
+        StudentListImpl.getStudentList().clear();
         // Destructive: Intended to only run in dev environment
         // Deletes student data to test with clean environment
 
