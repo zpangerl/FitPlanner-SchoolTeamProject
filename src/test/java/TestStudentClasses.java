@@ -155,7 +155,7 @@ public class TestStudentClasses {
         Student tempStudent2 = new Student("Harrison", "Rhett");
         Student tempStudent3 = new Student("Stovall", "Steven");
         Student tempStudent4 = new Student("Pangerl", "Zach");
-        Student tempStudent5 = new Student("NotSure", "Frankie");
+        Student tempStudent5 = new Student("Lin", "Frankie");
         StudentListImpl.addStudent(tempStudent1);
         StudentListImpl.addStudent(tempStudent2);
         StudentListImpl.addStudent(tempStudent3);
