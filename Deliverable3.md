@@ -85,7 +85,6 @@ Answer as a team!
 
 > We came close to meeting the customers' expectations. We certainly delivered value but ran
 > out of time for some of the features.
->>>>>>>>> Temporary merge branch 2
 
 
 ### Sprint Retrospective
