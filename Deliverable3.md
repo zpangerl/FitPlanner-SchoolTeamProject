@@ -217,43 +217,39 @@ Copy the section for each team member and then everyone adds their individual co
 
 #### Rhett Harrison
 
-  **Do you think you individually worked consistently and put in enough work into the project (give a short answer).
+**Do you think you individually worked consistently and put in enough work into the project (give a short answer).
 
-> I believe I worked consistently with the team and put enough work in the project.
+Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
- Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
+Example:
+[Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
 
-  Example: 
-  [Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
+**Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-  **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
+    - link1
+    - link2
 
-    
-[Sort GymClasses UI](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/243ffa2b2a8fc598bf5a3c1122dfd3eb19f23054)
+**GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-[Edit Gym Classes](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/136ae07785f812571fb69f102e0c772322082327)
+    - link1
+    - link2
 
-  **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
+**GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-[Date bug fix](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/65)
-
-[Sort GymClasses UI](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/58)
-
-[Add students to GymClass Initial](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/55)
+    - link1
+    - link2
 
 
-   **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
+**GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-  [Sort GymClasses](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/10325bdbcc0eee87f9012cdc7479c8af34626e80/src/test/java/GymClassListTest.java)
+    - link1
+    - link2
 
-[Add Students to GymClass](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e7755c7a429899668b4a7fc81f7d22ba82e7e11d)
+**How did you contribute to Static Analysis -- fill out starting Sprint 4:
 
-  
-  **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
+    - link1
+    - link2
 
-  [Edit existing students](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/63/files/1155363bd5538b4c6d3ec21dcc0b6819fd7416f1)
-
-  [Daily Overview](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/59)
 
 #### Frank Lin
 
@@ -288,42 +284,49 @@ Example:
 
 #### Zachary Pangerl
 
-**Do you think you individually worked consistently and put in enough work into the project (give a short answer).
+  **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
+> I would say so, I definitely had a few days where I was working on Assignment 5b, though. I feel like because we had less tasks in this Sprint it was harder to get as many tasks as I wanted to, since pretty much everything was taken by the time I finished my second one. I was definitely more active on GitHub, though, especially compared to the last two sprints.
 
-Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
+ Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
-Example:
-[Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
+  Example: 
+  [Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
 
-**Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
+  **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+    - [US154 Task155](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e722ed35a6a98d5eb0ebda4ed4d7363e3e86c3e4)
+    - [US162 Task168](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/ee823fbdb663059f880a1eb87743d114ad71c3ef)
+    - [US162 Task168](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/1950a5eaae7df8de549583a5808d351d6dc11cb3)
 
-**GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
+  **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+    - [PR 62](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/62)
+    - [PR 59](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/59)
+    - [PR 50, from Sprint 2 but fixed and merged in Sprint 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/50)
 
-**GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
+   **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-    - link1
-    - link2
+    - [US154 Task155 Unit Tests](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/049ae1961724ebdf57bfa1ca85bc67c5218d8e7b)
+    - [US162 Task168 Unit Test](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/ff60e3fc25469bc20583cdd626c904675ec909b8)
 
+  
+  **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-**GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
+    - [PR 63 Review](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/63#pullrequestreview-1754141260)
+    - [PR 56 Review](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/56#pullrequestreview-1745788342)
+    - [PR 61 Review](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/61#pullrequestreview-1749583541)
 
-    - link1
-    - link2
+  **How did you contribute to Static Analysis -- fill out starting Sprint 4:
 
-**How did you contribute to Static Analysis -- fill out starting Sprint 4:
+    - [Resolve CheckStyle errors in Student related classes](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/63433962cb92fbb89afbef6a77f39712d3a452e9)
+    - [Resolve CheckStyle errors in US162](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/53d8d1b892d641a57adbf3029c2d93e3b6fba806)
 
-    - link1
-    - link2
 
 #### Sean Mckeighan
 
 **Do you think you individually worked consistently and put in enough work into the project (give a short answer).
+> No, I do not feel I contributed enough during this sprint. Between kids activities, traveling/being away for the holiday,
+> and assignment 5b, I didn't have the time to devote to it.
 
 Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -332,29 +335,28 @@ Example:
 
 **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+- [Update student class to static type for program use and persistent storage](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e093e1d4c9ba63fd362ff5f53f6908a3d08f5352) 
+- [Student list update test case update](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/8006de06d4ca4aef76ace24787d3ff6dbf0589d5)
+- [Merge dev into task branch](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/a0d97ed82c3282d446957f7b2c6a5b0f99dc7a65)
 
 **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+- Worked with a teammate on the same user story. The teammate opened the PR.
+
+- [Gym class and student persistent storage](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/62)
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-    - link1
-    - link2
-
+- [Student list test cases](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/dev/src/test/java/TestStudentClasses.java)
+- [Student list storage test cases](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/dev/src/test/java/TestStudentListFileStorage.java)
 
 **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-    - link1
-    - link2
+- No PR reviews. Reviewed several tasks on Taiga.
 
 **How did you contribute to Static Analysis -- fill out starting Sprint 4:
 
-    - link1
-    - link2
+- Reviewed code by inspection on Github and switching to branch within my IDE.
 
 ## Below is just for you as a little reminder on what needs to be done
 ### Checklist for you to see if you are done with the current Sprint
@@ -367,11 +369,11 @@ Example:
   - n/a last sprint
 - [x] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [x] Rhett Harrison
+  - [ ] Rhett Harrison
   - [ ] Frank Lin
   - [ ] Steven Stovall
   - [ ] Zachary Pangerl
-  - [ ] Sean Mckeighan
+  - [x] Sean Mckeighan
 
 #### For the next Sprint (n/a - last sprint)
   - [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
