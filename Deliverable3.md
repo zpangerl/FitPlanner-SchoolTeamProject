@@ -125,6 +125,82 @@ Include a screenshot of your Burndown chart here and analyse in detail for me wh
 
 Copy the section for each team member and then everyone adds their individual contributions. 
 
+#### Steven Stovall
+
+##### Do you think you individually worked consistently and put in enough work into the project (give a short answer)?
+> I had a slow start day 1-3, catching up day 4-6, and ahead of target day 7 through end of Sprint. I helped to resolve blockers for teammates during first half and delayed my US/Task contributions until midway through Sprint. At all times, I communicated and collaborated daily in Slack. I underestimated the additional time required to resolve checkstyle/spotbugs but chose to spend my time to deliver the highest quality code (test coverage, detailed unit tests, checkstyle/spotbugs) in Sprint 3 even if that meant a slower rate of delivery due to our customer wanting a combination of usable functionality and high quality. Overall, I would have liked to deliver additional features but think I delivered sufficient value and helped the team. In hindsight, I would have grouped US80 and US88 to a single US with two tasks and double the story point estimate due to complexity added of input validation in addition to editing.
+
+> Table: Sprint Days: Hours
+
+| Sprint Day       | 1 (W) | 2 (R) | 3 (F) | 4 (Sa) | 5 (Su) | 6 (M) | 7 (T) | 8 (W,R,F) | 9 (Sa) | 10 (Su) | 11 (M) | 12 (T) |
+|------------------|-------|-------|-------|--------|--------|-------|-------|-----------|--------|---------|--------|--------|
+| Cumulative Hours | 0     | 3     | 3     | 4.5    | 6.5    | 8     | 10    | 16        | 19     | 21.5    | 23     | 25     |
+
+> Target Hours: `(11/7) * 10 hours/per week => 15.7 hours (1.4hr/day pace)`
+
+> 11-day Sprint - Daily Concise Summary (Day) (+hours)
+* 1: No Work (W) +0
+* 2: PR54 resolves Zach's blocker (R) +3
+* 3: No Work (F) +0
+* 4: Slack detailed response: Help Sean debug Task156 (Sa) +1.5
+* 5: Slack, discuss PR56, commit US88.Task110 (Su) +2
+* 6: Slack, Review PR47, PR50, Task168 (M) +1.5
+* 7: QualityPolicy commit improvements. commit US88.Task110. Review PR55 (T) +2
+* 8.1: commit US88.Task110 unit test (W) +2.5
+* 8.2: commit US88 spotbugs/checkstyle. Start US80, Slack work with Rhett to fix dev, Review PR60 (R) +3
+* 8.3: Create PR61, merge latest dev into US88 (F) +0.5
+* 9: Merge Sean's Task156 to US80 with necessary refactor to resolve conflicts. Share with Frankie to avoid duplicate work. Review PR58. Commit US80.Task96 (Sa) +3
+* 10: US80 work (test/SA), Review Task155 (Su) +2.5
+* 11: PR63, Resolve US80 issue, SA, PR64 (dev/master conflict solution) (M) +1.5
+* 12: Review PR62, PR65, Video, PR63 dev conflict resolution/enhancements
+* Retro: Coordinate and create video from team's video clips (T) +2
+
+##### Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
+* See sections below
+
+##### Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
+* [US88 Task110: Implement trainer edit dialog, add to checkstyle (WIP)](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/cef997510efcb5843c3742143fd6aaa18ab35e7d)
+* [US88 Task110: Implement trainer edit dialog, add Trainer.editTrainer, Trainer.validateName, and show error box with useful info when invalid input, or store and refresh trainer table when valid input](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4dbb3a226e3e20dd8e06a23e7c4da407e9a2df7e)
+* [US80 Task96: Implement ability to edit students with user friendly error messages and ensure table properly reflects edited student](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/87a9f43f0bebc4ebde8675ca846e16083999a42c)
+* [US80 Task96: Resolve issue with student table not refreshing after edit and add StudentDialogEdit to build.gradle for checkstyle](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/63/commits/cfb8dce0a723a24dccd8424f49617ac5f9cc80b6)
+
+##### GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
+* [PR54: Bugfix: Enhance trainer list unit test to avoid conflict with others tests and enable spotbugs](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/54)
+    * (bugfix branch inadvertently prefixed with sprint2 instead of sprint3)
+* [PR61: US88 Edit trainer information with validation and friendly error messages](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/61)
+* [PR63: US80 edit existing students #63](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/63)
+* [PR64: Sprint3 update dev with latest master](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/64)
+    * essentially merges master to dev without a push directly to dev
+
+##### GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
+* [US88 Task110 Unit Test: Ensure coverage for Trainer (100%), TrainerList (94%) by adding test trainerEditTrainer (BVA), trainerValidateName, getTrainersArray, getTrainers, exceptionInstantiateUtilityTrainerList, and getRemoveTrainerByIndex](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/d7f9cb87213c34fbbbbbb668daf898da8bce1d97)
+* [US88 Task110 Unit Test: Replace text blocks with normal Strings. Although working in Intellij, text blocks cause build failures with checkstyle. Remove unused imports and add TestTrainerList to checkstyle in build.gradle](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/b3965aebf11ff15746e1b76d303d39c2b2ae24d9)
+* [US80 Task96 Unit Test: studentEditStudent, studentValidateName similar to TestWhiteBoxTrainer but unable to extract to separate class at this time](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/6a38697f05556e55c7e8b87e632e42bbcc19fe9a)
+
+
+##### GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
+* [Review PR47](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/47#issuecomment-1818851088)
+* [Review PR50](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/50#pullrequestreview-1740918915)
+* [Review PR55](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/55#pullrequestreview-1743534077)
+* [Review PR60](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/60#pullrequestreview-1746976347)
+* [Review PR58](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/58#pullrequestreview-1749259690)
+* [Review PR62](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/62#pullrequestreview-1751896408)
+* [Review PR65](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/65#pullrequestreview-1753661829)
+
+##### How did you contribute to Static Analysis -- fill out starting Sprint 4:
+* [Resolve two spotbug warnings for RV return value ignored](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/90cdfebe590356838535ac2606e6bd52b9777043)
+    * No US/Task due to part of bugfix branch for Sprint3. Inadvertently prefixed with sprint2 instead of sprint3.
+* [US88 Task110: Resolve 12 Checkstyle errors to ensure zero errors for all FitPlanner in-scope](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/764b8b9d02899f5ae189caeb2a5e0eb0707cde8a)
+* [US88 Task110: Refactor to resolve 5 Spotbugs warnings 1 MS_EXPOSE_REP via return copy ArrayList; 2 EI_EXPOSE_REP2 via implementation of public static method to avoid need to pass reference via constructor; 2 OS_OPEN_STREAM via closing object and file streams](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/d674e9df0e25ba4caf2bdcaec75a3142d666124d)
+* [US80 Task96: Resolve 40 checkstyle errors](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/5b8edf7cf33c52cda009ee7605713e0556d0b738)
+
+##### QualityPolicy.md Commits
+* [Add unit test commit message format](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/42cdc38bd5156b995b65a75a09812d16f037d535)
+* [Add details to Blackbox guidelines of what, who, how, and jacoco](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/0c47fca2811c91bf13f78933080bba6a791ff78d)
+* [Add maintain US and Task branches suggestion to avoid merge conflicts experienced between Sprint 2 and 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/49c4d6b5a506878bd14ad43d507547e578899e79)
+* [Add details to Blackbox guidelines of tool, what who, how, and move jacoco from Blackbox to Whitebox](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/764f4abbd27744466550dd890fed95a30b3e662a)
+
+
 #### Team member <A> -- replace <A> with your name:
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
