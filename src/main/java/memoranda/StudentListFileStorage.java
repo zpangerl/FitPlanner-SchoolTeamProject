@@ -7,19 +7,14 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
 import main.java.memoranda.util.Util;
 
 public class StudentListFileStorage {
     public static final String fitPlannerDataDir = "FitPlannerData";
     public static final String studentListPath = fitPlannerDataDir + "/StudentList";
 
-    public StudentListFileStorage() {
-
-    }
-
     /**
-     * Load data from disk storage to StudentList.
+     * Load data from disk storage and populate TrainerList.
      */
     public static void loadData() {
         // Start.java (hook app startup)
@@ -41,7 +36,6 @@ public class StudentListFileStorage {
                 }
                 Util.debug("Open student list: " + studentListPath);
                 objectInputStream.close();
-                fileInputStream.close();
             } catch (IOException | ClassNotFoundException e) {
                 /* Dangerous to automatically delete StudentList. Could break other related data
                    structures. Better to throw RuntimeException and fix the bug if this
@@ -75,7 +69,6 @@ public class StudentListFileStorage {
             objectOutputStream.writeObject(StudentListImpl.getStudentList());
             Util.debug("Save student list: " + studentListPath);
             objectOutputStream.close();
-            fileOutputStream.close();
         } catch (IOException e) {
             Util.debug("Save student list: " + studentListPath + "ERROR: " + e.getMessage());
             /* Developer note: printStackTrace will help to resolve the following issues:

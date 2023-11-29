@@ -1,13 +1,8 @@
 package main.java.memoranda;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Objects;
-
 
 public final class StudentListImpl {
-
     private static ArrayList<Student> studentList;
 
     public StudentListImpl() {
@@ -112,6 +107,10 @@ public final class StudentListImpl {
      * @return Count of current Students.
      */
     public static int getAllStudentCount() {
-        return studentList.size();
+        if (studentList == null) {
+            return 0;
+        } else {
+            return studentList.size();
+        }
     }
 }
