@@ -325,6 +325,8 @@ Example:
 #### Sean Mckeighan
 
 **Do you think you individually worked consistently and put in enough work into the project (give a short answer).
+> No, I do not feel I contributed enough during this sprint. Between kids activities, traveling/being away for the holiday,
+> and assignment 5b, I didn't have the time to devote to it.
 
 Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -333,29 +335,28 @@ Example:
 
 **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+- [Update student class to static type for program use and persistent storage](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e093e1d4c9ba63fd362ff5f53f6908a3d08f5352) 
+- [Student list update test case update](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/8006de06d4ca4aef76ace24787d3ff6dbf0589d5)
+- [Merge dev into task branch](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/a0d97ed82c3282d446957f7b2c6a5b0f99dc7a65)
 
 **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+- Worked with a teammate on the same user story. The teammate opened the PR.
+
+- [Gym class and student persistent storage](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/62)
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-    - link1
-    - link2
-
+- [Student list test cases](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/dev/src/test/java/TestStudentClasses.java)
+- [Student list storage test cases](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/dev/src/test/java/TestStudentListFileStorage.java)
 
 **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-    - link1
-    - link2
+- No PR reviews. Reviewed several tasks on Taiga.
 
 **How did you contribute to Static Analysis -- fill out starting Sprint 4:
 
-    - link1
-    - link2
+- Reviewed code by inspection on Github and switching to branch within my IDE.
 
 ## Below is just for you as a little reminder on what needs to be done
 ### Checklist for you to see if you are done with the current Sprint
@@ -372,7 +373,7 @@ Example:
   - [ ] Frank Lin
   - [ ] Steven Stovall
   - [ ] Zachary Pangerl
-  - [ ] Sean Mckeighan
+  - [x] Sean Mckeighan
 
 #### For the next Sprint (n/a - last sprint)
   - [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
