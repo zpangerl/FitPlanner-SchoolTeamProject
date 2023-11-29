@@ -217,7 +217,9 @@ Copy the section for each team member and then everyone adds their individual co
 
 #### Rhett Harrison
 
-  **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
+  **Do you think you individually worked consistently and put in enough work into the project (give a short answer).
+
+> I believe I worked consistently with the team and put enough work in the project.
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -226,29 +228,32 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+    
+[Sort GymClasses UI](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/243ffa2b2a8fc598bf5a3c1122dfd3eb19f23054)
+
+[Edit Gym Classes](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/136ae07785f812571fb69f102e0c772322082327)
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+[Date bug fix](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/65)
+
+[Sort GymClasses UI](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/58)
+
+[Add students to GymClass Initial](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/55)
+
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-    - link1
-    - link2
+  [Sort GymClasses](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/10325bdbcc0eee87f9012cdc7479c8af34626e80/src/test/java/GymClassListTest.java)
+
+  [Add Students to GymClass](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e7755c7a429899668b4a7fc81f7d22ba82e7e11d)
 
   
   **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-    - link1
-    - link2
+  [Edit existing students](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/63/files/1155363bd5538b4c6d3ec21dcc0b6819fd7416f1)
 
-  **How did you contribute to Static Analysis -- fill out starting Sprint 4:
-
-    - link1
-    - link2
+  [Daily Overview](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/59)
 
 #### Frank Lin
 
@@ -362,10 +367,10 @@ Example:
 - [ ] Your newest software is on the master branch on GitHub, it is tested and compiles/runs
 - [ ] This document is in your master branch on GitHub
 - [ ] Read the kickoff again to make sure you have all the details that I want
-- [ ] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
-- [ ] Your Quality Policies are accurate and up to date
+- [x] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
+- [x] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Team member 1
+  - [x] Rhett Harrison
   - [ ] Team member 2
 
 #### For the next Sprint
