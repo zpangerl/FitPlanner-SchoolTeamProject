@@ -55,7 +55,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 | 11/20 | Nobody             | Team is at work. Getting the things done.                                                      | Less Behind                                      | Yes                                        | Focusing on Pull Requests |
 | 11/22 | Nobody             | We are deep in development. Wide open.                                                         | Less Behind                                      | Yes                                        | :)                        |
 | 11/25 | Frankie, Sean      | Not much was done (expected) due to Thanksgiving. Towards the end of development of the sprint | On Track                                         | Yes                                        | :)                        |
-| 11/27 | TBD                | Wrapping up sprint                                                                             | Behind                                           | Yes                                        | :)                        |
+| 11/27 | Nobody             | Wrapping up sprint                                                                             | Behind                                           | Yes                                        | :)                        |
 
 
 ## 3: After the Sprint
