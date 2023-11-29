@@ -359,16 +359,21 @@ Example:
 ## Below is just for you as a little reminder on what needs to be done
 ### Checklist for you to see if you are done with the current Sprint
 - [x] Form above is complete
-- [ ] Your newest software is on the master branch on GitHub, it is tested and compiles/runs
+- [x] Your newest software is on the master branch on GitHub, it is tested and compiles/runs
 - [ ] This document is in your master branch on GitHub
-- [ ] Read the kickoff again to make sure you have all the details that I want
-- [ ] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
-- [ ] Your Quality Policies are accurate and up to date
+  - Will be delivered Wednesday afternoon (11/29)
+- [x] Read the kickoff again to make sure you have all the details that I want
+- [x] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
+  - n/a last sprint
+- [x] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
-  - [ ] Team member 1
-  - [ ] Team member 2
+  - [ ] Rhett Harrison
+  - [ ] Frank Lin
+  - [ ] Steven Stovall
+  - [ ] Zachary Pangerl
+  - [ ] Sean Mckeighan
 
-#### For the next Sprint
+#### For the next Sprint (n/a - last sprint)
   - [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
     - [ ] Basic information (part 1) for next Sprint was included in this new Deliverable document 
   - [ ] You added new User Stories to your Product Backlog, they are correctly written (needed after Sprint 1, 2)
