@@ -63,21 +63,28 @@ I would also advise you to already fill out the Contributions section (End of sp
 ### Sprint Review
 Answer as a team!
 
-**Screen Cast link**: Your link
+**Screen Cast link**: https://youtube.com/watch?v=M7kzpFF5zZaw
 
 > Answer the following questions as a team. 
 
 **What do you think is the value you created this Sprint?**
 
-> Your Answer
+> The FitPlanner product is now a completed working product with ability to schedule and edit gym classes.
+> To make it easier for gym staff, there is new capability to view gym classes by each room as well
+> as see a dashboard with all gym classes in each room for the current day. Additionally, there is 
+> ability to edit students and trainers to avoid the need of having to remove and re-add them. All 
+> entered data is automatically saved and reloaded each time the application is opened.
 
 **Do you think you worked enough and that you did what was expected of you?**
 
-> Your Answer
+> Yes, we aimed to get all work done in the Sprint. We ran into unforeseen issues such as dependencies
+> and challenge resolving merge conflicts. Overall, we made sure that a fully working gym scheduling
+> application was delivered.
 
 **Would you say you met the customers’ expectations? Why, why not?**
 
-> Your Answer
+> We came close to meeting the customers' expectations. We certainly delivered value but ran
+> out of time for some of the features.
 
 
 ### Sprint Retrospective
@@ -86,40 +93,45 @@ Answer as a team!
 
 **Did you meet your sprint goal?**
 
-> Your Answer
+> We partially met the sprint goal in that the application supports modifying members of the gym. For the backend, the GymClass has functionality to add and remove students, although we ran out of time to implement the corresponding UI.
 
 **Did you complete all stories on your Spring Backlog?**
 
-> Your Answer
+> We completed seven out of eight stories.
 
 **If not, what went wrong?**
 
-> Your Answer
+> We had stories in progress that blocked the last story due to dependencies.
 
 **Starting in Sprint 2**
 Include a screenshot of your Burndown chart here and analyse in detail for me why it looks the way it does and how you could improve it if it needs improving. 
 
-> Your Answer
+![Screenshot of Burndown chart](Deliverable3_burndown.png)
+
+> November 15-19: No burndown at first due to getting code reviews and challenging git merges from Sprint 2 in place
+> <br>20-22: 25% burndown as we made progress eliminating dependencies
+> <br>23: substantial burndown with increased velocity before Thanksgiving so that we could take a break
+> <br>24-27: steady burndown but slowing down due to high point US completed and lower point US having additional overhead of code reviews
 
 **Did you work at a consistent rate of speed, or velocity? (Meaning did you work during the whole Sprint or did you start working when the deadline approached.)**
 
-> Your Answer
+> Yes, we worked during the whole sprint. We did not cram everything into the last few days. We had variation in how much we got done but worked consistently throughout the whole sprint.
 
 **Did you deliver business value?**
 
-> Your Answer
+> Yes. The key features that added value are the ability to add and edit gym classes, where a gym class contains a class name/type, date, trainer, and assigned room. Also, the ability to edit students and trainers. Additionally, there is data persistence so that all the data entry is not lost when a user opens and closes the program.
 
 **Did you follow the Scrum process (e.g. move Tasks correctly?, keep the Taiga board up to date? work consistently?)**
 
-> Your Answer
+> Yes, we improved compared to Sprint 2. With more experience learned, Sprint 3 was less chaotic and more organized in working together to move tasks through each stage and test each other's tasks.
 
 **Are there things the team thinks it can do better in the next Sprint? (not needed for last Sprint)**
 
-> Your Answer
+> n/a (this is last sprint)
 
 **How do you feel at this point? Get a pulse on the optimism of the team.**
 
-> Your Answer
+> Good. :smiley:
 
 ### Contributions:
 
@@ -203,11 +215,9 @@ Copy the section for each team member and then everyone adds their individual co
 * [Add details to Blackbox guidelines of tool, what who, how, and move jacoco from Blackbox to Whitebox](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/764f4abbd27744466550dd890fed95a30b3e662a)
 
 
-#### Team member <A> -- replace <A> with your name:
+#### Rhett Harrison
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
-
-
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
@@ -239,12 +249,116 @@ Copy the section for each team member and then everyone adds their individual co
 
     - link1
     - link2
- 
-  
+
+#### Frank Lin
+
+**Do you think you individually worked consistently and put in enough work into the project (give a short answer).
+
+Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
+
+Example:
+[Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
+
+**Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
+
+    - link1
+    - link2
+
+**GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
+
+    - link1
+    - link2
+
+**GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
+
+    - link1
+    - link2
+
+
+**GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
+
+    - link1
+    - link2
+
+**How did you contribute to Static Analysis -- fill out starting Sprint 4:
+
+    - link1
+    - link2
+
+
+#### Zachary Pangerl
+
+**Do you think you individually worked consistently and put in enough work into the project (give a short answer).
+
+Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
+
+Example:
+[Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
+
+**Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
+
+    - link1
+    - link2
+
+**GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
+
+    - link1
+    - link2
+
+**GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
+
+    - link1
+    - link2
+
+
+**GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
+
+    - link1
+    - link2
+
+**How did you contribute to Static Analysis -- fill out starting Sprint 4:
+
+    - link1
+    - link2
+
+#### Sean Mckeighan
+
+**Do you think you individually worked consistently and put in enough work into the project (give a short answer).
+
+Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
+
+Example:
+[Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
+
+**Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
+
+    - link1
+    - link2
+
+**GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
+
+    - link1
+    - link2
+
+**GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
+
+    - link1
+    - link2
+
+
+**GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
+
+    - link1
+    - link2
+
+**How did you contribute to Static Analysis -- fill out starting Sprint 4:
+
+    - link1
+    - link2
 
 ## Below is just for you as a little reminder on what needs to be done
 ### Checklist for you to see if you are done with the current Sprint
-- [ ] Form above is complete
+- [x] Form above is complete
 - [ ] Your newest software is on the master branch on GitHub, it is tested and compiles/runs
 - [ ] This document is in your master branch on GitHub
 - [ ] Read the kickoff again to make sure you have all the details that I want
