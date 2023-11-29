@@ -8,6 +8,7 @@ import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Objects;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -34,22 +35,23 @@ public class StudentPanel extends JPanel {
     JButton removeStudentB = new JButton();
     JScrollPane scrollPane = new JScrollPane();
     JButton refreshB = new JButton();
-    JPopupMenu studentPopUpMenu = new JPopupMenu();
-    JMenuItem popUpRun = new JMenuItem();
+    JButton editStudentB = new JButton();
+    JPopupMenu studentJpopupMenu = new JPopupMenu();
+    JMenuItem ppRun = new JMenuItem();
     JMenuItem popUpRemoveStudent = new JMenuItem();
-    JMenuItem popUpNewStudent = new JMenuItem();
-    JMenuItem popUpRefresh = new JMenuItem();
-    StudentListImpl studentList = new StudentListImpl();
+    JMenuItem ppNewStudent = new JMenuItem();
+    JMenuItem ppRefresh = new JMenuItem();
+    StudentListImpl studentList;
     int tableIndexSelected = -1;
-    Object[][] data = new Object[0][0];
-    String[] columnNames = {
+    static Object[][] data = new Object[0][0];
+    static String[] columnNames = {
         "First Name",
         "Last Name",
         "Age",
         "Belt Rank",
         "Training Rank"
     };
-    DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
+    static DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 
     /**
      * Student Panel constructor.
@@ -66,14 +68,8 @@ public class StudentPanel extends JPanel {
         toolBar.setFloatable(false);
         this.setLayout(borderLayout1);
         newStudentB.setIcon(
-                new ImageIcon(
-                        main
-                                .java
-                                .memoranda
-                                .ui
-                                .AppFrame
-                                .class
-                                .getResource("/ui/icons/addresource.png")));
+                new ImageIcon(Objects.requireNonNull(
+                        AppFrame.class.getResource("/ui/icons/addresource.png"))));
         newStudentB.setEnabled(true);
         newStudentB.setMaximumSize(new Dimension(24, 24));
         newStudentB.setMinimumSize(new Dimension(24, 24));
@@ -87,14 +83,42 @@ public class StudentPanel extends JPanel {
             }
         });
         newStudentB.setBorderPainted(false);
-
-        // Static demo data for testing.
-        // TODO: Implement reading student list from file.
+        // START: Edit Student Button ###################
+        // Reference: newStudentB
+        editStudentB.setIcon(
+                new ImageIcon(Objects.requireNonNull(
+                        AppFrame.class
+                        .getResource("/ui/icons/editproject.png"))));
+        editStudentB.setEnabled(true);
+        editStudentB.setMaximumSize(new Dimension(24, 24));
+        editStudentB.setMinimumSize(new Dimension(24, 24));
+        editStudentB.setToolTipText(Local.getString("Edit Student"));
+        editStudentB.setRequestFocusEnabled(false);
+        editStudentB.setPreferredSize(new Dimension(24, 24));
+        editStudentB.setFocusable(false);
+        editStudentB.addActionListener(e -> {
+            // Reference: TrainersPanel.getEditTrainerButton
+            final int noRowSelected = -1;
+            int rowSelectedIdx = tableIndexSelected;
+            if (rowSelectedIdx != noRowSelected) {
+                StudentDialogEdit studentDialogEdit =
+                        new StudentDialogEdit(rowSelectedIdx);
+                studentDialogEdit.setVisible(true);
+            }
+        });
+        // END: Edit Student Button #####################
 
         data = updateStudentTable();
         //studentTable = new JTable(data, columnNames);
         dtm = new DefaultTableModel(data, columnNames);
-        JTable studentTable = new JTable(dtm);
+        JTable studentTable = new JTable(dtm) {
+            // disable double-click editing by default in JTable
+            // credit to Zach and Rhett for suggestion
+            // reference: https://www.tutorialspoint.com/how-can-we-disable-the-cell-editing-inside-a-jtable-in-java
+            public boolean editCellAt(int row, int column, java.util.EventObject e) {
+                return false;
+            }
+        };
         studentTable.setLayout(new GridLayout(2,0));
         //table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         studentTable.setFillsViewportHeight(true);
@@ -156,13 +180,8 @@ public class StudentPanel extends JPanel {
         removeStudentB.setMaximumSize(new Dimension(24, 24));
         removeStudentB.setIcon(
                 new ImageIcon(
-                        main
-                                .java
-                                .memoranda
-                                .ui
-                                .AppFrame
-                                .class
-                                .getResource("/ui/icons/removeresource.png")));
+                        Objects.requireNonNull(
+                                AppFrame.class.getResource("/ui/icons/removeresource.png"))));
         scrollPane.getViewport().setBackground(Color.white);
 
         toolBar.addSeparator(new Dimension(8, 24));
@@ -190,22 +209,17 @@ public class StudentPanel extends JPanel {
         refreshB.setMaximumSize(new Dimension(24, 24));
         refreshB.setEnabled(true);
         refreshB.setIcon(
-                new ImageIcon(main
-                        .java
-                        .memoranda
-                        .ui
-                        .AppFrame
-                        .class
-                        .getResource("/ui/icons/refreshres.png")));
-        studentPopUpMenu.setFont(new java.awt.Font("Dialog", 1, 10));
-        popUpRun.setFont(new java.awt.Font("Dialog", 1, 11));
-        popUpRun.setText(Local.getString("Open resource") + "...");
-        popUpRun.addActionListener(new java.awt.event.ActionListener() {
+                new ImageIcon(Objects.requireNonNull(
+                        AppFrame.class.getResource("/ui/icons/refreshres.png"))));
+        studentJpopupMenu.setFont(new java.awt.Font("Dialog", 1, 10));
+        ppRun.setFont(new java.awt.Font("Dialog", 1, 11));
+        ppRun.setText(Local.getString("Open resource") + "...");
+        ppRun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppRun_actionPerformed(e);
             }
         });
-        popUpRun.setEnabled(false);
+        ppRun.setEnabled(false);
 
         popUpRemoveStudent.setFont(new java.awt.Font("Dialog", 1, 11));
         popUpRemoveStudent.setText(Local.getString("Remove Student"));
@@ -217,57 +231,43 @@ public class StudentPanel extends JPanel {
         });
 
          */
-        popUpRemoveStudent.setIcon(new ImageIcon(main
-                .java
-                .memoranda
-                .ui
-                .AppFrame
-                .class
-                .getResource("/ui/icons/removeresource.png")));
+        popUpRemoveStudent.setIcon(new ImageIcon(Objects.requireNonNull(
+                AppFrame.class.getResource("/ui/icons/removeresource.png"))));
         popUpRemoveStudent.setEnabled(false);
-        popUpNewStudent.setFont(new java.awt.Font("Dialog", 1, 11));
-        popUpNewStudent.setText(Local.getString("New Student") + "...");
-        popUpNewStudent.addActionListener(new java.awt.event.ActionListener() {
+        ppNewStudent.setFont(new java.awt.Font("Dialog", 1, 11));
+        ppNewStudent.setText(Local.getString("New Student") + "...");
+        ppNewStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppNewStudent_actionPerformed(e);
             }
         });
-        popUpNewStudent.setIcon(new ImageIcon(main
-                .java
-                .memoranda
-                .ui
-                .AppFrame
-                .class
-                .getResource("/ui/icons/addresource.png")));
+        ppNewStudent.setIcon(new ImageIcon(Objects.requireNonNull(
+                AppFrame.class.getResource("/ui/icons/addresource.png"))));
 
-        popUpRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
-        popUpRefresh.setText(Local.getString("Refresh"));
-        popUpRefresh.addActionListener(new java.awt.event.ActionListener() {
+        ppRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
+        ppRefresh.setText(Local.getString("Refresh"));
+        ppRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ppRefresh_actionPerformed(e);
             }
         });
-        popUpRefresh.setIcon(new ImageIcon(main
-                .java
-                .memoranda
-                .ui
-                .AppFrame
-                .class
-                .getResource("/ui/icons/refreshres.png")));
+        ppRefresh.setIcon(new ImageIcon(Objects.requireNonNull(
+                AppFrame.class.getResource("/ui/icons/refreshres.png"))));
 
         toolBar.add(newStudentB, null);
         toolBar.add(removeStudentB, null);
+        toolBar.add(editStudentB, null);
         toolBar.addSeparator();
         toolBar.add(refreshB, null);
         this.add(scrollPane, BorderLayout.CENTER);
         scrollPane.getViewport().add(studentTable, null);
         this.add(toolBar, BorderLayout.NORTH);
-        studentPopUpMenu.add(popUpRun);
-        studentPopUpMenu.addSeparator();
-        studentPopUpMenu.add(popUpNewStudent);
-        studentPopUpMenu.add(popUpRemoveStudent);
-        studentPopUpMenu.addSeparator();
-        studentPopUpMenu.add(popUpRefresh);
+        studentJpopupMenu.add(ppRun);
+        studentJpopupMenu.addSeparator();
+        studentJpopupMenu.add(ppNewStudent);
+        studentJpopupMenu.add(popUpRemoveStudent);
+        studentJpopupMenu.addSeparator();
+        studentJpopupMenu.add(ppRefresh);
         /*
         studentTable.addKeyListener(new KeyListener() {
             public void keyPressed(KeyEvent e) {
@@ -294,11 +294,8 @@ public class StudentPanel extends JPanel {
         AddStudentDialog dlg = new AddStudentDialog(App.getFrame(), Local.getString("New Student"));
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
-        dlg.setLocation(
-                (frmSize.width - dlg.getSize().width) / 2
-                        + loc.x,
-                (frmSize.height - dlg.getSize().height) / 2
-                        + loc.y);
+        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2
+                + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
         dlg.setVisible(true);
         if (dlg.isCanceled) {
             return;
@@ -314,11 +311,11 @@ public class StudentPanel extends JPanel {
      * Update the UI table with current student data.
      * @return Double array of object, student data.
      */
-    public Object[][] updateStudentTable() {
-        int count = studentList.getAllStudentCount();
+    public static Object[][] updateStudentTable() {
+        int count = StudentListImpl.getStudentList().size();
         Object[][] data = new Object[count][columnNames.length];
         for (int i = 0; i < count; i++) {
-            Student student = studentList.getStudentByIndex(i);
+            Student student = StudentListImpl.getStudentByIndex(i);
             data[i][0] = student.getFirstName();
             data[i][1] = student.getLastName();
             data[i][2] = student.getAge();
@@ -326,6 +323,14 @@ public class StudentPanel extends JPanel {
             data[i][4] = student.getTrainingRank();
         }
         return data;
+    }
+
+    /**
+     * Update and refresh data of student table.
+     */
+    public static void refreshStudentTable() {
+        data = updateStudentTable();
+        dtm.setDataVector(data, columnNames);
     }
 
     class PopupListener extends MouseAdapter {
@@ -344,7 +349,7 @@ public class StudentPanel extends JPanel {
 
         private void maybeShowPopup(MouseEvent e) {
             if (e.isPopupTrigger()) {
-                studentPopUpMenu.show(e.getComponent(), e.getX(), e.getY());
+                studentJpopupMenu.show(e.getComponent(), e.getX(), e.getY());
             }
         }
 
