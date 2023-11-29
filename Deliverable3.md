@@ -244,9 +244,8 @@ Copy the section for each team member and then everyone adds their individual co
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-  [Sort GymClasses](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/10325bdbcc0eee87f9012cdc7479c8af34626e80/src/test/java/GymClassListTest.java)
-
-  [Add Students to GymClass](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e7755c7a429899668b4a7fc81f7d22ba82e7e11d)
+    - link1
+    - link2
 
   
   **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
@@ -364,16 +363,21 @@ Example:
 ## Below is just for you as a little reminder on what needs to be done
 ### Checklist for you to see if you are done with the current Sprint
 - [x] Form above is complete
-- [ ] Your newest software is on the master branch on GitHub, it is tested and compiles/runs
+- [x] Your newest software is on the master branch on GitHub, it is tested and compiles/runs
 - [ ] This document is in your master branch on GitHub
-- [ ] Read the kickoff again to make sure you have all the details that I want
+  - Will be delivered Wednesday afternoon (11/29)
+- [x] Read the kickoff again to make sure you have all the details that I want
 - [x] User Stories that were not completed, were left in the Sprint and a copy created to move to the next Sprint
+  - n/a last sprint
 - [x] Your Quality Policies are accurate and up to date
 - [ ] **Individual** Survey was submitted **individually** (create checkboxes below -- see Canvas to get link)
   - [x] Rhett Harrison
-  - [ ] Team member 2
+  - [ ] Frank Lin
+  - [ ] Steven Stovall
+  - [ ] Zachary Pangerl
+  - [ ] Sean Mckeighan
 
-#### For the next Sprint
+#### For the next Sprint (n/a - last sprint)
   - [ ] The original of this file was copied for the next Sprint (needed for all but last Sprint where you do not need to copy it anymore)
     - [ ] Basic information (part 1) for next Sprint was included in this new Deliverable document 
   - [ ] You added new User Stories to your Product Backlog, they are correctly written (needed after Sprint 1, 2)
