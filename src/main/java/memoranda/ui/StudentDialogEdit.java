@@ -1,9 +1,10 @@
 /*
-  File: TrainerDialog.java
+  File: StudentDialogEdit.java
   Author: Steven Stovall
-  Version: 2023.11.09
+  Version: 2023.11.25
 
-  Description: Trainer dialog to add a trainer
+  Description: Student dialog to edit a student
+  Reference: Based on TrainerDialogEdit.java (Stovall)
 */
 
 package main.java.memoranda.ui;
@@ -26,41 +27,46 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import main.java.memoranda.BeltRank;
-import main.java.memoranda.Trainer;
-import main.java.memoranda.TrainerList;
+import main.java.memoranda.Student;
+import main.java.memoranda.StudentListImpl;
 import main.java.memoranda.util.Local;
 
 /**
- * Provides Pop-up dialog box to add a trainer.
+ * Provides Pop-up dialog box to edit a student.
  */
-public class TrainerDialog extends JDialog {
+public class StudentDialogEdit extends JDialog {
     private final JTextField firstNameTextField;
     private final JTextField lastNameTextField;
+    private final JTextField ageTextField;
     private final JComboBox<String> trainingRankCombo;
     private final JComboBox<String> beltRankCombo;
+    private final Student studentToEdit;
 
     /**
-     * Default constructor.
+     * Constructor.
+     * @param selectedRowToEditIndex int idx of row selected when edit dialog launched.
      */
-    public TrainerDialog() {
+    public StudentDialogEdit(int selectedRowToEditIndex) {
         // -------------------------------------------------------------------
         // Reference: TaskDialog.java START
-        super(App.getFrame(), "Add Trainer", true);
+        super(App.getFrame(), "Edit Student", true);
+        // Find student to edit
+        studentToEdit = StudentListImpl.getStudentByIndex(selectedRowToEditIndex);
 
         // ####################################################################
-        // header: Add Trainer and Trainer logo
+        // header: Edit Student and Student logo
         JLabel header = new JLabel();
-        header.setFont(new java.awt.Font("Dialog", Font.BOLD, 20));
+        header.setFont(new Font("Dialog", Font.BOLD, 20));
         // ASU Maroon: 140, 29, 64
         // https://brandguide.asu.edu/brand-elements/design/color
         header.setForeground(new Color(140, 29, 64));
-        header.setText(Local.getString("Add Trainer"));
+        header.setText(Local.getString("Edit Student"));
         // IntelliJ suggested requireNonNull
-        // Reference: WorkPanel.java - add the Trainer icon to make it look nice
+        // Reference: WorkPanel.java - add the Student icon to make it look nice
+        // Reference: student_48 from AddStudentDialog.java
         header.setIcon(new ImageIcon(
                 Objects.requireNonNull(
-                        AppFrame.class.getResource("/ui/icons/trainer.png"))));
-
+                        AppFrame.class.getResource("/ui/icons/student_48.png"))));
         JPanel dialogTitlePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         dialogTitlePanel.add(header, null);
         this.getContentPane().add(dialogTitlePanel, BorderLayout.NORTH);
@@ -90,6 +96,7 @@ public class TrainerDialog extends JDialog {
         int textColumnWidth = 16;
         firstNameTextField = new JTextField(textColumnWidth);
         inputPanel.add(firstNameTextField, gridBagConstraints);
+        firstNameTextField.setText(studentToEdit.getFirstName());
 
         // ####################################################################
         // Last Name
@@ -97,28 +104,23 @@ public class TrainerDialog extends JDialog {
         gridBagConstraints.gridy = 1;
         JLabel lastNameLabel = new JLabel("Last Name");
         inputPanel.add(lastNameLabel, gridBagConstraints);
-        //gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         lastNameTextField = new JTextField(textColumnWidth);
         inputPanel.add(lastNameTextField, gridBagConstraints);
+        lastNameTextField.setText(studentToEdit.getLastName());
 
         // ####################################################################
-        // Training Rank
-        // ####################################################################
-        // Reference: https://www.geeksforgeeks.org/java-swing-jcombobox-examples/
-        // Reference:
-        /* https://stackoverflow.com/questions/20596020/
-        / jcombobox-is-a-raw-type-references-to-generic-type-jcomboboxe-should-be-param */
+        // Age
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        JLabel trainingRankLabel = new JLabel("Training Rank");
-        inputPanel.add(trainingRankLabel, gridBagConstraints);
-        //gridBagConstraints.fill = GridBagConstraints.BOTH;
+        JLabel ageLabel = new JLabel("Age");
+        inputPanel.add(ageLabel, gridBagConstraints);
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        trainingRankCombo = new JComboBox<>(BeltRank.getBeltRanks());
-        inputPanel.add(trainingRankCombo, gridBagConstraints);
+        ageTextField = new JTextField(textColumnWidth);
+        inputPanel.add(ageTextField, gridBagConstraints);
+        ageTextField.setText(String.valueOf(studentToEdit.getAge()));
 
         // ####################################################################
         // Belt Rank
@@ -132,19 +134,37 @@ public class TrainerDialog extends JDialog {
         gridBagConstraints.gridy = 3;
         beltRankCombo = new JComboBox<>(BeltRank.getBeltRanks());
         inputPanel.add(beltRankCombo, gridBagConstraints);
+        beltRankCombo.setSelectedIndex(studentToEdit.getBeltRank().ordinal());
 
         // ####################################################################
-        // Buttons: Add, Cancel
-        // https://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Insets.html
-        // top, right, bottom, left
+        // Training Rank
+        // ####################################################################
+        // Reference: https://www.geeksforgeeks.org/java-swing-jcombobox-examples/
+        // Reference:
+        /* https://stackoverflow.com/questions/20596020/
+        / jcombobox-is-a-raw-type-references-to-generic-type-jcomboboxe-should-be-param */
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new Insets(10, 10, 0, 5);
-        JButton addButton = getAddButton();
-        inputPanel.add(addButton, gridBagConstraints);
+        JLabel trainingRankLabel = new JLabel("Training Rank");
+        inputPanel.add(trainingRankLabel, gridBagConstraints);
         //gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
+        trainingRankCombo = new JComboBox<>(BeltRank.getBeltRanks());
+        inputPanel.add(trainingRankCombo, gridBagConstraints);
+        trainingRankCombo.setSelectedIndex(studentToEdit.getTrainingRank().ordinal());
+        // ####################################################################
+        // Buttons: Save, Cancel
+        // https://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Insets.html
+        // top, right, bottom, left
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.insets = new Insets(10, 10, 0, 5);
+        JButton saveButton = getSaveButton();
+        inputPanel.add(saveButton, gridBagConstraints);
+        //gridBagConstraints.fill = GridBagConstraints.BOTH;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.insets = new Insets(10, 5, 0, 10);
         JButton cancelButton = getCancelButton();
         inputPanel.add(cancelButton, gridBagConstraints);
@@ -153,24 +173,31 @@ public class TrainerDialog extends JDialog {
     }
 
     /**
-     * Create the Add button.
-     * @return JButton Add button
+     * Create the Save button.
+     * @return JButton Save button
      */
-    private JButton getAddButton() {
-        JButton addButton = new JButton("Add");
-        addButton.addActionListener(e -> {
-            Trainer newTrainer = new Trainer();
-            newTrainer.setFirstName(firstNameTextField.getText());
-            newTrainer.setLastName(lastNameTextField.getText());
-            newTrainer.setBeltRank(BeltRank.Rank.valueOf((String) beltRankCombo.getSelectedItem()));
-            newTrainer.setTrainingRank(
-                BeltRank.Rank.valueOf((String) trainingRankCombo.getSelectedItem()));
-            TrainerList.addTrainer(newTrainer);
-            TrainersPanel.refreshTrainersTable();
-            JOptionPane.showMessageDialog(null, "Successfully added Trainer!");
-            dispose(); // close dialog
+    private JButton getSaveButton() {
+        JButton saveButton = new JButton("Save");
+        saveButton.addActionListener(e -> {
+            String errorMessage = studentToEdit.editStudent(
+                    firstNameTextField.getText(),
+                    lastNameTextField.getText(),
+                    Integer.parseInt(ageTextField.getText()),
+                    BeltRank.Rank.valueOf((String) trainingRankCombo.getSelectedItem()),
+                    BeltRank.Rank.valueOf((String) beltRankCombo.getSelectedItem()));
+
+            if (errorMessage.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Successfully edited Student!");
+                StudentPanel.refreshStudentTable();
+                dispose(); // close dialog
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        errorMessage,
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
         });
-        return addButton;
+        return saveButton;
     }
 
     /**
