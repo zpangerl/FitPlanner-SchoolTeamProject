@@ -217,38 +217,39 @@ Copy the section for each team member and then everyone adds their individual co
 
 #### Rhett Harrison
 
-  **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
+**Do you think you individually worked consistently and put in enough work into the project (give a short answer).
 
- Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
+Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
-  Example: 
-  [Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
+Example:
+[Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
 
-  **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
-
-    - link1
-    - link2
-
-  **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
+**Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
     - link1
     - link2
 
-   **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
+**GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
     - link1
     - link2
 
-  
-  **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
+**GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
     - link1
     - link2
 
-  **How did you contribute to Static Analysis -- fill out starting Sprint 4:
+
+**GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
     - link1
     - link2
+
+**How did you contribute to Static Analysis -- fill out starting Sprint 4:
+
+    - link1
+    - link2
+
 
 #### Frank Lin
 
@@ -283,38 +284,43 @@ Example:
 
 #### Zachary Pangerl
 
-**Do you think you individually worked consistently and put in enough work into the project (give a short answer).
+  **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
+> I would say so, I definitely had a few days where I was working on Assignment 5b, though. I feel like because we had less tasks in this Sprint it was harder to get as many tasks as I wanted to, since pretty much everything was taken by the time I finished my second one. I was definitely more active on GitHub, though, especially compared to the last two sprints.
 
-Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
+ Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
-Example:
-[Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
+  Example: 
+  [Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
 
-**Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
+  **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+    - [US154 Task155](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e722ed35a6a98d5eb0ebda4ed4d7363e3e86c3e4)
+    - [US162 Task168](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/ee823fbdb663059f880a1eb87743d114ad71c3ef)
+    - [US162 Task168](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/1950a5eaae7df8de549583a5808d351d6dc11cb3)
 
-**GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
+  **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+    - [PR 62](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/62)
+    - [PR 59](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/59)
+    - [PR 50, from Sprint 2 but fixed and merged in Sprint 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/50)
 
-**GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
+   **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-    - link1
-    - link2
+    - [US154 Task155 Unit Tests](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/049ae1961724ebdf57bfa1ca85bc67c5218d8e7b)
+    - [US162 Task168 Unit Test](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/ff60e3fc25469bc20583cdd626c904675ec909b8)
 
+  
+  **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-**GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
+    - [PR 63 Review](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/63#pullrequestreview-1754141260)
+    - [PR 56 Review](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/56#pullrequestreview-1745788342)
+    - [PR 61 Review](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/61#pullrequestreview-1749583541)
 
-    - link1
-    - link2
+  **How did you contribute to Static Analysis -- fill out starting Sprint 4:
 
-**How did you contribute to Static Analysis -- fill out starting Sprint 4:
+    - [Resolve CheckStyle errors in Student related classes](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/63433962cb92fbb89afbef6a77f39712d3a452e9)
+    - [Resolve CheckStyle errors in US162](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/53d8d1b892d641a57adbf3029c2d93e3b6fba806)
 
-    - link1
-    - link2
 
 #### Sean Mckeighan
 
