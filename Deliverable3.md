@@ -254,36 +254,31 @@ Copy the section for each team member and then everyone adds their individual co
 
 **Do you think you individually worked consistently and put in enough work into the project (give a short answer).
 
-Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
+> Certainly! I made sure to consistently contribute to the project by fulfilling my assigned tasks, attending all relevant meetings, and actively collaborating with the team to ensure the project's success.
 
 Example:
 [Commit 1](https://github.com/amehlhase316/memoranda/commit/b949872433ae07f723bebe13c916064d03ef8882) - Updated DeliverableX.md table to include who did not attend meetings
 
 **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - link1
-    - link2
+- [Integrate the create new gym class dialog into the gym class panel.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/d5e34f99b023f2d76138157c939a6749ae6e2a16)
 
 **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - link1
-    - link2
+- [Implements the ability that allows the end user to add a gym class and to display them on the gym class panel.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/56)
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-    - link1
-    - link2
+- [Add tests for gym class creation.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e29147012a4b1183ba63d30285e6229762460733)
 
 
 **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-    - link1
-    - link2
+- [Code review to the PR that implements a daily view panel.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/59)
 
 **How did you contribute to Static Analysis -- fill out starting Sprint 4:
 
-    - link1
-    - link2
+- [Resolve checkstyle errors in a working US branch.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/908d98096f4a0db6eb0947a322ac6b3255e0c950)
 
 
 #### Zachary Pangerl
