@@ -1,12 +1,30 @@
 package main.java.memoranda.ui;
 
-import main.java.memoranda.*;
-import main.java.memoranda.util.Local;
-
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Objects;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JToolBar;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
-import java.awt.event.*;
+import main.java.memoranda.Student;
+import main.java.memoranda.StudentListImpl;
+import main.java.memoranda.util.Local;
 
 public class StudentPanel extends JPanel {
     BorderLayout borderLayout1 = new BorderLayout();
@@ -17,22 +35,23 @@ public class StudentPanel extends JPanel {
     JButton removeStudentB = new JButton();
     JScrollPane scrollPane = new JScrollPane();
     JButton refreshB = new JButton();
-    JPopupMenu studentPPMenu = new JPopupMenu();
+    JButton editStudentB = new JButton();
+    JPopupMenu studentJpopupMenu = new JPopupMenu();
     JMenuItem ppRun = new JMenuItem();
-    JMenuItem ppRemoveStudent = new JMenuItem();
+    JMenuItem popUpRemoveStudent = new JMenuItem();
     JMenuItem ppNewStudent = new JMenuItem();
     JMenuItem ppRefresh = new JMenuItem();
-    StudentListImpl studentList = new StudentListImpl();
+    StudentListImpl studentList;
     int tableIndexSelected = -1;
-    Object[][] data = new Object[0][0];
-    String[] columnNames = {
-            "First Name",
-            "Last Name",
-            "Age",
-            "Belt Rank",
-            "Training Rank"
+    static Object[][] data = new Object[0][0];
+    static String[] columnNames = {
+        "First Name",
+        "Last Name",
+        "Age",
+        "Belt Rank",
+        "Training Rank"
     };
-    DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
+    static DefaultTableModel dtm = new DefaultTableModel(data, columnNames);
 
     /**
      * Student Panel constructor.
@@ -49,7 +68,8 @@ public class StudentPanel extends JPanel {
         toolBar.setFloatable(false);
         this.setLayout(borderLayout1);
         newStudentB.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/addresource.png")));
+                new ImageIcon(Objects.requireNonNull(
+                        AppFrame.class.getResource("/ui/icons/addresource.png"))));
         newStudentB.setEnabled(true);
         newStudentB.setMaximumSize(new Dimension(24, 24));
         newStudentB.setMinimumSize(new Dimension(24, 24));
@@ -63,14 +83,42 @@ public class StudentPanel extends JPanel {
             }
         });
         newStudentB.setBorderPainted(false);
-
-        // Static demo data for testing.
-        // TODO: Implement reading student list from file.
+        // START: Edit Student Button ###################
+        // Reference: newStudentB
+        editStudentB.setIcon(
+                new ImageIcon(Objects.requireNonNull(
+                        AppFrame.class
+                        .getResource("/ui/icons/editproject.png"))));
+        editStudentB.setEnabled(true);
+        editStudentB.setMaximumSize(new Dimension(24, 24));
+        editStudentB.setMinimumSize(new Dimension(24, 24));
+        editStudentB.setToolTipText(Local.getString("Edit Student"));
+        editStudentB.setRequestFocusEnabled(false);
+        editStudentB.setPreferredSize(new Dimension(24, 24));
+        editStudentB.setFocusable(false);
+        editStudentB.addActionListener(e -> {
+            // Reference: TrainersPanel.getEditTrainerButton
+            final int noRowSelected = -1;
+            int rowSelectedIdx = tableIndexSelected;
+            if (rowSelectedIdx != noRowSelected) {
+                StudentDialogEdit studentDialogEdit =
+                        new StudentDialogEdit(rowSelectedIdx);
+                studentDialogEdit.setVisible(true);
+            }
+        });
+        // END: Edit Student Button #####################
 
         data = updateStudentTable();
         //studentTable = new JTable(data, columnNames);
         dtm = new DefaultTableModel(data, columnNames);
-        JTable studentTable = new JTable(dtm);
+        JTable studentTable = new JTable(dtm) {
+            // disable double-click editing by default in JTable
+            // credit to Zach and Rhett for suggestion
+            // reference: https://www.tutorialspoint.com/how-can-we-disable-the-cell-editing-inside-a-jtable-in-java
+            public boolean editCellAt(int row, int column, java.util.EventObject e) {
+                return false;
+            }
+        };
         studentTable.setLayout(new GridLayout(2,0));
         //table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         studentTable.setFillsViewportHeight(true);
@@ -83,12 +131,11 @@ public class StudentPanel extends JPanel {
                 int y = (int) e.getPoint().getY();
                 Point point = new Point(20, y);
                 int b = studentTable.rowAtPoint(point);
-                if(b < 0){
+                if (b < 0) {
                     studentTable.clearSelection();
                     studentTable.updateUI();
                     tableIndexSelected = -1;
-                }
-                else {
+                } else {
                     tableIndexSelected = b;
                 }
             }
@@ -118,13 +165,11 @@ public class StudentPanel extends JPanel {
                 int res = JOptionPane.showConfirmDialog(null, panel, "Delete Student",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.PLAIN_MESSAGE);
-                if(res == 0) {
+                if (res == 0) {
                     studentList.removeStudent(studentList.getStudentByIndex(tableIndexSelected));
                     data = updateStudentTable();
                     dtm.setDataVector(data, columnNames);
                     tableIndexSelected = -1;
-                } else {
-
                 }
             }
         });
@@ -135,7 +180,8 @@ public class StudentPanel extends JPanel {
         removeStudentB.setMaximumSize(new Dimension(24, 24));
         removeStudentB.setIcon(
                 new ImageIcon(
-                        main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removeresource.png")));
+                        Objects.requireNonNull(
+                                AppFrame.class.getResource("/ui/icons/removeresource.png"))));
         scrollPane.getViewport().setBackground(Color.white);
 
         toolBar.addSeparator(new Dimension(8, 24));
@@ -163,8 +209,9 @@ public class StudentPanel extends JPanel {
         refreshB.setMaximumSize(new Dimension(24, 24));
         refreshB.setEnabled(true);
         refreshB.setIcon(
-                new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/refreshres.png")));
-        studentPPMenu.setFont(new java.awt.Font("Dialog", 1, 10));
+                new ImageIcon(Objects.requireNonNull(
+                        AppFrame.class.getResource("/ui/icons/refreshres.png"))));
+        studentJpopupMenu.setFont(new java.awt.Font("Dialog", 1, 10));
         ppRun.setFont(new java.awt.Font("Dialog", 1, 11));
         ppRun.setText(Local.getString("Open resource") + "...");
         ppRun.addActionListener(new java.awt.event.ActionListener() {
@@ -174,8 +221,8 @@ public class StudentPanel extends JPanel {
         });
         ppRun.setEnabled(false);
 
-        ppRemoveStudent.setFont(new java.awt.Font("Dialog", 1, 11));
-        ppRemoveStudent.setText(Local.getString("Remove Student"));
+        popUpRemoveStudent.setFont(new java.awt.Font("Dialog", 1, 11));
+        popUpRemoveStudent.setText(Local.getString("Remove Student"));
         /*
         ppRemoveStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -184,8 +231,9 @@ public class StudentPanel extends JPanel {
         });
 
          */
-        ppRemoveStudent.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/removeresource.png")));
-        ppRemoveStudent.setEnabled(false);
+        popUpRemoveStudent.setIcon(new ImageIcon(Objects.requireNonNull(
+                AppFrame.class.getResource("/ui/icons/removeresource.png"))));
+        popUpRemoveStudent.setEnabled(false);
         ppNewStudent.setFont(new java.awt.Font("Dialog", 1, 11));
         ppNewStudent.setText(Local.getString("New Student") + "...");
         ppNewStudent.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +241,8 @@ public class StudentPanel extends JPanel {
                 ppNewStudent_actionPerformed(e);
             }
         });
-        ppNewStudent.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/addresource.png")));
+        ppNewStudent.setIcon(new ImageIcon(Objects.requireNonNull(
+                AppFrame.class.getResource("/ui/icons/addresource.png"))));
 
         ppRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
         ppRefresh.setText(Local.getString("Refresh"));
@@ -202,21 +251,23 @@ public class StudentPanel extends JPanel {
                 ppRefresh_actionPerformed(e);
             }
         });
-        ppRefresh.setIcon(new ImageIcon(main.java.memoranda.ui.AppFrame.class.getResource("/ui/icons/refreshres.png")));
+        ppRefresh.setIcon(new ImageIcon(Objects.requireNonNull(
+                AppFrame.class.getResource("/ui/icons/refreshres.png"))));
 
         toolBar.add(newStudentB, null);
         toolBar.add(removeStudentB, null);
+        toolBar.add(editStudentB, null);
         toolBar.addSeparator();
         toolBar.add(refreshB, null);
         this.add(scrollPane, BorderLayout.CENTER);
         scrollPane.getViewport().add(studentTable, null);
         this.add(toolBar, BorderLayout.NORTH);
-        studentPPMenu.add(ppRun);
-        studentPPMenu.addSeparator();
-        studentPPMenu.add(ppNewStudent);
-        studentPPMenu.add(ppRemoveStudent);
-        studentPPMenu.addSeparator();
-        studentPPMenu.add(ppRefresh);
+        studentJpopupMenu.add(ppRun);
+        studentJpopupMenu.addSeparator();
+        studentJpopupMenu.add(ppNewStudent);
+        studentJpopupMenu.add(popUpRemoveStudent);
+        studentJpopupMenu.addSeparator();
+        studentJpopupMenu.add(ppRefresh);
         /*
         studentTable.addKeyListener(new KeyListener() {
             public void keyPressed(KeyEvent e) {
@@ -243,9 +294,10 @@ public class StudentPanel extends JPanel {
         AddStudentDialog dlg = new AddStudentDialog(App.getFrame(), Local.getString("New Student"));
         Dimension frmSize = App.getFrame().getSize();
         Point loc = App.getFrame().getLocation();
-        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2
+                + loc.x, (frmSize.height - dlg.getSize().height) / 2 + loc.y);
         dlg.setVisible(true);
-        if (dlg.CANCELLED) {
+        if (dlg.isCanceled) {
             return;
         } else {
             studentList.addStudent(dlg.getStudent());
@@ -259,11 +311,11 @@ public class StudentPanel extends JPanel {
      * Update the UI table with current student data.
      * @return Double array of object, student data.
      */
-    public Object[][] updateStudentTable() {
-        int count = studentList.getAllStudentCount();
+    public static Object[][] updateStudentTable() {
+        int count = StudentListImpl.getStudentList().size();
         Object[][] data = new Object[count][columnNames.length];
         for (int i = 0; i < count; i++) {
-            Student student = studentList.getStudentByIndex(i);
+            Student student = StudentListImpl.getStudentByIndex(i);
             data[i][0] = student.getFirstName();
             data[i][1] = student.getLastName();
             data[i][2] = student.getAge();
@@ -272,6 +324,15 @@ public class StudentPanel extends JPanel {
         }
         return data;
     }
+
+    /**
+     * Update and refresh data of student table.
+     */
+    public static void refreshStudentTable() {
+        data = updateStudentTable();
+        dtm.setDataVector(data, columnNames);
+    }
+
     class PopupListener extends MouseAdapter {
 
         public void mouseClicked(MouseEvent e) {
@@ -288,7 +349,7 @@ public class StudentPanel extends JPanel {
 
         private void maybeShowPopup(MouseEvent e) {
             if (e.isPopupTrigger()) {
-                studentPPMenu.show(e.getComponent(), e.getX(), e.getY());
+                studentJpopupMenu.show(e.getComponent(), e.getX(), e.getY());
             }
         }
 

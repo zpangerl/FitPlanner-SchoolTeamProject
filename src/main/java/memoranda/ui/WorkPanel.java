@@ -1,23 +1,10 @@
 package main.java.memoranda.ui;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JToolBar;
-import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
-
-import main.java.memoranda.util.Context;
-import main.java.memoranda.util.Local;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.border.*;
+import main.java.memoranda.util.*;
 
 /**
  * 
@@ -35,9 +22,12 @@ public class WorkPanel extends JPanel {
 	public DailyItemsPanel dailyItemsPanel = new DailyItemsPanel(this);
 	public ResourcesPanel filesPanel = new ResourcesPanel();
 	public TrainersPanel trainersPanel = new TrainersPanel();
+	public DailyAgendaPanel agendaPanel = new DailyAgendaPanel();
+	public RoomsPanel roomsPanel = new RoomsPanel();
+	public GymClassPanel gymClassPanel = new GymClassPanel();
 	public StudentPanel studentsPanel = new StudentPanel();
 	public JButton agendaB = new JButton();
-	public JButton tasksB = new JButton();
+	public JButton classesB = new JButton();
 	public JButton eventsB = new JButton();
 	public JButton filesB = new JButton();
 	public JButton trainersB = new JButton();
@@ -82,7 +72,7 @@ public class WorkPanel extends JPanel {
 		agendaB.setContentAreaFilled(false);
 		agendaB.setFocusPainted(false);
 		agendaB.setHorizontalTextPosition(SwingConstants.CENTER);
-		agendaB.setText(Local.getString("Agenda"));
+		agendaB.setText(Local.getString("Schedule"));
 		agendaB.setVerticalAlignment(SwingConstants.TOP);
 		agendaB.setVerticalTextPosition(SwingConstants.BOTTOM);
 		agendaB.addActionListener(new java.awt.event.ActionListener() {
@@ -124,30 +114,30 @@ public class WorkPanel extends JPanel {
 		eventsB.setMargin(new Insets(0, 0, 0, 0));
 		//eventsB.setSelected(true);
 
-		tasksB.setSelected(true);
-		tasksB.setFont(new java.awt.Font("Dialog", 1, 10));
-		tasksB.setMargin(new Insets(0, 0, 0, 0));
-		tasksB.setIcon(
+		classesB.setSelected(true);
+		classesB.setFont(new java.awt.Font("Dialog", 1, 10));
+		classesB.setMargin(new Insets(0, 0, 0, 0));
+		classesB.setIcon(
 			new ImageIcon(
 				main.java.memoranda.ui.AppFrame.class.getResource(
 					"/ui/icons/gym.png")));
-		tasksB.setVerticalTextPosition(SwingConstants.BOTTOM);
-		tasksB.addActionListener(new java.awt.event.ActionListener() {
+		classesB.setVerticalTextPosition(SwingConstants.BOTTOM);
+		classesB.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tasksB_actionPerformed(e);
+				classesB_actionPerformed(e);
 			}
 		});
-		tasksB.setVerticalAlignment(SwingConstants.TOP);
-		tasksB.setText(Local.getString("Classes"));
-		tasksB.setHorizontalTextPosition(SwingConstants.CENTER);
-		tasksB.setFocusPainted(false);
-		tasksB.setBorderPainted(false);
-		tasksB.setContentAreaFilled(false);
-		tasksB.setPreferredSize(new Dimension(50, 50));
-		tasksB.setMinimumSize(new Dimension(30, 30));
-		tasksB.setOpaque(false);
-		tasksB.setMaximumSize(new Dimension(60, 80));
-		tasksB.setBackground(Color.white);
+		classesB.setVerticalAlignment(SwingConstants.TOP);
+		classesB.setText(Local.getString("Classes"));
+		classesB.setHorizontalTextPosition(SwingConstants.CENTER);
+		classesB.setFocusPainted(false);
+		classesB.setBorderPainted(false);
+		classesB.setContentAreaFilled(false);
+		classesB.setPreferredSize(new Dimension(50, 50));
+		classesB.setMinimumSize(new Dimension(30, 30));
+		classesB.setOpaque(false);
+		classesB.setMaximumSize(new Dimension(60, 80));
+		classesB.setBackground(Color.white);
 
 		notesB.setFont(new java.awt.Font("Dialog", 1, 10));
 		notesB.setBackground(Color.white);
@@ -233,11 +223,14 @@ public class WorkPanel extends JPanel {
 		this.add(panel, BorderLayout.CENTER);
 		panel.add(dailyItemsPanel, "DAILYITEMS");
 		panel.add(filesPanel, "FILES");
+		panel.add(agendaPanel, "DAILYCLASSES");
 		panel.add(trainersPanel, "TRAINERS");
+		panel.add(roomsPanel, "ROOMS");
+		panel.add(gymClassPanel, "CLASSES");
 		panel.add(studentsPanel, "STUDENTS");
 		toolBar.add(agendaB, null);
 		toolBar.add(eventsB, null);
-		toolBar.add(tasksB, null);
+		toolBar.add(classesB, null);
 		toolBar.add(notesB, null);
 		toolBar.add(trainersB, null);
 		toolBar.add(studentsB, null);
@@ -250,15 +243,18 @@ public class WorkPanel extends JPanel {
 		panel.setBorder(null);
 		dailyItemsPanel.setBorder(null);
 		filesPanel.setBorder(null);
-
+		agendaPanel.setBorder(null);
+		trainersPanel.setBorder(null);
+		gymClassPanel.setBorder(null);
+		selectPanel("DAILYCLASSES");
 	}
 
 	public void selectPanel(String pan) {
 		if (pan != null) {
 			if (pan.equals("NOTES"))
 				notesB_actionPerformed(null);
-			else if (pan.equals("TASKS"))
-				tasksB_actionPerformed(null);
+			else if (pan.equals("DAILYCLASSES"))
+			    agendaB_actionPerformed(null);
 			else if (pan.equals("EVENTS"))
 				eventsB_actionPerformed(null);
 			else if (pan.equals("TRAINERS"))
@@ -269,10 +265,10 @@ public class WorkPanel extends JPanel {
 	}
 
 	public void agendaB_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "DAILYITEMS");
-		dailyItemsPanel.selectPanel("AGENDA");
+		cardLayout1.show(panel, "DAILYCLASSES");
+		agendaPanel.updateTables();
 		setCurrentButton(agendaB);
-		Context.put("CURRENT_PANEL", "AGENDA");
+		Context.put("CURRENT_PANEL", "DAILYCLASSES");
 	}
 
 	public void notesB_actionPerformed(ActionEvent e) {
@@ -282,24 +278,22 @@ public class WorkPanel extends JPanel {
 		Context.put("CURRENT_PANEL", "NOTES");
 	}
 
-	public void tasksB_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "DAILYITEMS");
-		dailyItemsPanel.selectPanel("TASKS");
-		setCurrentButton(tasksB);
-		Context.put("CURRENT_PANEL", "TASKS");
-	}
-
 	public void eventsB_actionPerformed(ActionEvent e) {
-		cardLayout1.show(panel, "DAILYITEMS");
-		dailyItemsPanel.selectPanel("EVENTS");
+		cardLayout1.show(panel, "ROOMS");
+		roomsPanel.updateRoomTables();
 		setCurrentButton(eventsB);
-		Context.put("CURRENT_PANEL", "EVENTS");
+		Context.put("CURRENT_PANEL", "ROOMS");
 	}
 
 	public void trainersB_actionPerformed(ActionEvent e) {
 		cardLayout1.show(panel, "TRAINERS");
 		setCurrentButton(trainersB);
 		Context.put("CURRENT_PANEL", "TRAINERS");
+	}
+	public void classesB_actionPerformed(ActionEvent e) {
+		cardLayout1.show(panel, "CLASSES");
+		setCurrentButton(classesB);
+		Context.put("CURRENT_PANEL", "CLASSES");
 	}
 
 	public void studentsB_actionPerformed(ActionEvent e) {

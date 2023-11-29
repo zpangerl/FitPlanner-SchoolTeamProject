@@ -1,0 +1,401 @@
+package main.java.memoranda.ui;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
+import javax.swing.JToolBar;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.TableModelEvent;
+import main.java.memoranda.GymClass;
+import main.java.memoranda.GymClassList;
+import main.java.memoranda.Room.GymRoom;
+import main.java.memoranda.Trainer;
+import main.java.memoranda.TrainerList;
+import main.java.memoranda.date.CalendarDate;
+import main.java.memoranda.date.CurrentDate;
+import main.java.memoranda.util.Local;
+/*
+ * File: GymClassPanel.java
+ * Author: Rhett Harrison
+ * Version: 2023.11.09
+ * Description: Simple GymClass panel to display add button and rows of GymClass(es)
+ */
+
+public class GymClassPanel extends JPanel {
+    BorderLayout borderLayout1 = new BorderLayout();
+    JToolBar toolBar = new JToolBar();
+    JButton newClassB = new JButton();
+    GymClassTable gymClassTable = new GymClassTable();
+    JButton removeClassB = new JButton();
+    JScrollPane scrollPane = new JScrollPane();
+    JButton refreshB = new JButton();
+    JButton editClassB = new JButton();
+    JPopupMenu classPopUpMenu = new JPopupMenu();
+    JMenuItem ppRun = new JMenuItem();
+    JMenuItem ppRemoveClass = new JMenuItem();
+    JMenuItem ppNewClass = new JMenuItem();
+    JMenuItem ppRefresh = new JMenuItem();
+    JButton sortClassesAscendingB = new JButton();
+    JButton sortClassesDescendingB = new JButton();
+
+    /**
+     * Default constructor.
+     */
+    public GymClassPanel() {
+        try {
+            jbInit();
+        } catch (Exception ex) {
+            new ExceptionDialog(ex);
+        }
+    }
+
+    void jbInit() throws Exception {
+        toolBar.setFloatable(false);
+        this.setLayout(borderLayout1);
+
+        // New Class Button
+        newClassB.setIcon(
+                new ImageIcon(
+                        main.java.memoranda.ui.AppFrame.class
+                                .getResource(
+                                        "/ui/icons/class_new.png")));
+        newClassB.setEnabled(true);
+        newClassB.setMaximumSize(new Dimension(24, 24));
+        newClassB.setMinimumSize(new Dimension(24, 24));
+        newClassB.setToolTipText(Local.getString("New class"));
+        newClassB.setRequestFocusEnabled(false);
+        newClassB.setPreferredSize(new Dimension(24, 24));
+        newClassB.setFocusable(false);
+        newClassB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                newClassB_actionPerformed();
+            }
+        });
+        newClassB.setBorderPainted(false);
+
+        gymClassTable.setMaximumSize(new Dimension(32767, 32767));
+        gymClassTable.setRowHeight(24);
+
+        // Remove class button
+        removeClassB.setBorderPainted(false);
+        removeClassB.setFocusable(false);
+        removeClassB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                removeClassB_actionPerformed();
+            }
+        });
+        removeClassB.setPreferredSize(new Dimension(24, 24));
+        removeClassB.setRequestFocusEnabled(false);
+        removeClassB.setToolTipText(Local.getString("Remove class"));
+        removeClassB.setMinimumSize(new Dimension(24, 24));
+        removeClassB.setMaximumSize(new Dimension(24, 24));
+        removeClassB.setIcon(
+                new ImageIcon(
+                        main.java.memoranda.ui.AppFrame.class
+                                .getResource(
+                                        "/ui/icons/removeresource.png")));
+        removeClassB.setEnabled(false);
+
+        sortClassesAscendingB.setBorderPainted(false);
+        sortClassesAscendingB.setFocusable(false);
+        sortClassesAscendingB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                GymClassList.sortClassesByDateAscending();
+                gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+            }
+        });
+        sortClassesAscendingB.setPreferredSize(new Dimension(24, 24));
+        sortClassesAscendingB.setRequestFocusEnabled(false);
+        sortClassesAscendingB.setToolTipText(Local.getString("Sort classes ascending"));
+        sortClassesAscendingB.setMinimumSize(new Dimension(24, 24));
+        sortClassesAscendingB.setMaximumSize(new Dimension(24, 24));
+        sortClassesAscendingB.setIcon(
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class
+                        .getResource(
+                                "/ui/icons/sort_ascending.png")));
+
+        sortClassesDescendingB.setBorderPainted(false);
+        sortClassesDescendingB.setFocusable(false);
+        sortClassesDescendingB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                GymClassList.sortClassesByDateDescending();
+                gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+            }
+        });
+        sortClassesDescendingB.setPreferredSize(new Dimension(24, 24));
+        sortClassesDescendingB.setRequestFocusEnabled(false);
+        sortClassesDescendingB.setToolTipText(Local.getString("Sort classes descending"));
+        sortClassesDescendingB.setMinimumSize(new Dimension(24, 24));
+        sortClassesDescendingB.setMaximumSize(new Dimension(24, 24));
+        sortClassesDescendingB.setIcon(
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class
+                        .getResource(
+                                "/ui/icons/sort_descending.png")));
+        sortClassesDescendingB.setFocusable(false);
+        sortClassesDescendingB.setBorderPainted(false);
+        sortClassesDescendingB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                GymClassList.sortClassesByDateDescending();
+                gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+            }
+        });
+
+        scrollPane.getViewport().setBackground(Color.white);
+        toolBar.addSeparator(new Dimension(8, 24));
+        toolBar.addSeparator(new Dimension(8, 24));
+        PopupListener ppListener = new PopupListener();
+        scrollPane.addMouseListener(ppListener);
+        gymClassTable.addMouseListener(ppListener);
+
+        gymClassTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                boolean enable = (gymClassTable.getRowCount() > 0)
+                        && (gymClassTable.getSelectedRow() > -1);
+                removeClassB.setEnabled(enable);
+                ppRemoveClass.setEnabled(enable);
+            }
+        });
+
+        // Refresh data button
+        refreshB.setBorderPainted(false);
+        refreshB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                refreshB_actionPerformed();
+            }
+        });
+        refreshB.setFocusable(false);
+        refreshB.setPreferredSize(new Dimension(24, 24));
+        refreshB.setRequestFocusEnabled(false);
+        refreshB.setToolTipText(Local.getString("Refresh"));
+        refreshB.setMinimumSize(new Dimension(24, 24));
+        refreshB.setMaximumSize(new Dimension(24, 24));
+        refreshB.setEnabled(true);
+        refreshB.setIcon(
+                new ImageIcon(main.java.memoranda.ui.AppFrame.class
+                        .getResource(
+                                "/ui/icons/refreshres.png")));
+
+        // Edit class button
+        editClassB.setBorderPainted(false);
+        editClassB.setFocusable(false);
+        editClassB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                editClassB_actionPerformed();
+            }
+        });
+        editClassB.setPreferredSize(new Dimension(24, 24));
+        editClassB.setRequestFocusEnabled(false);
+        editClassB.setToolTipText(Local.getString("Edit class"));
+        editClassB.setMinimumSize(new Dimension(24, 24));
+        editClassB.setMaximumSize(new Dimension(24, 24));
+        editClassB.setIcon(
+                new ImageIcon(
+                        main.java.memoranda.ui.AppFrame.class
+                                .getResource(
+                                        "/ui/icons/edit_pencil.png")));
+        editClassB.setEnabled(true);
+
+        ppRemoveClass.setFont(new java.awt.Font("Dialog", 1, 11));
+        ppRemoveClass.setText(Local.getString("Remove class"));
+
+        ppRemoveClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                removeClassB_actionPerformed();
+            }
+        });
+        ppRemoveClass.setIcon(
+                new ImageIcon(
+                        main.java.memoranda.ui.AppFrame.class
+                                .getResource(
+                                        "/ui/icons/removeresource.png")));
+        ppRemoveClass.setEnabled(false);
+        ppNewClass.setFont(new java.awt.Font("Dialog", 1, 11));
+        ppNewClass.setText(Local.getString("New class") + "...");
+
+        ppNewClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ppNewClass_actionPerformed(e);
+            }
+        });
+        ppNewClass.setIcon(new ImageIcon(
+                main.java.memoranda.ui.AppFrame.class
+                        .getResource(
+                                "/ui/icons/addresource.png")));
+
+        ppRefresh.setFont(new java.awt.Font("Dialog", 1, 11));
+        ppRefresh.setText(Local.getString("Refresh"));
+        ppRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ppRefresh_actionPerformed(e);
+            }
+        });
+        ppRefresh.setIcon(new ImageIcon(
+                main.java.memoranda.ui.AppFrame.class
+                        .getResource(
+                                "/ui/icons/refreshres.png")));
+
+        toolBar.add(newClassB, null);
+        toolBar.add(removeClassB, null);
+        toolBar.addSeparator();
+        toolBar.add(refreshB, null);
+        toolBar.add(editClassB, null);
+        toolBar.add(sortClassesAscendingB, null);
+        toolBar.add(sortClassesDescendingB, null);
+        this.add(scrollPane, BorderLayout.CENTER);
+        scrollPane.getViewport().add(gymClassTable, null);
+        this.add(toolBar, BorderLayout.NORTH);
+        classPopUpMenu.add(ppRun);
+        classPopUpMenu.addSeparator();
+        classPopUpMenu.add(ppNewClass);
+        classPopUpMenu.add(ppRemoveClass);
+        classPopUpMenu.addSeparator();
+        classPopUpMenu.add(ppRefresh);
+
+        // remove class using the DEL key
+        gymClassTable.addKeyListener(new KeyListener() {
+            public void keyPressed(KeyEvent e) {
+                if (gymClassTable.getSelectedRows().length > 0
+                        && e.getKeyCode() == KeyEvent.VK_DELETE) {
+                    removeClassB_actionPerformed();
+                }
+            }
+
+            public void keyReleased(KeyEvent e) {
+            }
+
+            public void keyTyped(KeyEvent e) {
+            }
+        });
+
+        scrollPane.getViewport().setBackground(Color.white);
+    }
+
+    private void ppRefresh_actionPerformed(ActionEvent e) {
+
+    }
+
+    private void ppNewClass_actionPerformed(ActionEvent e) {
+
+    }
+
+    /**
+     * Class to handle mouse events.
+     */
+
+    class PopupListener extends MouseAdapter {
+
+        public void mouseClicked(MouseEvent e) {
+            // editTaskB_actionPerformed(null);
+        }
+
+        public void mousePressed(MouseEvent e) {
+            maybeShowPopup(e);
+        }
+
+        public void mouseReleased(MouseEvent e) {
+            maybeShowPopup(e);
+        }
+
+        private void maybeShowPopup(MouseEvent e) {
+            if (e.isPopupTrigger()) {
+                classPopUpMenu.show(e.getComponent(), e.getX(), e.getY());
+            }
+        }
+
+    }
+
+    /**
+     * Refresh the table.
+     */
+    void refreshB_actionPerformed() {
+        gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+    }
+
+    /**
+     * Remove the selected class.
+     */
+    private void removeClassB_actionPerformed() {
+        // Remove the selected class
+        int selectedRowIndex = gymClassTable.getSelectedRow();
+        if (selectedRowIndex > -1) {
+            GymClassList.removeGymClassByIndex(selectedRowIndex);
+            gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+        }
+    }
+
+    /**
+     * Create a new class.
+     */
+    private void newClassB_actionPerformed() {
+
+        GymClassDialog dlg = new GymClassDialog(App.getFrame(), Local.getString("New Class"));
+
+        Dimension frmSize = App.getFrame().getSize();
+        Point loc = App.getFrame().getLocation();
+        dlg.startDate.getModel().setValue(CurrentDate.get().getDate());
+        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x,
+                (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+        dlg.setVisible(true);
+        if (dlg.canceled) {
+            return;
+        }
+
+        Trainer trainer = TrainerList.getTrainerByIndex(dlg.jcomboBoxTrainer.getSelectedIndex());
+        CalendarDate date = new CalendarDate((Date) dlg.startDate.getModel().getValue());
+        GymClass newClass = new GymClass(date, trainer);
+        newClass.setClassType(dlg.classNameField.getText());
+        newClass.setRoom(GymRoom.getRoomByIndex(dlg.jcomboBoxRoom.getSelectedIndex()));
+        GymClassList.addGymClass(newClass);
+        gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+    }
+
+    /**
+     * Edit the selected class.
+     */
+    private void editClassB_actionPerformed() {
+        int selectedRowIndex = gymClassTable.getSelectedRow();
+        GymClass gymClass = GymClassList.getGymClasses().get(selectedRowIndex);
+        int trainerIndex = TrainerList.getTrainerIndex(gymClass.getTrainer());
+        int gymRoomIndex = GymRoom.getIndexByRoom(gymClass.getRoom());
+
+        // Set the fields in the dialog
+        GymClassDialog dlg = new GymClassDialog(App.getFrame(), Local.getString("Edit Class"));
+        dlg.startDate.getModel().setValue(gymClass.getDate());
+        dlg.jcomboBoxTrainer.setSelectedIndex(trainerIndex);
+        dlg.jcomboBoxRoom.setSelectedIndex(gymRoomIndex);
+        dlg.classNameField.setText(gymClass.getClassType());
+
+        Dimension frmSize = App.getFrame().getSize();
+        Point loc = App.getFrame().getLocation();
+        dlg.startDate.getModel().setValue(gymClass.getDate());
+        dlg.setLocation((frmSize.width - dlg.getSize().width) / 2 + loc.x,
+                (frmSize.height - dlg.getSize().height) / 2 + loc.y);
+        dlg.setVisible(true);
+        if (dlg.canceled) {
+            return;
+        }
+
+        Trainer trainer = TrainerList.getTrainerByIndex(dlg.jcomboBoxTrainer.getSelectedIndex());
+        CalendarDate date = new CalendarDate((Date) dlg.startDate.getModel().getValue());
+        gymClass.setTrainer(trainer);
+        gymClass.setCalendarDate(date);
+        gymClass.setClassType(dlg.classNameField.getText());
+        gymClass.setRoom(GymRoom.getRoomByIndex(dlg.jcomboBoxRoom.getSelectedIndex()));
+        gymClassTable.tableChanged(new TableModelEvent(gymClassTable.getModel()));
+    }
+
+}

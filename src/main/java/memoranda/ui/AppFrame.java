@@ -3,13 +3,11 @@ package main.java.memoranda.ui;
 import main.java.memoranda.*;
 import main.java.memoranda.date.CurrentDate;
 import main.java.memoranda.ui.htmleditor.HTMLEditor;
-import main.java.memoranda.util.*;
 import nu.xom.Builder;
 import nu.xom.Document;
 import nu.xom.Element;
 import nu.xom.Elements;
 
-import javax.swing.*;
 import javax.swing.text.html.HTMLDocument;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -36,11 +34,7 @@ import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
-import javax.swing.text.html.HTMLDocument;
 
-import main.java.memoranda.*;
-import main.java.memoranda.date.CurrentDate;
-import main.java.memoranda.ui.htmleditor.HTMLEditor;
 import main.java.memoranda.util.Configuration;
 import main.java.memoranda.util.Context;
 import main.java.memoranda.util.CurrentStorage;
@@ -48,10 +42,6 @@ import main.java.memoranda.util.Local;
 import main.java.memoranda.util.ProjectExporter;
 import main.java.memoranda.util.ProjectPackager;
 import main.java.memoranda.util.Util;
-import nu.xom.Builder;
-import nu.xom.Document;
-import nu.xom.Element;
-import nu.xom.Elements;
 
 /**
  * 
@@ -560,12 +550,12 @@ public class AppFrame extends JFrame {
             }
         };
 
-        this.workPanel.dailyItemsPanel.taskB
+        this.workPanel.dailyItemsPanel.classesB
                 .addActionListener(setMenusDisabled);
         this.workPanel.dailyItemsPanel.alarmB.addActionListener(
                 setMenusDisabled);
 
-        this.workPanel.tasksB.addActionListener(setMenusDisabled);
+        this.workPanel.classesB.addActionListener(setMenusDisabled);
         this.workPanel.eventsB.addActionListener(setMenusDisabled);
         this.workPanel.filesB.addActionListener(setMenusDisabled);
         this.workPanel.agendaB.addActionListener(setMenusDisabled);
@@ -643,7 +633,9 @@ public class AppFrame extends JFrame {
         Context.put("FRAME_HEIGHT", Integer.valueOf(this.getHeight()));
         Context.put("FRAME_XPOS", Integer.valueOf(this.getLocation().x));
         Context.put("FRAME_YPOS", Integer.valueOf(this.getLocation().y));
+        StudentListFileStorage.saveData(); // persist StudentList to disk
         TrainerListFileStorage.saveData(); // persist TrainerList to disk
+        GymClassListFileStorage.saveData(); // persist GymClassList to disk
         exitNotify();
         System.exit(0);
     }

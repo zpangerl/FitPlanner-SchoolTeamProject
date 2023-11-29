@@ -8,6 +8,7 @@
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
@@ -15,6 +16,7 @@ import main.java.memoranda.BeltRank;
 import main.java.memoranda.Trainer;
 import main.java.memoranda.TrainerList;
 import main.java.memoranda.TrainerListFileStorage;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -30,6 +32,10 @@ public class TestTrainerListFileStorage {
      */
     @BeforeClass
     public static void setup() {
+        /* Rhett's clear solution from GymClassListTest.java
+           Make sure TrainerList is clear at start, since GymClassListTest
+           adds trainers */
+        TrainerList.clearTrainers();
         // Destructive: Intended to only run in dev environment
         // Deletes trainer data to test with clean environment
 
@@ -37,7 +43,22 @@ public class TestTrainerListFileStorage {
         // Prepare clean test environment
         File trainerFile = new File(TrainerListFileStorage.trainerListPath);
         if (trainerFile.exists()) {
-            trainerFile.delete();
+            boolean deletedSuccessfully = (trainerFile.delete());
+            assertTrue(deletedSuccessfully);
+        }
+        assertFalse(trainerFile.exists());
+    }
+
+    /**
+     * After all tests, leave a clean environment with no TrainerList data on disk.
+     */
+    @AfterClass
+    public static void tearDown() {
+        // Destructive: Intended to only run in dev environment
+        File trainerFile = new File(TrainerListFileStorage.trainerListPath);
+        if (trainerFile.exists()) {
+            boolean deletedSuccessfully = (trainerFile.delete());
+            assertTrue(deletedSuccessfully);
         }
         assertFalse(trainerFile.exists());
     }
@@ -86,5 +107,4 @@ public class TestTrainerListFileStorage {
         assertEquals(testTrainer.getBeltRank(), testTrainerFromDisk.getBeltRank());
         assertEquals(testTrainer.getTrainingRank(), testTrainerFromDisk.getTrainingRank());
     }
-
 }

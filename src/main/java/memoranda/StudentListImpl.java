@@ -2,19 +2,22 @@ package main.java.memoranda;
 
 import java.util.ArrayList;
 
+public final class StudentListImpl {
+    private static ArrayList<Student> studentList;
 
-public class StudentListImpl implements StudentList {
-
-    private ArrayList<Student> studentList = new ArrayList<Student>();
+    public StudentListImpl() {
+        // https://stackoverflow.com/questions/7766277/why-am-i-getting-this-warning-about-utility-classes-in-java
+        throw new AssertionError("Do not instantiate utility class");
+    }
 
     /**
      * Checks if a Student object exists in the StudentList.
      *
-     * @param check_student Student object to check for.
+     * @param checkStudent Student object to check for.
      * @return Returns true if student is in list, false otherwise.
      */
-    public boolean studentExists(Student check_student){
-        return studentList.contains(check_student);
+    public static boolean studentExists(Student checkStudent) {
+        return studentList.contains(checkStudent);
     }
 
     /**
@@ -24,11 +27,13 @@ public class StudentListImpl implements StudentList {
      * @param firstName Students first name.
      * @return Student object.
      */
-    @Override
-    public Student getStudentByName(String lastName, String firstName) {
-        for (int i = 0; i < studentList.size(); i++)
-            if (studentList.get(i).getFirstName() == firstName && studentList.get(i).getLastName() == lastName)
+    public static Student getStudentByName(String lastName, String firstName) {
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getFirstName().equals(firstName)
+                    && studentList.get(i).getLastName().equals(lastName)) {
                 return studentList.get(i);
+            }
+        }
         return null;
     }
 
@@ -38,22 +43,21 @@ public class StudentListImpl implements StudentList {
      * @param student Student object to search for.
      * @return Student object.
      */
-    @Override
-    public Student getStudentByObject(Student student) {
-        if(studentList.contains(student)) {
+    public static Student getStudentByObject(Student student) {
+        if (studentList.contains(student)) {
             return studentList.get(studentList.indexOf(student));
         }
         return null;
     }
-
+    
     /**
      * Returns a Student object given the students index in the arraylist.
      *
      * @param index Index of student.
      * @return Student object.
      */
-    public Student getStudentByIndex(int index) {
-        if(studentList.size() < index) {
+    public static Student getStudentByIndex(int index) {
+        if (studentList.size() < index) {
             return null;
         }
         return studentList.get(index);
@@ -62,26 +66,39 @@ public class StudentListImpl implements StudentList {
     /**
      * Adds Student object to StudentList.
      *
-     * @param student_add Student object to add.
+     * @param studentAdd Student object to add.
      */
-    @Override
-    public void addStudent(Student student_add) {
-        if(studentExists(student_add)) {
-            return;
+    public static void addStudent(Student studentAdd) {
+        if (studentList == null) {
+            studentList = new ArrayList<>();
         }
-        studentList.add(student_add);
+        if (!studentExists(studentAdd)) {
+            studentList.add(studentAdd);
+        }
     }
 
     /**
      * Removes Student object from StudentList.
      *
-     * @param student_remove Student object to remove.
+     * @param studentRemove Student object to remove.
      */
-    @Override
-    public void removeStudent(Student student_remove) {
-        if (studentExists(student_remove)) {
-            studentList.remove(student_remove);
+    public static void removeStudent(Student studentRemove) {
+        if (studentList != null && studentExists(studentRemove)) {
+            studentList.remove(studentRemove);
         }
+    }
+
+    /**
+     * Returns the list of students.
+     * @return List of students.
+     */
+    public static ArrayList<Student> getStudentList() {
+        if (studentList == null) {
+            studentList = new ArrayList<>();
+        }
+        ArrayList<Student> temp = new ArrayList<>();
+        temp = studentList;
+        return temp;
     }
 
     /**
@@ -89,8 +106,11 @@ public class StudentListImpl implements StudentList {
      *
      * @return Count of current Students.
      */
-    @Override
-    public int getAllStudentCount() {
-        return studentList.size();
+    public static int getAllStudentCount() {
+        if (studentList == null) {
+            return 0;
+        } else {
+            return studentList.size();
+        }
     }
 }
