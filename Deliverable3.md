@@ -63,7 +63,7 @@ I would also advise you to already fill out the Contributions section (End of sp
 ### Sprint Review
 Answer as a team!
 
-**Screen Cast link**: https://youtube.com/watch?v=M7kzpFF5zZaw
+**Screen Cast link**: https://www.youtube.com/watch?v=M7kzpFF5Zaw
 
 > Answer the following questions as a team. 
 
