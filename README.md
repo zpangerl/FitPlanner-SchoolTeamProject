@@ -1,22 +1,21 @@
-Project SER316
+Team Project for SER 316
 
-This is the initial dump for the SER316 project. It is a slightly modified version of the Memoranda project from memoranda.sf.net
+This repository was forked from our professor's version of the repository that we worked on.
 
-The purpose of this project is to enhance the Memoranda application.
+This project revolved around repurposing an existing Java application in an Agile team setting. This was done over the course of three sprints, in a group of five, and is documented over three different "DeliverableX.md" documents, where "X" is the sprint number. These include detailed descriptions of the team's goals and actions, as well as individual commits and thoughts on the sprint as a whole.
 
-Memoranda is a project that has largely been dormant since 2007, so why are we using it? This codebase has been used in the past, it is of sufficient size and scope to challenge your skills in understanding a complete application (it has somewhere in the neighborhood of 25k lines of code). It also has features that just about anyone who has ever used a calendaring application can understand. 
+We decided to turn Memoranda, an old note-taking application, into a gym management system, allowing users to add, edit, and display trainers, classes, and students. Since we had only three sprints, we were not expected to actually finish this conversion, but were instead asked to make meaningful progress towards completing it, delivering a working, substantially different product by the end of the class.
 
-In the docs directory is an initial set of analysis models - class diagrams and sequence diagrams in UML, that a previous team did as part of their solution process. These were included only in the event that you may want to use these as a head start on your design and implementation work. You are absolutely not required to use or implement anything in the analysis document!
+Since the project included an existing codebase, the quickest way to find individual contributions is in these Deliverable documents, under the "Contributions" section. This is by no means a comprehensive list, but includes multiple commits from each sprint.
 
-Your first step should be to clone the github repository (easiest way is to clone directly into your Eclipse Workspace folder). You can watch the short video on how to clone and run Memoranda: https://youtu.be/mNPek5NABpI. A student in Spring 2022 made a video about how to get Memoranda setup in IntelliJ (I perosally do not use it), je was ok with me sharing it in case it might help you: https://asu.enterprise.slack.com/files/WFHHBK8EN/F03879JRTB6/screen_recording_2022-03-22_at_1.12.48_am.mov
+For ease of access, here are links to the three Deliverable documents:
 
-You should then be able to run the project. The included Gradle script and Wrapper should work. You should be able to use "gradle run" in the command line to run Memorande through Gradle. In due course you will need to add things to the Gradle file (eg. add Unit Test).
+1. [Deliverable 1](https://github.com/zpangerl/Schnapsidee-Fall23B/blob/master/Deliverable1.md)
+2. [Deliverable 2](https://github.com/zpangerl/Schnapsidee-Fall23B/blob/master/Deliverable2.md)
+3. [Deliverable 3](https://github.com/zpangerl/Schnapsidee-Fall23B/blob/master/Deliverable3.md)
 
-Start of with changing little things to get to know Memoranda (before the project starts) and just play around. 
+There were three separate videos made, one at the end of each sprint, that detail the big changes that we made during each sprint. Each of these are listed below:
 
-After that go back to the initial version and start your SCRUM process and document all changes through GitHub and Taiga (like I said, if it isn’t in GitHub/taiga it does not count).
-
-Good luck and have fun!
-
-Dr. Mehlhase
-
+1. [Sprint 1](https://www.youtube.com/watch?v=vFjA_tPRLCc)
+2. [Sprint 2](https://www.youtube.com/watch?v=rHxs_F1LBY4)
+3. [Sprint 3](https://www.youtube.com/watch?v=M7kzpFF5Zaw)
