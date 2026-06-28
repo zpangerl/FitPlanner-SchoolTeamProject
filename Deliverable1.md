@@ -121,21 +121,21 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Do you think you individually worked consistently and put in enough work into the project (give a short answer). 
 
-  > Yes, I was engaged in Slack discussion, standups, contributed to Tasks and US, participated in [github reviews: US15, US5, US19, US10](https://github.com/amehlhase316/Schnapsidee-Fall23B/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Aasusteven+)
+  > Yes, I was engaged in Slack discussion, standups, contributed to Tasks and US, participated in [github reviews: US15, US5, US19, US10](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3Aasusteven+)
 
  Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-> * [US1 Task4 Update image path to resolve bug preventing preferences from opening](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/44633a6117997b9992f65b77de7286b69b69df9b)
-> * [US1 Task3 Remove Look and Feel section in the preferences dialog](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4dca99170d6e175f038e5a98513c6d79fad2a9bf)
-> * [US15 Task73 Create reverse engineering doc with UML class diagrams for Events:Panel,Dialog,Manager, and FileStorage](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4e46cd8fcf6c7c91acf6911c695ddd883b2b9f92)
-> * [Update branch names and commit message guidelines to add more detail around GitHub Workflow](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/b36cbf31fb19956b57eda24a5e1de36049fa1fb3)
+> * [US1 Task4 Update image path to resolve bug preventing preferences from opening](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/44633a6117997b9992f65b77de7286b69b69df9b)
+> * [US1 Task3 Remove Look and Feel section in the preferences dialog](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/4dca99170d6e175f038e5a98513c6d79fad2a9bf)
+> * [US15 Task73 Create reverse engineering doc with UML class diagrams for Events:Panel,Dialog,Manager, and FileStorage](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/4e46cd8fcf6c7c91acf6911c695ddd883b2b9f92)
+> * [Update branch names and commit message guidelines to add more detail around GitHub Workflow](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/b36cbf31fb19956b57eda24a5e1de36049fa1fb3)
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-> * [US1 preferences look and feel](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/20)
-> * [Update CodeQuality with additional details for Github workflow](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/17)
+> * [US1 preferences look and feel](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/20)
+> * [Update CodeQuality with additional details for Github workflow](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/17)
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
@@ -165,16 +165,16 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-[Add new panel "Trainers"](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/335a6f30af22c9a5f236e0f8f0111c269098e527)
+[Add new panel "Trainers"](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/335a6f30af22c9a5f236e0f8f0111c269098e527)
 
-[Add translations from spanish to english for UX and Developer Experience](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/9d1e21cbd99971ae6c5ed2233650cfbd822b7840) 
+[Add translations from spanish to english for UX and Developer Experience](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/9d1e21cbd99971ae6c5ed2233650cfbd822b7840) 
 
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-  [Add new panel "Trainers"](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/18) 
+  [Add new panel "Trainers"](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/18) 
 
-  [Add Translations from spanish to english for UX and Developer Experience](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/6) 
+  [Add Translations from spanish to english for UX and Developer Experience](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/6) 
 
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
@@ -206,13 +206,13 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-  > - [Updates the splash screen and program title.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/d2b30dc78564c4aaed98c707e171926eafdf861c)
-  > - [Allows developers to update version and build number through `build.xml` and display the information in program.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/9252343dae5eb30b3ea861ff2753c32c56c65177)
+  > - [Updates the splash screen and program title.](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/d2b30dc78564c4aaed98c707e171926eafdf861c)
+  > - [Allows developers to update version and build number through `build.xml` and display the information in program.](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/9252343dae5eb30b3ea861ff2753c32c56c65177)
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-  > - [Updates the splash screen and program title.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/13)
-  > - [Allows developers to update version and build number through `build.xml` and display the information in program.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/11)
+  > - [Updates the splash screen and program title.](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/13)
+  > - [Allows developers to update version and build number through `build.xml` and display the information in program.](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/11)
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
@@ -243,15 +243,15 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-  > - [Commit 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/10db97b2375fda7ff98e9e2e8ec34fdfa3e07b05) - Updated main folder to remove all deprecated Integer warnings
-  > - [Commit 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/6f18d6cf86228daa3cbf3a83337d7369c76551a2) - Updated ui folder to remove all deprecated Integer warnings
-  > - [Commit 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/f88249ade302d085dadfd5eb7fd4b89d6059abb8) - Updated htmleditor folder to remove all deprecated Integer warnings
-  > - [Commit 4](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/c9ee8e14d74374facc01c6e1746c88f40346c6f4) - Updated remaining folders to remove all deprecated Integer warnings
+  > - [Commit 1](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/10db97b2375fda7ff98e9e2e8ec34fdfa3e07b05) - Updated main folder to remove all deprecated Integer warnings
+  > - [Commit 2](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/6f18d6cf86228daa3cbf3a83337d7369c76551a2) - Updated ui folder to remove all deprecated Integer warnings
+  > - [Commit 3](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/f88249ade302d085dadfd5eb7fd4b89d6059abb8) - Updated htmleditor folder to remove all deprecated Integer warnings
+  > - [Commit 4](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/c9ee8e14d74374facc01c6e1746c88f40346c6f4) - Updated remaining folders to remove all deprecated Integer warnings
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-  > - [Pull Request 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/14) - Updates dev branch with all changes from US19
-  > - [Pull Request 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/9) - Updates US branch with updates to the ui folder removing deprecated Integer code
+  > - [Pull Request 1](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/14) - Updates dev branch with all changes from US19
+  > - [Pull Request 2](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/9) - Updates US branch with updates to the ui folder removing deprecated Integer code
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
@@ -282,13 +282,13 @@ Copy the section for each team member and then everyone adds their individual co
 
   **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-  > - [US5 Panel Icons Commit](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e994c678f9db637f23184edd1b59189949ad2312)
-  > - [US11 Minimize & Exit Commit](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4f08298069321a7217c635396b2cac0551381c1f)
+  > - [US5 Panel Icons Commit](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/e994c678f9db637f23184edd1b59189949ad2312)
+  > - [US11 Minimize & Exit Commit](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/4f08298069321a7217c635396b2cac0551381c1f)
 
   **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-  > - [US5 Panel Icon PR](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/23)
-  > - [US11 Minimize & Exit PR](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/5)
+  > - [US5 Panel Icon PR](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/23)
+  > - [US11 Minimize & Exit PR](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/5)
 
    **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
