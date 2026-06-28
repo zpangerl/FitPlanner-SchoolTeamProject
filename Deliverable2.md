@@ -133,46 +133,46 @@ Below I want links that I can click on to your commit or PullRequest with your w
 
 ##### Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-- [QualityPolicy.md](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/ea4b905b2952c5ee2f9e80dd47b39536b28f9b0e) - Updated QualityPolicy to add checklists
-- [US86 Task117](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/c76ee0bb04372dbd59223f6fc6a8cbdf5cb28702) - Rewrite Trainer, simplify, and create compatible UI TrainersPanel to display table with rows of Trainers
-- [US86 Task115](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/80dd23954715a2356ac100265d86d191220c8b13) - Implement the Add Trainer dialog
-- [US133 Task135](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/a2d1f7b2313b06890d024dc0f35f1380fc57730c) - Persist TrainerList data when program open/closed
-- [US86 Task117](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/US86-add_trainers_to_system/src/main/java/memoranda/TrainerList.java) - blame TrainerList due to show overall results of multiple small commits
+- [QualityPolicy.md](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/ea4b905b2952c5ee2f9e80dd47b39536b28f9b0e) - Updated QualityPolicy to add checklists
+- [US86 Task117](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/c76ee0bb04372dbd59223f6fc6a8cbdf5cb28702) - Rewrite Trainer, simplify, and create compatible UI TrainersPanel to display table with rows of Trainers
+- [US86 Task115](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/80dd23954715a2356ac100265d86d191220c8b13) - Implement the Add Trainer dialog
+- [US133 Task135](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/a2d1f7b2313b06890d024dc0f35f1380fc57730c) - Persist TrainerList data when program open/closed
+- [US86 Task117](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blame/US86-add_trainers_to_system/src/main/java/memoranda/TrainerList.java) - blame TrainerList due to show overall results of multiple small commits
 
 ##### Main contribution by file (Added sub-section by Steven Stovall, easier to show contributions than commits)
 * Links to main code contributions (Unit Tests in unit test section)
 
-- [US86 Trainer.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/dev/src/main/java/memoranda/Trainer.java)
-- [US86 TrainerList.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/dev/src/main/java/memoranda/TrainerList.java)
-- [US86 TrainerDialog.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/dev/src/main/java/memoranda/ui/TrainerDialog.java)
-- [US86 TrainersPanel.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/dev/src/main/java/memoranda/ui/TrainersPanel.java)
-- [US133 TrainerListFileStorage.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/US133-Persistent_Storage/src/main/java/memoranda/TrainerListFileStorage.java)
+- [US86 Trainer.java](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blame/dev/src/main/java/memoranda/Trainer.java)
+- [US86 TrainerList.java](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blame/dev/src/main/java/memoranda/TrainerList.java)
+- [US86 TrainerDialog.java](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blame/dev/src/main/java/memoranda/ui/TrainerDialog.java)
+- [US86 TrainersPanel.java](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blame/dev/src/main/java/memoranda/ui/TrainersPanel.java)
+- [US133 TrainerListFileStorage.java](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blame/US133-Persistent_Storage/src/main/java/memoranda/TrainerListFileStorage.java)
 
 ##### GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-- [PR39 for US86](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/39)
-- [PR40 US133 Task135](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/40)
-- [PR41 Enable Github CI on master](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/41)
+- [PR39 for US86](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/39)
+- [PR40 US133 Task135](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/40)
+- [PR41 Enable Github CI on master](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/41)
 
 ##### GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 > Based on individual assignments, I thought some of these were supposed to start earlier than Sprint 3 and unsure if this is for on-campus or online schedule
 
-- [TestWhiteBoxTrainer.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/US86-add_trainers_to_system/src/test/java/TestWhiteBoxTrainer.java) blame shows commits
-- [TestTrainerListFileStorage.java](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/US133-Persistent_Storage/src/test/java/TestTrainerListFileStorage.java)
+- [TestWhiteBoxTrainer.java](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blame/US86-add_trainers_to_system/src/test/java/TestWhiteBoxTrainer.java) blame shows commits
+- [TestTrainerListFileStorage.java](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blame/US133-Persistent_Storage/src/test/java/TestTrainerListFileStorage.java)
 
 
 ##### GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
  > Based on individual assignments, I thought some of these were supposed to start earlier than Sprint 3 and unsure if this is for on-campus or online schedule
 
-- [PR32 Review](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/32#pullrequestreview-1713820515)
-- [PR33 Review](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/33#pullrequestreview-1713821561)
-- [PR42 REview](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/42#pullrequestreview-1726253821)
+- [PR32 Review](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/32#pullrequestreview-1713820515)
+- [PR33 Review](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/33#pullrequestreview-1713821561)
+- [PR42 REview](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/42#pullrequestreview-1726253821)
 
 ##### How did you contribute to Static Analysis -- fill out starting Sprint 4:
 > Based on individual assignments, I thought some of these were supposed to start earlier than Sprint 3 and unsure if this is for on-campus or online schedule
 
-- [US86 branch pending dev](https://github.com/amehlhase316/Schnapsidee-Fall23B/blame/US86-add_trainers_to_system/build.gradle#L74-L83) - Configured Checkstyle to check relevant FitPlanner files
-- [In process of enabling Github CI](https://github.com/amehlhase316/Schnapsidee-Fall23B/tree/configure_github_ci)
+- [US86 branch pending dev](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blame/US86-add_trainers_to_system/build.gradle#L74-L83) - Configured Checkstyle to check relevant FitPlanner files
+- [In process of enabling Github CI](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/tree/configure_github_ci)
 
 #### Rhett Harrison
 
@@ -186,25 +186,25 @@ Example:
 
 **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-[Task 90, and some parts to help with task 99](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/e59ccf4542ece89f735058b4f01790e0b4d6bcd5)
+[Task 90, and some parts to help with task 99](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/e59ccf4542ece89f735058b4f01790e0b4d6bcd5)
 
-[Task 141](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/0207c66d562e8b3a2fad6ce6ac25fc0be2ca4b8b)
+[Task 141](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/0207c66d562e8b3a2fad6ce6ac25fc0be2ca4b8b)
 
 **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-[Classes Panel with more checkstyle resolutions, other merge commits](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/47)
+[Classes Panel with more checkstyle resolutions, other merge commits](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/47)
 
-[Classes Panel, essentially the same as the one above](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/38)
+[Classes Panel, essentially the same as the one above](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/38)
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-[GymClassListTest](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/rharrison/task90-create_class_panel/src/test/java/GymClassListTest.java)
+[GymClassListTest](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blob/rharrison/task90-create_class_panel/src/test/java/GymClassListTest.java)
 
 **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-[Review 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/44)
+[Review 1](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/44)
 
-[Review 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/39)
+[Review 2](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/39)
 
 
 #### Frank Lin
@@ -220,12 +220,12 @@ Example:
 
 **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-- [Implements the date selector on the new class dialog.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/a4dfe180f9a3e3be5c7c9722e1ff38c4f36027aa) 
-- [Imploements the class for gym class.](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/74d4169a438f006b1d4609515c74dee7b4b5e625)
+- [Implements the date selector on the new class dialog.](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/a4dfe180f9a3e3be5c7c9722e1ff38c4f36027aa) 
+- [Imploements the class for gym class.](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/74d4169a438f006b1d4609515c74dee7b4b5e625)
 
 **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-- [PR36 - Create the gym class class.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/36)
+- [PR36 - Create the gym class class.](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/36)
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
@@ -233,7 +233,7 @@ Example:
 
 **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-  - [Code review for PR#39.](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/39)
+  - [Code review for PR#39.](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/39)
 
 **How did you contribute to Static Analysis -- fill out starting Sprint 4:
 
@@ -251,33 +251,32 @@ Example:
 
 **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
 
-    - [Commit 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/9d36929816b09cdde08feabce71b7a4423d6a523)
-    - [Commit 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/4e7a55552d83f9c93c19a930c5d9eedeab3930d0)
-    - [Commit 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/705718dab7f8d34af4010dcfef2f6e0d7b39d9d4)
+   - [Commit 1](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/9d36929816b09cdde08feabce71b7a4423d6a523)
+   - [Commit 2](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/4e7a55552d83f9c93c19a930c5d9eedeab3930d0)
+   - [Commit 3](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/705718dab7f8d34af4010dcfef2f6e0d7b39d9d4)
 
 **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-    - [PR 1 - Add belt ranks](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/32)
-    - [PR 2 - Add rooms](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/33)
-    - [PR 3 - Add RoomsPanel to FitPlanner](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/50)
+   - [PR 1 - Add belt ranks](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/32)
+   - [PR 2 - Add rooms](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/33)
+   - [PR 3 - Add RoomsPanel to FitPlanner](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/50)
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
-    - [GymClassTest](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/dev/src/test/java/GymClassTest.java)
-    - [RoomTest](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/dev/src/test/java/RoomTest.java)
-    - [TestBeltRank - Steven did the last test case](https://github.com/amehlhase316/Schnapsidee-Fall23B/blob/dev/src/test/java/TestBeltRank.java)
+   - [GymClassTest](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blob/dev/src/test/java/GymClassTest.java)
+   - [RoomTest](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blob/dev/src/test/java/RoomTest.java)
+   - [TestBeltRank - Steven did the last test case](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/blob/dev/src/test/java/TestBeltRank.java)
 
 
 **GitHub links to your Code Reviews (up to 3 links) -- fill out starting Sprint 3:
 
-    - [Review 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/42)
-    - [Review 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/34)
-    - [Review 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/pull/47)
+   - [Review 1](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/42)
+   - [Review 2](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/34)
+   - [Review 3](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/pull/47)
 
 **How did you contribute to Static Analysis -- fill out starting Sprint 4:
 
-    - link1
-    - link2
+> N/A
 
 #### Sean Mckeighan
 
@@ -287,15 +286,15 @@ Example:
 Below I want links that I can click on to your commit or PullRequest with your work (not the branch you worked on). I also want a short description what this commit/PR is about (or test etc.)
 
 **Links to GitHub commits (not PR) with main code contribution (up to 5 links) - important in each Sprint:
-- [Commit 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/1bb971a4096788b1f86adcfffc538c1da941fd18) - Implemented Student class.
-- [Commit 2](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/774a5d1929442ecac82103062ca2baf99bdb9661) - Implemented Student class unit tests.
-- [Commit 3](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/527ce53d76b0af961ad41c07570f43c5c4d8851f) - Implemented Student add dialog class.
-- [Commit 4](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/f38551f60e314b0f5b2fe30cddef440f67839b4d) - Implemented StudentList class.
-- [Commit 5](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/79b79ed08bac0c4fd2f197cfdcab7f56ef80c4e3) - Added Student icon to workpanel for navigation to Student Panel.
+- [Commit 1](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/1bb971a4096788b1f86adcfffc538c1da941fd18) - Implemented Student class.
+- [Commit 2](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/774a5d1929442ecac82103062ca2baf99bdb9661) - Implemented Student class unit tests.
+- [Commit 3](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/527ce53d76b0af961ad41c07570f43c5c4d8851f) - Implemented Student add dialog class.
+- [Commit 4](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/f38551f60e314b0f5b2fe30cddef440f67839b4d) - Implemented StudentList class.
+- [Commit 5](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/79b79ed08bac0c4fd2f197cfdcab7f56ef80c4e3) - Added Student icon to workpanel for navigation to Student Panel.
 
 **GitHub links to your Pull Requests (up to 3 links) -- fill out starting Sprint 1:
 
-- [PR 1](https://github.com/amehlhase316/Schnapsidee-Fall23B/commit/1bb971a4096788b1f86adcfffc538c1da941fd18) - I was the only teammate working on this branch. Only needed the PR to dev once US was complete.
+- [PR 1](https://github.com/zpangerl/FitPlanner-SchoolTeamProject/commit/1bb971a4096788b1f86adcfffc538c1da941fd18) - I was the only teammate working on this branch. Only needed the PR to dev once US was complete.
 
 **GitHub links to your Unit Tests (up to 3 links) -- fill out starting Sprint 3 (everyone should write 4 good Unit Tests each Sprint):
 
