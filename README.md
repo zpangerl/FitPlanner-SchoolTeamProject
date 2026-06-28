@@ -6,7 +6,7 @@ Start by cloning the repo by entering "git clone https://github.com/zpangerl/Fit
 
 Navigate to the "FitPlanner-SchoolTeamProject" directory
 
-Enter "./gradlew build" and then "./gradlew run"
+Enter "./gradlew build" and then "./gradlew run", depending on your environment and terminal you might have to do "gradlew build" and "gradlew run"
 
 
 # Details
